@@ -5,7 +5,7 @@
     "url": "https://github.com/Ubik42/ue5-siggraph-physics-lab",
     "visibility": "PUBLIC",
     "default_branch": "main",
-    "published_commit": "13f984575dbbcd85715cfa8643ab38c9a9b26b75",
+    "initial_snapshot_commit": "13f984575dbbcd85715cfa8643ab38c9a9b26b75",
     "publication_strategy": "Current validated source-overlay snapshot as a clean root commit; local 101-commit development history remains local so the retired Android File Server token is not published."
   },
   "fresh_clone": {
