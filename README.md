@@ -12,11 +12,31 @@
 | --- | --- | --- |
 | [01 · 接触感知 GPU 布料](Docs/Cases/Case01_接触感知GPU布料.md) | GPU 布料、接触障碍、低频误差 | 用 Assassin Clothing 拓扑和 Physics Asset 驱动研究 GPU 求解器，并与 Chaos Cloth 做同输入对照 |
 | [02 · 多尺度 GPU 软体](Docs/Cases/Case02_多尺度GPU软体.md) | XPBD、多尺度求解、软体接触 | 四面体 XPBD、低频全局校正、Dragon 表面绑定与接触实验 |
-| [03 · Particle Flow Map 流体](Docs/Research/CASE03_FlowMap流体复现范围.md) | 欧拉—拉格朗日流体、长时平流 | 2D MAC 网格、粒子 Flow Map、压力投影与 Chaos 动态障碍 |
-| [04 · 可微物理与反向设计](Docs/Research/CASE04_可微物理与反向设计复现范围.md) | 参数反演、离散导数、可辨识性 | 前向切线、有限差分验证、受界优化与 Chaos Constraint 重放 |
-| [05 · 物理驱动角色](Docs/Research/CASE05_物理驱动角色复现范围.md) | 物理控制、跌倒恢复、动画交接 | Chaos 多刚体、Physics Control、ALS 起身与 Lyra 服务器权威 |
+| [03 · Particle Flow Map 流体](Docs/Cases/Case03_ParticleFlowMap流体.md) | 欧拉—拉格朗日流体、长时平流 | 2D MAC 网格、粒子 Flow Map、压力投影与 Chaos 动态障碍 |
+| [04 · 可微物理与反向设计](Docs/Cases/Case04_可微物理与反向设计.md) | 参数反演、离散导数、可辨识性 | 前向切线、有限差分验证、受界优化与 Chaos Constraint 重放 |
+| [05 · 物理驱动角色](Docs/Cases/Case05_物理驱动角色.md) | 物理控制、跌倒恢复、动画交接 | Chaos 多刚体、Physics Control、ALS 起身与 Lyra 服务器权威 |
 
-Case01、Case02 已整理为完整阅读版；其余三篇会按相同标准逐篇重写。表中的现有链接暂时指向实现范围与验证记录。
+## 运行画面
+
+### [Case 01 · 接触感知 GPU 布料](Docs/Cases/Case01_接触感知GPU布料.md)
+
+![Assassin Clothing 与研究 GPU 布料同输入运行](Docs/Validation/M2/Screenshots/M2_ExplicitAssassinCloth.png)
+
+### [Case 02 · 多尺度 GPU 软体](Docs/Cases/Case02_多尺度GPU软体.md)
+
+![Dragon 表面由四面体 GPU Cage 驱动并参与地面接触](Docs/Validation/M3/Screenshots/M3_DragonGpuSurface_Contact.png)
+
+### [Case 03 · Particle Flow Map 流体](Docs/Cases/Case03_ParticleFlowMap流体.md)
+
+![Particle Flow Map、MAC 压力势与 Live Chaos 运动边界](Docs/Validation/M4/Screenshots/Case03_FlowMap_LiveChaos.png)
+
+### [Case 04 · 可微物理与反向设计](Docs/Cases/Case04_可微物理与反向设计.md)
+
+![可微研究模型反演参数并交给 Chaos Constraint 重放](Docs/Validation/M5/Screenshots/Case04_InverseSpring_ChaosReplay.png)
+
+### [Case 05 · 物理驱动角色](Docs/Cases/Case05_物理驱动角色.md)
+
+![被动 Chaos 与 Physics Control 主动控制的同冲量对照](Docs/Validation/M6/Screenshots/Case05_PhysicsControl_Portfolio.png)
 
 ## 项目环境
 

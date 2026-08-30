@@ -27,6 +27,20 @@
 
 本 Case 使用的 Clothing LOD0 包含 2011 个粒子、3705 个三角形和 5714 条唯一边。其中 1307 个点固定到动画，704 个点参与动力学。Physics Asset 被转换成 1 个球和 16 个胶囊，作为研究求解器的解析碰撞体。
 
+```mermaid
+flowchart LR
+    A[Skeletal Mesh 动画] --> B[UE Clothing 蒙皮目标]
+    C[Clothing LOD0<br/>粒子 / 三角形 / 固定权重] --> D[统一布料输入]
+    E[Physics Asset<br/>球 / 胶囊] --> D
+    B --> D
+    D --> F[Chaos Cloth]
+    D --> G[个人 RDG GPU 求解器]
+    F --> H[同源步状态与画面]
+    G --> H
+```
+
+![Chaos Cloth 资产运行门：Clothing、蒙皮与 Physics Asset 在 UE 中正常工作](../Validation/M2/Screenshots/M2_ChaosClothAssetGate.png)
+
 ## 实时布料为什么难算
 
 布料的误差并不都处在同一个尺度。
@@ -34,6 +48,8 @@
 一小块三角形突然被拉长，属于局部误差。相邻粒子之间交换位置修正，很快就能把它消掉。整件披风被拉得过长、整体下垂形状不对，属于低频误差；信息需要从网格的一端逐轮传到另一端，只做少量局部迭代时会收敛得很慢。
 
 Jacobi 很适合 GPU。每个粒子可以并行读取邻居的旧位置并计算新位置，线程之间不必按顺序等待。但这种并行方式每一轮只传播一个较短的邻域。网格越密、材料越硬，固定迭代次数越容易留下整体拉伸、过度阻尼或看起来像锁住的褶皱。
+
+![GPU Jacobi 独立验证：橙色输入网格经过迭代后收敛为青色结构](../Validation/M2/Screenshots/M2_GpuJacobiValidation.png)
 
 碰撞又增加了另一类问题。只检查一帧结束时粒子是否落在身体内部，无法发现“起点和终点都在外面、运动途中穿过身体”的情况。这叫隧穿。高速动作、较大时间步或较薄碰撞体都会放大它。
 
@@ -58,6 +74,8 @@ Projective Dynamics（PD）把一次求解分成两个交替阶段。
 - 低维子空间负责长波、全局误差；
 - GPU Jacobi 负责短波、局部误差；
 - 两者交替工作，而不是让局部迭代独自承担全部收敛。
+
+![CPU Projective Dynamics 参考场景，用于在进入 GPU 管线前检查局部—全局求解关系](../Validation/M2/Screenshots/M2_CpuProjectiveDynamics.png)
 
 ### Non-distance Barrier：接触强度由持续时间决定
 
@@ -113,6 +131,18 @@ Continuous Collision Detection（CCD，连续碰撞检测）检查粒子从旧�
 7. 捕获可安全复用的残差；
 8. 异步读回位置、接触和时间数据，用于显示与导出。
 
+```mermaid
+flowchart LR
+    A[动画目标与碰撞体快照] --> B[Verlet 预测]
+    B --> C[NDB 激活状态]
+    C --> D[Rank-one 接触装配]
+    D --> E[12 维模态校正]
+    E --> F[局部 Jacobi]
+    F --> G[完整 CCD]
+    G --> H[残差安全复用]
+    H --> I[异步快照与 GPU 时间]
+```
+
 ## 与 Chaos Cloth 的关系
 
 Chaos Cloth 是这个实验的引擎基线，不是被替换掉的模块。
@@ -126,6 +156,16 @@ Chaos Cloth 是这个实验的引擎基线，不是被替换掉的模块。
 - 完整研究固定步在 GPU 上需要多少时间。
 
 我没有修改 Chaos 源码。这个接法保留了 UE 正常的动画、Clothing 和 Physics Asset 工作流，同时允许个人 GPU 求解器消费相同的引擎资产输入。
+
+```mermaid
+stateDiagram-v2
+    [*] --> 新接触
+    新接触 --> 持续接触: 下一固定步仍活跃
+    持续接触 --> 持续接触: a 增加，NDB 权重增强
+    持续接触 --> 接触解除: 粒子离开碰撞体
+    新接触 --> 接触解除
+    接触解除 --> [*]: 激活次数清零
+```
 
 ## 运行结果
 
