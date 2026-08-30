@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-08-30T10:49:03.1877109-06:00",
+  "result": "passed",
+  "interpretation": "Eight reusable RQT_AbsoluteTime query pairs wrap the complete persistent Flow Map RDG step. Query polling is nonblocking, a full ring increments an explicit skipped counter, and statistics retain both all-sample and warmup-excluded distributions.",
+  "checks": {
+    "isolated_d3d12_automation_passed": true,
+    "real_rhi_is_d3d12_sm6": true,
+    "full_flow_map_nullrhi_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "all_steps_are_completed_or_explicitly_skipped": true,
+    "warmup_and_steady_samples_are_explicit": true,
+    "all_sample_statistics_are_positive": true,
+    "total_percentiles_are_ordered": true,
+    "steady_percentiles_are_ordered": true,
+    "timing_scope_is_full_step_rdg_interval": true,
+    "query_ring_is_nonblocking_and_bounded": true,
+    "timestamp_interval_wraps_graph_execution": true
+  },
+  "device": {
+    "name": "LUCASSHENHOMEPC",
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "render_mode": "D3D12_SM6",
+    "rhi": "DirectX 12 (SM6)"
+  },
+  "contract": {
+    "steps": 32,
+    "query_slots": 8,
+    "warmup_steps": 4,
+    "scope": "full_step_rdg_interval"
+  },
+  "lifecycle": {
+    "samples_completed": 8,
+    "samples_skipped": 24,
+    "steady_state_samples": 4,
+    "latest_timed_step": 8
+  },
+  "all_samples_ms": {
+    "latest": 6.347,
+    "mean": 4.346125,
+    "p95": 6.347,
+    "p99": 6.347,
+    "maximum": 6.347
+  },
+  "steady_state_ms": {
+    "mean": 4.336,
+    "p95": 6.347,
+    "p99": 6.347,
+    "maximum": 6.347
+  },
+  "boundary": "This is a mechanism gate with only a few warmup-excluded samples because 32 steps are queued faster than the GPU drains the eight-slot ring. It proves nonblocking timing and explicit sample accounting, not a portfolio-grade performance distribution. Long runtime-map capture and raw CSV remain required. The interval covers the full RDG step, including any scheduled readback copy, and is not a single-kernel time.",
+  "failed_checks": []
+}

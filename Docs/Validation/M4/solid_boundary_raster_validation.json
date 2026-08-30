@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-08-30T10:49:03.2230225-06:00",
+  "result": "passed",
+  "interpretation": "Previous/current UE rigid-body transforms are differenced at the fixed step to recover planar translation and UE Z/Yaw angular velocity. A moving circle is then rasterized independently at cell centers, U faces, and V faces, with every covered face carrying the analytic rigid no-slip velocity.",
+  "checks": {
+    "isolated_automation_passed": true,
+    "full_flow_map_nullrhi_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "rigid_transform_difference_recovers_translation": true,
+    "ue_yaw_recovers_counterclockwise_angular_velocity": true,
+    "staggered_raster_counts_are_interface_inclusive": true,
+    "all_solid_face_velocities_match_rigid_no_slip_motion": true,
+    "source_contract_is_ue_chaos_rigid_body_transforms": true,
+    "invalid_fixed_step_is_rejected_before_rasterization": true,
+    "raster_has_separate_cell_u_and_v_masks": true,
+    "face_velocity_uses_2d_rigid_cross_product": true
+  },
+  "contract": {
+    "cells": "16x16",
+    "radius_cm": 12.0,
+    "source": "ue_chaos_rigid_body_transforms"
+  },
+  "motion": {
+    "center_cm": [
+      0.0,
+      0.0
+    ],
+    "linear_velocity_cm_per_second": [
+      20.0,
+      0.0
+    ],
+    "angular_velocity_radians_per_second": 1.04719758
+  },
+  "raster": {
+    "solid_cells": 16,
+    "solid_u_faces": 20,
+    "solid_v_faces": 20,
+    "maximum_no_slip_residual_cm_per_second": 0.0
+  },
+  "boundary": "This is the CPU truth and UE/Chaos pose adapter for boundary data. The persistent GPU Flow Map session does not consume these masks yet, pressure stencils are still periodic, and no runtime Actor or Chaos body has been wired to UpdateBoundary in a map.",
+  "failed_checks": []
+}

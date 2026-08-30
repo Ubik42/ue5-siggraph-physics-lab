@@ -1,0 +1,10 @@
+{
+  "result": "passed",
+  "solver": "CPU local-global Projective Dynamics reference",
+  "particles": 120,
+  "constraints": 612,
+  "steps": 300,
+  "total_collision_projections": 11998,
+  "maximum_observed_stretch_ratio_error": 0.206182741722,
+  "maximum_remaining_penetration_cm": 0.000000000000
+}

@@ -1,0 +1,76 @@
+{
+  "generated_at": "2026-08-30T13:54:10.9727307-06:00",
+  "result": "passed",
+  "engine": "UE 5.4.4 CL 35576357",
+  "scope": "Minimal ALS front/back get-up migration, deterministic UE4-to-Lyra-Manny retarget, Chaos prone classification, PhysicsControl animation drive, and explicit physics-to-animation authority handoff.",
+  "claim_boundary": "This proves local front/back recovery selection and authority handoff on one machine. It does not yet prove player interaction, Lyra GAS/state integration, replication, rollback, or multiplayer correction.",
+  "checks": {
+    "minimal_als_source_migration": true,
+    "exactly_two_manny_retargeted_sequences": true,
+    "deterministic_chain_mapping": true,
+    "derived_retarget_assets_exist": true,
+    "map_saved_without_errors": true,
+    "exact_engine_build": true,
+    "front_and_back_observed": true,
+    "both_physical_lanes_recovered": true,
+    "deterministic_handoff_timing": true,
+    "velocity_lane_was_rejected": true,
+    "runtime_acceptance_passed": true,
+    "source_uses_physicscontrol_and_releases_authority": true,
+    "source_uses_both_als_branches": true,
+    "decision_thresholds_are_explicit": true,
+    "driven_character_automation_is_7_of_7": true,
+    "screenshot_exists_and_is_nontrivial": true
+  },
+  "runtime": {
+    "engine": "5.4.4-35576357+++UE5+Release-5.4",
+    "front_animation": "/PhysicsDrivenCharacter/Animations/ALS/ALS_CLF_GetUp_Front_Manny.ALS_CLF_GetUp_Front_Manny",
+    "back_animation": "/PhysicsDrivenCharacter/Animations/ALS/ALS_CLF_GetUp_Back_Manny.ALS_CLF_GetUp_Back_Manny",
+    "lanes": [
+      {
+        "label": "Lane A",
+        "phase": "Recovered",
+        "branch": "Front",
+        "facing_up_dot": -0.1279392503366006,
+        "linear_speed_cm_s": 0,
+        "angular_speed_rad_s": 0,
+        "stable_seconds": 0,
+        "recovery_start_s": 1.3333334028720856,
+        "recovery_complete_s": 3.083333494141698,
+        "control_count": 22
+      },
+      {
+        "label": "Lane B",
+        "phase": "Recovered",
+        "branch": "Back",
+        "facing_up_dot": 7.055251873950903E-07,
+        "linear_speed_cm_s": 0,
+        "angular_speed_rad_s": 0,
+        "stable_seconds": 0,
+        "recovery_start_s": 1.3333334028720856,
+        "recovery_complete_s": 3.083333494141698,
+        "control_count": 22
+      },
+      {
+        "label": "速度拒绝",
+        "phase": "Rejected",
+        "branch": "RejectMoving",
+        "facing_up_dot": 0.33616524673658216,
+        "linear_speed_cm_s": 45.50141358913305,
+        "angular_speed_rad_s": 0.7044425887527442,
+        "stable_seconds": 0,
+        "recovery_start_s": -1,
+        "recovery_complete_s": -1,
+        "control_count": 0
+      }
+    ],
+    "observed_front_and_back": true,
+    "both_recovered": true,
+    "velocity_rejection_pass": true,
+    "get_up_handoff_pass": true
+  },
+  "automation_success_count": 7,
+  "screenshot": "Docs/Validation/M6/Screenshots/Case05_ALS_PhysicalGetUp.png",
+  "manual_visual_inspection": "passed: both recovered Manny lanes are visible in their final get-up pose; the high-speed rejection lane remains physically prone; Chinese HUD names all three outcomes.",
+  "failed_checks": []
+}

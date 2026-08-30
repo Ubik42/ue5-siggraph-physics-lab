@@ -1,0 +1,7 @@
+{
+  "map": "/PhysicsDrivenCharacter/Maps/L_PhysicalGetUpHandoff",
+  "actor": "/PhysicsDrivenCharacter/Maps/L_PhysicalGetUpHandoff.L_PhysicalGetUpHandoff:PersistentLevel.PhysicalGetUpRealtimeActor_0",
+  "game_mode": "/Script/PhysicsDrivenCharacterRuntime.PhysicalGetUpGameMode",
+  "saved": true,
+  "errors": []
+}

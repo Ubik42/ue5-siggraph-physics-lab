@@ -1,0 +1,13 @@
+{
+  "asset": "/PhysicsDrivenCharacter/PhysicsDrivenCharacter",
+  "existing_actions": [],
+  "saved": true,
+  "errors": [],
+  "actor_class": "/Script/LyraGame.LyraCharacter",
+  "component_class": "/Script/PhysicsDrivenCharacterRuntime.RecoverableFallComponent",
+  "client_component": true,
+  "server_component": true,
+  "final_actions": [
+    "PhysicsDrivenCharacterAddComponentsAction"
+  ]
+}

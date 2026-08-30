@@ -1,0 +1,18 @@
+{
+  "result": "blocked_for_default_enablement",
+  "engine": "Unreal Engine 5.4.4",
+  "engine_changelist": 35576357,
+  "command_scope": "isolated UnrealEditor-Cmd startup with -EnablePlugins=ChaosFlesh -NullRHI -Unattended",
+  "plugin_mounted": true,
+  "editor_initialized": true,
+  "chaos_flesh_nodes_error_observed": true,
+  "error_module": "ChaosFleshNodes",
+  "error_file": "Public/Dataflow/ChaosFleshImportGEO.h",
+  "error_property": "FExtractGEOInt::Value",
+  "error_text": "IntProperty FExtractGEOInt::Value is not initialized properly even though its struct probably has a custom default constructor.",
+  "quit_command_observed": true,
+  "exited_within_timeout": false,
+  "process_cleanup": "only the owned UnrealEditor-Cmd process was terminated after evidence capture",
+  "decision": "keep ChaosFlesh disabled by default; build solver-independent tetrahedral contracts and revisit runtime-only integration",
+  "source_log": "Saved/Logs/M3-ChaosFlesh-IsolatedSpike.log"
+}

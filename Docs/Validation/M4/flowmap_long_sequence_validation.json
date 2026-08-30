@@ -1,0 +1,124 @@
+{
+  "generated_at": "2026-08-30T12:02:07.5040832-06:00",
+  "result": "passed",
+  "engine": "UE 5.4.4 CL 35576357",
+  "rhi": "D3D12 SM6",
+  "contract": {
+    "steps_per_backend": 1200,
+    "budget": "Medium",
+    "cells": "24x24",
+    "physical_domain_cm": [
+      240,
+      240
+    ],
+    "live_chaos_boundary": true,
+    "warmup_steps": 16
+  },
+  "runs": [
+    {
+      "backend": "ShortMapBaseline",
+      "pid": 2012,
+      "passed": true,
+      "csv": "Docs/Validation/M4/LongSequence/FlowMapLongSequence_ShortMapBaseline_Medium.csv",
+      "json": "Docs/Validation/M4/LongSequence/FlowMapLongSequence_ShortMapBaseline_Medium.json",
+      "checks": {
+        "process_exited_without_timeout": true,
+        "process_exit_code_is_zero": true,
+        "csv_and_json_exist": true,
+        "backend_and_budget_are_exact": true,
+        "at_least_1200_steps_executed": true,
+        "chaos_boundary_applied_each_step": true,
+        "at_least_1100_raw_samples": true,
+        "at_least_1000_steady_samples": true,
+        "timestamp_steps_are_strictly_increasing": true,
+        "no_timing_samples_skipped": true,
+        "no_snapshot_was_rejected": true,
+        "map_reset_count_matches_backend": true,
+        "mean_recomputes_from_csv": true,
+        "p95_recomputes_from_csv": true,
+        "p99_recomputes_from_csv": true,
+        "maximum_recomputes_from_csv": true,
+        "no_critical_runtime_error": true
+      },
+      "failed_checks": [],
+      "recomputed": {
+        "samples": 1199,
+        "steady_samples": 1183,
+        "mean_ms": 0.7461115807269653,
+        "p95_ms": 1.075,
+        "p99_ms": 1.178,
+        "maximum_ms": 1.353
+      },
+      "runtime": {
+        "steps_executed": 1201,
+        "solid_boundary_applications": 1201,
+        "map_resets": 1201,
+        "samples": 1199,
+        "timing_samples_skipped": 0,
+        "steady_samples": 1183,
+        "steady_mean_ms": 0.7461115807269653,
+        "steady_p95_ms": 1.075,
+        "steady_p99_ms": 1.178,
+        "steady_max_ms": 1.353,
+        "rejected_snapshots": 0,
+        "latest_max_velocity_cm_per_second": 59.86520767211914,
+        "latest_pressure_minimum": -69.43000030517578,
+        "latest_pressure_maximum": 77.61380767822266
+      },
+      "critical_errors": null
+    },
+    {
+      "backend": "ParticleFlowMapResearch",
+      "pid": 33296,
+      "passed": true,
+      "csv": "Docs/Validation/M4/LongSequence/FlowMapLongSequence_ParticleFlowMapResearch_Medium.csv",
+      "json": "Docs/Validation/M4/LongSequence/FlowMapLongSequence_ParticleFlowMapResearch_Medium.json",
+      "checks": {
+        "process_exited_without_timeout": true,
+        "process_exit_code_is_zero": true,
+        "csv_and_json_exist": true,
+        "backend_and_budget_are_exact": true,
+        "at_least_1200_steps_executed": true,
+        "chaos_boundary_applied_each_step": true,
+        "at_least_1100_raw_samples": true,
+        "at_least_1000_steady_samples": true,
+        "timestamp_steps_are_strictly_increasing": true,
+        "no_timing_samples_skipped": true,
+        "no_snapshot_was_rejected": true,
+        "map_reset_count_matches_backend": true,
+        "mean_recomputes_from_csv": true,
+        "p95_recomputes_from_csv": true,
+        "p99_recomputes_from_csv": true,
+        "maximum_recomputes_from_csv": true,
+        "no_critical_runtime_error": true
+      },
+      "failed_checks": [],
+      "recomputed": {
+        "samples": 1199,
+        "steady_samples": 1183,
+        "mean_ms": 0.7356737109044796,
+        "p95_ms": 1.053,
+        "p99_ms": 1.159,
+        "maximum_ms": 1.312
+      },
+      "runtime": {
+        "steps_executed": 1201,
+        "solid_boundary_applications": 1201,
+        "map_resets": 150,
+        "samples": 1199,
+        "timing_samples_skipped": 0,
+        "steady_samples": 1183,
+        "steady_mean_ms": 0.7356737109044796,
+        "steady_p95_ms": 1.053,
+        "steady_p99_ms": 1.159,
+        "steady_max_ms": 1.312,
+        "rejected_snapshots": 0,
+        "latest_max_velocity_cm_per_second": 74.86482238769531,
+        "latest_pressure_minimum": -401.31695556640625,
+        "latest_pressure_maximum": 191.330078125
+      },
+      "critical_errors": null
+    }
+  ],
+  "preexisting_processes_preserved": true
+}

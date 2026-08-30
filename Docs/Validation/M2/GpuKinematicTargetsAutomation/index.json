@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "E5EB970F4CC3CBAEC60C88BADB6F42AC",
+			"instanceName": "LUCASSHENHOMEPC-36744",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-03.21.39",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.025539297610521317,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "KinematicTargets",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.KinematicTargets",
+			"state": "Success",
+			"deviceInstance": [
+				"E5EB970F4CC3CBAEC60C88BADB6F42AC"
+			],
+			"duration": 0.025539297610521317,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU kinematic cloth targets: particles=2011 fixed=1307 dynamic=704 steps=30 target_updates=30 target_applications=30 target_version=30 final_readback_step=30 fixed_target_error_cm=0.000000000 minimum_fixed_motion_cm=10.145111 average_dynamic_displacement_cm=9.257427 maximum_edge_error_cm=1.144261",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-09.21.39"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

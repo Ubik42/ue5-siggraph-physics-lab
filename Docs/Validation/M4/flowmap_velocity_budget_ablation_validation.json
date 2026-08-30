@@ -1,0 +1,53 @@
+{
+  "case": "Case03 Flow Map velocity budget failure ablation",
+  "shared_contract": {
+    "map": "/PhysicsFlowMap/Maps/L_FlowMapChaosObstacle",
+    "rhi": "D3D12 SM6",
+    "steps": 240,
+    "grid": [24, 24],
+    "particles": 576,
+    "pressure_iterations_per_step": 64,
+    "live_chaos_boundary": true
+  },
+  "stable_profile": {
+    "maximum_face_velocity_budget_cm_per_second": 120.0,
+    "long_map_reset_steps": 8,
+    "initial_vortex_amplitude_cm_per_second": 55.0,
+    "maximum_observed_velocity_cm_per_second": 87.096092,
+    "velocity_limited_faces": 0,
+    "pressure_potential_minimum": -401.558868,
+    "pressure_potential_maximum": 189.525269,
+    "bad_snapshots": 0,
+    "runtime_gate_passed": true
+  },
+  "failure_profile": {
+    "launch_flag": "-PhysicsResearchFlowMapVelocityBudgetAblation",
+    "maximum_face_velocity_budget_cm_per_second": 1000000000.0,
+    "long_map_reset_steps": 20,
+    "initial_vortex_amplitude_cm_per_second": 80.0,
+    "maximum_observed_velocity_cm_per_second": 3174263.25,
+    "velocity_limited_faces": 0,
+    "pressure_potential_minimum": -38936556.0,
+    "pressure_potential_maximum": 44021500.0,
+    "bad_snapshots": 0,
+    "runtime_gate_passed": false
+  },
+  "comparison": {
+    "velocity_amplification_ratio": 36445.53,
+    "maximum_absolute_pressure_amplification_ratio": 109626.52,
+    "interpretation": "移动固体与梯度 Long Map 闭环在较长重置周期、较强初始旋涡且没有作品速度预算时出现能量爆炸；有限值防线避免 Renderer 崩溃，但不能把数值爆炸误写成成功。"
+  },
+  "regression": {
+    "report": "Docs/Validation/M4/PressureAblationRegressionAutomation/index.json",
+    "succeeded": 15,
+    "failed": 0,
+    "not_run": 0
+  },
+  "pressure_readback_d3d12": {
+    "report": "Docs/Validation/M4/PressureReadbackD3D12Automation/index.json",
+    "succeeded": 4,
+    "failed": 0,
+    "not_run": 0,
+    "coverage": "GpuClosedLoop、MapReset、SolidBoundary、Timestamp 均消费带逐 Cell 压力势的扩展快照；闭环和运动固体测试显式检查尺寸与有限值。"
+  }
+}

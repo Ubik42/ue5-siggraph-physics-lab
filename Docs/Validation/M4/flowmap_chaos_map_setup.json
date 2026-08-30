@@ -1,0 +1,7 @@
+{
+  "map": "/PhysicsFlowMap/Maps/L_FlowMapChaosObstacle",
+  "actor": "/PhysicsFlowMap/Maps/L_FlowMapChaosObstacle.L_FlowMapChaosObstacle:PersistentLevel.FlowMapRealtimeActor_0",
+  "game_mode": "/Script/PhysicsFlowMapRuntime.FlowMapRealtimeGameMode",
+  "saved": true,
+  "errors": []
+}

@@ -1,0 +1,434 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "0734959B4DB83DDF241726824D3D1753",
+			"instanceName": "LUCASSHENHOMEPC-43764",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-11.27.08",
+	"succeeded": 15,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.81789672374725342,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "EvolvingScalarTransportAblation",
+			"fullTestPath": "PhysicsResearch.FlowMap.EvolvingScalarTransportAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.098772503435611725,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap evolving scalar steps=120 cells=32x32 particles=4096 dt=0.0166666675 velocity_cm_s=20,10 field_cycles=2,2 pic_resets=120 long_resets=6 pic_rms=0.498927116 long_pic_rms=0.12373981 long_gradient_rms=0.00764403298 long_gradient_to_pic_rms=0.0153209411 long_gradient_to_long_pic_rms=0.06177505 pic_relative_rms=0.997854277 long_gradient_relative_rms=0.0152880666 pic_amplitude=0.00206500711 long_pic_amplitude=0.72392863 long_gradient_amplitude=0.97669661 exact_amplitude=0.961939871 pic_energy=1.15103306e-06 long_pic_energy=0.141571726 long_gradient_energy=0.257702112 exact_energy=0.249999978",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuClosedLoop",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoop",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0083382017910480499,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过 Flow Map GPU 统一闭环；真实 D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuClosedLoopMapReset",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoopMapReset",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0073244012892246246,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过 Flow Map GPU Map Reset；真实 D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuClosedLoopSolidBoundary",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoopSolidBoundary",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0082831010222434998,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过 Flow Map GPU 固体边界；真实 D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuClosedLoopTimestamp",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoopTimestamp",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0078043006360530853,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过 Flow Map GPU timestamp；真实 D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuImpulseGradientTransfer",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuImpulseGradientTransfer",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0076834969222545624,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过 Flow Map GPU impulse/梯度 P2G；真实 D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuParticleAdvection",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuParticleAdvection",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0081361979246139526,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过 Flow Map GPU 粒子平流；真实 D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuPressurePersistentSession",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuPressurePersistentSession",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0074819996953010559,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过 Flow Map GPU 持久压力会话；真实 D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuPressureProjection",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuPressureProjection",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0081696026027202606,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过 Flow Map GPU 压力投影；真实 D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GradientEnhancedTransfer",
+			"fullTestPath": "PhysicsResearch.FlowMap.GradientEnhancedTransfer",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.007989201694726944,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap gradient transfer cells=32x32 particles=1024 distribution=deterministic_jittered field=sin2x_cos2y pic_rms=0.0360248895 gradient_rms=0.0112886086 gradient_to_pic_ratio=0.313355815",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GridAndParticleContract",
+			"fullTestPath": "PhysicsResearch.FlowMap.GridAndParticleContract",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0079404972493648529,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap straight cells=16x8 particles=512 steps=6 divergence_rms=0 displacement_cm=2.000000 short_resets=2 long_resets=0 lost=0",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ImpulseVortexClosedLoop",
+			"fullTestPath": "PhysicsResearch.FlowMap.ImpulseVortexClosedLoop",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.61396330595016479,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap impulse vortex steps=120 cells=32x32 particles=4096 dt=0.00416666688 pressure_iterations=128 short_resets=120 long_resets=6 short_velocity_rms=11.1807115 long_pic_velocity_rms=1.03064991 long_gradient_velocity_rms=0.0179087067 long_pic_to_short_rms=0.0921810671 long_gradient_to_long_pic_rms=0.0173761299 short_relative_rms=0.790595709 long_pic_relative_rms=0.0728779561 long_gradient_relative_rms=0.00126633683 short_divergence_rms=9.40632255e-07 long_pic_divergence_rms=0.000306618538 long_gradient_divergence_rms=0.000361996196 short_max_divergence=1.87754631e-06 long_pic_max_divergence=0.000605108857 long_gradient_max_divergence=0.000714283204 initial_energy=99.0392652 short_energy=4.38525443 long_pic_energy=85.9592459 long_gradient_energy=100.229102 long_gradient_jacobian_det_error_max=0.000184297562",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "KinematicSolidBoundaryRaster",
+			"fullTestPath": "PhysicsResearch.FlowMap.KinematicSolidBoundaryRaster",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0083122998476028442,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap kinematic solid raster cells=16x16 radius_cm=12 center=(0,0) linear_velocity=(20,0) angular_velocity=1.04719758 solid_cells=16 solid_u_faces=20 solid_v_faces=20 max_no_slip_residual=0 source=ue_chaos_rigid_body_transforms",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PicTransferAndPressureProjection",
+			"fullTestPath": "PhysicsResearch.FlowMap.PicTransferAndPressureProjection",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0082069002091884613,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap PIC+projection cells=32x16 particles=2048 pic_max_velocity_error=0 projection_iterations=1024 divergence_rms_before=1.38617175 divergence_rms_after=7.08785447e-05 divergence_ratio=5.11325851e-05 max_divergence_before=1.95090413 max_divergence_after=0.000108035376 energy_before=618.995376 energy_after=1.60700535e-06",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "SolidBodyVortex",
+			"fullTestPath": "PhysicsResearch.FlowMap.SolidBodyVortex",
+			"state": "Success",
+			"deviceInstance": [
+				"0734959B4DB83DDF241726824D3D1753"
+			],
+			"duration": 0.0094906985759735107,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap vortex cells=32x32 particles=1024 steps=60 boundary=periodic divergence_rms=0 radius_error=9.8562964e-07 jacobian_det_error_max=0.00034725666 short_resets=15 long_resets=3 lost=0 wraps=116",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.27.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

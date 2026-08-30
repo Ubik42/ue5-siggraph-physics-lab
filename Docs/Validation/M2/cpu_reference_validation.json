@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-08-30T00:01:15.4449373-06:00",
+  "result": "passed",
+  "checks": {
+    "runtime_passed": true,
+    "research_backend": true,
+    "particle_count": true,
+    "constraints_present": true,
+    "fixed_steps": true,
+    "collision_projection_triggered": true,
+    "bounded_stretch_error": true,
+    "no_remaining_penetration": true,
+    "json_csv_counts_match": true,
+    "metric_names": true,
+    "step_range": true,
+    "finite_values": true,
+    "screenshot_nonempty": true
+  },
+  "evidence": {
+    "particles": 120,
+    "constraints": 612,
+    "total_collision_projections": 11998,
+    "maximum_observed_stretch_ratio_error": 0.206182741722,
+    "maximum_remaining_penetration_cm": 0.0,
+    "metric_samples": 1200,
+    "screenshot": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\Screenshots\\M2_CpuProjectiveDynamics.png",
+    "screenshot_bytes": 266644
+  }
+}

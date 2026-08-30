@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-08-30T03:30:54.8868338-06:00",
+  "result": "passed",
+  "checks": {
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "metrics_present": true,
+    "expected_asset_count": true,
+    "nonempty_topology": true,
+    "fixed_and_dynamic_partition": true,
+    "max_distance_matches_dynamic_vertices": true
+  },
+  "evidence": {
+    "asset": "/Game/Assassin/Mesh/SKM_Assassin_Skin1",
+    "clothing_assets": 2,
+    "vertices": 2011,
+    "triangles": 3705,
+    "unique_edges": 5714,
+    "fixed_vertices": 1307,
+    "dynamic_vertices": 704,
+    "max_distance_movable": 704,
+    "scope": "Exact Chaos physical topology extraction gate, including validated Clothing bone influence contract; animated pose and same-step Chaos/research comparison remain pending",
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\ChaosTopologyAutomation\\index.json"
+  }
+}

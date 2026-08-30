@@ -1,0 +1,19 @@
+{
+	"engine": "5.4.4-35576357+++UE5+Release-5.4",
+	"baseline_backend": "ChaosPassiveRagdoll",
+	"research_backend": "ChaosPhysicsControlActive",
+	"physics_body_count": 22,
+	"research_control_count": 22,
+	"shared_impulse_applied": true,
+	"shared_impulse_y_kg_cm_per_s": 5200,
+	"sample_count": 360,
+	"baseline_final_pose_error_deg": 107.60364828567778,
+	"research_final_pose_error_deg": 27.143672045157054,
+	"baseline_final_pelvis_displacement_cm": 152.21392920229925,
+	"research_final_pelvis_displacement_cm": 2.9961892292570607,
+	"baseline_max_pose_error_deg": 107.60364828567778,
+	"research_max_pose_error_deg": 36.989081670384913,
+	"final_pose_error_ratio_research_over_baseline": 0.25225605709104865,
+	"final_pelvis_displacement_ratio_research_over_baseline": 0.019684067318668244,
+	"controller_advantage_pass": true
+}

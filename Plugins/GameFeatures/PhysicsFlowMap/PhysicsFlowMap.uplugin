@@ -1,0 +1,25 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0",
+  "FriendlyName": "物理作品 03：Flow Map 流体",
+  "Description": "粒子 Flow Map 与 Chaos/UE 场景交互的独立复现 Case。",
+  "Category": "SIGGRAPH Physics Lab",
+  "CreatedBy": "Ubik",
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "EnabledByDefault": false,
+  "ExplicitlyLoaded": true,
+  "BuiltInInitialFeatureState": "Registered",
+  "Modules": [
+    {
+      "Name": "PhysicsFlowMapRuntime",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    { "Name": "PhysicsResearch", "Enabled": true }
+  ]
+}

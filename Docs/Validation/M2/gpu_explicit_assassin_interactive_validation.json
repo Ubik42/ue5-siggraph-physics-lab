@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-08-30T05:44:09.2696994-06:00",
+  "result": "passed",
+  "checks": {
+    "runtime_passed": true,
+    "interaction_script_enabled": true,
+    "one_real_reset": true,
+    "pause_single_step_resume": true,
+    "driver_clock_frozen_with_experiment": true,
+    "backend_display_cycle_restored": true,
+    "debug_cycle_restored": true,
+    "reset_did_not_leak_gpu_state": true,
+    "standard_physics_profile_restored": true,
+    "nominal_penetration_gate": true,
+    "paired_curve_complete": true,
+    "gpu_curve_complete": true,
+    "screenshot_present": true
+  },
+  "evidence": {
+    "runtime": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_interactive_runtime.json",
+    "screenshot": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\Screenshots\\M2_ExplicitAssassinInteractive.png",
+    "controls": "Space 暂停/继续；N 单步；R 重置；B 后端观察切换；D Debug；F 故障档；E 导出",
+    "reset_count": 1,
+    "pause_toggle_count": 2,
+    "single_step_count": 1,
+    "backend_switch_count": 3,
+    "debug_toggle_count": 2,
+    "maximum_penetration_cm": 5.7220459E-05,
+    "scope": "暂停同时冻结共享实验时钟、Assassin 动画和 Chaos Cloth；单步通过下一自然组件 Tick 执行，禁止在 Actor Tick 内重入 Cloth Tick。"
+  }
+}

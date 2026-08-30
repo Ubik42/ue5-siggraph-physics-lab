@@ -1,0 +1,68 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "1EF411C5435D13D3878BD49460F773C0",
+			"instanceName": "LUCASSHENHOMEPC-27864",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-00.55.24",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.016750000417232513,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuBatchCollisionBuffers",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuBatchCollisionBuffers",
+			"state": "Success",
+			"deviceInstance": [
+				"1EF411C5435D13D3878BD49460F773C0"
+			],
+			"duration": 0.016750000417232513,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU batch collision: particles=108 spheres=1 capsules=2 input_max_penetration_cm=7.671573 output_max_penetration_cm=0.000003 blocking_wall_ms=9.993",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-06.55.24"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU dynamic collision update: step=1 output_max_penetration_cm=0.000003",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-06.55.24"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

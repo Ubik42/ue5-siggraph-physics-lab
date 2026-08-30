@@ -1,0 +1,48 @@
+{
+  "case": "Case03 Flow Map visual GUI",
+  "map": "/PhysicsFlowMap/Maps/L_FlowMapChaosObstacle",
+  "engine": "UE 5.4.4",
+  "rhi": "D3D12 SM6",
+  "window_resolution": [1920, 1080],
+  "screenshot": "Docs/Validation/M4/Screenshots/Case03_FlowMap_LiveChaos.png",
+  "screenshot_bytes": 791951,
+  "visual_inspection_passed": true,
+  "snapshot": {
+    "experiment_step": 302,
+    "gpu_step": 301,
+    "latest_readback_step": 298,
+    "particles": 576,
+    "gpu_mac_velocity_arrows": 144,
+    "maximum_velocity_cm_per_second": 75.69,
+    "velocity_limited_faces": 0,
+    "solid_cells": 26,
+    "solid_u_faces": 32,
+    "solid_v_faces": 32,
+    "pressure_potential_minimum": -205.229,
+    "pressure_potential_maximum": 90.352,
+    "negative_pressure_cells": 127,
+    "positive_pressure_cells": 142,
+    "bad_snapshots_rejected": 0
+  },
+  "runtime_after_visual_changes": {
+    "steps_after_full_reset": 480,
+    "boundary_applications": 480,
+    "boundary_version": 480,
+    "readbacks": 239,
+    "gpu_timing_samples": 463,
+    "steady_mean_gpu_step_ms": 0.709039,
+    "interaction_phase": 0,
+    "passed": true
+  },
+  "regression": {
+    "report": "Docs/Validation/M4/PressureAblationRegressionAutomation/index.json",
+    "succeeded": 15,
+    "failed": 0,
+    "not_run": 0
+  },
+  "first_gui_failure_and_fix": {
+    "observed": "Spectator 默认视点贴近 Chaos 球；MAC 面速度增长至 3467479.25 cm/s。",
+    "fix": "每局显式 SetViewTarget 到实验 Actor；统一 GPU Pressure Apply 出口加入可配置速度预算，运行配置使用 120 cm/s；Map Reset 周期改为 8 步。",
+    "proof_after_fix": "第 298 快照最大速度 75.69 cm/s，CFL 限制面 0；完整域、Chaos 球、粒子、速度箭头和压力热图均可辨识。"
+  }
+}

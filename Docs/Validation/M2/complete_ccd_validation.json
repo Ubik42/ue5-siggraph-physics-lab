@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-30T01:20:26.0332528-06:00",
+  "result": "passed",
+  "checks": {
+    "test_discovered": true,
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "metrics_present": true,
+    "sphere_toi_exact": true,
+    "capsule_cylinder_toi_exact": true,
+    "capsule_cap_toi_exact": true,
+    "discrete_endpoints_miss_tunneling": true
+  },
+  "evidence": {
+    "sphere_toi": 0.45,
+    "capsule_cylinder_toi": 0.45,
+    "capsule_cap_toi": 0.625,
+    "discrete_endpoint_penetration": 0.0,
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\CompleteCcdAutomation\\index.json"
+  }
+}

@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.1.0",
+	"FriendlyName": "物理研究运行时",
+	"Description": "为 SIGGRAPH 物理论文复现提供固定步进、Chaos 基线切换、实验分类和统一统计入口。",
+	"Category": "Physics",
+	"CreatedBy": "Ubik",
+	"EnabledByDefault": false,
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"Modules": [
+		{
+			"Name": "PhysicsResearchShaders",
+			"Type": "Runtime",
+			"LoadingPhase": "PostConfigInit"
+		},
+		{
+			"Name": "PhysicsResearch",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

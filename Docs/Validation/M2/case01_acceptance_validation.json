@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-08-30T16:30:03.1281172-06:00",
+  "result": "passed",
+  "case": "Case01 / Contact-aware GPU cloth on UE Clothing topology with Chaos Cloth same-input baseline",
+  "frozen_scope": "CPU and GPU numerical benchmarks, persistent RDG solver, Assassin UE Clothing/Physics Asset integration, Chaos paired baseline, interaction, replay, expected failure, timing, screenshots and attribution.",
+  "component_reports": [
+    "asset_gate_validation.json",
+    "cpu_reference_validation.json",
+    "gpu_jacobi_visual_validation.json",
+    "modal_subspace_validation.json",
+    "non_distance_barrier_validation.json",
+    "rank_one_hessian_validation.json",
+    "complete_ccd_validation.json",
+    "gpu_explicit_assassin_validation.json",
+    "gpu_explicit_assassin_interactive_validation.json",
+    "gpu_explicit_assassin_replay_validation.json",
+    "gpu_explicit_assassin_failure_weak_barrier_validation.json",
+    "gpu_explicit_timing_validation.json"
+  ],
+  "screenshots": {
+    "M2_ChaosClothAssetGate.png": {
+      "width": 1280,
+      "height": 720,
+      "bytes": 660238
+    },
+    "M2_GpuJacobiValidation.png": {
+      "width": 1280,
+      "height": 720,
+      "bytes": 59980
+    },
+    "M2_ExplicitAssassinCloth.png": {
+      "width": 1600,
+      "height": 900,
+      "bytes": 434122
+    },
+    "M2_ExplicitAssassinInteractive.png": {
+      "width": 1600,
+      "height": 900,
+      "bytes": 429030
+    },
+    "M2_ExplicitAssassinReplay.png": {
+      "width": 1600,
+      "height": 900,
+      "bytes": 415141
+    },
+    "M2_ExplicitAssassinFailureWeakBarrier.png": {
+      "width": 1600,
+      "height": 900,
+      "bytes": 433295
+    }
+  },
+  "headline_metrics": {
+    "particles": 2011,
+    "edges": 5714,
+    "fixed_steps": 300,
+    "chaos_snapshots": 300,
+    "paired_samples": 75,
+    "nominal_penetration_cm": 8.5830688E-05,
+    "weak_barrier_penetration_cm": 0.048647880554,
+    "steady_gpu_p95_ms": 5.11,
+    "steady_gpu_p99_ms": 5.197,
+    "replay_input_hash": "429e63168b51a679"
+  },
+  "checks": {
+    "all_twelve_component_reports_pass": true,
+    "full_d3d12_sm6_automation_is_32_of_32_clean": true,
+    "three_or_more_standard_benchmarks_pass": true,
+    "independent_final_map_exists": true,
+    "real_chaos_same_input_baseline_is_measured": true,
+    "research_gpu_pipeline_executes_all_fixed_steps": true,
+    "final_assassin_scene_quality_gate_passes": true,
+    "player_controls_change_real_simulation_state": true,
+    "deterministic_replay_and_negative_hash_gate_pass": true,
+    "expected_failure_is_single_variable_and_observed": true,
+    "gpu_timing_has_raw_mean_p95_p99_evidence": true,
+    "csv_and_json_metric_exports_exist": true,
+    "six_gui_screenshots_are_nontrivial": true,
+    "implementation_actor_and_four_core_shaders_exist": true,
+    "golden_path_is_explicitly_sixty_seconds": true,
+    "reproduction_scope_and_unimplemented_boundaries_are_explicit": true,
+    "epic_asset_chaos_and_personal_attribution_are_explicit": true
+  },
+  "failed_checks": [],
+  "claim_boundary": "Research backend is a paper-inspired UE/RDG engineering reproduction on the same Clothing and Physics Asset inputs. It does not claim full Chaos Cloth equivalence, cloth self-collision/friction parity, or ownership of Epic/Fab assets."
+}

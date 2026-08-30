@@ -1,0 +1,59 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float> ExplicitNdbInverseMasses;
+StructuredBuffer<float4> ExplicitNdbPositions;
+StructuredBuffer<float4> ExplicitNdbCollisionSpheres;
+StructuredBuffer<float4> ExplicitNdbCollisionCapsuleStarts;
+StructuredBuffer<float4> ExplicitNdbCollisionCapsuleEnds;
+RWStructuredBuffer<uint> ExplicitNdbActivationCounts;
+
+uint ExplicitNdbParticleCount;
+uint ExplicitNdbSphereCount;
+uint ExplicitNdbCapsuleCount;
+uint ExplicitNdbPrimitiveCapacity;
+
+float ExplicitNdbDistanceSquaredToSegment(float3 Point, float3 Start, float3 End)
+{
+    const float3 Segment = End - Start;
+    const float LengthSquared = dot(Segment, Segment);
+    const float Alpha = LengthSquared > 1.e-8 ? saturate(dot(Point - Start, Segment) / LengthSquared) : 0.0;
+    const float3 Offset = Point - (Start + Alpha * Segment);
+    return dot(Offset, Offset);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void MainCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint LinearIndex = DispatchThreadId.x;
+    const uint StateCount = ExplicitNdbParticleCount * ExplicitNdbPrimitiveCapacity;
+    if (LinearIndex >= StateCount)
+    {
+        return;
+    }
+    const uint ParticleIndex = LinearIndex / ExplicitNdbPrimitiveCapacity;
+    const uint PrimitiveIndex = LinearIndex - ParticleIndex * ExplicitNdbPrimitiveCapacity;
+    const uint ActivePrimitiveCount = ExplicitNdbSphereCount + ExplicitNdbCapsuleCount;
+    if (ExplicitNdbInverseMasses[ParticleIndex] <= 0.0 || PrimitiveIndex >= ActivePrimitiveCount)
+    {
+        ExplicitNdbActivationCounts[LinearIndex] = 0;
+        return;
+    }
+    const float3 Position = ExplicitNdbPositions[ParticleIndex].xyz;
+    bool Active = false;
+    if (PrimitiveIndex < ExplicitNdbSphereCount)
+    {
+        const float4 Sphere = ExplicitNdbCollisionSpheres[PrimitiveIndex];
+        const float3 Offset = Position - Sphere.xyz;
+        Active = dot(Offset, Offset) < Sphere.w * Sphere.w;
+    }
+    else
+    {
+        const uint CapsuleIndex = PrimitiveIndex - ExplicitNdbSphereCount;
+        const float4 CapsuleStart = ExplicitNdbCollisionCapsuleStarts[CapsuleIndex];
+        const float3 CapsuleEnd = ExplicitNdbCollisionCapsuleEnds[CapsuleIndex].xyz;
+        Active = ExplicitNdbDistanceSquaredToSegment(Position, CapsuleStart.xyz, CapsuleEnd) < CapsuleStart.w * CapsuleStart.w;
+    }
+    ExplicitNdbActivationCounts[LinearIndex] = Active
+        ? min(ExplicitNdbActivationCounts[LinearIndex] + 1, 30u)
+        : 0u;
+}

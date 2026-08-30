@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-08-30T12:12:58.5820410-06:00",
+  "case": "Case03_ParticleFlowMap",
+  "result": "passed",
+  "frozen_scope": "2D PFM-inspired UE/RDG flow research reproduction with Live Chaos rigid boundary",
+  "checks": {
+    "foundation_contract_passed": true,
+    "scalar_ablation_passed": true,
+    "vector_impulse_closed_loop_passed": true,
+    "gpu_pressure_cpu_truth_passed": true,
+    "persistent_gpu_closed_loop_passed": true,
+    "chaos_solid_boundary_gpu_consumer_passed": true,
+    "live_map_runtime_passed": true,
+    "expected_failure_ablation_is_recorded": true,
+    "real_backend_budget_matrix_passed": true,
+    "in_process_backend_budget_rebuild_passed": true,
+    "long_sequence_raw_timing_passed": true,
+    "full_flowmap_regression_15_of_15": true,
+    "portfolio_three_states_passed": true,
+    "four_gui_screenshots_are_nontrivial": true,
+    "standard_benchmark_mapping_documented": true,
+    "golden_path_is_30_to_90_seconds": true,
+    "attribution_is_documented": true,
+    "honest_scope_is_documented": true,
+    "case_is_marked_frozen_in_scope": true
+  },
+  "failed_checks": [],
+  "next_milestone": "M5 / Case04"
+}

@@ -1,0 +1,1649 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "E7184A1A4886CDB0A4686E97DFAEC538",
+			"instanceName": "LUCASSHENHOMEPC-38368",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-13.10.31",
+	"succeeded": 3,
+	"succeededWithWarnings": 0,
+	"failed": 1,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.070167697966098785,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "PlanarFallAndRecovery",
+			"fullTestPath": "PhysicsResearch.DrivenCharacter.PlanarFallAndRecovery",
+			"state": "Fail",
+			"deviceInstance": [
+				"E7184A1A4886CDB0A4686E97DFAEC538"
+			],
+			"duration": 0.023198001086711884,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_RECOVERY impulse_nms=120 fell=true recovered=true failed=false front_get_up=true impacts=2 fall_time_s=0.258333333 recovery_start_s=1.34166667 recovery_time_s=3.00416667 get_up_control_time_s=1.92083333 final_error_deg=0.00331042787 peak_torque_nm=961.383504 work_j=1417.39981 samples=1440",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=0 time_s=0 angle_deg=0 angular_velocity_deg_s=0 target_deg=0 torque_nm=-0 support_margin_m=0.18 phase=Balanced",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=12 time_s=0.05 angle_deg=0 angular_velocity_deg_s=0 target_deg=0 torque_nm=-0 support_margin_m=0.18 phase=Balanced",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=24 time_s=0.1 angle_deg=0.468180791 angular_velocity_deg_s=112.36339 target_deg=0 torque_nm=-560 support_margin_m=0.18 phase=Balanced",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=36 time_s=0.15 angle_deg=5.36927491 angular_velocity_deg_s=86.0387647 target_deg=0 torque_nm=-598.125064 support_margin_m=0.101391145 phase=Balanced",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=48 time_s=0.2 angle_deg=8.99098351 angular_velocity_deg_s=61.226236 target_deg=0 torque_nm=-600.07864 support_margin_m=0.0433082617 phase=Balanced",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=60 time_s=0.25 angle_deg=11.432913 angular_velocity_deg_s=38.7660152 target_deg=0 torque_nm=-573.409388 support_margin_m=0.00408921731 phase=Balanced",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=62 time_s=0.258333333 angle_deg=11.7416881 angular_velocity_deg_s=37.0862476 target_deg=0 torque_nm=-116.301104 support_margin_m=-0.000772586077 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=72 time_s=0.3 angle_deg=13.3076638 angular_velocity_deg_s=38.0774411 target_deg=0 torque_nm=-119.23127 support_margin_m=-0.0247358815 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=84 time_s=0.35 angle_deg=15.2603527 angular_velocity_deg_s=39.995848 target_deg=0 torque_nm=-125.058527 support_margin_m=-0.0543585635 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=96 time_s=0.4 angle_deg=17.3289172 angular_velocity_deg_s=42.6420966 target_deg=0 torque_nm=-133.188047 support_margin_m=-0.0854055093 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=108 time_s=0.45 angle_deg=19.5483786 angular_velocity_deg_s=45.9689504 target_deg=0 torque_nm=-143.465558 support_margin_m=-0.118305489 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=120 time_s=0.5 angle_deg=21.9519418 angular_velocity_deg_s=49.9484777 target_deg=0 torque_nm=-155.798913 support_margin_m=-0.153411574 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=132 time_s=0.55 angle_deg=24.5718178 angular_velocity_deg_s=54.5668508 target_deg=0 torque_nm=-170.141553 support_margin_m=-0.190999256 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=144 time_s=0.6 angle_deg=27.4397998 angular_velocity_deg_s=59.8196601 target_deg=0 torque_nm=-186.477705 support_margin_m=-0.231256121 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=156 time_s=0.65 angle_deg=30.5876118 angular_velocity_deg_s=65.7073829 target_deg=0 torque_nm=-204.808138 support_margin_m=-0.274262427 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=168 time_s=0.7 angle_deg=34.0470267 angular_velocity_deg_s=72.2306721 target_deg=0 torque_nm=-225.135456 support_margin_m=-0.319961822 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=180 time_s=0.75 angle_deg=37.8497368 angular_velocity_deg_s=79.3851548 target_deg=0 torque_nm=-247.447912 support_margin_m=-0.368121601 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=192 time_s=0.8 angle_deg=42.0269447 angular_velocity_deg_s=87.1554662 target_deg=0 torque_nm=-271.700903 support_margin_m=-0.418282604 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=204 time_s=0.85 angle_deg=46.60863 angular_velocity_deg_s=95.5083072 target_deg=0 torque_nm=-297.795427 support_margin_m=-0.469700295 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=216 time_s=0.9 angle_deg=51.6224401 angular_velocity_deg_s=104.384441 target_deg=0 torque_nm=-325.553213 support_margin_m=-0.521281167 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=228 time_s=0.95 angle_deg=57.0921544 angular_velocity_deg_s=113.689757 target_deg=0 torque_nm=-354.688859 support_margin_m=-0.571522549 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=240 time_s=1 angle_deg=63.0356868 angular_velocity_deg_s=123.285877 target_deg=0 torque_nm=-384.780337 support_margin_m=-0.618469228 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=252 time_s=1.05 angle_deg=69.462626 angular_velocity_deg_s=132.981245 target_deg=0 torque_nm=-415.240737 support_margin_m=-0.65970645 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=264 time_s=1.1 angle_deg=76.3713788 angular_velocity_deg_s=142.524291 target_deg=0 torque_nm=-445.29598 support_margin_m=-0.692414155 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=276 time_s=1.15 angle_deg=83.7460767 angular_velocity_deg_s=151.600843 target_deg=0 torque_nm=-473.975299 support_margin_m=-0.713508766 phase=Falling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=287 time_s=1.19583333 angle_deg=89.9848872 angular_velocity_deg_s=-3.62766223 target_deg=0 torque_nm=19.9228603 support_margin_m=-0.72 phase=Settling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=288 time_s=1.2 angle_deg=89.9809389 angular_velocity_deg_s=-0.947605931 target_deg=0 torque_nm=11.396637 support_margin_m=-0.719999969 phase=Settling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=300 time_s=1.25 angle_deg=90.0000025 angular_velocity_deg_s=-0.101383766 target_deg=0 torque_nm=0.318506494 support_margin_m=-0.72 phase=Settling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=312 time_s=1.3 angle_deg=90.0000025 angular_velocity_deg_s=-0.101383766 target_deg=0 torque_nm=0.318506494 support_margin_m=-0.72 phase=Settling",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=322 time_s=1.34166667 angle_deg=90.0000025 angular_velocity_deg_s=-0.101383766 target_deg=0 torque_nm=0.318506494 support_margin_m=-0.72 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=324 time_s=1.35 angle_deg=89.9990482 angular_velocity_deg_s=-0.129975946 target_deg=89.9970092 torque_nm=-669.944927 support_margin_m=-0.72 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=336 time_s=1.4 angle_deg=89.9340276 angular_velocity_deg_s=-2.96723093 target_deg=89.5076492 torque_nm=-763.181573 support_margin_m=-0.719999606 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=348 time_s=1.45 angle_deg=89.6141138 angular_velocity_deg_s=-9.86120012 target_deg=88.2291691 torque_nm=-840.588659 support_margin_m=-0.719983703 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=360 time_s=1.5 angle_deg=88.8584457 angular_velocity_deg_s=-19.9823219 target_deg=86.2306891 torque_nm=-899.508668 support_margin_m=-0.719846479 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=372 time_s=1.55 angle_deg=87.5300603 angular_velocity_deg_s=-32.4242399 target_deg=83.581329 torque_nm=-938.852456 support_margin_m=-0.719252827 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=384 time_s=1.6 angle_deg=85.5376723 angular_velocity_deg_s=-46.2771653 target_deg=80.3502089 torque_nm=-958.628241 support_margin_m=-0.717502408 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=396 time_s=1.65 angle_deg=82.8342637 angular_velocity_deg_s=-60.6836306 target_deg=76.6064488 torque_nm=-959.524988 support_margin_m=-0.713457264 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=408 time_s=1.7 angle_deg=79.4133443 angular_velocity_deg_s=-74.8775441 target_deg=72.4191687 torque_nm=-942.595724 support_margin_m=-0.705567601 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=420 time_s=1.75 angle_deg=75.3036736 angular_velocity_deg_s=-88.2082449 target_deg=67.8574886 torque_nm=-909.0592 support_margin_m=-0.692002339 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=432 time_s=1.8 angle_deg=70.5631363 angular_velocity_deg_s=-100.151747 target_deg=62.9905284 torque_nm=-860.214506 support_margin_m=-0.670866614 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=444 time_s=1.85 angle_deg=65.2723475 angular_velocity_deg_s=-110.311606 target_deg=57.8874083 torque_nm=-797.444595 support_margin_m=-0.640469537 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=456 time_s=1.9 angle_deg=59.528439 angular_velocity_deg_s=-118.411879 target_deg=52.6172481 torque_nm=-722.272432 support_margin_m=-0.599594195 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=468 time_s=1.95 angle_deg=53.4393563 angular_velocity_deg_s=-124.284513 target_deg=47.249168 torque_nm=-636.429293 support_margin_m=-0.547720002 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=480 time_s=2 angle_deg=47.1188898 angular_velocity_deg_s=-127.853292 target_deg=41.8522878 torque_nm=-541.899195 support_margin_m=-0.485156205 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=492 time_s=2.05 angle_deg=40.6825579 angular_velocity_deg_s=-129.116134 target_deg=36.4957277 torque_nm=-440.915482 support_margin_m=-0.413063257 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=504 time_s=2.1 angle_deg=34.2443869 angular_velocity_deg_s=-128.127212 target_deg=31.2486075 torque_nm=-335.902008 support_margin_m=-0.333361634 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=516 time_s=2.15 angle_deg=27.9145627 angular_velocity_deg_s=-124.980022 target_deg=26.1800474 torque_nm=-229.367598 support_margin_m=-0.248549641 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=528 time_s=2.2 angle_deg=21.7978841 angular_velocity_deg_s=-119.79219 target_deg=21.3591673 torque_nm=-123.774386 support_margin_m=-0.161467209 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=540 time_s=2.25 angle_deg=15.9929176 angular_velocity_deg_s=-112.692511 target_deg=16.8550871 torque_nm=-21.4056897 support_margin_m=-0.0750485088 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=552 time_s=2.3 angle_deg=10.5917334 angular_velocity_deg_s=-103.810462 target_deg=12.736927 torque_nm=75.7427669 support_margin_m=0.00789758348 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=564 time_s=2.35 angle_deg=5.68009747 angular_velocity_deg_s=-93.2682191 target_deg=9.07380692 torque_nm=166.031413 support_margin_m=0.0848509904 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=576 time_s=2.4 angle_deg=1.33799785 angular_velocity_deg_s=-81.1750586 target_deg=5.93484683 torque_nm=248.197564 support_margin_m=0.15367364 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=588 time_s=2.45 angle_deg=-2.3596082 angular_velocity_deg_s=-67.6238897 target_deg=3.38916676 torque_nm=321.329636 support_margin_m=0.147368488 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=600 time_s=2.5 angle_deg=-5.34192485 angular_velocity_deg_s=-52.6896228 target_deg=1.50588671 torque_nm=384.802984 support_margin_m=0.099644912 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=612 time_s=2.55 angle_deg=-7.54140827 angular_velocity_deg_s=-36.4290179 target_deg=0.354126677 torque_nm=438.189698 support_margin_m=0.0642456447 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=624 time_s=2.6 angle_deg=-8.89302106 angular_velocity_deg_s=-18.915121 target_deg=0 torque_nm=472.748475 support_margin_m=0.0420921992 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=636 time_s=2.65 angle_deg=-9.39670819 angular_velocity_deg_s=-3.14937055 target_deg=0 torque_nm=403.093559 support_margin_m=0.0332610114 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=648 time_s=2.7 angle_deg=-9.21083598 angular_velocity_deg_s=8.97770738 target_deg=0 torque_nm=326.075855 support_margin_m=0.0353589296 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=660 time_s=2.75 angle_deg=-8.51408739 angular_velocity_deg_s=17.6177247 target_deg=0 torque_nm=248.127292 support_margin_m=0.0456124203 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=672 time_s=2.8 angle_deg=-7.47259065 angular_velocity_deg_s=23.0959718 target_deg=0 torque_nm=174.155225 support_margin_m=0.061454678 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=684 time_s=2.85 angle_deg=-6.2329399 angular_velocity_deg_s=25.8496022 target_deg=0 torque_nm=107.635457 support_margin_m=0.0806045259 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=696 time_s=2.9 angle_deg=-4.91808982 angular_velocity_deg_s=26.3740777 target_deg=0 torque_nm=50.7594854 support_margin_m=0.101121976 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=708 time_s=2.95 angle_deg=-3.62567445 angular_velocity_deg_s=25.1790987 target_deg=0 torque_nm=4.61485175 support_margin_m=0.121441467 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=720 time_s=3 angle_deg=-2.42826266 angular_velocity_deg_s=22.754378 target_deg=0 torque_nm=-30.6161125 support_margin_m=0.140380476 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=732 time_s=3.05 angle_deg=-1.3750647 angular_velocity_deg_s=19.5449337 target_deg=0 torque_nm=-55.4518024 support_margin_m=0.157123785 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=744 time_s=3.1 angle_deg=-0.494634345 angular_velocity_deg_s=15.9350789 target_deg=0 torque_nm=-70.9128186 support_margin_m=0.171187494 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=756 time_s=3.15 angle_deg=0.201838239 angular_velocity_deg_s=12.2399659 target_deg=0 torque_nm=-78.3395655 support_margin_m=0.177630639 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=768 time_s=3.2 angle_deg=0.716985166 angular_velocity_deg_s=8.70335702 target_deg=0 torque_nm=-79.2335856 support_margin_m=0.169307508 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=780 time_s=3.25 angle_deg=1.06374513 angular_velocity_deg_s=5.50024795 target_deg=0 torque_nm=-75.1271681 support_margin_m=0.16365162 phase=Recovering",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=783 time_s=3.2625 angle_deg=1.12635295 angular_velocity_deg_s=4.7660103 target_deg=0 torque_nm=-73.4932996 support_margin_m=0.162620304 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=792 time_s=3.3 angle_deg=1.2704172 angular_velocity_deg_s=3.12794637 target_deg=0 torque_nm=-58.0955823 support_margin_m=0.160250642 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=804 time_s=3.35 angle_deg=1.37394213 angular_velocity_deg_s=1.22695429 target_deg=0 torque_nm=-52.388599 support_margin_m=0.158500517 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=816 time_s=3.4 angle_deg=1.39163215 angular_velocity_deg_s=-0.332209869 target_deg=0 torque_nm=-45.4355683 support_margin_m=0.158120706 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=828 time_s=3.45 angle_deg=1.34068111 angular_velocity_deg_s=-1.54856175 target_deg=0 torque_nm=-37.8224945 support_margin_m=0.158841227 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=840 time_s=3.5 angle_deg=1.23787586 angular_velocity_deg_s=-2.43731777 target_deg=0 torque_nm=-30.0430972 support_margin_m=0.16039752 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=852 time_s=3.55 angle_deg=1.09889852 angular_velocity_deg_s=-3.02578416 target_deg=0 torque_nm=-22.4951871 support_margin_m=0.1625416 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=864 time_s=3.6 angle_deg=0.937826709 angular_velocity_deg_s=-3.34954499 target_deg=0 torque_nm=-15.4822691 support_margin_m=0.165050113 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=876 time_s=3.65 angle_deg=0.766813578 angular_velocity_deg_s=-3.44906421 target_deg=0 torque_nm=-9.21919284 support_margin_m=0.16772956 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=888 time_s=3.7 angle_deg=0.595924816 angular_velocity_deg_s=-3.36677338 target_deg=0 torque_nm=-3.84074202 support_margin_m=0.170419061 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=900 time_s=3.75 angle_deg=0.43310723 angular_velocity_deg_s=-3.14467892 target_deg=0 torque_nm=0.587852354 support_margin_m=0.17299102 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=912 time_s=3.8 angle_deg=0.284262802 angular_velocity_deg_s=-2.82249153 target_deg=0 torque_nm=4.05936197 support_margin_m=0.175350099 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=924 time_s=3.85 angle_deg=0.153402596 angular_velocity_deg_s=-2.4362554 target_deg=0 torque_nm=6.61272843 support_margin_m=0.177430909 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=936 time_s=3.9 angle_deg=0.0428565735 angular_velocity_deg_s=-2.01743625 target_deg=0 torque_nm=8.32155762 support_margin_m=0.17919477 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=948 time_s=3.95 angle_deg=-0.0464821995 angular_velocity_deg_s=-1.59241445 target_deg=0 torque_nm=9.28340969 support_margin_m=0.179374083 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=960 time_s=4 angle_deg=-0.114897573 angular_velocity_deg_s=-1.18232175 target_deg=0 torque_nm=9.61021805 support_margin_m=0.178272577 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=972 time_s=4.05 angle_deg=-0.163590002 angular_velocity_deg_s=-0.803157223 target_deg=0 torque_nm=9.42004853 support_margin_m=0.177482904 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=984 time_s=4.1 angle_deg=-0.19442812 angular_velocity_deg_s=-0.466118319 target_deg=0 torque_nm=8.83030244 support_margin_m=0.176976443 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=996 time_s=4.15 angle_deg=-0.209721281 angular_velocity_deg_s=-0.178086423 target_deg=0 torque_nm=7.95237782 support_margin_m=0.176717369 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1008 time_s=4.2 angle_deg=-0.212019303 angular_velocity_deg_s=0.0577881286 target_deg=0 torque_nm=6.88773201 support_margin_m=0.176665834 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1020 time_s=4.25 angle_deg=-0.203943018 angular_velocity_deg_s=0.241449775 target_deg=0 torque_nm=5.72523485 support_margin_m=0.176780675 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1032 time_s=4.3 angle_deg=-0.188047091 angular_velocity_deg_s=0.375290645 target_deg=0 torque_nm=4.53966499 support_margin_m=0.177021606 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1044 time_s=4.35 angle_deg=-0.166714723 angular_velocity_deg_s=0.463525108 target_deg=0 torque_nm=3.3911793 support_margin_m=0.177350917 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1056 time_s=4.4 angle_deg=-0.142082449 angular_velocity_deg_s=0.511610613 target_deg=0 torque_nm=2.32557586 support_margin_m=0.177734692 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1068 time_s=4.45 angle_deg=-0.115992248 angular_velocity_deg_s=0.525732108 target_deg=0 torque_nm=1.3751716 support_margin_m=0.17814359 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1080 time_s=4.5 angle_deg=-0.0899674338 angular_velocity_deg_s=0.512360756 target_deg=0 torque_nm=0.560124558 support_margin_m=0.178553262 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1092 time_s=4.55 angle_deg=-0.0652084827 angular_velocity_deg_s=0.477891934 target_deg=0 torque_nm=-0.109954054 support_margin_m=0.17894443 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1104 time_s=4.6 angle_deg=-0.0426047979 angular_velocity_deg_s=0.428362765 target_deg=0 torque_nm=-0.634234272 support_margin_m=0.179302729 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1116 time_s=4.65 angle_deg=-0.0227585161 angular_velocity_deg_s=0.369245655 target_deg=0 torque_nm=-1.01886267 support_margin_m=0.179618343 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1128 time_s=4.7 angle_deg=-0.00601672025 angular_velocity_deg_s=0.30531153 target_deg=0 torque_nm=-1.27521103 support_margin_m=0.179885507 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1140 time_s=4.75 angle_deg=0.007491211 angular_velocity_deg_s=0.240554501 target_deg=0 torque_nm=-1.41824887 support_margin_m=0.179898073 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1152 time_s=4.8 angle_deg=0.0178139371 angular_velocity_deg_s=0.178168598 target_deg=0 torque_nm=-1.46508975 support_margin_m=0.17973184 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1164 time_s=4.85 angle_deg=0.02513851 angular_velocity_deg_s=0.120566706 target_deg=0 torque_nm=-1.43374277 support_margin_m=0.179613016 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1176 time_s=4.9 angle_deg=0.029752595 angular_velocity_deg_s=0.0694319747 target_deg=0 torque_nm=-1.34208429 support_margin_m=0.179537192 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1188 time_s=4.95 angle_deg=0.0320099276 angular_velocity_deg_s=0.0257924853 target_deg=0 torque_nm=-1.20705178 support_margin_m=0.179498877 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1200 time_s=5 angle_deg=0.0322999398 angular_velocity_deg_s=-0.00988919992 target_deg=0 torque_nm=-1.04405072 support_margin_m=0.179491987 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1212 time_s=5.05 angle_deg=0.0310220972 angular_velocity_deg_s=-0.0376188999 target_deg=0 torque_nm=-0.866557399 support_margin_m=0.179510244 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1224 time_s=5.1 angle_deg=0.0285651558 angular_velocity_deg_s=-0.0577722164 target_deg=0 torque_nm=-0.685895217 support_margin_m=0.179547518 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1236 time_s=5.15 angle_deg=0.0252912717 angular_velocity_deg_s=-0.0709993825 target_deg=0 torque_nm=-0.511158308 support_margin_m=0.179598079 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1248 time_s=5.2 angle_deg=0.0215246896 angular_velocity_deg_s=-0.0781372725 target_deg=0 torque_nm=-0.349255243 support_margin_m=0.179656777 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1260 time_s=5.25 angle_deg=0.0175445728 angular_velocity_deg_s=-0.0801311758 target_deg=0 torque_nm=-0.205045516 support_margin_m=0.179719166 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1272 time_s=5.3 angle_deg=0.013581443 angular_velocity_deg_s=-0.0779679345 target_deg=0 torque_nm=-0.0815429839 support_margin_m=0.17978156 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1284 time_s=5.35 angle_deg=0.00981663644 angular_velocity_deg_s=-0.0726211787 target_deg=0 torque_nm=0.0198372969 support_margin_m=0.179841048 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1296 time_s=5.4 angle_deg=0.00638416863 angular_velocity_deg_s=-0.0650086745 target_deg=0 torque_nm=0.0990094578 support_margin_m=0.179895463 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1308 time_s=5.45 angle_deg=0.00337441608 angular_velocity_deg_s=-0.0559612327 target_deg=0 torque_nm=0.15694179 support_margin_m=0.179943332 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1320 time_s=5.5 angle_deg=0.000839060657 angular_velocity_deg_s=-0.0462022012 target_deg=0 torque_nm=0.195390268 support_margin_m=0.179983796 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1332 time_s=5.55 angle_deg=-0.00120319855 angular_velocity_deg_s=-0.0363362763 target_deg=0 torque_nm=0.216651269 support_margin_m=0.179983478 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1344 time_s=5.6 angle_deg=-0.00276059363 angular_velocity_deg_s=-0.0268461986 target_deg=0 torque_nm=0.223340989 support_margin_m=0.179958394 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1356 time_s=5.65 angle_deg=-0.00386225013 angular_velocity_deg_s=-0.0180958323 target_deg=0 torque_nm=0.218206241 support_margin_m=0.179940516 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1368 time_s=5.7 angle_deg=-0.00455244207 angular_velocity_deg_s=-0.0103381445 target_deg=0 torque_nm=0.20396888 support_margin_m=0.179929167 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1380 time_s=5.75 angle_deg=-0.00488534624 angular_velocity_deg_s=-0.00372668336 target_deg=0 torque_nm=0.183204056 support_margin_m=0.179923505 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1392 time_s=5.8 angle_deg=-0.00492043563 angular_velocity_deg_s=0.00167071501 target_deg=0 torque_nm=0.158250864 support_margin_m=0.179922601 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1404 time_s=5.85 angle_deg=-0.00471859292 angular_velocity_deg_s=0.00585709802 target_deg=0 torque_nm=0.131152767 support_margin_m=0.179925497 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1416 time_s=5.9 angle_deg=-0.00433897397 angular_velocity_deg_s=0.00889137399 target_deg=0 torque_nm=0.10362432 support_margin_m=0.179931262 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1428 time_s=5.95 angle_deg=-0.0038366104 angular_velocity_deg_s=0.0108738369 target_deg=0 torque_nm=0.0770402209 support_margin_m=0.179939023 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SAMPLE step=1439 time_s=5.99583333 angle_deg=-0.00331042787 angular_velocity_deg_s=0.0118763651 target_deg=0 torque_nm=0.0543966839 support_margin_m=0.179947223 phase=Recovered",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				},
+				{
+					"event":
+					{
+						"type": "Error",
+						"message": "Expected 'Persistent unilateral ground contact records one impact episode' to be 1, but it was 2.",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Plugins\\GameFeatures\\PhysicsDrivenCharacter\\Source\\PhysicsDrivenCharacterRuntime\\Private\\Tests\\PlanarCharacterRecoveryExperimentTest.cpp",
+					"lineNumber": 50,
+					"timestamp": "2026.08.30-19.10.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 1,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PlanarFrontBackSymmetry",
+			"fullTestPath": "PhysicsResearch.DrivenCharacter.PlanarFrontBackSymmetry",
+			"state": "Success",
+			"deviceInstance": [
+				"E7184A1A4886CDB0A4686E97DFAEC538"
+			],
+			"duration": 0.015386797487735748,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_SYMMETRY front_recovered=true back_recovered=true front_orientation=front back_orientation=back recovery_time_difference_s=0 work_difference_j=0",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PlanarPushRejection",
+			"fullTestPath": "PhysicsResearch.DrivenCharacter.PlanarPushRejection",
+			"state": "Success",
+			"deviceInstance": [
+				"E7184A1A4886CDB0A4686E97DFAEC538"
+			],
+			"duration": 0.015121098607778549,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_PUSH impulse_nms=55 fell=false recovered=false max_angle_deg=6.11505704 final_error_deg=1.14104107e-05 min_support_margin_m=0.0841271628 peak_torque_nm=276.541124 work_j=35.2949564",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PlanarTorqueBudgetFailure",
+			"fullTestPath": "PhysicsResearch.DrivenCharacter.PlanarTorqueBudgetFailure",
+			"state": "Success",
+			"deviceInstance": [
+				"E7184A1A4886CDB0A4686E97DFAEC538"
+			],
+			"duration": 0.016461800783872604,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "M6_PLANAR_TORQUE_FAILURE torque_limit_nm=400 gravity_peak_nm=662.175 fell=true recovered=false failed=true final_error_deg=90.0000025 peak_torque_nm=400 expected_failure=true",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-19.10.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

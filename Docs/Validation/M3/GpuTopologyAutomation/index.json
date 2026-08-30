@@ -1,0 +1,80 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "6E21FB1E47B4BEEC0E08A4AC0A18436B",
+			"instanceName": "LUCASSHENHOMEPC-38668",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-06.34.22",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.0078778006136417389,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Contract",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuTopology.Contract",
+			"state": "Success",
+			"deviceInstance": [
+				"6E21FB1E47B4BEEC0E08A4AC0A18436B"
+			],
+			"duration": 0.0078778006136417389,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Soft-body GPU topology tier=0 vertices=45 edges=180 edge_incidence=360 tets=96 tet_incidence=384",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-12.34.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Soft-body GPU topology tier=1 vertices=225 edges=1152 edge_incidence=2304 tets=768 tet_incidence=3072",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-12.34.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Soft-body GPU topology tier=2 vertices=1377 edges=8160 edge_incidence=16320 tets=6144 tet_incidence=24576",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-12.34.22"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

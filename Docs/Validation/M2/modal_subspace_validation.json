@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-30T01:33:55.5402911-06:00",
+  "result": "passed",
+  "checks": {
+    "test_discovered": true,
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "metrics_present": true,
+    "expected_particles": true,
+    "expected_modes": true,
+    "orthonormal_basis": true,
+    "smooth_signal_retained": true,
+    "checkerboard_rejected": true,
+    "reduced_system_recovers_known_solution": true,
+    "inverse_system_is_identity": true
+  },
+  "evidence": {
+    "particles": 300,
+    "modes": 12,
+    "orthonormality_error": 1.99840144433E-15,
+    "smooth_retention": 1.0,
+    "checker_retention": 7.3785E-05,
+    "reduced_coordinate_error": 9.99200722163E-16,
+    "inverse_error": 3.33066907388E-16,
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\ModalSubspaceAutomation\\index.json"
+  }
+}

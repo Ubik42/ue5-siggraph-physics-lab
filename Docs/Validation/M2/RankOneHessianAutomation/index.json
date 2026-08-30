@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "781DEEBC4291AC99C40C258D5F00B43B",
+			"instanceName": "LUCASSHENHOMEPC-5200",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-02.28.08",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.016302499920129776,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "RankOneCollisionHessian",
+			"fullTestPath": "PhysicsResearch.ContactCloth.RankOneCollisionHessian",
+			"state": "Success",
+			"deviceInstance": [
+				"781DEEBC4291AC99C40C258D5F00B43B"
+			],
+			"duration": 0.016302499920129776,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Rank-one collision Hessian: particles=20 modes=4 vector_dofs=12 cache_values=320 xy_coupling=0.130065277524 symmetry_error=0.000e+00 solve_error=6.939e-17 gpu_cpu_error=1.911e-07",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-08.28.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

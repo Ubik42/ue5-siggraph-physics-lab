@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-08-30T10:49:03.1212053-06:00",
+  "result": "passed",
+  "interpretation": "A persistent GPU particle session samples a periodic staggered MAC field, advances 1024 particles with RK2, and updates each 2x2 backward-map Jacobian for twenty queued steps. Position and Jacobian states use paired external RDG buffers and paired asynchronous readbacks tagged by source step.",
+  "checks": {
+    "isolated_d3d12_automation_passed": true,
+    "real_rhi_is_d3d12_sm6": true,
+    "full_flow_map_nullrhi_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "particle_and_step_contract_is_exact": true,
+    "queue_execution_and_pass_counts_match": true,
+    "final_snapshot_matches_last_step": true,
+    "gpu_matches_cpu_particle_positions": true,
+    "gpu_matches_cpu_backward_jacobian": true,
+    "runtime_enqueue_contains_no_explicit_gpu_wait": true,
+    "paired_particle_state_buffers_are_externalized": true
+  },
+  "device": {
+    "name": "LUCASSHENHOMEPC",
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "render_mode": "D3D12_SM6",
+    "rhi": "DirectX 12 (SM6)"
+  },
+  "contract": {
+    "cells": "32x32",
+    "particles": 1024,
+    "steps": 20,
+    "fixed_delta_seconds": 0.00416666688,
+    "readback_interval_steps": 5
+  },
+  "lifecycle": {
+    "steps_enqueued": 20,
+    "steps_executed": 20,
+    "advection_passes": 20,
+    "readbacks_completed": 2,
+    "latest_snapshot_step": 20
+  },
+  "errors": {
+    "maximum_position_cm": 3.81469727E-06,
+    "maximum_jacobian_component": 8.34465027E-07,
+    "maximum_jacobian_determinant_difference": 8.34465027E-07
+  },
+  "first_failure": "Unconditional periodic fmod on every in-domain step produced 5.11568e-4 cm CPU/GPU position error and failed the 1e-4 cm gate. The implementation now wraps only on real boundary crossing; the threshold was not relaxed.",
+  "boundary": "Velocity is prescribed and static in this gate. Particle impulse/gradient payload, P2G deposition, pressure feedback, map reset policy, moving solids, and GPU timing remain outside this milestone.",
+  "failed_checks": []
+}

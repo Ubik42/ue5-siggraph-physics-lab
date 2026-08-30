@@ -1,0 +1,224 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float> RankOneBaseSystem;
+StructuredBuffer<float> RankOneParticleOuterProducts;
+StructuredBuffer<uint> RankOneContactParticles;
+StructuredBuffer<float4> RankOneContactNormalWeights;
+RWStructuredBuffer<float> RankOneOutputMatrix;
+
+uint RankOneModeCount;
+uint RankOneContactCount;
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void MainCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint DofCount = RankOneModeCount * 3;
+    const uint LinearIndex = DispatchThreadId.x;
+    if (LinearIndex >= DofCount * DofCount)
+    {
+        return;
+    }
+    const uint Row = LinearIndex / DofCount;
+    const uint Column = LinearIndex - Row * DofCount;
+    const uint AxisA = Row / RankOneModeCount;
+    const uint AxisB = Column / RankOneModeCount;
+    const uint ModeA = Row - AxisA * RankOneModeCount;
+    const uint ModeB = Column - AxisB * RankOneModeCount;
+    float Value = AxisA == AxisB ? RankOneBaseSystem[ModeA * RankOneModeCount + ModeB] : 0.0;
+    for (uint ContactIndex = 0; ContactIndex < RankOneContactCount; ++ContactIndex)
+    {
+        const uint ParticleIndex = RankOneContactParticles[ContactIndex];
+        const float4 Contact = RankOneContactNormalWeights[ContactIndex];
+        const uint OuterIndex = (ParticleIndex * RankOneModeCount + ModeA) * RankOneModeCount + ModeB;
+        Value += Contact.w * Contact[AxisA] * Contact[AxisB] * RankOneParticleOuterProducts[OuterIndex];
+    }
+    RankOneOutputMatrix[LinearIndex] = Value;
+}
+
+StructuredBuffer<float4> RealtimeRankOnePositions;
+StructuredBuffer<float4> RealtimeRankOneCollisionSpheres;
+StructuredBuffer<float4> RealtimeRankOneCollisionCapsuleStarts;
+StructuredBuffer<float4> RealtimeRankOneCollisionCapsuleEnds;
+StructuredBuffer<uint> RealtimeRankOneActivationCounts;
+StructuredBuffer<float> RealtimeRankOneBaseSystem;
+StructuredBuffer<float> RealtimeRankOneBasisValues;
+StructuredBuffer<float> RealtimeRankOneParticleOuterProducts;
+RWStructuredBuffer<float> RealtimeRankOneOutputMatrix;
+RWStructuredBuffer<float> RealtimeRankOneOutputRhs;
+
+uint RealtimeRankOneParticleCount;
+uint RealtimeRankOneModeCount;
+uint RealtimeRankOneColumns;
+uint RealtimeRankOneSphereCount;
+uint RealtimeRankOneCapsuleCount;
+uint RealtimeRankOnePrimitiveCapacity;
+float RealtimeRankOneBaseWeight;
+float RealtimeRankOneActivationMultiplier;
+float RealtimeRankOneMaximumWeight;
+
+bool GetRealtimeContact(uint ParticleIndex, uint PrimitiveIndex, out float3 Normal, out float Penetration)
+{
+    const float3 Position = RealtimeRankOnePositions[ParticleIndex].xyz;
+    float3 ClosestPoint = 0.0;
+    float Radius = 0.0;
+    float3 FallbackNormal = float3(0.0, 0.0, 1.0);
+    if (PrimitiveIndex < RealtimeRankOneSphereCount)
+    {
+        const float4 Sphere = RealtimeRankOneCollisionSpheres[PrimitiveIndex];
+        ClosestPoint = Sphere.xyz;
+        Radius = Sphere.w;
+    }
+    else
+    {
+        const uint CapsuleIndex = PrimitiveIndex - RealtimeRankOneSphereCount;
+        const float4 CapsuleStart = RealtimeRankOneCollisionCapsuleStarts[CapsuleIndex];
+        const float3 CapsuleEnd = RealtimeRankOneCollisionCapsuleEnds[CapsuleIndex].xyz;
+        const float3 Segment = CapsuleEnd - CapsuleStart.xyz;
+        const float SegmentLengthSquared = dot(Segment, Segment);
+        const float Alpha = SegmentLengthSquared > 1.e-8
+            ? saturate(dot(Position - CapsuleStart.xyz, Segment) / SegmentLengthSquared)
+            : 0.0;
+        ClosestPoint = CapsuleStart.xyz + Alpha * Segment;
+        Radius = CapsuleStart.w;
+        FallbackNormal = float3(0.0, 1.0, 0.0);
+    }
+    const float3 Offset = Position - ClosestPoint;
+    const float Distance = length(Offset);
+    Normal = Distance > 1.e-6 ? Offset / Distance : FallbackNormal;
+    Penetration = max(Radius - Distance, 0.0);
+    return Penetration > 0.0;
+}
+
+float GetRealtimeWeight(uint ParticleIndex, uint PrimitiveIndex)
+{
+    const uint StateIndex = ParticleIndex * RealtimeRankOnePrimitiveCapacity + PrimitiveIndex;
+    const uint ActivationCount = max(RealtimeRankOneActivationCounts[StateIndex], 1u);
+    return min(RealtimeRankOneBaseWeight * pow(RealtimeRankOneActivationMultiplier, (float)ActivationCount), RealtimeRankOneMaximumWeight);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void AssembleContactsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint DofCount = RealtimeRankOneModeCount * 3;
+    const uint LinearIndex = DispatchThreadId.x;
+    const uint MatrixElementCount = DofCount * DofCount;
+    const uint ActivePrimitiveCount = RealtimeRankOneSphereCount + RealtimeRankOneCapsuleCount;
+    if (LinearIndex < MatrixElementCount)
+    {
+        const uint Row = LinearIndex / DofCount;
+        const uint Column = LinearIndex - Row * DofCount;
+        const uint AxisA = Row / RealtimeRankOneModeCount;
+        const uint AxisB = Column / RealtimeRankOneModeCount;
+        const uint ModeA = Row - AxisA * RealtimeRankOneModeCount;
+        const uint ModeB = Column - AxisB * RealtimeRankOneModeCount;
+        float Value = AxisA == AxisB ? RealtimeRankOneBaseSystem[ModeA * RealtimeRankOneModeCount + ModeB] : 0.0;
+        for (uint ParticleIndex = RealtimeRankOneColumns; ParticleIndex < RealtimeRankOneParticleCount; ++ParticleIndex)
+        {
+            for (uint PrimitiveIndex = 0; PrimitiveIndex < ActivePrimitiveCount; ++PrimitiveIndex)
+            {
+                float3 Normal;
+                float Penetration;
+                if (GetRealtimeContact(ParticleIndex, PrimitiveIndex, Normal, Penetration))
+                {
+                    const uint OuterIndex = (ParticleIndex * RealtimeRankOneModeCount + ModeA) * RealtimeRankOneModeCount + ModeB;
+                    Value += GetRealtimeWeight(ParticleIndex, PrimitiveIndex) * Normal[AxisA] * Normal[AxisB]
+                        * RealtimeRankOneParticleOuterProducts[OuterIndex];
+                }
+            }
+        }
+        RealtimeRankOneOutputMatrix[LinearIndex] = Value;
+    }
+    if (LinearIndex < DofCount)
+    {
+        const uint Axis = LinearIndex / RealtimeRankOneModeCount;
+        const uint Mode = LinearIndex - Axis * RealtimeRankOneModeCount;
+        float Value = 0.0;
+        for (uint ParticleIndex = RealtimeRankOneColumns; ParticleIndex < RealtimeRankOneParticleCount; ++ParticleIndex)
+        {
+            const float BasisValue = RealtimeRankOneBasisValues[Mode * RealtimeRankOneParticleCount + ParticleIndex];
+            for (uint PrimitiveIndex = 0; PrimitiveIndex < ActivePrimitiveCount; ++PrimitiveIndex)
+            {
+                float3 Normal;
+                float Penetration;
+                if (GetRealtimeContact(ParticleIndex, PrimitiveIndex, Normal, Penetration))
+                {
+                    Value += GetRealtimeWeight(ParticleIndex, PrimitiveIndex) * Penetration * Normal[Axis] * BasisValue;
+                }
+            }
+        }
+        RealtimeRankOneOutputRhs[LinearIndex] = Value;
+    }
+}
+
+StructuredBuffer<float> RealtimeRankOneSolveMatrix;
+StructuredBuffer<float> RealtimeRankOneSolveRhs;
+RWStructuredBuffer<float> RealtimeRankOneSolution;
+uint RealtimeRankOneSolveModeCount;
+
+[numthreads(1, 1, 1)]
+void SolveContactsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint N = RealtimeRankOneSolveModeCount * 3;
+    float L[2304];
+    float Y[48];
+    float X[48];
+    for (uint Index = 0; Index < N * N; ++Index) L[Index] = 0.0;
+    for (uint Row = 0; Row < N; ++Row)
+    {
+        for (uint Column = 0; Column <= Row; ++Column)
+        {
+            float Sum = RealtimeRankOneSolveMatrix[Row * N + Column];
+            for (uint Inner = 0; Inner < Column; ++Inner) Sum -= L[Row * N + Inner] * L[Column * N + Inner];
+            L[Row * N + Column] = Row == Column ? sqrt(max(Sum, 1.e-12)) : Sum / L[Column * N + Column];
+        }
+    }
+    for (uint Row = 0; Row < N; ++Row)
+    {
+        float Sum = RealtimeRankOneSolveRhs[Row];
+        for (uint Column = 0; Column < Row; ++Column) Sum -= L[Row * N + Column] * Y[Column];
+        Y[Row] = Sum / L[Row * N + Row];
+    }
+    for (int Row = (int)N - 1; Row >= 0; --Row)
+    {
+        float Sum = Y[Row];
+        for (uint Column = Row + 1; Column < N; ++Column) Sum -= L[Column * N + Row] * X[Column];
+        X[Row] = Sum / L[Row * N + Row];
+        RealtimeRankOneSolution[Row] = X[Row];
+    }
+}
+
+StructuredBuffer<float4> RealtimeRankOneApplyInputPositions;
+StructuredBuffer<float> RealtimeRankOneApplyBasisValues;
+StructuredBuffer<float> RealtimeRankOneApplySolution;
+RWStructuredBuffer<float4> RealtimeRankOneApplyOutputPositions;
+uint RealtimeRankOneApplyParticleCount;
+uint RealtimeRankOneApplyModeCount;
+uint RealtimeRankOneApplyColumns;
+float RealtimeRankOneMaximumCorrectionCm;
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void ApplyContactsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint ParticleIndex = DispatchThreadId.x;
+    if (ParticleIndex >= RealtimeRankOneApplyParticleCount) return;
+    float3 Position = RealtimeRankOneApplyInputPositions[ParticleIndex].xyz;
+    if (ParticleIndex < RealtimeRankOneApplyColumns)
+    {
+        RealtimeRankOneApplyOutputPositions[ParticleIndex] = float4(Position, 1.0);
+        return;
+    }
+    float3 Correction = 0.0;
+    for (uint Mode = 0; Mode < RealtimeRankOneApplyModeCount; ++Mode)
+    {
+        const float BasisValue = RealtimeRankOneApplyBasisValues[Mode * RealtimeRankOneApplyParticleCount + ParticleIndex];
+        Correction.x += BasisValue * RealtimeRankOneApplySolution[Mode];
+        Correction.y += BasisValue * RealtimeRankOneApplySolution[RealtimeRankOneApplyModeCount + Mode];
+        Correction.z += BasisValue * RealtimeRankOneApplySolution[2 * RealtimeRankOneApplyModeCount + Mode];
+    }
+    const float CorrectionLength = length(Correction);
+    if (CorrectionLength > RealtimeRankOneMaximumCorrectionCm)
+    {
+        Correction *= RealtimeRankOneMaximumCorrectionCm / CorrectionLength;
+    }
+    RealtimeRankOneApplyOutputPositions[ParticleIndex] = float4(Position + Correction, 0.0);
+}

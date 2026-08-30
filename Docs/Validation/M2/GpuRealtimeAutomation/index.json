@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "6DA55CF04DE4755EBEAFC48E98FAC270",
+			"instanceName": "LUCASSHENHOMEPC-22284",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-00.33.12",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.068284302949905396,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuRealtimePersistentBuffers",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuRealtimePersistentBuffers",
+			"state": "Success",
+			"deviceInstance": [
+				"6DA55CF04DE4755EBEAFC48E98FAC270"
+			],
+			"duration": 0.068284302949905396,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Persistent GPU cloth: steps=120 readbacks=2 latest_step=120 particles=120 max_edge_error_cm=1.030326",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-06.33.12"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

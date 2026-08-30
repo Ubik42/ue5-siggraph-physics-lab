@@ -1,0 +1,1099 @@
+{
+  "engine_version": "5.4.4-35576357+++UE5+Release-5.4",
+  "project": "D:/3D/UE Projects/SIGGRAPHPhysicsLab/SIGGRAPHPhysicsLab.uproject",
+  "roots": {
+    "/Game/Assassin": {
+      "skeletal_meshes": [
+        {
+          "package": "/Game/Assassin/Mesh/SKM_Assassin_Skin4",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin4.PHYS_Assassin_Skin4",
+          "material_slots": 10,
+          "clothing_asset_count": 2,
+          "clothing_assets": [
+            {
+              "path": "/Game/Assassin/Mesh/SKM_Assassin_Skin4.SKM_Assassin_Skin4:SK_Assassin_Clothing_0",
+              "class": "ClothingAssetCommon",
+              "configs": [
+                {
+                  "key": "ChaosClothConfig",
+                  "class": "ChaosClothConfig"
+                },
+                {
+                  "key": "ChaosClothSharedSimConfig",
+                  "class": "ChaosClothSharedSimConfig"
+                }
+              ],
+              "lods": []
+            },
+            {
+              "path": "/Game/Assassin/Mesh/SKM_Assassin_Skin4.SKM_Assassin_Skin4:SK_Assassin_Clothing_1",
+              "class": "ClothingAssetCommon",
+              "configs": [
+                {
+                  "key": "ChaosClothConfig",
+                  "class": "ChaosClothConfig"
+                },
+                {
+                  "key": "ChaosClothSharedSimConfig",
+                  "class": "ChaosClothSharedSimConfig"
+                }
+              ],
+              "lods": []
+            }
+          ],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.95001220703125,
+              -4.0468034744262695,
+              91.11656358838081
+            ],
+            "extent": [
+              69.34707641601562,
+              23.159802436828613,
+              91.93424817919731
+            ],
+            "sphere_radius": 117.46190635536223
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/SKM_Assassin_Skin3",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin3.PHYS_Assassin_Skin3",
+          "material_slots": 10,
+          "clothing_asset_count": 2,
+          "clothing_assets": [
+            {
+              "path": "/Game/Assassin/Mesh/SKM_Assassin_Skin3.SKM_Assassin_Skin3:SK_Assassin_Clothing_0",
+              "class": "ClothingAssetCommon",
+              "configs": [
+                {
+                  "key": "ChaosClothConfig",
+                  "class": "ChaosClothConfig"
+                },
+                {
+                  "key": "ChaosClothSharedSimConfig",
+                  "class": "ChaosClothSharedSimConfig"
+                }
+              ],
+              "lods": []
+            },
+            {
+              "path": "/Game/Assassin/Mesh/SKM_Assassin_Skin3.SKM_Assassin_Skin3:SK_Assassin_Clothing_1",
+              "class": "ClothingAssetCommon",
+              "configs": [
+                {
+                  "key": "ChaosClothConfig",
+                  "class": "ChaosClothConfig"
+                },
+                {
+                  "key": "ChaosClothSharedSimConfig",
+                  "class": "ChaosClothSharedSimConfig"
+                }
+              ],
+              "lods": []
+            }
+          ],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.95001220703125,
+              -4.0468034744262695,
+              91.11656358838081
+            ],
+            "extent": [
+              69.34707641601562,
+              23.159802436828613,
+              91.93424817919731
+            ],
+            "sphere_radius": 117.46190635536223
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/SKM_Assassin_Skin2",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin2.PHYS_Assassin_Skin2",
+          "material_slots": 10,
+          "clothing_asset_count": 2,
+          "clothing_assets": [
+            {
+              "path": "/Game/Assassin/Mesh/SKM_Assassin_Skin2.SKM_Assassin_Skin2:SK_Assassin_Clothing_0",
+              "class": "ClothingAssetCommon",
+              "configs": [
+                {
+                  "key": "ChaosClothConfig",
+                  "class": "ChaosClothConfig"
+                },
+                {
+                  "key": "ChaosClothSharedSimConfig",
+                  "class": "ChaosClothSharedSimConfig"
+                }
+              ],
+              "lods": []
+            },
+            {
+              "path": "/Game/Assassin/Mesh/SKM_Assassin_Skin2.SKM_Assassin_Skin2:SK_Assassin_Clothing_1",
+              "class": "ClothingAssetCommon",
+              "configs": [
+                {
+                  "key": "ChaosClothConfig",
+                  "class": "ChaosClothConfig"
+                },
+                {
+                  "key": "ChaosClothSharedSimConfig",
+                  "class": "ChaosClothSharedSimConfig"
+                }
+              ],
+              "lods": []
+            }
+          ],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.95001220703125,
+              -4.0468034744262695,
+              91.11656358838081
+            ],
+            "extent": [
+              69.34707641601562,
+              23.159802436828613,
+              91.93424817919731
+            ],
+            "sphere_radius": 117.46190635536223
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/SKM_Assassin_Skin1",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 10,
+          "clothing_asset_count": 2,
+          "clothing_assets": [
+            {
+              "path": "/Game/Assassin/Mesh/SKM_Assassin_Skin1.SKM_Assassin_Skin1:SK_Assassin_Clothing_0",
+              "class": "ClothingAssetCommon",
+              "configs": [
+                {
+                  "key": "ChaosClothConfig",
+                  "class": "ChaosClothConfig"
+                },
+                {
+                  "key": "ChaosClothSharedSimConfig",
+                  "class": "ChaosClothSharedSimConfig"
+                }
+              ],
+              "lods": []
+            },
+            {
+              "path": "/Game/Assassin/Mesh/SKM_Assassin_Skin1.SKM_Assassin_Skin1:SK_Assassin_Clothing_1",
+              "class": "ClothingAssetCommon",
+              "configs": [
+                {
+                  "key": "ChaosClothConfig",
+                  "class": "ChaosClothConfig"
+                },
+                {
+                  "key": "ChaosClothSharedSimConfig",
+                  "class": "ChaosClothSharedSimConfig"
+                }
+              ],
+              "lods": []
+            }
+          ],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.95001220703125,
+              -4.0468034744262695,
+              91.11656358838081
+            ],
+            "extent": [
+              69.34707641601562,
+              23.159802436828613,
+              91.93424817919731
+            ],
+            "sphere_radius": 117.46190635536223
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_shirt",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.3473377227783203,
+              -1.4897122383117676,
+              120.65358352661133
+            ],
+            "extent": [
+              49.433664321899414,
+              16.97295904159546,
+              33.508296966552734
+            ],
+            "sphere_radius": 62.08521943680795
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_scapular",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 3,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -8.339509963989258,
+              -1.6170716285705566,
+              135.99205780029297
+            ],
+            "extent": [
+              24.592676162719727,
+              16.733188152313232,
+              20.253822326660156
+            ],
+            "sphere_radius": 35.98633942796956
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_pouch",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -20.901916027069092,
+              -2.2724640369415283,
+              94.27486038208008
+            ],
+            "extent": [
+              5.5375657081604,
+              6.204301595687866,
+              8.527217864990234
+            ],
+            "sphere_radius": 11.91097967337102
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_pants",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              0.05222034454345703,
+              -1.000962257385254,
+              62.54923343658447
+            ],
+            "extent": [
+              24.946436882019043,
+              15.33387279510498,
+              43.05027675628662
+            ],
+            "sphere_radius": 52.0651389779946
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_mask",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              0.2673330307006836,
+              -1.8643836975097656,
+              158.30457305908203
+            ],
+            "extent": [
+              14.788151741027832,
+              13.99637508392334,
+              10.552040100097656
+            ],
+            "sphere_radius": 22.933240017049567
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_knee_pad",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              5.7220458984375e-06,
+              0.44333696365356445,
+              49.87420463562012
+            ],
+            "extent": [
+              24.96368980407715,
+              10.551075458526611,
+              7.583250045776367
+            ],
+            "sphere_radius": 28.142790963628237
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_gloves",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.8477764129638672,
+              4.4306724071502686,
+              109.28700256347656
+            ],
+            "extent": [
+              64.35882759094238,
+              12.167086839675903,
+              6.138420104980469
+            ],
+            "sphere_radius": 65.78584112428821
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_elbow_pads",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.0054378509521484375,
+              -5.259798288345337,
+              129.28512573242188
+            ],
+            "extent": [
+              40.88796806335449,
+              8.851411581039429,
+              5.8470458984375
+            ],
+            "sphere_radius": 42.24170173022496
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_dress",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -2.8654842376708984,
+              -0.6089935302734375,
+              85.22013664245605
+            ],
+            "extent": [
+              21.165956497192383,
+              17.643047332763672,
+              27.282533645629883
+            ],
+            "sphere_radius": 38.776429383739114
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_cummerbund",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              0.05631542205810547,
+              1.0632729530334473,
+              105.78489685058594
+            ],
+            "extent": [
+              17.49769878387451,
+              15.082332134246826,
+              9.357566833496094
+            ],
+            "sphere_radius": 24.92409000108698
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_cloak",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 1,
+          "clothing_assets": [
+            {
+              "path": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_cloak.S_cloak:S_cloak_Clothing_0",
+              "class": "ClothingAssetCommon",
+              "configs": [
+                {
+                  "key": "ChaosClothConfig",
+                  "class": "ChaosClothConfig"
+                },
+                {
+                  "key": "ChaosClothSharedSimConfig",
+                  "class": "ChaosClothSharedSimConfig"
+                }
+              ],
+              "lods": []
+            }
+          ],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              4.039619445800781,
+              -7.349895000457764,
+              94.88290214538574
+            ],
+            "extent": [
+              36.18505859375,
+              19.856712818145752,
+              88.16790962219238
+            ],
+            "sphere_radius": 97.35105441916137
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_bracers",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.6935234069824219,
+              -0.4048643112182617,
+              120.6578140258789
+            ],
+            "extent": [
+              57.980743408203125,
+              12.404739379882812,
+              10.304939270019531
+            ],
+            "sphere_radius": 60.181691058074264
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_boots",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              0.0,
+              0.15871858596801758,
+              20.814408630132675
+            ],
+            "extent": [
+              30.388935089111328,
+              16.0428729057312,
+              21.65424981713295
+            ],
+            "sphere_radius": 40.61733228638322
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_bomb",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -18.823237895965576,
+              10.645318269729614,
+              91.45124816894531
+            ],
+            "extent": [
+              3.947411060333252,
+              3.0552690029144287,
+              5.778099060058594
+            ],
+            "sphere_radius": 7.6356500382915025
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_belt",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.19532203674316406,
+              0.19943904876708984,
+              103.78933334350586
+            ],
+            "extent": [
+              20.019418716430664,
+              16.75926685333252,
+              9.216655731201172
+            ],
+            "sphere_radius": 27.687486236068235
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Armor/S_bag",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -21.323902130126953,
+              5.604257047176361,
+              86.5912971496582
+            ],
+            "extent": [
+              5.253849029541016,
+              4.52895313501358,
+              9.626781463623047
+            ],
+            "sphere_radius": 11.865465328958434
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Body/S_legs",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              5.7220458984375e-06,
+              1.4350733757019043,
+              14.282465368509293
+            ],
+            "extent": [
+              29.70338249206543,
+              13.96685266494751,
+              13.650836557149887
+            ],
+            "sphere_radius": 35.548688351953444
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Body/S_head",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 3,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.7810168266296387,
+              -2.8843870162963867,
+              160.34681701660156
+            ],
+            "extent": [
+              14.883925914764404,
+              14.838309288024902,
+              21.994827270507812
+            ],
+            "sphere_radius": 30.42168798444221
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Body/S_hands",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.9501113891601562,
+              4.045066833496094,
+              113.04561996459961
+            ],
+            "extent": [
+              69.34718322753906,
+              15.067924499511719,
+              14.627544403076172
+            ],
+            "sphere_radius": 72.45715441266532
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Body/S_Full_body",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 3,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.9501113891601562,
+              0.6792869567871094,
+              91.48663684725761
+            ],
+            "extent": [
+              69.34718322753906,
+              18.433704376220703,
+              90.85500743985176
+            ],
+            "sphere_radius": 115.77333741202804
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Body/S_body_Up",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 3,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.9501113891601562,
+              0.679286003112793,
+              140.3798599243164
+            ],
+            "extent": [
+              69.34718322753906,
+              18.43370532989502,
+              41.96178436279297
+            ],
+            "sphere_radius": 83.12415209006834
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Body/S_body_Down",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              5.7220458984375e-06,
+              1.0670232772827148,
+              53.225001722574234
+            ],
+            "extent": [
+              29.70338249206543,
+              14.3349027633667,
+              52.59337291121483
+            ],
+            "sphere_radius": 62.07933023868108
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Body/S_body_2",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.32513427734375,
+              -2.325779438018799,
+              90.33140563964844
+            ],
+            "extent": [
+              51.631065368652344,
+              15.42864179611206,
+              63.796112060546875
+            ],
+            "sphere_radius": 83.50900438166319
+          }
+        },
+        {
+          "package": "/Game/Assassin/Mesh/Separated_Mesh/Body/S_body_1",
+          "skeleton": "/Game/Assassin/Mesh/SK_Assassin_Skeleton.SK_Assassin_Skeleton",
+          "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1.PHYS_Assassin_Skin1",
+          "material_slots": 3,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              -0.32513427734375,
+              -2.3257784843444824,
+              104.43846893310547
+            ],
+            "extent": [
+              51.631065368652344,
+              15.428640842437744,
+              77.9031753540039
+            ],
+            "sphere_radius": 94.72441395745697
+          }
+        }
+      ],
+      "physics_assets": [
+        {
+          "package": "/Game/Assassin/Mesh/PHYS_Assassin_Skin4",
+          "body_count": null,
+          "constraint_count": null,
+          "body_array_exposed_to_python": false,
+          "constraint_array_exposed_to_python": false
+        },
+        {
+          "package": "/Game/Assassin/Mesh/PHYS_Assassin_Skin3",
+          "body_count": null,
+          "constraint_count": null,
+          "body_array_exposed_to_python": false,
+          "constraint_array_exposed_to_python": false
+        },
+        {
+          "package": "/Game/Assassin/Mesh/PHYS_Assassin_Skin2",
+          "body_count": null,
+          "constraint_count": null,
+          "body_array_exposed_to_python": false,
+          "constraint_array_exposed_to_python": false
+        },
+        {
+          "package": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1",
+          "body_count": null,
+          "constraint_count": null,
+          "body_array_exposed_to_python": false,
+          "constraint_array_exposed_to_python": false
+        }
+      ],
+      "skeletons": [
+        {
+          "package": "/Game/Assassin/Mesh/SK_Assassin_Skeleton",
+          "bone_count": null
+        }
+      ],
+      "animations": [
+        "/Game/Assassin/Animation/Anim_Assassin_walkback2",
+        "/Game/Assassin/Animation/Anim_Assassin_walkback1",
+        "/Game/Assassin/Animation/Anim_Assassin_walk2",
+        "/Game/Assassin/Animation/Anim_Assassin_walk1",
+        "/Game/Assassin/Animation/Anim_Assassin_straferight",
+        "/Game/Assassin/Animation/Anim_Assassin_strafeleft",
+        "/Game/Assassin/Animation/Anim_Assassin_run",
+        "/Game/Assassin/Animation/Anim_Assassin_jump",
+        "/Game/Assassin/Animation/Anim_Assassin_idle2",
+        "/Game/Assassin/Animation/Anim_Assassin_idle1",
+        "/Game/Assassin/Animation/Anim_Assassin_hit3",
+        "/Game/Assassin/Animation/Anim_Assassin_hit2",
+        "/Game/Assassin/Animation/Anim_Assassin_hit1",
+        "/Game/Assassin/Animation/Anim_Assassin_death2",
+        "/Game/Assassin/Animation/Anim_Assassin_death1",
+        "/Game/Assassin/Animation/Anim_Assassin_attack5",
+        "/Game/Assassin/Animation/Anim_Assassin_attack4",
+        "/Game/Assassin/Animation/Anim_Assassin_attack3",
+        "/Game/Assassin/Animation/Anim_Assassin_attack2",
+        "/Game/Assassin/Animation/Anim_Assassin_attack1",
+        "/Game/Assassin/Demo/ThirdPersonWalk",
+        "/Game/Assassin/Demo/ThirdPersonRun",
+        "/Game/Assassin/Demo/ThirdPersonIdle"
+      ],
+      "maps": [
+        "/Game/Assassin/Maps/Overview",
+        "/Game/Assassin/Maps/Animation"
+      ],
+      "summary": {
+        "skeletal_mesh_count": 28,
+        "physics_asset_count": 4,
+        "skeleton_count": 1,
+        "animation_count": 23,
+        "map_count": 2,
+        "clothing_asset_count": 9
+      }
+    },
+    "/Game/FourEvilDragonsHP": {
+      "skeletal_meshes": [
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DragonTheNightmare/DragonTheNightmareSK",
+          "skeleton": "/Game/FourEvilDragonsHP/Meshes/DragonTheNightmare/DragonTheNightmare_Skeleton.DragonTheNightmare_Skeleton",
+          "physics_asset": "/Game/FourEvilDragonsHP/Meshes/DragonTheNightmare/DragonTheNightmare_Physics.DragonTheNightmare_Physics",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              0.0,
+              -48.558563232421875,
+              217.41364085674286
+            ],
+            "extent": [
+              339.7791748046875,
+              602.9858703613281,
+              219.22295582294464
+            ],
+            "sphere_radius": 726.0169087880196
+          }
+        },
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DragonTheTerrorBringer/DragonTheTerrorBringerSK",
+          "skeleton": "/Game/FourEvilDragonsHP/Meshes/DragonTheTerrorBringer/DragonTheTerrorBringer_Skeleton.DragonTheTerrorBringer_Skeleton",
+          "physics_asset": "/Game/FourEvilDragonsHP/Meshes/DragonTheTerrorBringer/DragonTheTerrorBringer_Physics.DragonTheTerrorBringer_Physics",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              0.0,
+              -247.76905059814453,
+              390.29578897356987
+            ],
+            "extent": [
+              592.3526611328125,
+              490.39122772216797,
+              391.04783895611763
+            ],
+            "sphere_radius": 862.7187512336969
+          }
+        },
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DragonTheUsurper/DragonTheUsurperSK",
+          "skeleton": "/Game/FourEvilDragonsHP/Meshes/DragonTheUsurper/DragonTheUsurper_Skeleton.DragonTheUsurper_Skeleton",
+          "physics_asset": "/Game/FourEvilDragonsHP/Meshes/DragonTheUsurper/DragonTheUsurper_Physics.DragonTheUsurper_Physics",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              0.0,
+              -127.47796630859375,
+              433.1741852760315
+            ],
+            "extent": [
+              818.8305053710938,
+              974.7343139648438,
+              437.50568532943726
+            ],
+            "sphere_radius": 1346.1060894455443
+          }
+        },
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DrangonTheSoulEater/DragonTheSoulEaterSK",
+          "skeleton": "/Game/FourEvilDragonsHP/Meshes/DrangonTheSoulEater/DragonTheSoulEater_Skeleton.DragonTheSoulEater_Skeleton",
+          "physics_asset": "/Game/FourEvilDragonsHP/Meshes/DrangonTheSoulEater/DragonTheSoulEater_Physics.DragonTheSoulEater_Physics",
+          "material_slots": 1,
+          "clothing_asset_count": 0,
+          "clothing_assets": [],
+          "lod_count": null,
+          "vertex_count_lod0": null,
+          "bounds": {
+            "origin": [
+              0.0,
+              -173.5432891845703,
+              286.8438755273819
+            ],
+            "extent": [
+              306.2928161621094,
+              514.4032440185547,
+              289.23308980464935
+            ],
+            "sphere_radius": 664.8922972386375
+          }
+        }
+      ],
+      "physics_assets": [
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DragonTheNightmare/DragonTheNightmare_Physics",
+          "body_count": null,
+          "constraint_count": null,
+          "body_array_exposed_to_python": false,
+          "constraint_array_exposed_to_python": false
+        },
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DragonTheTerrorBringer/DragonTheTerrorBringer_Physics",
+          "body_count": null,
+          "constraint_count": null,
+          "body_array_exposed_to_python": false,
+          "constraint_array_exposed_to_python": false
+        },
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DragonTheUsurper/DragonTheUsurper_Physics",
+          "body_count": null,
+          "constraint_count": null,
+          "body_array_exposed_to_python": false,
+          "constraint_array_exposed_to_python": false
+        },
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DrangonTheSoulEater/DragonTheSoulEater_Physics",
+          "body_count": null,
+          "constraint_count": null,
+          "body_array_exposed_to_python": false,
+          "constraint_array_exposed_to_python": false
+        }
+      ],
+      "skeletons": [
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DragonTheNightmare/DragonTheNightmare_Skeleton",
+          "bone_count": null
+        },
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DragonTheTerrorBringer/DragonTheTerrorBringer_Skeleton",
+          "bone_count": null
+        },
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DragonTheUsurper/DragonTheUsurper_Skeleton",
+          "bone_count": null
+        },
+        {
+          "package": "/Game/FourEvilDragonsHP/Meshes/DrangonTheSoulEater/DragonTheSoulEater_Skeleton",
+          "bone_count": null
+        }
+      ],
+      "animations": [
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/WalkRightAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/WalkLeftAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/WalkBackAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/WalkAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/SleepAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/ScreamAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/RunAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/JumpAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/Idle02Anim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/Idle01Anim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/GetHitAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/DieAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/DefendAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/AttackMouthAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/AttackHornAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/AttackHandAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/WalkAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/TakeOffAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/SleepAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/ScreamAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/RunAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/LandAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/Idle01Anim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/GetHitAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/FlyIdleAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/FlyForwardAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/FlyFastForwardAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/FlyAttackAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/DieAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/DefendAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/AttackTailAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/AttackMouthAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheSoulEater/AttackFireBallAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/WalkAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/TakeOffAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/SleepAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/ScreamAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/RunAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/LandingAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/Idle02Anim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/Idle01Anim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/GetHitAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/FlyIdleAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/FlyGlideAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/FlyForwardAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/FlyAttackAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/DieAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/DefendAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/AttackWingClawAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/AttackMouthAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheTerrorBringer/AttackFlameAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/WalkAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/TakeOffAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/SleepAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/ScreamAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/RunAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/LandAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/Idle02Anim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/Idle01Anim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/GetHitAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/FlyIdleAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/FlyGlideAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/FlyForwardAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/FlyFlameAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/DieAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/DefendAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/AttackMouthAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/AttackHandAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheUsurper/AttackFlameAnim"
+      ],
+      "maps": [
+        "/Game/FourEvilDragonsHP/Maps/FourEvilDragonsMP",
+        "/Game/FourEvilDragonsHP/Maps/DragonTheUsurper",
+        "/Game/FourEvilDragonsHP/Maps/DragonTheTerrorBringer",
+        "/Game/FourEvilDragonsHP/Maps/DragonTheSoulEater",
+        "/Game/FourEvilDragonsHP/Maps/DragonTheNightmare"
+      ],
+      "summary": {
+        "skeletal_mesh_count": 4,
+        "physics_asset_count": 4,
+        "skeleton_count": 4,
+        "animation_count": 69,
+        "map_count": 5,
+        "clothing_asset_count": 0
+      }
+    }
+  },
+  "warnings": [],
+  "errors": []
+}

@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-08-30T02:10:12.8947641-06:00",
+  "result": "passed",
+  "checks": {
+    "test_succeeded": true,
+    "d3d12_sm6": true,
+    "metrics_present": true,
+    "residual_captured_each_step": true,
+    "nonzero_safe_residual": true,
+    "safe_run_has_no_fallback": true,
+    "topology_change_invalidates_all_free_particles": true
+  },
+  "evidence": {
+    "maximum_forwarded_residual_cm": 0.128833,
+    "topology_fallback_events": 30,
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuResidualReuseAutomation\\index.json"
+  }
+}

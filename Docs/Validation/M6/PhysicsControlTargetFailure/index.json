@@ -1,0 +1,23 @@
+{
+  "status": "preserved_expected_engineering_failure",
+  "run": "realtime_run.log",
+  "engine": "5.4.4-35576357+++UE5+Release-5.4",
+  "observed": {
+    "physics_body_count": 22,
+    "research_control_count": 22,
+    "baseline_final_pose_error_deg": 107.60364828567778,
+    "research_final_pose_error_deg": 130.8568367592685,
+    "baseline_final_pelvis_displacement_cm": 152.21392920229925,
+    "research_final_pelvis_displacement_cm": 867.787109248709
+  },
+  "diagnosis": [
+    "PhysicsControl 的 BodyModifier 运动类型在 PrePhysics tick 消费，而同一 PostPhysics tick 内立即施加冲量，导致 spine_03 当帧仍未进入模拟状态。",
+    "世界空间 pelvis 控制未形成足够明确、稳定的参考目标，且首版力上限不能证明覆盖整身重力与扰动。"
+  ],
+  "fix": [
+    "在共享冲量前同步启用 pelvis 以下刚体模拟，再由 BodyModifier 接管后续运动类型。",
+    "pelvis 世界控制改为显式初始世界位姿目标，关闭该控制的动画叠加，并在当前架构验证阶段取消力/力矩上限。",
+    "降低父子角控制强度，避免多体链过强驱动。"
+  ],
+  "claim_boundary": "该失败用于证明控制目标、tick 相位和驱动力预算必须显式设计；它不是论文方法失败，也不作为最终效果数据。"
+}

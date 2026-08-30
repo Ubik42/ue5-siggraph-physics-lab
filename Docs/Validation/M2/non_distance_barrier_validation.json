@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-08-30T01:16:41.6503261-06:00",
+  "result": "passed",
+  "checks": {
+    "test_discovered": true,
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "metrics_present": true,
+    "paper_multiplier_k2": true,
+    "consecutive_activation_observed": true,
+    "safety_weight_cap_observed": true,
+    "saturation_counted": true
+  },
+  "evidence": {
+    "base_weight": 3.0,
+    "activation_multiplier": 2.0,
+    "maximum_weight": 48.0,
+    "maximum_activation_count": 5,
+    "saturated_weight_updates": 2,
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\NonDistanceBarrierAutomation\\index.json"
+  }
+}

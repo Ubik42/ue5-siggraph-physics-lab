@@ -1,0 +1,63 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float4> BarrierPositions;
+StructuredBuffer<float4> BarrierCollisionSpheres;
+StructuredBuffer<float4> BarrierCollisionCapsuleStarts;
+StructuredBuffer<float4> BarrierCollisionCapsuleEnds;
+RWStructuredBuffer<uint> BarrierActivationCounts;
+
+uint BarrierParticleCount;
+uint BarrierColumns;
+uint BarrierSphereCount;
+uint BarrierCapsuleCount;
+uint BarrierPrimitiveCapacity;
+
+float DistanceSquaredToSegment(float3 Point, float3 SegmentStart, float3 SegmentEnd)
+{
+    const float3 Segment = SegmentEnd - SegmentStart;
+    const float SegmentLengthSquared = dot(Segment, Segment);
+    const float Alpha = SegmentLengthSquared > 1.e-8
+        ? saturate(dot(Point - SegmentStart, Segment) / SegmentLengthSquared)
+        : 0.0;
+    const float3 ClosestPoint = SegmentStart + Alpha * Segment;
+    const float3 Offset = Point - ClosestPoint;
+    return dot(Offset, Offset);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void MainCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint LinearIndex = DispatchThreadId.x;
+    const uint TotalStateCount = BarrierParticleCount * BarrierPrimitiveCapacity;
+    if (LinearIndex >= TotalStateCount)
+    {
+        return;
+    }
+    const uint ParticleIndex = LinearIndex / BarrierPrimitiveCapacity;
+    const uint PrimitiveIndex = LinearIndex - ParticleIndex * BarrierPrimitiveCapacity;
+    const uint ActivePrimitiveCount = BarrierSphereCount + BarrierCapsuleCount;
+    if (ParticleIndex < BarrierColumns || PrimitiveIndex >= ActivePrimitiveCount)
+    {
+        BarrierActivationCounts[LinearIndex] = 0;
+        return;
+    }
+
+    const float3 Position = BarrierPositions[ParticleIndex].xyz;
+    bool bActive = false;
+    if (PrimitiveIndex < BarrierSphereCount)
+    {
+        const float4 Sphere = BarrierCollisionSpheres[PrimitiveIndex];
+        const float3 Offset = Position - Sphere.xyz;
+        bActive = dot(Offset, Offset) < Sphere.w * Sphere.w;
+    }
+    else
+    {
+        const uint CapsuleIndex = PrimitiveIndex - BarrierSphereCount;
+        const float4 CapsuleStart = BarrierCollisionCapsuleStarts[CapsuleIndex];
+        const float3 CapsuleEnd = BarrierCollisionCapsuleEnds[CapsuleIndex].xyz;
+        bActive = DistanceSquaredToSegment(Position, CapsuleStart.xyz, CapsuleEnd) < CapsuleStart.w * CapsuleStart.w;
+    }
+    BarrierActivationCounts[LinearIndex] = bActive
+        ? min(BarrierActivationCounts[LinearIndex] + 1, 30u)
+        : 0u;
+}

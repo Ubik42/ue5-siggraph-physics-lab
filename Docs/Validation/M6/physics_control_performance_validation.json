@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-08-30T15:23:36.9642086-06:00",
+  "result": "passed",
+  "protocol": "Three isolated UE game processes, fixed 60 Hz simulation, NullRHI, 1800 samples each, first 300 discarded.",
+  "scope": "End-to-end wall interval covers the isolated frame with 44 Chaos bodies; the separately attributed timer wraps Epic UPhysicsControlComponent::TickComponent for 22 controls/body modifiers.",
+  "claim_boundary": "NullRHI removes rendering cost. Frame wall time is not named Chaos solver time, and it is not subtracted from the PhysicsControl timer. Results are machine-specific CPU evidence, not a cross-platform shipping budget.",
+  "pooled": {
+    "measurement_samples": 4500,
+    "frame_wall_p50_ms": 1.065898687,
+    "frame_wall_p95_ms": 1.276899129,
+    "frame_wall_p99_ms": 1.429799944,
+    "physics_control_update_p50_ms": 0.0446,
+    "physics_control_update_p95_ms": 0.0506,
+    "physics_control_update_p99_ms": 0.0943
+  },
+  "trials": [
+    {
+      "trial": 1,
+      "contract_pass": true,
+      "summary_matches_csv": true,
+      "physical_state_bounded": true,
+      "frame_wall_p95_ms": 1.234199852,
+      "frame_wall_p99_ms": 1.363497227,
+      "physics_control_update_p95_ms": 0.0494,
+      "physics_control_update_p99_ms": 0.0884
+    },
+    {
+      "trial": 2,
+      "contract_pass": true,
+      "summary_matches_csv": true,
+      "physical_state_bounded": true,
+      "frame_wall_p95_ms": 1.301202923,
+      "frame_wall_p99_ms": 1.576699317,
+      "physics_control_update_p95_ms": 0.0534,
+      "physics_control_update_p99_ms": 0.1084
+    },
+    {
+      "trial": 3,
+      "contract_pass": true,
+      "summary_matches_csv": true,
+      "physical_state_bounded": true,
+      "frame_wall_p95_ms": 1.293897629,
+      "frame_wall_p99_ms": 1.428898424,
+      "physics_control_update_p95_ms": 0.0503,
+      "physics_control_update_p99_ms": 0.0678
+    }
+  ],
+  "checks": {
+    "capture_has_three_owned_trials": true,
+    "all_trial_contracts_pass": true,
+    "runtime_summaries_match_csv": true,
+    "all_trials_keep_physical_state_bounded": true,
+    "pooled_sample_count_is_4500": true,
+    "end_to_end_frame_p95_under_4ms": true,
+    "end_to_end_frame_p99_under_6ms": true,
+    "every_trial_frame_p99_under_8ms": true,
+    "physics_control_p95_under_0_2ms": true,
+    "physics_control_p99_under_0_3ms": true,
+    "every_trial_control_p99_under_0_4ms": true,
+    "source_times_full_epic_component_tick": true
+  },
+  "failed_checks": []
+}

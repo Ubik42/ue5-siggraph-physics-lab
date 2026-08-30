@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-08-30T13:01:02.2217529-06:00",
+  "case": "Case04_DifferentiablePhysicsInverseDesign",
+  "result": "passed",
+  "frozen_scope": "Forward-tangent differentiable dynamics across spring, ballistic, and coupled-chain benchmarks, with same-parameter Chaos Constraint replay",
+  "checks": {
+    "standard_benchmark_1_damped_spring_passed": true,
+    "standard_benchmark_2_ballistic_passed": true,
+    "standard_benchmark_3_coupled_chain_passed": true,
+    "full_inverse_design_regression_10_of_10": true,
+    "independent_ue_map_is_saved": true,
+    "real_chaos_constraint_replay_passed": true,
+    "interaction_and_expected_failure_passed": true,
+    "structured_runtime_csv_and_json_exist": true,
+    "two_gui_screenshots_are_nontrivial": true,
+    "benchmark_scene_mapping_is_documented": true,
+    "performance_mean_and_p95_are_reported": true,
+    "golden_path_is_30_to_90_seconds": true,
+    "honest_scope_is_frozen": true,
+    "ue_chaos_paper_and_personal_attribution_is_documented": true
+  },
+  "failed_checks": [],
+  "next_milestone": "M6 / Case05 Physics Driven Character"
+}

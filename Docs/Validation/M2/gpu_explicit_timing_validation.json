@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-08-30T05:44:09.2261278-06:00",
+  "result": "passed",
+  "checks": {
+    "d3d12_sm6": true,
+    "target_passed": true,
+    "timestamp_supported": true,
+    "non_blocking_ring_exercised": true,
+    "finite_distribution": true,
+    "full_step_scope_declared": true
+  },
+  "evidence": {
+    "automation_test": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.NonBlockingGpuTimestamp",
+    "render_mode": "D3D12_SM6",
+    "summary": "Explicit GPU timestamp: supported=true steps=16 samples=8 skipped=8 latest_step=8 mean_ms=0.113750 p95_ms=0.189000 p99_ms=0.189000 max_ms=0.189000 scope=full_step_rdg_interval",
+    "scope": "RQT_AbsoluteTime 查询围住完整显式固定步 RDG 区间；8 槽满时记录 skipped，不等待 GPU，因此不是 CPU 提交耗时，也不是单 kernel 时间"
+  }
+}

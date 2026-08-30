@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "995D481B471B7FC700C5AC8B4EED145F",
+			"instanceName": "LUCASSHENHOMEPC-33536",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-07.04.07",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.39539098739624023,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "PersistentCantilever",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuXpbd.PersistentCantilever",
+			"state": "Success",
+			"deviceInstance": [
+				"995D481B471B7FC700C5AC8B4EED145F"
+			],
+			"duration": 0.39539098739624023,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Persistent GPU soft body: rhi=D3D12 steps=120 iterations=32 vertices=45 edges=180 tets=96 readbacks=2 latest_step=120 distance_passes=3840 volume_passes=3840 gather_passes=3840 gpu_residual=0.060672134 cpu_residual=0.064199203 residual_ratio=0.945060544 gpu_edge_max=0.320076168 gpu_volume_mean=0.033053565 gpu_tip_cm=18.553828 gpu_fixed_drift_cm=0.000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-13.04.07"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

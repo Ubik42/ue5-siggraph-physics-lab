@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-08-30T13:59:50.5340388-06:00",
+  "result": "passed",
+  "scope": "Player-facing pose selection, physical push, recovery request, and reset actions on the existing Chaos/PhysicsControl/ALS handoff map.",
+  "claim_boundary": "This proves local player interaction and deterministic replay through the same C++ actions. It does not yet prove Lyra Enhanced Input, GAS, server authority, or replication.",
+  "checks": {
+    "exact_engine_build": true,
+    "keyboard_and_replay_share_action_path": true,
+    "exact_interaction_counts": true,
+    "scripted_sequence_completed": true,
+    "input_module_dependency_is_explicit": true,
+    "hud_documents_all_controls_in_chinese": true,
+    "screenshot_exists_and_is_nontrivial": true
+  },
+  "runtime": {
+    "engine": "5.4.4-35576357+++UE5+Release-5.4",
+    "pose_selection_count": 2,
+    "push_count": 1,
+    "recovery_request_count": 3,
+    "reset_count": 1,
+    "script_step_count": 6,
+    "final_branch": "RejectMoving",
+    "final_phase": "Rejected",
+    "uses_same_actions_as_keyboard": true,
+    "interaction_pass": true
+  },
+  "screenshot": "Docs/Validation/M6/Screenshots/Case05_ALS_Interaction.png",
+  "manual_visual_inspection": "passed: Chinese key legend and exact interaction counters are visible; the active Manny is physically disturbed and rejected while comparison lanes remain prone.",
+  "failed_checks": []
+}

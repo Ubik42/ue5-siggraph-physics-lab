@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "6C8B53624F7D02CCE616788BE54410EF",
+			"instanceName": "LUCASSHENHOMEPC-38588",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-10.39.36",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.0075397975742816925,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "KinematicSolidBoundaryRaster",
+			"fullTestPath": "PhysicsResearch.FlowMap.KinematicSolidBoundaryRaster",
+			"state": "Success",
+			"deviceInstance": [
+				"6C8B53624F7D02CCE616788BE54410EF"
+			],
+			"duration": 0.0075397975742816925,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap kinematic solid raster cells=16x16 radius_cm=12 center=(0,0) linear_velocity=(20,0) angular_velocity=1.04719758 solid_cells=16 solid_u_faces=20 solid_v_faces=20 max_no_slip_residual=0 source=ue_chaos_rigid_body_transforms",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-16.39.36"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

@@ -1,0 +1,82 @@
+{
+  "result": "passed",
+  "source": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Saved\\AssetAuditExports\\Dragon_TerrorBringer.fbx",
+  "output": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Saved\\DerivedAssets\\Case02\\SM_TerrorBringer_SoftBodyCage.obj",
+  "blender_version": "5.2.0 LTS",
+  "voxel_resolution": 64,
+  "voxel_size": 18.511016845703125,
+  "target_triangles": 6000,
+  "source_stats": {
+    "vertices": 2876,
+    "edges": 7550,
+    "triangles": 4684,
+    "boundary_edges": 1048,
+    "non_manifold_edges": 1048,
+    "connected_components": 28,
+    "signed_volume": 31577187.689171124,
+    "bounds_min": [
+      -572.6185302734375,
+      -477.8958740234375,
+      -592.3526000976562
+    ],
+    "bounds_max": [
+      385.06231689453125,
+      547.0858154296875,
+      592.3524780273438
+    ],
+    "bounds_size": [
+      957.6808471679688,
+      1024.981689453125,
+      1184.705078125
+    ]
+  },
+  "after_voxel_stats": {
+    "vertices": 7052,
+    "edges": 14100,
+    "triangles": 14100,
+    "boundary_edges": 0,
+    "non_manifold_edges": 0,
+    "connected_components": 1,
+    "signed_volume": 0.0,
+    "bounds_min": [
+      -544.4803466796875,
+      -460.23809814453125,
+      -583.1820068359375
+    ],
+    "bounds_max": [
+      364.0071105957031,
+      539.9981079101562,
+      580.4014892578125
+    ],
+    "bounds_size": [
+      908.4874572753906,
+      1000.2362060546875,
+      1163.58349609375
+    ]
+  },
+  "final_stats": {
+    "vertices": 3002,
+    "edges": 9000,
+    "triangles": 6000,
+    "boundary_edges": 0,
+    "non_manifold_edges": 0,
+    "connected_components": 1,
+    "signed_volume": 31081984.71182686,
+    "bounds_min": [
+      -544.4803466796875,
+      -459.6700744628906,
+      -583.1820068359375
+    ],
+    "bounds_max": [
+      364.3325500488281,
+      526.4244995117188,
+      579.1770629882812
+    ],
+    "bounds_size": [
+      908.8128967285156,
+      986.0945739746094,
+      1162.3590698242188
+    ]
+  },
+  "license_boundary": "Derived from local Fab asset; keep local and do not redistribute without the source package license."
+}

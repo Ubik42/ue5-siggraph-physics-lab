@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "82F85DFC4F19C023D12D458A95797EE0",
+			"instanceName": "LUCASSHENHOMEPC-34448",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-09.23.56",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.61129730939865112,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "ImpulseVortexClosedLoop",
+			"fullTestPath": "PhysicsResearch.FlowMap.ImpulseVortexClosedLoop",
+			"state": "Success",
+			"deviceInstance": [
+				"82F85DFC4F19C023D12D458A95797EE0"
+			],
+			"duration": 0.61129730939865112,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap impulse vortex steps=120 cells=32x32 particles=4096 dt=0.00416666688 pressure_iterations=128 short_resets=120 long_resets=6 short_velocity_rms=11.1807115 long_pic_velocity_rms=1.03064991 long_gradient_velocity_rms=0.0179087067 long_pic_to_short_rms=0.0921810671 long_gradient_to_long_pic_rms=0.0173761299 short_relative_rms=0.790595709 long_pic_relative_rms=0.0728779561 long_gradient_relative_rms=0.00126633683 short_divergence_rms=9.40632255e-07 long_pic_divergence_rms=0.000306618538 long_gradient_divergence_rms=0.000361996196 short_max_divergence=1.87754631e-06 long_pic_max_divergence=0.000605108857 long_gradient_max_divergence=0.000714283204 initial_energy=99.0392652 short_energy=4.38525443 long_pic_energy=85.9592459 long_gradient_energy=100.229102 long_gradient_jacobian_det_error_max=0.000184297562",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-15.23.56"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

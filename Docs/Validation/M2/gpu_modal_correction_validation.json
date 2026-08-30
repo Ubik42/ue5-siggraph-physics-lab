@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-08-30T01:33:19.5917431-06:00",
+  "result": "passed",
+  "checks": {
+    "test_discovered": true,
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "d3d12_sm6": true,
+    "metrics_present": true,
+    "expected_particle_count": true,
+    "expected_mode_count": true,
+    "modal_pass_each_step": true,
+    "low_frequency_energy_reduced": true,
+    "sag_reduced": true,
+    "meaningful_gravity_response_preserved": true
+  },
+  "evidence": {
+    "particles": 300,
+    "modes": 12,
+    "steps": 90,
+    "baseline_low_frequency_energy": 166774.355067947,
+    "modal_low_frequency_energy": 29762.989232249,
+    "energy_ratio": 0.17846262526467574,
+    "baseline_bottom_drop_cm": 32.882854,
+    "modal_bottom_drop_cm": 13.636112,
+    "gravity_response_ratio": 0.41468760588725057,
+    "modal_passes": 90,
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuModalCorrectionAutomation\\index.json"
+  }
+}

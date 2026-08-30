@@ -1,0 +1,77 @@
+Binaries/
+Builds/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+*.sln
+*.VC.db
+*.opensdf
+
+# 插件内生成目录。
+Plugins/**/Binaries/
+Plugins/**/DerivedDataCache/
+Plugins/**/Intermediate/
+Plugins/**/Saved/
+
+# 本地 IDE、分析与运行日志。
+.idea/
+.vscode/
+*.code-workspace
+*.user
+*.userprefs
+*.utrace
+*.ucache
+*.nprof
+*.log
+
+# Case05 弱网证据需要可复查的原始 Network Profiler 与两端事件日志。
+!/Docs/Validation/M6/NetworkProfiles/Case05_Server_100ms_5pct.nprof
+!/Docs/Validation/M6/NetworkProfiles/Case05_Client_100ms_5pct.nprof
+!/Docs/Validation/M6/recoverable_fall_profile_server.log
+!/Docs/Validation/M6/recoverable_fall_profile_client.log
+!/Docs/Validation/M7/packaged_hub_smoke.log
+!/Docs/Validation/M7/packaged_route_case05.log
+
+# Marketplace/Fab 资产不随源码仓公开再分发。
+Content/Marketplace/
+Content/Assassin/
+Content/FourEvilDragonsHP/
+
+# 本仓采用 Lyra 5.4 覆盖层策略：Epic 基座不重复纳入个人源码仓。
+/Source/
+/Build/
+/Platforms/
+/Content/*
+!/Content/PhysicsResearch/
+!/Content/PhysicsResearch/**
+
+# 只跟踪个人插件；其余 Lyra 插件从已安装样例恢复。
+/Plugins/*
+!/Plugins/PhysicsResearch/
+!/Plugins/PhysicsResearch/**
+!/Plugins/GameFeatures/
+/Plugins/GameFeatures/*
+!/Plugins/GameFeatures/PhysicsContactCloth/
+!/Plugins/GameFeatures/PhysicsContactCloth/**
+!/Plugins/GameFeatures/PhysicsSoftBody/
+!/Plugins/GameFeatures/PhysicsSoftBody/**
+!/Plugins/GameFeatures/PhysicsFlowMap/
+!/Plugins/GameFeatures/PhysicsFlowMap/**
+!/Plugins/GameFeatures/PhysicsInverseDesign/
+!/Plugins/GameFeatures/PhysicsInverseDesign/**
+!/Plugins/GameFeatures/PhysicsDrivenCharacter/
+!/Plugins/GameFeatures/PhysicsDrivenCharacter/**
+
+# 白名单之后再次排除插件生成物，避免否定规则把它们重新纳入。
+/Plugins/PhysicsResearch/Binaries/
+/Plugins/PhysicsResearch/DerivedDataCache/
+/Plugins/PhysicsResearch/Intermediate/
+/Plugins/PhysicsResearch/Saved/
+/Plugins/GameFeatures/Physics*/Binaries/
+/Plugins/GameFeatures/Physics*/DerivedDataCache/
+/Plugins/GameFeatures/Physics*/Intermediate/
+/Plugins/GameFeatures/Physics*/Saved/
+
+# Case 02 的 Dragon 封闭外壳是 Fab 网格的本地派生物；必须放在白名单规则之后再排除。
+/Plugins/GameFeatures/PhysicsSoftBody/Content/DragonDerived/

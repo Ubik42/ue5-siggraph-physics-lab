@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "D1652BDA4D04ED2EFE55C48D0F2AAD99",
+			"instanceName": "LUCASSHENHOMEPC-9460",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-09.11.03",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.099839702248573303,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "EvolvingScalarTransportAblation",
+			"fullTestPath": "PhysicsResearch.FlowMap.EvolvingScalarTransportAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"D1652BDA4D04ED2EFE55C48D0F2AAD99"
+			],
+			"duration": 0.099839702248573303,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap evolving scalar steps=120 cells=32x32 particles=4096 dt=0.0166666675 velocity_cm_s=20,10 field_cycles=2,2 pic_resets=120 long_resets=6 pic_rms=0.498927116 long_pic_rms=0.12373981 long_gradient_rms=0.00764403298 long_gradient_to_pic_rms=0.0153209411 long_gradient_to_long_pic_rms=0.06177505 pic_relative_rms=0.997854277 long_gradient_relative_rms=0.0152880666 pic_amplitude=0.00206500711 long_pic_amplitude=0.72392863 long_gradient_amplitude=0.97669661 exact_amplitude=0.961939871 pic_energy=1.15103306e-06 long_pic_energy=0.141571726 long_gradient_energy=0.257702112 exact_energy=0.249999978",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-15.11.03"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

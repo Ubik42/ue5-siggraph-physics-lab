@@ -1,0 +1,37 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float4> CurrentPositions;
+StructuredBuffer<float4> PreviousPositions;
+StructuredBuffer<float4> ForwardedResiduals;
+RWStructuredBuffer<float4> PredictedPositions;
+
+uint ParticleCount;
+uint Columns;
+float FixedDeltaSecondsSquared;
+float VelocityDamping;
+float3 GravityCmPerSecondSquared;
+uint ResidualReuseEnabled;
+float ResidualForwardScale;
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void MainCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    uint Index = DispatchThreadId.x;
+    if (Index >= ParticleCount)
+    {
+        return;
+    }
+
+    float3 Current = CurrentPositions[Index].xyz;
+    if (Index < Columns)
+    {
+        PredictedPositions[Index] = float4(Current, 1.0);
+        return;
+    }
+
+    float3 Previous = PreviousPositions[Index].xyz;
+    float3 VelocityDisplacement = (Current - Previous) * VelocityDamping;
+    float3 ForwardedResidual = ResidualReuseEnabled != 0 ? ForwardedResiduals[Index].xyz * ResidualForwardScale : 0.0;
+    float3 Predicted = Current + VelocityDisplacement + GravityCmPerSecondSquared * FixedDeltaSecondsSquared + ForwardedResidual;
+    PredictedPositions[Index] = float4(Predicted, 0.0);
+}

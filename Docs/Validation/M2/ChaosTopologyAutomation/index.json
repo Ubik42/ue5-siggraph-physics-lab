@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "DAAAB57143B664AA66DB0497A6CA3FF3",
+			"instanceName": "LUCASSHENHOMEPC-27872",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-03.30.18",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.0080837979912757874,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "ChaosClothTopologyExtraction",
+			"fullTestPath": "PhysicsResearch.ContactCloth.ChaosClothTopologyExtraction",
+			"state": "Success",
+			"deviceInstance": [
+				"DAAAB57143B664AA66DB0497A6CA3FF3"
+			],
+			"duration": 0.0080837979912757874,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Chaos cloth topology: assets=2 vertices=2011 triangles=3705 unique_edges=5714 fixed_vertices=1307 dynamic_vertices=704 max_distance_movable=704",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-09.30.18"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

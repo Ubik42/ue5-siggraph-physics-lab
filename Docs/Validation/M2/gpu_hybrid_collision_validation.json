@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-30T01:52:42.7255849-06:00",
+  "result": "passed",
+  "checks": {
+    "ccd_test_succeeded": true,
+    "ndb_test_succeeded": true,
+    "ablation_test_succeeded": true,
+    "d3d12_sm6": true,
+    "metrics_present": true,
+    "discrete_baseline_tunnels": true,
+    "ccd_stops_at_entry": true,
+    "ndb_is_finite_penalty": true,
+    "ndb_sustained_contact_stiffens": true,
+    "ablation_ndb_has_independent_benefit": true,
+    "ablation_ccd_has_independent_benefit": true,
+    "ccd_not_misreported_as_depenetration": true,
+    "full_method_preserves_both_effects": true
+  },
+  "evidence": {
+    "discrete_crossing_z_cm": -100.000023,
+    "ccd_clamped_z_cm": 10.010031,
+    "first_contact_penetration_cm": 4.545455,
+    "sustained_contact_penetration_cm": 1.503126,
+    "ablation_constant_penetration_cm": 4.113512,
+    "ablation_ndb_penetration_cm": 1.503126,
+    "ablation_constant_no_ccd_crossing_z_cm": -100.000023,
+    "ablation_constant_ccd_crossing_z_cm": 10.010031,
+    "ccd_automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuCompleteCcdIntegrationAutomation\\index.json",
+    "ndb_automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuNonDistanceBarrierIntegrationAutomation\\index.json",
+    "ablation_automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuHybridAblationAutomation\\index.json"
+  }
+}

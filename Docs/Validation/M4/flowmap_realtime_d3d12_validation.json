@@ -1,0 +1,39 @@
+{
+  "case": "Case03 Flow Map + Live Chaos moving obstacle",
+  "map": "/PhysicsFlowMap/Maps/L_FlowMapChaosObstacle",
+  "rhi": "D3D12 SM6",
+  "runtime_gate_passed": true,
+  "steps_executed": 389,
+  "solid_boundary_applications": 389,
+  "latest_boundary_version": 389,
+  "readbacks_completed": 193,
+  "latest_snapshot_step": 386,
+  "rejected_snapshots": 0,
+  "gpu_timing_samples": 371,
+  "steady_state_mean_gpu_step_ms": 0.773819,
+  "maximum_velocity_cm_per_second": 71.058464,
+  "velocity_limited_faces": 0,
+  "pressure_potential_minimum": -207.498276,
+  "pressure_potential_maximum": 309.623138,
+  "interaction": {
+    "script_phase_completed": 6,
+    "pause_resume_toggles": 2,
+    "single_steps": 1,
+    "full_chain_resets": 1,
+    "debug_toggles": 2,
+    "metric_exports": 1,
+    "export_json_and_csv_created": true
+  },
+  "flow_map_regression": {
+    "succeeded": 15,
+    "failed": 0,
+    "not_run": 0
+  },
+  "notes": [
+    "运行使用真实 Chaos UStaticMeshComponent 刚体 Pose，而不是预制 Pose 数组。",
+    "GPU 平流加入 CFL 速度钳位与非有限值恢复；游戏线程在写入 ISM 前再次拒绝坏快照。",
+    "交互运行在重置后重新统计 389 步，边界应用数与版本均严格等于 389。",
+    "加入可视化与速度预算后再次执行完整交互门，结果继续通过。",
+    "该门验证实时生命周期、交互和稳定性，不替代后续长序列 CSV 与截图验收。"
+  ]
+}

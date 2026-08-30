@@ -1,0 +1,11 @@
+{
+  "result": "passed",
+  "asset": "/Game/Assassin/Mesh/SKM_Assassin_Skin1",
+  "asset_loaded": true,
+  "clothing_assets": 2,
+  "cloth_simulation_created": true,
+  "runtime_cloth_data": true,
+  "simulated_particles": 2011,
+  "maximum_observed_displacement_cm": 30.292314320,
+  "fallback_required": false
+}

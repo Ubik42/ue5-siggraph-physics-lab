@@ -1,0 +1,137 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "4E4265434580D90EB0283C973CD49EAC",
+			"instanceName": "LUCASSHENHOMEPC-38732",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-11.30.08",
+	"succeeded": 4,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.096855595707893372,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuClosedLoop",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoop",
+			"state": "Success",
+			"deviceInstance": [
+				"4E4265434580D90EB0283C973CD49EAC"
+			],
+			"duration": 0.014029201120138168,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU closed loop rhi=D3D12 cells=16x16 particles=256 steps=4 dt=0.00416666688 pressure_iterations=64 readback_interval=2 steps_enqueued=4 steps_executed=4 advection_passes=4 gather_passes=8 divergence_passes=4 jacobi_passes=256 apply_passes=8 readbacks_completed=2 snapshot_step=4 cpu_divergence=1.65896135e-06 gpu_divergence=1.65735848e-06 max_face_error=1.8119812e-05 max_jacobian_det_error=0.000160634518",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.30.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuClosedLoopMapReset",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoopMapReset",
+			"state": "Success",
+			"deviceInstance": [
+				"4E4265434580D90EB0283C973CD49EAC"
+			],
+			"duration": 0.014395397156476974,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU map reset rhi=D3D12 cells=16x16 particles=256 steps=8 reset_interval=4 cpu_map_resets=2 gpu_map_resets=2 reset_passes=2 advection_passes=8 gather_passes=16 divergence_passes=8 jacobi_passes=512 apply_passes=16 readbacks_completed=2 snapshot_step=8 cpu_divergence=1.60987398e-06 gpu_divergence=1.61093468e-06 max_face_error=2.00271606e-05 max_jacobian_identity_error=0 max_jacobian_det_error=0",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.30.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuClosedLoopSolidBoundary",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoopSolidBoundary",
+			"state": "Success",
+			"deviceInstance": [
+				"4E4265434580D90EB0283C973CD49EAC"
+			],
+			"duration": 0.009947899729013443,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU solid boundary rhi=D3D12 steps=2 updates=2 applications=2 latest_version=2 solid_cells=16 solid_u_faces=20 solid_v_faces=21 solid_circles=1 particle_projection_passes=2 particles_inside_solid=0 minimum_particle_clearance_cm=0.0499992371 max_no_slip_residual=0 fluid_divergence_rms=0.0190895407 max_fluid_divergence=0.0194439888 pressure_iterations=256 boundary_source=ue_chaos_pose_versions",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.30.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuClosedLoopTimestamp",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoopTimestamp",
+			"state": "Success",
+			"deviceInstance": [
+				"4E4265434580D90EB0283C973CD49EAC"
+			],
+			"duration": 0.058483101427555084,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU timestamp rhi=D3D12 steps=32 samples=11 skipped=21 warmup_steps=4 steady_samples=7 latest_step=8 latest_ms=1.136 mean_ms=1.386 p95_ms=3.079 p99_ms=3.079 max_ms=3.079 steady_mean_ms=1.53585714 steady_p95_ms=3.079 steady_p99_ms=3.079 steady_max_ms=3.079 scope=full_step_rdg_interval",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-17.30.08"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

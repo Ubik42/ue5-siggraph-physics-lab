@@ -1,0 +1,25 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0",
+  "FriendlyName": "物理作品 02：GPU 多尺度软体",
+  "Description": "Chaos/Flesh 基线与多尺度软体研究后端的独立复现 Case。",
+  "Category": "SIGGRAPH Physics Lab",
+  "CreatedBy": "Ubik",
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "EnabledByDefault": false,
+  "ExplicitlyLoaded": true,
+  "BuiltInInitialFeatureState": "Registered",
+  "Modules": [
+    {
+      "Name": "PhysicsSoftBodyRuntime",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    { "Name": "PhysicsResearch", "Enabled": true }
+  ]
+}

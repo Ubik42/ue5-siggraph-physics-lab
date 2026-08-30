@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "FB6992694A5EA832E78FDF98A966F685",
+			"instanceName": "LUCASSHENHOMEPC-36076",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-09.41.38",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.017297301441431046,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuPressurePersistentSession",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuPressurePersistentSession",
+			"state": "Success",
+			"deviceInstance": [
+				"FB6992694A5EA832E78FDF98A966F685"
+			],
+			"duration": 0.017297301441431046,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU pressure session rhi=D3D12 cells=32x16 steps=4 iterations_per_step=128 readback_interval=2 steps_enqueued=4 steps_executed=4 readbacks_completed=2 snapshot_step=4 divergence_passes=4 jacobi_passes=512 apply_passes=8 cpu_divergence_after=0.00989025984 gpu_divergence_after=0.00989027046 max_face_error=5.30905072e-06",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-15.41.38"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

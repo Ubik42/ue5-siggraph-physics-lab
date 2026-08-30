@@ -1,0 +1,191 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "BC179F444F44A490154134AB060915D8",
+			"instanceName": "LUCASSHENHOMEPC-34952",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-04.23.44",
+	"succeeded": 6,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.13645049929618835,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Blocking",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.Blocking",
+			"state": "Success",
+			"deviceInstance": [
+				"BC179F444F44A490154134AB060915D8"
+			],
+			"duration": 0.021116700023412704,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU explicit Chaos topology: particles=2011 edges=5714 iterations=128 input_edge_error_cm=9.621097 output_edge_error_cm=0.342501 fixed_drift_cm=0.000000000 blocking_wall_ms=17.857",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.23.44"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CompleteCcdAblation",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.CompleteCcdAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"BC179F444F44A490154134AB060915D8"
+			],
+			"duration": 0.030553501099348068,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit topology complete CCD: discrete_z=-100.000015 ccd_z=10.010019 fixed_index_1_drift_cm=0.000000000 discrete_passes=0 ccd_passes=1",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.23.44"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "KinematicTargets",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.KinematicTargets",
+			"state": "Success",
+			"deviceInstance": [
+				"BC179F444F44A490154134AB060915D8"
+			],
+			"duration": 0.019900098443031311,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU kinematic cloth targets: particles=2011 fixed=1307 dynamic=704 steps=30 target_updates=30 target_applications=30 target_version=30 final_readback_step=30 fixed_target_error_cm=0.000000000 minimum_fixed_motion_cm=10.145111 average_dynamic_displacement_cm=9.257427 maximum_edge_error_cm=1.144274",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.23.44"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NonDistanceBarrierAblation",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.NonDistanceBarrierAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"BC179F444F44A490154134AB060915D8"
+			],
+			"duration": 0.0092039965093135834,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit topology NDB: constant_penetration_cm=4.113513 ndb_penetration_cm=1.503128 ndb_updates=4 active_pairs=1 maximum_activation=4 fixed_index_1_drift_cm=0.000000000 capacity_overflow_rejected=true",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.23.44"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PhysicsAssetCollision",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.PhysicsAssetCollision",
+			"state": "Success",
+			"deviceInstance": [
+				"BC179F444F44A490154134AB060915D8"
+			],
+			"duration": 0.007803499698638916,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU explicit Physics Asset collision: particles=2011 probe=299 spheres=1 capsules=0 steps=1 collision_updates=1 collision_applications=1 collision_version=1 input_penetration_cm=9.000000 output_penetration_cm=0.000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.23.44"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Realtime",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.Realtime",
+			"state": "Success",
+			"deviceInstance": [
+				"BC179F444F44A490154134AB060915D8"
+			],
+			"duration": 0.047872699797153473,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU explicit realtime Chaos topology: particles=2011 edges=5714 fixed=1307 dynamic=704 steps=90 readbacks=2 final_readback_step=90 average_dynamic_displacement_cm=27.362141 dynamic_displacement_p95_cm=58.782005 average_dynamic_z_cm=-25.273599 average_edge_error_cm=0.254785 edge_error_p95_cm=1.577348 edge_error_p99_cm=3.810907 maximum_edge_error_cm=7.226599 fixed_drift_cm=0.000000000 average_submission_ms=0.047918 maximum_submission_ms=0.102900",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.23.44"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

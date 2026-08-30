@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-08-30T08:08:26.7734117-06:00",
+  "result": "passed",
+  "source_asset": "/Game/FourEvilDragonsHP/Meshes/DragonTheTerrorBringer/DragonTheTerrorBringerSK",
+  "derived_asset": "/PhysicsSoftBody/DragonDerived/SM_TerrorBringer_SoftBodyCage.SM_TerrorBringer_SoftBodyCage",
+  "redistribution": "The generated UAsset remains local and is gitignored; scripts and non-geometric statistics are tracked.",
+  "checks": {
+    "generation_passed": true,
+    "source_audit_matches_terrorbringer": true,
+    "derived_shell_is_closed_single_component": true,
+    "import_passed_with_cpu_access": true,
+    "imported_into_case_namespace": true,
+    "local_licensed_derivative_exists": true,
+    "automation_passed": true,
+    "exact_binding_contract": true,
+    "rest_reconstruction_is_submillimeter": true,
+    "deformation_is_observable": true
+  },
+  "generation": {
+    "result": "passed",
+    "source": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Saved\\AssetAuditExports\\Dragon_TerrorBringer.fbx",
+    "output": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Saved\\DerivedAssets\\Case02\\SM_TerrorBringer_SoftBodyCage.obj",
+    "blender_version": "5.2.0 LTS",
+    "voxel_resolution": 64,
+    "voxel_size": 18.511016845703125,
+    "target_triangles": 6000,
+    "source_stats": {
+      "vertices": 2876,
+      "edges": 7550,
+      "triangles": 4684,
+      "boundary_edges": 1048,
+      "non_manifold_edges": 1048,
+      "connected_components": 28,
+      "signed_volume": 31577187.689171124,
+      "bounds_min": [
+        -572.6185302734375,
+        -477.8958740234375,
+        -592.3526000976562
+      ],
+      "bounds_max": [
+        385.06231689453125,
+        547.0858154296875,
+        592.3524780273438
+      ],
+      "bounds_size": [
+        957.6808471679688,
+        1024.981689453125,
+        1184.705078125
+      ]
+    },
+    "after_voxel_stats": {
+      "vertices": 7052,
+      "edges": 14100,
+      "triangles": 14100,
+      "boundary_edges": 0,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "signed_volume": 0.0,
+      "bounds_min": [
+        -544.4803466796875,
+        -460.23809814453125,
+        -583.1820068359375
+      ],
+      "bounds_max": [
+        364.0071105957031,
+        539.9981079101562,
+        580.4014892578125
+      ],
+      "bounds_size": [
+        908.4874572753906,
+        1000.2362060546875,
+        1163.58349609375
+      ]
+    },
+    "final_stats": {
+      "vertices": 3002,
+      "edges": 9000,
+      "triangles": 6000,
+      "boundary_edges": 0,
+      "non_manifold_edges": 0,
+      "connected_components": 1,
+      "signed_volume": 31081984.71182686,
+      "bounds_min": [
+        -544.4803466796875,
+        -459.6700744628906,
+        -583.1820068359375
+      ],
+      "bounds_max": [
+        364.3325500488281,
+        526.4244995117188,
+        579.1770629882812
+      ],
+      "bounds_size": [
+        908.8128967285156,
+        986.0945739746094,
+        1162.3590698242188
+      ]
+    },
+    "license_boundary": "Derived from local Fab asset; keep local and do not redistribute without the source package license."
+  },
+  "import": {
+    "result": "passed",
+    "source": "D:/3D/UE Projects/SIGGRAPHPhysicsLab/Saved/DerivedAssets\\Case02\\SM_TerrorBringer_SoftBodyCage.obj",
+    "object_path": "/PhysicsSoftBody/DragonDerived/SM_TerrorBringer_SoftBodyCage.SM_TerrorBringer_SoftBodyCage",
+    "class": "StaticMesh",
+    "imported_object_paths": [
+      "/PhysicsSoftBody/DragonDerived/SM_TerrorBringer_SoftBodyCage.SM_TerrorBringer_SoftBodyCage"
+    ],
+    "material_slots": 1,
+    "allow_cpu_access": true,
+    "bounds_origin_cm": [
+      -90.07389831542969,
+      2.002471923828125,
+      -33.37721252441406
+    ],
+    "bounds_extent_cm": [
+      454.4064483642578,
+      581.1795349121094,
+      493.0472869873047
+    ],
+    "license_boundary": "Local derivative of /Game/FourEvilDragonsHP; do not redistribute independently of the Fab source license."
+  },
+  "binding": {
+    "surface_vertices": 4854,
+    "cage_vertices": 729,
+    "cage_tetrahedra": 3072,
+    "rest_reconstruction_error_cm": 0.000141087,
+    "maximum_deformation_cm": 39.999282837,
+    "fixed_cage_vertices": 81
+  },
+  "failed_checks": []
+}

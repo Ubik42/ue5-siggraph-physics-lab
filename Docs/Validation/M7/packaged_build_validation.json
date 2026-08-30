@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-30T16:22:28.8019604-06:00",
+  "result": "passed",
+  "scope": "M7 Win64 Development archived package, default Chinese hub, rendered screenshot and packaged Hub-to-Case05 route smoke test.",
+  "archive": {
+    "root": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Builds\\M7_Win64",
+    "executable": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Builds\\M7_Win64\\Windows\\SIGGRAPHPhysicsLab\\Binaries\\Win64\\LyraGame.exe",
+    "executable_bytes": 314438144,
+    "pak_count": 3,
+    "pak_bytes": 66671799,
+    "utoc_count": 4,
+    "utoc_bytes": 1092500,
+    "ucas_count": 4,
+    "ucas_bytes": 561711136
+  },
+  "screenshot": {
+    "path": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M7\\Screenshots\\M7_Packaged_PortfolioHub.png",
+    "width": 1600,
+    "height": 900,
+    "bytes": 226243
+  },
+  "checks": {
+    "archived_game_executable_exists": true,
+    "pak_container_exists": true,
+    "iostore_toc_exists": true,
+    "iostore_data_exists": true,
+    "packaged_hub_started_and_exited_cleanly": true,
+    "packaged_hub_is_default_non_editor_mode": true,
+    "packaged_hub_screenshot_is_1600x900": true,
+    "packaged_hub_routes_to_case05": true,
+    "packaged_case05_map_finishes_loading": true,
+    "smoke_logs_have_no_fatal_error": true
+  },
+  "failed_checks": []
+}

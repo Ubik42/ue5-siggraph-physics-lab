@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-08-30T14:49:56.5875692-06:00",
+  "result": "passed",
+  "scope": "Case05 standard benchmark 3: three-joint recovery, equal-and-opposite coupling, distal-impulse ablation, and explicit torque-budget failure.",
+  "model_boundary": "Deterministic SI-unit articulated truth model. It is not a trained policy and is not yet a Chaos skeletal result.",
+  "recovery": {
+    "recovered": true,
+    "failed": false,
+    "initial_rms_deg": 53.6190265,
+    "final_rms_deg": 0.188491315,
+    "recovery_time_s": 1.108,
+    "peak_torque_hip_nm": 261.799388,
+    "peak_torque_knee_nm": 268.780705,
+    "peak_torque_spine_nm": 85.5211333,
+    "work_j": 82.4739762,
+    "steps": 555.0
+  },
+  "coupling_ablation": {
+    "impulse_nms": 12.0,
+    "coupled_proximal_deg": 2.10640718,
+    "coupled_distal_deg": 11.3064189,
+    "transfer_ratio": 0.186301888,
+    "uncoupled_proximal_deg": 0.0,
+    "coupled_recovered": true,
+    "uncoupled_recovered": true
+  },
+  "torque_failure": {
+    "recovered": false,
+    "failed": true,
+    "final_rms_deg": 51.0189987,
+    "torque_limit_hip_nm": 5.0,
+    "torque_limit_knee_nm": 4.0,
+    "torque_limit_spine_nm": 3.0,
+    "peak_hip_nm": 5.0,
+    "peak_knee_nm": 4.0,
+    "peak_spine_nm": 3.0,
+    "expected_failure": true
+  },
+  "rejected_failure_assumption": {
+    "recovered": true,
+    "failed": false,
+    "final_rms_deg": 0.263099011,
+    "torque_limit_hip_nm": 40.0,
+    "torque_limit_knee_nm": 30.0,
+    "torque_limit_spine_nm": 20.0,
+    "peak_hip_nm": 40.0,
+    "peak_knee_nm": 30.0,
+    "peak_spine_nm": 20.0,
+    "expected_failure": true
+  },
+  "checks": {
+    "full_regression_16_of_16": true,
+    "large_pose_recovers": true,
+    "recovery_reduces_rms_below_two_degrees": true,
+    "recovery_finishes_inside_timeout": true,
+    "peak_torques_respect_standard_budgets": true,
+    "work_is_finite_and_positive": true,
+    "coupled_impulse_recovers": true,
+    "uncoupled_impulse_recovers": true,
+    "coupling_transfers_measurable_proximal_response": true,
+    "uncoupled_ablation_isolates_proximal_joints": true,
+    "low_budget_case_fails": true,
+    "low_budget_failure_remains_visible": true,
+    "low_budget_case_respects_all_caps": true,
+    "first_failure_report_is_preserved": true
+  },
+  "failed_checks": []
+}

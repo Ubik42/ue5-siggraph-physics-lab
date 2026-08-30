@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-08-30T01:01:01.8678216-06:00",
+  "result": "passed",
+  "checks": {
+    "test_discovered": true,
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "d3d12_sm6": true,
+    "bridge_metrics_present": true,
+    "expected_body_count": true,
+    "expected_sphere_count": true,
+    "expected_capsule_count": true,
+    "real_asset_probe_projected": true
+  },
+  "evidence": {
+    "skeletal_mesh": "/Game/Assassin/Mesh/SKM_Assassin_Skin1",
+    "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1",
+    "bodies": 18,
+    "spheres": 1,
+    "capsules": 16,
+    "probe_displacement_cm": 9.0,
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\AssassinGpuBridgeAutomation\\index.json"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "source_mesh": "/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/Meshes/Mannequin",
+  "target_mesh": "/Game/Characters/Heroes/Mannequin/Meshes/SKM_Manny",
+  "source_animations": [
+    "/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Actions/ALS_CLF_GetUp_Front",
+    "/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Actions/ALS_CLF_GetUp_Back"
+  ],
+  "source_rig": "/PhysicsDrivenCharacter/Animations/ALS/IK_ALS_UE4Mannequin",
+  "target_rig": "/PhysicsDrivenCharacter/Animations/ALS/IK_Lyra_Manny",
+  "retargeter": "/PhysicsDrivenCharacter/Animations/ALS/RTG_ALS_To_LyraManny",
+  "outputs": [
+    {
+      "path": "/PhysicsDrivenCharacter/Animations/ALS/ALS_CLF_GetUp_Front_Manny",
+      "class": "AnimSequence",
+      "skeleton": "/Game/Characters/Heroes/Mannequin/Meshes/SK_Mannequin.SK_Mannequin",
+      "play_length_seconds": 1.5,
+      "rate_scale": 1.0
+    },
+    {
+      "path": "/PhysicsDrivenCharacter/Animations/ALS/ALS_CLF_GetUp_Back_Manny",
+      "class": "AnimSequence",
+      "skeleton": "/Game/Characters/Heroes/Mannequin/Meshes/SK_Mannequin.SK_Mannequin",
+      "play_length_seconds": 1.5,
+      "rate_scale": 1.0
+    }
+  ],
+  "errors": [],
+  "rig_creation": {
+    "source_created": false,
+    "target_created": false,
+    "retargeter_created": false,
+    "source_auto_definition": true,
+    "target_auto_definition": true,
+    "source_root": "pelvis",
+    "target_root": "pelvis",
+    "source_chain_count": 20,
+    "target_chain_count": 28,
+    "source_chains": [
+      "Root",
+      "Spine",
+      "Neck",
+      "Head",
+      "LeftLeg",
+      "LeftClavicle",
+      "LeftArm",
+      "LeftThumb",
+      "LeftIndex",
+      "LeftMiddle",
+      "LeftRing",
+      "LeftPinky",
+      "RightLeg",
+      "RightClavicle",
+      "RightArm",
+      "RightThumb",
+      "RightIndex",
+      "RightMiddle",
+      "RightRing",
+      "RightPinky"
+    ],
+    "target_chains": [
+      "Root",
+      "Spine",
+      "Neck",
+      "Head",
+      "LeftLeg",
+      "LeftClavicle",
+      "LeftArm",
+      "LeftThumb",
+      "LeftIndex",
+      "LeftMiddle",
+      "LeftRing",
+      "LeftPinky",
+      "LeftIndexMetacarpal",
+      "LeftMiddleMetacarpal",
+      "LeftRingMetacarpal",
+      "LeftPinkyMetacarpal",
+      "RightLeg",
+      "RightClavicle",
+      "RightArm",
+      "RightThumb",
+      "RightIndex",
+      "RightMiddle",
+      "RightRing",
+      "RightPinky",
+      "RightIndexMetacarpal",
+      "RightMiddleMetacarpal",
+      "RightRingMetacarpal",
+      "RightPinkyMetacarpal"
+    ],
+    "chain_mappings": [
+      {
+        "target": "Root",
+        "source": "Root"
+      },
+      {
+        "target": "Spine",
+        "source": "Spine"
+      },
+      {
+        "target": "Neck",
+        "source": "Neck"
+      },
+      {
+        "target": "Head",
+        "source": "Head"
+      },
+      {
+        "target": "LeftLeg",
+        "source": "LeftLeg"
+      },
+      {
+        "target": "LeftClavicle",
+        "source": "LeftClavicle"
+      },
+      {
+        "target": "LeftArm",
+        "source": "LeftArm"
+      },
+      {
+        "target": "LeftThumb",
+        "source": "LeftThumb"
+      },
+      {
+        "target": "LeftIndex",
+        "source": "LeftIndex"
+      },
+      {
+        "target": "LeftMiddle",
+        "source": "LeftMiddle"
+      },
+      {
+        "target": "LeftRing",
+        "source": "LeftRing"
+      },
+      {
+        "target": "LeftPinky",
+        "source": "LeftPinky"
+      },
+      {
+        "target": "LeftIndexMetacarpal",
+        "source": "None"
+      },
+      {
+        "target": "LeftMiddleMetacarpal",
+        "source": "None"
+      },
+      {
+        "target": "LeftRingMetacarpal",
+        "source": "None"
+      },
+      {
+        "target": "LeftPinkyMetacarpal",
+        "source": "None"
+      },
+      {
+        "target": "RightLeg",
+        "source": "RightLeg"
+      },
+      {
+        "target": "RightClavicle",
+        "source": "RightClavicle"
+      },
+      {
+        "target": "RightArm",
+        "source": "RightArm"
+      },
+      {
+        "target": "RightThumb",
+        "source": "RightThumb"
+      },
+      {
+        "target": "RightIndex",
+        "source": "RightIndex"
+      },
+      {
+        "target": "RightMiddle",
+        "source": "RightMiddle"
+      },
+      {
+        "target": "RightRing",
+        "source": "RightRing"
+      },
+      {
+        "target": "RightPinky",
+        "source": "RightPinky"
+      },
+      {
+        "target": "RightIndexMetacarpal",
+        "source": "None"
+      },
+      {
+        "target": "RightMiddleMetacarpal",
+        "source": "None"
+      },
+      {
+        "target": "RightRingMetacarpal",
+        "source": "None"
+      },
+      {
+        "target": "RightPinkyMetacarpal",
+        "source": "None"
+      }
+    ],
+    "mapped_target_chain_count": 20
+  }
+}

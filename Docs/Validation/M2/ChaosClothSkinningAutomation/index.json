@@ -1,0 +1,68 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "0B831B3B4723965FE73196A6E974B1DE",
+			"instanceName": "LUCASSHENHOMEPC-32876",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-03.25.26",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.020394399762153625,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "ChaosClothSkinningTargets",
+			"fullTestPath": "PhysicsResearch.ContactCloth.ChaosClothSkinningTargets",
+			"state": "Success",
+			"deviceInstance": [
+				"0B831B3B4723965FE73196A6E974B1DE"
+			],
+			"duration": 0.020394399762153625,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStreaming: FlushAsyncLoading(454): 1 QueuedPackages, 0 AsyncPackages [log]",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-09.25.26"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Chaos cloth skinning targets: assets=2 vertices=2011 fixed=1307 dynamic=704 used_bones=38 total_influences=4070 max_influences=4 min_weight_sum=1.000000000 max_weight_sum=1.000000119 reference_error_cm=0.000015844 component_reference_error_cm=0.000022987 uniform_transform_error_cm=0.000030533 min_fixed_target_motion_cm=10.145106 max_fixed_target_motion_cm=22.159052",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-09.25.26"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

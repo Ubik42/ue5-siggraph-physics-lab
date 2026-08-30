@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-08-30T15:33:59.2239847-06:00",
+  "result": "passed",
+  "verdict": "M6 / Case05 may be frozen; remaining project work moves to M7 unified delivery.",
+  "completed_scope": "Three standard benchmarks, real Chaos/PhysicsControl A/B, height and joint mapping, ALS handoff, player interaction, Lyra authority, weak-network profiling, performance, rendered portfolio scene and 55-second golden path.",
+  "claim_boundary": "Case05 is a deterministic, paper-inspired UE engineering reproduction. It does not claim neural-policy training, a replacement Chaos solver, or ownership of Epic/ALS assets and runtime systems.",
+  "subsystem_reports": [
+    "planar_recovery_foundation_validation.json",
+    "vertical_landing_validation.json",
+    "articulated_recovery_validation.json",
+    "physics_control_realtime_validation.json",
+    "physical_getup_validation.json",
+    "physical_getup_interaction_validation.json",
+    "recoverable_fall_authority_validation.json",
+    "recoverable_fall_network_validation.json",
+    "network_profile_capture_validation.json",
+    "network_profile_attribution_validation.json",
+    "chaos_drop_mapping_validation.json",
+    "chaos_joint_coupling_validation.json",
+    "physics_control_performance_validation.json",
+    "portfolio_scene_validation.json"
+  ],
+  "screenshots": [
+    "Docs/Validation/M6/Screenshots/Case05_ALS_Interaction.png",
+    "Docs/Validation/M6/Screenshots/Case05_ALS_PhysicalGetUp.png",
+    "Docs/Validation/M6/Screenshots/Case05_PhysicsControl_Manny.png",
+    "Docs/Validation/M6/Screenshots/Case05_PhysicsControl_Portfolio.png"
+  ],
+  "checks": {
+    "all_fourteen_subsystem_reports_pass": true,
+    "three_programmatic_benchmarks_pass": true,
+    "real_chaos_impulse_height_and_coupling_pass": true,
+    "als_interaction_and_authority_pass": true,
+    "real_network_and_attribution_pass": true,
+    "performance_and_final_render_pass": true,
+    "final_automation_is_16_of_16_clean": true,
+    "both_independent_maps_exist": true,
+    "portfolio_has_four_nontrivial_screenshots": true,
+    "golden_path_and_claim_boundaries_exist": true
+  },
+  "failed_reports": [],
+  "failed_checks": []
+}

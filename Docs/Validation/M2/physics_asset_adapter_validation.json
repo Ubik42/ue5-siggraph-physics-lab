@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-08-30T00:46:42.5783634-06:00",
+  "result": "passed",
+  "checks": {
+    "test_discovered": true,
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "adapter_metrics_present": true,
+    "expected_body_count": true,
+    "sphere_present": true,
+    "capsule_set_present": true,
+    "no_missing_bones": true,
+    "no_fatal_error": true,
+    "no_ensure": true
+  },
+  "evidence": {
+    "skeletal_mesh": "/Game/Assassin/Mesh/SKM_Assassin_Skin1",
+    "physics_asset": "/Game/Assassin/Mesh/PHYS_Assassin_Skin1",
+    "bodies": 18,
+    "spheres": 1,
+    "capsules": 16,
+    "skipped_missing_bones": 0,
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\PhysicsAssetAdapterAutomation\\index.json",
+    "engine_log": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\PhysicsAssetAdapterAutomation.log"
+  }
+}

@@ -1,0 +1,68 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "03DF8A564328C9E28AB74AADD44AB2ED",
+			"instanceName": "LUCASSHENHOMEPC-36676",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-07.33.29",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 7.6850066184997559,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "LowFrequencyAblation",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuXpbd.LowFrequencyAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"03DF8A564328C9E28AB74AADD44AB2ED"
+			],
+			"duration": 7.6850066184997559,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU XPBD low frequency ablation tier=high steps=120 iterations=32 local_residual=0.549605473 corrected_residual=0.359026064 residual_ratio=0.653243246 local_edge_max=3.370322466 corrected_edge_max=2.421181917 local_volume_mean=0.096259734 corrected_volume_mean=0.053267171 local_tip_cm=98.568414665 corrected_tip_cm=77.642804370 local_fixed_drift_cm=0.000000000 corrected_fixed_drift_cm=0.000000000 local_timing_samples=120 corrected_timing_samples=120 local_timing_skipped=0 corrected_timing_skipped=0 local_steady_median_ms=2.874000000 corrected_steady_median_ms=0.788000000 timing_ratio=0.274182324 local_steady_p95_ms=4.285000000 corrected_steady_p95_ms=10.569000000 projection_passes=3840 reduction_dispatches=7680 apply_passes=3840 modes=2",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-13.33.29"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU XPBD low frequency ablation tier=medium steps=120 iterations=32 local_residual=0.198918862 corrected_residual=0.158199759 residual_ratio=0.795297931 local_edge_max=1.362387300 corrected_edge_max=1.150439620 local_volume_mean=0.057132937 corrected_volume_mean=0.054847656 local_tip_cm=54.958350220 corrected_tip_cm=48.034491882 local_fixed_drift_cm=0.000000000 corrected_fixed_drift_cm=0.000000000 local_timing_samples=120 corrected_timing_samples=120 local_timing_skipped=0 corrected_timing_skipped=0 local_steady_median_ms=0.889000000 corrected_steady_median_ms=0.906000000 timing_ratio=1.019122610 local_steady_p95_ms=1.665000000 corrected_steady_p95_ms=6.499000000 projection_passes=3840 reduction_dispatches=7680 apply_passes=3840 modes=2",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-13.33.29"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

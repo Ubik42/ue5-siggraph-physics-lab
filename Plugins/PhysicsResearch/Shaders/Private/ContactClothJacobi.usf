@@ -1,0 +1,155 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float4> InputPositions;
+RWStructuredBuffer<float4> OutputPositions;
+
+uint ParticleCount;
+uint Columns;
+uint Rows;
+float RestSpacingCm;
+float Relaxation;
+float3 SphereCenter;
+float SphereRadiusWithThicknessCm;
+float3 CapsuleStart;
+float CapsuleRadiusWithThicknessCm;
+float3 CapsuleEnd;
+uint CollisionSphereCount;
+uint CollisionCapsuleCount;
+StructuredBuffer<float4> CollisionSpheres;
+StructuredBuffer<float4> CollisionCapsuleStarts;
+StructuredBuffer<float4> CollisionCapsuleEnds;
+StructuredBuffer<uint> CollisionActivationCounts;
+uint CollisionPrimitiveCapacity;
+uint NdbEnabled;
+float NdbBaseWeight;
+float NdbActivationMultiplier;
+float NdbMaximumWeight;
+
+float GetCollisionProjectionAlpha(uint ParticleIndex, uint PrimitiveIndex)
+{
+    if (NdbEnabled == 0)
+    {
+        return 1.0;
+    }
+    const uint StateIndex = ParticleIndex * CollisionPrimitiveCapacity + PrimitiveIndex;
+    const uint ActivationCount = max(CollisionActivationCounts[StateIndex], 1u);
+    const float Weight = min(NdbBaseWeight * pow(NdbActivationMultiplier, (float)ActivationCount), NdbMaximumWeight);
+    return Weight / (1.0 + Weight);
+}
+
+void AccumulateNeighbor(
+    uint NeighborIndex,
+    float RestLength,
+    float NeighborWeight,
+    float3 Position,
+    inout float3 Correction,
+    inout float WeightSum)
+{
+    float3 Delta = Position - InputPositions[NeighborIndex].xyz;
+    float Distance = length(Delta);
+    if (Distance > 1.e-6)
+    {
+        Correction += (-0.5 * (Distance - RestLength) / Distance) * Delta * NeighborWeight;
+        WeightSum += NeighborWeight;
+    }
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void MainCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    uint Index = DispatchThreadId.x;
+    if (Index >= ParticleCount)
+    {
+        return;
+    }
+
+    uint Row = Index / Columns;
+    uint Column = Index - Row * Columns;
+    float3 Position = InputPositions[Index].xyz;
+    if (Row == 0)
+    {
+        OutputPositions[Index] = float4(Position, 1.0);
+        return;
+    }
+
+    float3 Correction = 0.0;
+    float WeightSum = 0.0;
+    if (Column > 0) AccumulateNeighbor(Index - 1, RestSpacingCm, 1.0, Position, Correction, WeightSum);
+    if (Column + 1 < Columns) AccumulateNeighbor(Index + 1, RestSpacingCm, 1.0, Position, Correction, WeightSum);
+    if (Row > 0) AccumulateNeighbor(Index - Columns, RestSpacingCm, 1.0, Position, Correction, WeightSum);
+    if (Row + 1 < Rows) AccumulateNeighbor(Index + Columns, RestSpacingCm, 1.0, Position, Correction, WeightSum);
+
+    const float DiagonalRestLength = RestSpacingCm * 1.41421356237;
+    if (Column > 0 && Row > 0) AccumulateNeighbor(Index - Columns - 1, DiagonalRestLength, 0.5, Position, Correction, WeightSum);
+    if (Column + 1 < Columns && Row > 0) AccumulateNeighbor(Index - Columns + 1, DiagonalRestLength, 0.5, Position, Correction, WeightSum);
+    if (Column > 0 && Row + 1 < Rows) AccumulateNeighbor(Index + Columns - 1, DiagonalRestLength, 0.5, Position, Correction, WeightSum);
+    if (Column + 1 < Columns && Row + 1 < Rows) AccumulateNeighbor(Index + Columns + 1, DiagonalRestLength, 0.5, Position, Correction, WeightSum);
+
+    if (WeightSum > 0.0)
+    {
+        Position += Relaxation * Correction / WeightSum;
+    }
+
+    if (SphereRadiusWithThicknessCm > 0.0)
+    {
+        float3 Offset = Position - SphereCenter;
+        float Distance = length(Offset);
+        if (Distance < SphereRadiusWithThicknessCm)
+        {
+            float3 Normal = Distance > 1.e-6 ? Offset / Distance : float3(0.0, 0.0, 1.0);
+            Position = SphereCenter + Normal * SphereRadiusWithThicknessCm;
+        }
+    }
+
+    if (CapsuleRadiusWithThicknessCm > 0.0)
+    {
+        float3 Segment = CapsuleEnd - CapsuleStart;
+        float SegmentLengthSquared = dot(Segment, Segment);
+        float Alpha = SegmentLengthSquared > 1.e-6
+            ? saturate(dot(Position - CapsuleStart, Segment) / SegmentLengthSquared)
+            : 0.0;
+        float3 ClosestPoint = CapsuleStart + Alpha * Segment;
+        float3 Offset = Position - ClosestPoint;
+        float Distance = length(Offset);
+        if (Distance < CapsuleRadiusWithThicknessCm)
+        {
+            float3 Normal = Distance > 1.e-6 ? Offset / Distance : float3(0.0, 1.0, 0.0);
+            Position = ClosestPoint + Normal * CapsuleRadiusWithThicknessCm;
+        }
+    }
+
+    for (uint SphereIndex = 0; SphereIndex < CollisionSphereCount; ++SphereIndex)
+    {
+        float4 Sphere = CollisionSpheres[SphereIndex];
+        float3 Offset = Position - Sphere.xyz;
+        float Distance = length(Offset);
+        if (Distance < Sphere.w)
+        {
+            float3 Normal = Distance > 1.e-6 ? Offset / Distance : float3(0.0, 0.0, 1.0);
+            const float3 ProjectedPosition = Sphere.xyz + Normal * Sphere.w;
+            Position = lerp(Position, ProjectedPosition, GetCollisionProjectionAlpha(Index, SphereIndex));
+        }
+    }
+
+    for (uint CapsuleIndex = 0; CapsuleIndex < CollisionCapsuleCount; ++CapsuleIndex)
+    {
+        float4 CapsuleStartData = CollisionCapsuleStarts[CapsuleIndex];
+        float3 BatchCapsuleEnd = CollisionCapsuleEnds[CapsuleIndex].xyz;
+        float3 Segment = BatchCapsuleEnd - CapsuleStartData.xyz;
+        float SegmentLengthSquared = dot(Segment, Segment);
+        float Alpha = SegmentLengthSquared > 1.e-6
+            ? saturate(dot(Position - CapsuleStartData.xyz, Segment) / SegmentLengthSquared)
+            : 0.0;
+        float3 ClosestPoint = CapsuleStartData.xyz + Alpha * Segment;
+        float3 Offset = Position - ClosestPoint;
+        float Distance = length(Offset);
+        if (Distance < CapsuleStartData.w)
+        {
+            float3 Normal = Distance > 1.e-6 ? Offset / Distance : float3(0.0, 1.0, 0.0);
+            const float3 ProjectedPosition = ClosestPoint + Normal * CapsuleStartData.w;
+            Position = lerp(Position, ProjectedPosition, GetCollisionProjectionAlpha(Index, CollisionSphereCount + CapsuleIndex));
+        }
+    }
+
+    OutputPositions[Index] = float4(Position, 0.0);
+}

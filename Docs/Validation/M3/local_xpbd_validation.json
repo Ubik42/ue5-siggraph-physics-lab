@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-08-30T08:08:26.6350670-06:00",
+  "result": "passed",
+  "checks": {
+    "target_test_passed": true,
+    "combined_local_suite_zero_failures": true,
+    "zero_test_warnings_and_errors": true,
+    "summary_metrics_present": true,
+    "exact_low_tier_contract": true,
+    "fixed_budget_completed": true,
+    "full_budget_beats_one_iteration": true,
+    "full_curve_is_monotone": true,
+    "residual_bounded": true,
+    "edge_error_bounded": true,
+    "volume_error_bounded": true,
+    "total_volume_ratio_bounded": true,
+    "cantilever_tip_moves_down": true,
+    "fixed_face_zero_drift": true,
+    "cpu_step_cost_recorded": true
+  },
+  "metrics": {
+    "steps": 120,
+    "iterations": 64,
+    "vertices": 45,
+    "tetrahedra": 96,
+    "distance_constraints": 180,
+    "volume_constraints": 96,
+    "residual_rms": 0.035024617,
+    "maximum_edge_relative_error": 0.171401929,
+    "mean_volume_relative_error": 0.020963039,
+    "maximum_volume_relative_error": 0.068208222,
+    "total_volume_ratio": 1.009258033,
+    "tip_displacement_cm": 10.70448,
+    "fixed_drift_cm": 0.0,
+    "first_step_one_iteration_residual": 0.002159401,
+    "first_step_full_iteration_residual": 0.001442485,
+    "mean_cpu_step_ms": 0.378117,
+    "maximum_cpu_step_ms": 0.6014
+  },
+  "convergence_curve_csv": "Docs/Validation/M3/local_xpbd_convergence.csv",
+  "convergence_curve_samples": 64,
+  "failed_checks": []
+}

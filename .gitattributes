@@ -1,0 +1,26 @@
+* text=auto
+*.h text eol=crlf
+*.hpp text eol=crlf
+*.cpp text eol=crlf
+*.cs text eol=crlf
+*.ini text eol=crlf
+*.uproject text eol=crlf
+*.uplugin text eol=crlf
+*.json text eol=crlf
+*.md text eol=crlf
+*.py text eol=crlf
+
+# 当前公开覆盖层仅含小型 UE 资产，直接使用普通 Git，避免要求读者具备 Git LFS 配额。
+# 若未来加入大型源素材或接近 GitHub 单文件上限的资产，再按文件级别启用 LFS。
+*.uasset -text
+*.umap -text
+*.ubulk -text
+*.uexp -text
+*.uptnl -text
+*.locres -text
+*.fbx -text
+*.wav -text
+*.mp4 -text
+*.exr -text
+*.hdr -text
+*.psd -text

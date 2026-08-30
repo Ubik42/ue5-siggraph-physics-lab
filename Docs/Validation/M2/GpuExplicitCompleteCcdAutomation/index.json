@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "A17A93D740A9A03BEB8855A8179B4B3B",
+			"instanceName": "LUCASSHENHOMEPC-42160",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-04.11.13",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.036496501415967941,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "CompleteCcdAblation",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.CompleteCcdAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"A17A93D740A9A03BEB8855A8179B4B3B"
+			],
+			"duration": 0.036496501415967941,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit topology complete CCD: discrete_z=-100.000015 ccd_z=10.010019 fixed_index_1_drift_cm=0.000000000 discrete_passes=0 ccd_passes=1",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.11.13"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

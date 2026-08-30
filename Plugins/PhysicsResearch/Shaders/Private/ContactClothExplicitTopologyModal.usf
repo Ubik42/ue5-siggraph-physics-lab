@@ -1,0 +1,58 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float4> ExplicitModalInputPositions;
+StructuredBuffer<float4> ExplicitModalTargetPositions;
+StructuredBuffer<float> ExplicitModalInverseMasses;
+StructuredBuffer<float> ExplicitModalBasisValues;
+StructuredBuffer<float> ExplicitModalInverseSystemValues;
+StructuredBuffer<float4> ExplicitModalRhsValues;
+RWStructuredBuffer<float4> ExplicitModalOutputValues;
+
+uint ExplicitModalParticleCount;
+uint ExplicitModalModeCount;
+float ExplicitModalCorrectionStrength;
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void ProjectRhsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint ModeIndex = DispatchThreadId.x;
+    if (ModeIndex >= ExplicitModalModeCount) return;
+    float3 ReducedRhs = 0.0;
+    const uint BasisOffset = ModeIndex * ExplicitModalParticleCount;
+    for (uint ParticleIndex = 0; ParticleIndex < ExplicitModalParticleCount; ++ParticleIndex)
+    {
+        if (ExplicitModalInverseMasses[ParticleIndex] > 0.0)
+        {
+            ReducedRhs += ExplicitModalBasisValues[BasisOffset + ParticleIndex]
+                * (ExplicitModalInputPositions[ParticleIndex].xyz - ExplicitModalTargetPositions[ParticleIndex].xyz);
+        }
+    }
+    ExplicitModalOutputValues[ModeIndex] = float4(ReducedRhs, 0.0);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void SolveAndApplyCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint ParticleIndex = DispatchThreadId.x;
+    if (ParticleIndex >= ExplicitModalParticleCount) return;
+    float3 Position = ExplicitModalInputPositions[ParticleIndex].xyz;
+    if (ExplicitModalInverseMasses[ParticleIndex] <= 0.0)
+    {
+        ExplicitModalOutputValues[ParticleIndex] = float4(Position, 1.0);
+        return;
+    }
+    float3 Correction = 0.0;
+    for (uint OutputMode = 0; OutputMode < ExplicitModalModeCount; ++OutputMode)
+    {
+        float3 ModalCoordinate = 0.0;
+        const uint InverseRowOffset = OutputMode * ExplicitModalModeCount;
+        for (uint RhsMode = 0; RhsMode < ExplicitModalModeCount; ++RhsMode)
+        {
+            ModalCoordinate += ExplicitModalInverseSystemValues[InverseRowOffset + RhsMode]
+                * ExplicitModalRhsValues[RhsMode].xyz;
+        }
+        ModalCoordinate -= ExplicitModalRhsValues[OutputMode].xyz;
+        Correction += ExplicitModalBasisValues[OutputMode * ExplicitModalParticleCount + ParticleIndex] * ModalCoordinate;
+    }
+    ExplicitModalOutputValues[ParticleIndex] = float4(Position + ExplicitModalCorrectionStrength * Correction, 0.0);
+}

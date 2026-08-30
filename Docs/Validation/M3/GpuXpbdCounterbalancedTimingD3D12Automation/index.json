@@ -1,0 +1,68 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "AE457AE04FB08322DAF34EBD964CB3D3",
+			"instanceName": "LUCASSHENHOMEPC-31896",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-08.43.30",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 15.978057861328125,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "LowFrequencyCounterbalancedTiming",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuXpbd.LowFrequencyCounterbalancedTiming",
+			"state": "Success",
+			"deviceInstance": [
+				"AE457AE04FB08322DAF34EBD964CB3D3"
+			],
+			"duration": 15.978057861328125,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU XPBD counterbalanced timing tier=medium protocol=ABBA steps_per_run=128 warmup_per_run=48 iterations=32 local_run_medians_ms=4.583000000,3.480000000 corrected_run_medians_ms=4.627000000,4.626000000 local_mean_of_medians_ms=4.031500000 corrected_mean_of_medians_ms=4.626500000 corrected_to_local_ratio=1.147587746 local_mean_p95_ms=4.800500000 corrected_mean_p95_ms=4.637500000 samples_per_run=128 steady_samples_per_run=80 skipped_total=0 corrected_projection_passes_per_run=4096 corrected_reduction_dispatches_per_run=8192 corrected_apply_passes_per_run=4096",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.43.22"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU XPBD counterbalanced timing tier=high protocol=ABBA steps_per_run=128 warmup_per_run=48 iterations=32 local_run_medians_ms=3.880000000,4.980000000 corrected_run_medians_ms=5.196000000,5.196000000 local_mean_of_medians_ms=4.430000000 corrected_mean_of_medians_ms=5.196000000 corrected_to_local_ratio=1.172911964 local_mean_p95_ms=5.001500000 corrected_mean_p95_ms=5.203500000 samples_per_run=128 steady_samples_per_run=80 skipped_total=0 corrected_projection_passes_per_run=4096 corrected_reduction_dispatches_per_run=8192 corrected_apply_passes_per_run=4096",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.43.30"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

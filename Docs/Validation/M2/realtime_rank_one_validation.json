@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-08-30T02:39:13.7260225-06:00",
+  "result": "passed",
+  "checks": {
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "metrics_present": true,
+    "persistent_system_executed": true,
+    "penetration_reduced": true,
+    "activation_readback_present": true,
+    "render_submission_timing_present": true
+  },
+  "evidence": {
+    "baseline_penetration_cm": 3.524449348,
+    "rank_one_penetration_cm": 3.45490694,
+    "penetration_reduction_cm": 0.06954240800000022,
+    "systems_executed": 1,
+    "active_contact_pairs": 2,
+    "maximum_ndb_activation_count": 1,
+    "render_submission_ms": 0.1163,
+    "timing_scope": "CPU render-thread RDG construction and submission; not GPU kernel time",
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\RealtimeRankOneAutomation\\index.json"
+  }
+}

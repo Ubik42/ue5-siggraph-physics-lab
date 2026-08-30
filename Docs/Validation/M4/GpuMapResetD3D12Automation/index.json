@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "D16D33A7497A51899D3BB488FE41EA49",
+			"instanceName": "LUCASSHENHOMEPC-31804",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-10.14.21",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.087678194046020508,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuClosedLoopMapReset",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoopMapReset",
+			"state": "Success",
+			"deviceInstance": [
+				"D16D33A7497A51899D3BB488FE41EA49"
+			],
+			"duration": 0.087678194046020508,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU map reset rhi=D3D12 cells=16x16 particles=256 steps=8 reset_interval=4 cpu_map_resets=2 gpu_map_resets=2 reset_passes=2 advection_passes=8 gather_passes=16 divergence_passes=8 jacobi_passes=512 apply_passes=16 readbacks_completed=2 snapshot_step=8 cpu_divergence=1.60987398e-06 gpu_divergence=1.60001034e-06 max_face_error=2.00271606e-05 max_jacobian_identity_error=0 max_jacobian_det_error=0",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-16.14.21"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

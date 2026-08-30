@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-08-30T01:56:48.6466473-06:00",
+  "result": "passed",
+  "checks": {
+    "test_succeeded": true,
+    "d3d12_sm6": true,
+    "metrics_present": true,
+    "one_safe_sample_accepted": true,
+    "topology_fallback_covered": true,
+    "residual_fallback_covered": true,
+    "ccd_fallback_covered": true,
+    "nonfinite_fallback_covered": true,
+    "configured_scale_preserved": true
+  },
+  "evidence": {
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\ResidualReusePolicyAutomation\\index.json",
+    "policy_scope": "CPU truth contract; GPU reduction integration pending"
+  }
+}

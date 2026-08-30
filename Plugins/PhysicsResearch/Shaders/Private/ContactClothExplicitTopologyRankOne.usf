@@ -1,0 +1,188 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float4> ExplicitRankOnePositions;
+StructuredBuffer<float> ExplicitRankOneInverseMasses;
+StructuredBuffer<float4> ExplicitRankOneCollisionSpheres;
+StructuredBuffer<float4> ExplicitRankOneCollisionCapsuleStarts;
+StructuredBuffer<float4> ExplicitRankOneCollisionCapsuleEnds;
+StructuredBuffer<uint> ExplicitRankOneActivationCounts;
+StructuredBuffer<float> ExplicitRankOneBaseSystem;
+StructuredBuffer<float> ExplicitRankOneBasisValues;
+StructuredBuffer<float> ExplicitRankOneParticleOuterProducts;
+RWStructuredBuffer<float> ExplicitRankOneOutputMatrix;
+RWStructuredBuffer<float> ExplicitRankOneOutputRhs;
+
+uint ExplicitRankOneParticleCount;
+uint ExplicitRankOneModeCount;
+uint ExplicitRankOneSphereCount;
+uint ExplicitRankOneCapsuleCount;
+uint ExplicitRankOnePrimitiveCapacity;
+float ExplicitRankOneBaseWeight;
+float ExplicitRankOneActivationMultiplier;
+float ExplicitRankOneMaximumWeight;
+
+bool GetExplicitContact(uint ParticleIndex, uint PrimitiveIndex, out float3 Normal, out float Penetration)
+{
+    const float3 Position = ExplicitRankOnePositions[ParticleIndex].xyz;
+    float3 ClosestPoint;
+    float Radius;
+    float3 FallbackNormal = float3(0.0, 0.0, 1.0);
+    if (PrimitiveIndex < ExplicitRankOneSphereCount)
+    {
+        const float4 Sphere = ExplicitRankOneCollisionSpheres[PrimitiveIndex];
+        ClosestPoint = Sphere.xyz;
+        Radius = Sphere.w;
+    }
+    else
+    {
+        const uint CapsuleIndex = PrimitiveIndex - ExplicitRankOneSphereCount;
+        const float4 CapsuleStart = ExplicitRankOneCollisionCapsuleStarts[CapsuleIndex];
+        const float3 CapsuleEnd = ExplicitRankOneCollisionCapsuleEnds[CapsuleIndex].xyz;
+        const float3 Segment = CapsuleEnd - CapsuleStart.xyz;
+        const float SegmentLengthSquared = dot(Segment, Segment);
+        const float Alpha = SegmentLengthSquared > 1.e-8
+            ? saturate(dot(Position - CapsuleStart.xyz, Segment) / SegmentLengthSquared) : 0.0;
+        ClosestPoint = CapsuleStart.xyz + Alpha * Segment;
+        Radius = CapsuleStart.w;
+        FallbackNormal = float3(0.0, 1.0, 0.0);
+    }
+    const float3 Offset = Position - ClosestPoint;
+    const float Distance = length(Offset);
+    Normal = Distance > 1.e-6 ? Offset / Distance : FallbackNormal;
+    Penetration = max(Radius - Distance, 0.0);
+    return Penetration > 0.0;
+}
+
+float GetExplicitWeight(uint ParticleIndex, uint PrimitiveIndex)
+{
+    const uint StateIndex = ParticleIndex * ExplicitRankOnePrimitiveCapacity + PrimitiveIndex;
+    const uint ActivationCount = max(ExplicitRankOneActivationCounts[StateIndex], 1u);
+    return min(ExplicitRankOneBaseWeight * pow(ExplicitRankOneActivationMultiplier, (float)ActivationCount), ExplicitRankOneMaximumWeight);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void AssembleContactsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint DofCount = ExplicitRankOneModeCount * 3;
+    const uint LinearIndex = DispatchThreadId.x;
+    const uint MatrixElementCount = DofCount * DofCount;
+    const uint ActivePrimitiveCount = ExplicitRankOneSphereCount + ExplicitRankOneCapsuleCount;
+    if (LinearIndex < MatrixElementCount)
+    {
+        const uint Row = LinearIndex / DofCount;
+        const uint Column = LinearIndex - Row * DofCount;
+        const uint AxisA = Row / ExplicitRankOneModeCount;
+        const uint AxisB = Column / ExplicitRankOneModeCount;
+        const uint ModeA = Row - AxisA * ExplicitRankOneModeCount;
+        const uint ModeB = Column - AxisB * ExplicitRankOneModeCount;
+        float Value = AxisA == AxisB ? ExplicitRankOneBaseSystem[ModeA * ExplicitRankOneModeCount + ModeB] : 0.0;
+        for (uint ParticleIndex = 0; ParticleIndex < ExplicitRankOneParticleCount; ++ParticleIndex)
+        {
+            if (ExplicitRankOneInverseMasses[ParticleIndex] <= 0.0) continue;
+            for (uint PrimitiveIndex = 0; PrimitiveIndex < ActivePrimitiveCount; ++PrimitiveIndex)
+            {
+                float3 Normal;
+                float Penetration;
+                if (GetExplicitContact(ParticleIndex, PrimitiveIndex, Normal, Penetration))
+                {
+                    const uint OuterIndex = (ParticleIndex * ExplicitRankOneModeCount + ModeA) * ExplicitRankOneModeCount + ModeB;
+                    Value += GetExplicitWeight(ParticleIndex, PrimitiveIndex) * Normal[AxisA] * Normal[AxisB]
+                        * ExplicitRankOneParticleOuterProducts[OuterIndex];
+                }
+            }
+        }
+        ExplicitRankOneOutputMatrix[LinearIndex] = Value;
+    }
+    if (LinearIndex < DofCount)
+    {
+        const uint Axis = LinearIndex / ExplicitRankOneModeCount;
+        const uint Mode = LinearIndex - Axis * ExplicitRankOneModeCount;
+        float Value = 0.0;
+        for (uint ParticleIndex = 0; ParticleIndex < ExplicitRankOneParticleCount; ++ParticleIndex)
+        {
+            if (ExplicitRankOneInverseMasses[ParticleIndex] <= 0.0) continue;
+            const float BasisValue = ExplicitRankOneBasisValues[Mode * ExplicitRankOneParticleCount + ParticleIndex];
+            for (uint PrimitiveIndex = 0; PrimitiveIndex < ActivePrimitiveCount; ++PrimitiveIndex)
+            {
+                float3 Normal;
+                float Penetration;
+                if (GetExplicitContact(ParticleIndex, PrimitiveIndex, Normal, Penetration))
+                {
+                    Value += GetExplicitWeight(ParticleIndex, PrimitiveIndex) * Penetration * Normal[Axis] * BasisValue;
+                }
+            }
+        }
+        ExplicitRankOneOutputRhs[LinearIndex] = Value;
+    }
+}
+
+StructuredBuffer<float> ExplicitRankOneSolveMatrix;
+StructuredBuffer<float> ExplicitRankOneSolveRhs;
+RWStructuredBuffer<float> ExplicitRankOneSolution;
+uint ExplicitRankOneSolveModeCount;
+
+[numthreads(1, 1, 1)]
+void SolveContactsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint N = ExplicitRankOneSolveModeCount * 3;
+    float L[2304];
+    float Y[48];
+    float X[48];
+    for (uint Index = 0; Index < N * N; ++Index) L[Index] = 0.0;
+    for (uint Row = 0; Row < N; ++Row)
+    {
+        for (uint Column = 0; Column <= Row; ++Column)
+        {
+            float Sum = ExplicitRankOneSolveMatrix[Row * N + Column];
+            for (uint Inner = 0; Inner < Column; ++Inner) Sum -= L[Row * N + Inner] * L[Column * N + Inner];
+            L[Row * N + Column] = Row == Column ? sqrt(max(Sum, 1.e-12)) : Sum / L[Column * N + Column];
+        }
+    }
+    for (uint Row = 0; Row < N; ++Row)
+    {
+        float Sum = ExplicitRankOneSolveRhs[Row];
+        for (uint Column = 0; Column < Row; ++Column) Sum -= L[Row * N + Column] * Y[Column];
+        Y[Row] = Sum / L[Row * N + Row];
+    }
+    for (int Row = (int)N - 1; Row >= 0; --Row)
+    {
+        float Sum = Y[Row];
+        for (uint Column = Row + 1; Column < N; ++Column) Sum -= L[Column * N + Row] * X[Column];
+        X[Row] = Sum / L[Row * N + Row];
+        ExplicitRankOneSolution[Row] = X[Row];
+    }
+}
+
+StructuredBuffer<float4> ExplicitRankOneApplyInputPositions;
+StructuredBuffer<float> ExplicitRankOneApplyInverseMasses;
+StructuredBuffer<float> ExplicitRankOneApplyBasisValues;
+StructuredBuffer<float> ExplicitRankOneApplySolution;
+RWStructuredBuffer<float4> ExplicitRankOneApplyOutputPositions;
+uint ExplicitRankOneApplyParticleCount;
+uint ExplicitRankOneApplyModeCount;
+float ExplicitRankOneMaximumCorrectionCm;
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void ApplyContactsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint ParticleIndex = DispatchThreadId.x;
+    if (ParticleIndex >= ExplicitRankOneApplyParticleCount) return;
+    const float3 Position = ExplicitRankOneApplyInputPositions[ParticleIndex].xyz;
+    if (ExplicitRankOneApplyInverseMasses[ParticleIndex] <= 0.0)
+    {
+        ExplicitRankOneApplyOutputPositions[ParticleIndex] = float4(Position, 1.0);
+        return;
+    }
+    float3 Correction = 0.0;
+    for (uint Mode = 0; Mode < ExplicitRankOneApplyModeCount; ++Mode)
+    {
+        const float BasisValue = ExplicitRankOneApplyBasisValues[Mode * ExplicitRankOneApplyParticleCount + ParticleIndex];
+        Correction.x += BasisValue * ExplicitRankOneApplySolution[Mode];
+        Correction.y += BasisValue * ExplicitRankOneApplySolution[ExplicitRankOneApplyModeCount + Mode];
+        Correction.z += BasisValue * ExplicitRankOneApplySolution[2 * ExplicitRankOneApplyModeCount + Mode];
+    }
+    const float CorrectionLength = length(Correction);
+    if (CorrectionLength > ExplicitRankOneMaximumCorrectionCm)
+        Correction *= ExplicitRankOneMaximumCorrectionCm / CorrectionLength;
+    ExplicitRankOneApplyOutputPositions[ParticleIndex] = float4(Position + Correction, 0.0);
+}

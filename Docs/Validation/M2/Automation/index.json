@@ -1,0 +1,865 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "F0E56E0E4A8EB0609D638DA86A6D4FFD",
+			"instanceName": "LUCASSHENHOMEPC-32340",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-05.42.33",
+	"succeeded": 32,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.71159374713897705,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Defaults",
+			"fullTestPath": "PhysicsResearch.Configuration.Defaults",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0093466006219387054,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AssassinGpuCollisionBridge",
+			"fullTestPath": "PhysicsResearch.ContactCloth.AssassinGpuCollisionBridge",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.038797900080680847,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Assassin GPU collision bridge: bodies=18 spheres=1 capsules=16 probe_displacement_cm=9.000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AssassinPhysicsAssetAdapter",
+			"fullTestPath": "PhysicsResearch.ContactCloth.AssassinPhysicsAssetAdapter",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0077651031315326691,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Assassin Physics Asset adapter: bodies=18 spheres=1 capsules=16 skipped_missing_bones=0",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "AssetConfiguration",
+			"fullTestPath": "PhysicsResearch.ContactCloth.AssetConfiguration",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0089332014322280884,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ChaosClothSkinningTargets",
+			"fullTestPath": "PhysicsResearch.ContactCloth.ChaosClothSkinningTargets",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.024759899824857712,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStreaming: FlushAsyncLoading(454): 1 QueuedPackages, 0 AsyncPackages [log]",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Chaos cloth skinning targets: assets=2 vertices=2011 fixed=1307 dynamic=704 used_bones=38 total_influences=4070 max_influences=4 min_weight_sum=1.000000000 max_weight_sum=1.000000119 reference_error_cm=0.000015844 component_reference_error_cm=0.000022987 uniform_transform_error_cm=0.000030533 min_fixed_target_motion_cm=10.145106 max_fixed_target_motion_cm=22.159052",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ChaosClothTopologyExtraction",
+			"fullTestPath": "PhysicsResearch.ContactCloth.ChaosClothTopologyExtraction",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0076274015009403229,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Chaos cloth topology: assets=2 vertices=2011 triangles=3705 unique_edges=5714 fixed_vertices=1307 dynamic_vertices=704 max_distance_movable=704",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ChaosOutputComponentSpaceMerge",
+			"fullTestPath": "PhysicsResearch.ContactCloth.ChaosOutputComponentSpaceMerge",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0065379031002521515,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Chaos output component-space merge: assets=2 vertices=2011 lod_min=0 lod_max=0 maximum_error_cm=0.000007644",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CompleteCcdBoundary",
+			"fullTestPath": "PhysicsResearch.ContactCloth.CompleteCcdBoundary",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.008114401251077652,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Complete CCD boundary: sphere_toi=0.450000000 capsule_toi=0.450000000 cap_toi=0.625000000 discrete_endpoint_penetration=0",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CpuProjectiveDynamics",
+			"fullTestPath": "PhysicsResearch.ContactCloth.CpuProjectiveDynamics",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0082920975983142853,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ModalSubspaceReference",
+			"fullTestPath": "PhysicsResearch.ContactCloth.ExplicitTopology.ModalSubspaceReference",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0093944966793060303,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit modal reference: particles=12 modes=4 fixed_support=0.000e+00 orthogonality_error=2.220e-16 inverse_error=2.220e-16",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuBatchCollisionBuffers",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuBatchCollisionBuffers",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.01366010308265686,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU batch collision: particles=108 spheres=1 capsules=2 input_max_penetration_cm=7.671573 output_max_penetration_cm=0.000003 blocking_wall_ms=5.490",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU dynamic collision update: step=1 output_max_penetration_cm=0.000003",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuCompleteCcdIntegration",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuCompleteCcdIntegration",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.010197397321462631,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Complete CCD crossing: discrete_z=-100.000023 ccd_z=10.010031 ccd_passes=1",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Blocking",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.Blocking",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.014095999300479889,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU explicit Chaos topology: particles=2011 edges=5714 iterations=128 input_edge_error_cm=9.621097 output_edge_error_cm=0.342501 fixed_drift_cm=0.000000000 blocking_wall_ms=8.649",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CompleteCcdAblation",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.CompleteCcdAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.011694099754095078,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit topology complete CCD: discrete_z=-100.000015 ccd_z=10.010019 fixed_index_1_drift_cm=0.000000000 discrete_passes=0 ccd_passes=1",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "KinematicTargets",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.KinematicTargets",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.012720100581645966,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU kinematic cloth targets: particles=2011 fixed=1307 dynamic=704 steps=30 target_updates=30 target_applications=30 target_version=30 final_readback_step=30 fixed_target_error_cm=0.000000000 minimum_fixed_motion_cm=10.145111 average_dynamic_displacement_cm=9.257427 maximum_edge_error_cm=1.144274",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NonBlockingGpuTimestamp",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.NonBlockingGpuTimestamp",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0091535001993179321,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit GPU timestamp: supported=true steps=16 samples=8 skipped=8 latest_step=8 mean_ms=0.021500 p95_ms=0.045000 p99_ms=0.045000 max_ms=0.045000 scope=full_step_rdg_interval",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NonDistanceBarrierAblation",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.NonDistanceBarrierAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.013267900794744492,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit topology NDB: constant_penetration_cm=4.113513 ndb_penetration_cm=1.503128 ndb_updates=4 active_pairs=1 maximum_activation=4 fixed_index_1_drift_cm=0.000000000 capacity_overflow_rejected=true",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PhysicsAssetCollision",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.PhysicsAssetCollision",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0077149979770183563,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU explicit Physics Asset collision: particles=2011 probe=299 spheres=1 capsules=0 steps=1 collision_updates=1 collision_applications=1 collision_version=1 input_penetration_cm=9.000000 output_penetration_cm=0.000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RankOneCollisionAblation",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.RankOneCollisionAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.27640929818153381,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit rank-one ablation: particles=9 modes=4 baseline_penetration_cm=4.701429844 rank_one_penetration_cm=4.642128944 modal_passes=1 rank_one_systems=1 fixed_1_drift_cm=0.000000000 fixed_6_drift_cm=0.000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Realtime",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.Realtime",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.024218000471591949,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU explicit realtime Chaos topology: particles=2011 edges=5714 fixed=1307 dynamic=704 steps=90 readbacks=3 final_readback_step=90 average_dynamic_displacement_cm=27.362141 dynamic_displacement_p95_cm=58.782005 average_dynamic_z_cm=-25.273599 average_edge_error_cm=0.254785 edge_error_p95_cm=1.577348 edge_error_p99_cm=3.810907 maximum_edge_error_cm=7.226599 fixed_drift_cm=0.000000000 average_submission_ms=0.053910 maximum_submission_ms=0.128500",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuHybridAblationMatrix",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuHybridAblationMatrix",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.023425702005624771,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Hybrid ablation matrix: constant_no_ccd_pen=4.113512 ndb_no_ccd_pen=1.503126 constant_ccd_pen=4.113512 full_pen=1.503126 constant_no_ccd_z=-100.000023 ndb_no_ccd_z=-100.000023 constant_ccd_z=10.010031 full_z=10.010031",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuJacobiDispatch",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuJacobiDispatch",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0084182992577552795,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "D3D GPU Jacobi: particles=192 iterations=96 input_max_edge_error_cm=64.216797 output_max_edge_error_cm=2.539264 input_capsule_penetration_cm=29.000000 output_capsule_penetration_cm=0.000002 blocking_wall_ms=3.614",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuNonDistanceBarrierIntegration",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuNonDistanceBarrierIntegration",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.011468600481748581,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NDB activation schedule: first_penetration_cm=4.545455 sustained_penetration_cm=1.503126 state_updates=4",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuRealtimePersistentBuffers",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuRealtimePersistentBuffers",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.041389603167772293,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Persistent GPU cloth: steps=120 readbacks=2 latest_step=120 particles=120 max_edge_error_cm=1.030326",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuRealtimeRankOneCollisionSystem",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuRealtimeRankOneCollisionSystem",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.014999799430370331,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Realtime rank-one system: baseline_penetration_cm=3.524449348 rank_one_penetration_cm=3.454906940 systems=1 active_pairs=2 max_activation=1 render_submission_ms=0.185500",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuReducedModalCorrection",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuReducedModalCorrection",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.031333800405263901,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU reduced modal correction: particles=300 modes=12 steps=90 baseline_low_energy=166774.355067947 modal_low_energy=29762.989232249 baseline_bottom_drop_cm=32.882854 modal_bottom_drop_cm=13.636112 modal_passes=90",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GpuResidualReuse",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuResidualReuse",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.012586299329996109,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU residual reuse: steps=12 max_residual_cm=0.128833 safe_fallback_events=0 topology_fallback_events=30",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ModalSubspaceReference",
+			"fullTestPath": "PhysicsResearch.ContactCloth.ModalSubspaceReference",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0074983984231948853,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Modal subspace reference: particles=300 modes=12 orthonormality_error=1.99840144433e-15 smooth_retention=1.000000000 checker_retention=0.000073785 reduced_coordinate_error=9.99200722163e-16 inverse_error=3.33066907388e-16",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "NonDistanceBarrierSchedule",
+			"fullTestPath": "PhysicsResearch.ContactCloth.NonDistanceBarrierSchedule",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0088001005351543427,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NDB schedule: base=3.0 multiplier=2.0 maximum=48.0 max_activation=5 saturated_updates=2",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RankOneCollisionHessian",
+			"fullTestPath": "PhysicsResearch.ContactCloth.RankOneCollisionHessian",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.012566402554512024,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Rank-one collision Hessian: particles=20 modes=4 vector_dofs=12 cache_values=320 xy_coupling=0.130065277524 symmetry_error=0.000e+00 solve_error=6.939e-17 gpu_cpu_error=1.911e-07",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ResidualReuseSafetyPolicy",
+			"fullTestPath": "PhysicsResearch.ContactCloth.ResidualReuseSafetyPolicy",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.010019801557064056,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Residual reuse safety: accepted=1 topology=1 residual=1 ccd=1 nonfinite=1 scale=0.4",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.42.33"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LifecycleAndMetrics",
+			"fullTestPath": "PhysicsResearch.Experiment.LifecycleAndMetrics",
+			"state": "Success",
+			"deviceInstance": [
+				"F0E56E0E4A8EB0609D638DA86A6D4FFD"
+			],
+			"duration": 0.0063866004347801208,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

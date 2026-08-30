@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-08-30T14:29:06.9649546-06:00",
+  "result": "passed",
+  "conditions": {
+    "packet_lag_ms": 100,
+    "packet_loss_percent": 5
+  },
+  "scope": "Clean UE Network Profiler captures for dedicated server and independent client while the recoverable-fall sequence converges under engine packet simulation.",
+  "claim_boundary": "The raw nprof evidence is valid and nontrivial, but exact per-property/RPC wire-byte attribution and bandwidth P95/P99 have not yet been exported from the legacy GUI. This gate does not invent those numbers.",
+  "checks": {
+    "engine_packet_impairment_was_enabled": true,
+    "server_profile_closed_cleanly": true,
+    "client_profile_closed_cleanly": true,
+    "server_profile_is_nontrivial": true,
+    "client_profile_is_nontrivial": true,
+    "impaired_client_request_reached_server": true,
+    "impaired_server_recovered": true,
+    "impaired_client_converged": true
+  },
+  "files": {
+    "server": {
+      "path": "Docs/Validation/M6/NetworkProfiles/Case05_Server_100ms_5pct.nprof",
+      "bytes": 154715
+    },
+    "client": {
+      "path": "Docs/Validation/M6/NetworkProfiles/Case05_Client_100ms_5pct.nprof",
+      "bytes": 110017
+    }
+  },
+  "failed_checks": []
+}

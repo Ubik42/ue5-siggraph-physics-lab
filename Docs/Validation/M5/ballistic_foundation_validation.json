@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-08-30T12:48:33.0699826-06:00",
+  "result": "passed",
+  "interpretation": "A 2D gravity-plus-linear-drag trajectory differentiates initial horizontal/vertical velocity and drag through the exact semi-implicit update. Cyclic coordinate gradient descent prevents the drag scale from dominating velocity recovery. Landing-X-only is retained as a non-identifiable boundary.",
+  "checks": {
+    "inverse_design_regression_6_of_6": true,
+    "ballistic_tangent_matches_centered_difference": true,
+    "joint_three_parameter_fit_reduces_loss_by_six_orders": true,
+    "joint_fit_recovers_scaled_parameters": true,
+    "full_convergence_curve_is_strictly_decreasing": true,
+    "landing_only_target_fits_but_is_non_identifiable": true
+  },
+  "gradient": {
+    "maximum_relative_error": "2.52893484676e-11",
+    "steps": "240",
+    "dt": "0.00833333333333"
+  },
+  "optimization": {
+    "recovered_vz": "1600.38841248",
+    "recovered_drag": "0.350496887207",
+    "recovered_vx": "1200.54077148",
+    "parameter_scaled_l1_error": "1.42607116699",
+    "iterations": "400",
+    "initial_loss": "1209041.18521",
+    "history": "401",
+    "final_loss": "0.0027572466595"
+  },
+  "landing_only_boundary": {
+    "parameter_scaled_l1_error": "1466.43249321",
+    "recovered_vx": "1777.07000732",
+    "recovered_drag": "1.23936248589",
+    "initial_loss": "229464.22667",
+    "interpretation": "landing_x_only_is_non_identifiable",
+    "final_loss": "6.37155628695e-10"
+  },
+  "loss_curve_csv": "Docs/Validation/M5/ballistic_loss_curve.csv",
+  "failed_checks": []
+}

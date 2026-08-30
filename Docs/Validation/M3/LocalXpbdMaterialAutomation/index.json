@@ -1,0 +1,95 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "A09C38174217EEA3FF366B89DA3F920F",
+			"instanceName": "LUCASSHENHOMEPC-38552",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-06.17.01",
+	"succeeded": 2,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.058373700827360153,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Cantilever",
+			"fullTestPath": "PhysicsResearch.SoftBody.LocalXpbd.Cantilever",
+			"state": "Success",
+			"deviceInstance": [
+				"A09C38174217EEA3FF366B89DA3F920F"
+			],
+			"duration": 0.050218500196933746,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Local XPBD cantilever: steps=120 iterations=64 vertices=45 tets=96 distance_constraints=180 volume_constraints=96 residual_rms=0.035024617 edge_relative_max=0.171401929 volume_relative_mean=0.020963039 volume_relative_max=0.068208222 total_volume_ratio=1.009258033 tip_displacement_cm=10.704480 fixed_drift_cm=0.000000000000 first_step_one_iter_residual=0.002159401 first_step_full_iter_residual=0.001442485 curve_r1=0.002159401 curve_r8=0.002037873 curve_r16=0.001888708 curve_r32=0.001653873 curve_r64=0.001442485 mean_step_ms=0.378117 maximum_step_ms=0.601400",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-12.17.01"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Local XPBD convergence curve: 0.002159401326,0.002113373858,0.002094127984,0.002083965269,0.002075221902,0.002065000771,0.002052521733,0.002037873366,0.002021449472,0.002003706433,0.001985067031,0.001965889209,0.001946462260,0.001927013481,0.001907717859,0.001888707713,0.001870081182,0.001851909304,0.001834241753,0.001817111429,0.001800538107,0.001784531332,0.001769092717,0.001754217766,0.001739897324,0.001726118736,0.001712866765,0.001700124329,0.001687873085,0.001676093895,0.001664767196,0.001653873292,0.001643392579,0.001633305726,0.001623593808,0.001614238412,0.001605221708,0.001596526505,0.001588136286,0.001580035228,0.001572208214,0.001564640832,0.001557319369,0.001550230801,0.001543362773,0.001536703584,0.001530242160,0.001523968037,0.001517871331,0.001511942716,0.001506173397,0.001500555088,0.001495079981,0.001489740728,0.001484530412,0.001479442529,0.001474470959,0.001469609951,0.001464854098,0.001460198320,0.001455637843,0.001451168181,0.001446785123,0.001442484710",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-12.17.01"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CompressionMaterials",
+			"fullTestPath": "PhysicsResearch.SoftBody.LocalXpbd.CompressionMaterials",
+			"state": "Success",
+			"deviceInstance": [
+				"A09C38174217EEA3FF366B89DA3F920F"
+			],
+			"duration": 0.0081552006304264069,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Local XPBD compression materials: compression_cm=8.000000 kinematic_vertices=9 soft_volume_mean=0.198759591 soft_volume_ratio=0.802146327 soft_residual=0.277424954 stiff_volume_mean=0.151132682 stiff_volume_ratio=0.854473513 stiff_residual=0.170960829 split_soft_volume_mean=0.093601216 split_stiff_volume_mean=0.251098758 split_volume_ratio=0.833758023 split_residual=0.178749337 soft_target_error_cm=0.000000000000 stiff_target_error_cm=0.000000000000 split_target_error_cm=0.000000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-12.17.01"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-08-30T05:44:09.2819807-06:00",
+  "result": "passed",
+  "checks": {
+    "expected_failure_run_passed": true,
+    "weak_ndb_is_only_solver_profile_change": true,
+    "nominal_contract_is_strong_ndb": true,
+    "exact_assassin_contract": true,
+    "all_solver_passes_executed": true,
+    "penetration_gate_failed_as_designed": true,
+    "failure_is_material_vs_nominal": true,
+    "structure_remains_bounded": true,
+    "input_sequence_matches_nominal": true,
+    "paired_curve_complete": true,
+    "gpu_curve_complete": true,
+    "screenshot_present": true
+  },
+  "evidence": {
+    "runtime": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_failure_weak_barrier_runtime.json",
+    "nominal_runtime": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_runtime.json",
+    "screenshot": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\Screenshots\\M2_ExplicitAssassinFailureWeakBarrier.png",
+    "input_hash": "429e63168b51a679",
+    "nominal_ndb_base_weight": 10.0,
+    "failure_ndb_base_weight": 0.05,
+    "nominal_maximum_penetration_cm": 8.5830688E-05,
+    "failure_maximum_penetration_cm": 0.048647880554,
+    "scope": "同一 Assassin 输入、拓扑、rank-one、CCD 与 300 步预算下，仅把 NDB 基础权重从 10 降至 0.05；穿透超过原有 0.001 cm 门即为预期故障。"
+  }
+}

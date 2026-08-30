@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-08-30T00:24:16.7932880-06:00",
+  "result": "passed",
+  "checks": {
+    "test_discovered": true,
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "d3d12_sm6": true,
+    "physical_gpu": true,
+    "shader_executed": true,
+    "dispatch_shape": true,
+    "finite_errors": true,
+    "edge_error_reduced_20_percent": true,
+    "capsule_contact_triggered": true,
+    "capsule_penetration_removed": true,
+    "test_completed": true,
+    "no_fatal_error": true,
+    "no_late_shader_registration": true
+  },
+  "evidence": {
+    "test": "PhysicsResearch.ContactCloth.GpuJacobiDispatch",
+    "duration_seconds": 0.028002899140119553,
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "render_mode": "D3D12_SM6",
+    "rhi": "DirectX 12 (SM6)",
+    "particles": 192,
+    "iterations": 96,
+    "input_max_edge_error_cm": 64.216797,
+    "output_max_edge_error_cm": 2.539264,
+    "input_max_capsule_penetration_cm": 29.0,
+    "output_max_capsule_penetration_cm": 2E-06,
+    "blocking_wall_ms": 24.963,
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuJacobiAutomation\\index.json",
+    "engine_log": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuJacobiAutomation.log"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "engine_version": "5.4.4-35576357+++UE5+Release-5.4",
+  "project": "D:/3D/UE Projects/SIGGRAPHPhysicsLab/SIGGRAPHPhysicsLab.uproject",
+  "roots": {
+    "/Game/Assassin": {
+      "asset_count": 141,
+      "class_counts": {
+        "AnimSequence": 23,
+        "MapBuildDataRegistry": 2,
+        "Material": 9,
+        "MaterialInstanceConstant": 16,
+        "MaterialParameterCollection": 1,
+        "PhysicsAsset": 4,
+        "SkeletalMesh": 28,
+        "Skeleton": 1,
+        "StaticMesh": 9,
+        "SubsurfaceProfile": 2,
+        "Texture2D": 44,
+        "World": 2
+      },
+      "representative_load_count": 7,
+      "representative_load_failures": [],
+      "sample_packages": [
+        "/Game/Assassin/Animation/Anim_Assassin_walkback2",
+        "/Game/Assassin/Animation/Anim_Assassin_walkback1",
+        "/Game/Assassin/Animation/Anim_Assassin_walk2",
+        "/Game/Assassin/Animation/Anim_Assassin_walk1",
+        "/Game/Assassin/Animation/Anim_Assassin_straferight",
+        "/Game/Assassin/Animation/Anim_Assassin_strafeleft",
+        "/Game/Assassin/Animation/Anim_Assassin_run",
+        "/Game/Assassin/Animation/Anim_Assassin_jump",
+        "/Game/Assassin/Animation/Anim_Assassin_idle2",
+        "/Game/Assassin/Animation/Anim_Assassin_idle1",
+        "/Game/Assassin/Animation/Anim_Assassin_hit3",
+        "/Game/Assassin/Animation/Anim_Assassin_hit2"
+      ]
+    },
+    "/Game/FourEvilDragonsHP": {
+      "asset_count": 125,
+      "class_counts": {
+        "AnimSequence": 69,
+        "MapBuildDataRegistry": 5,
+        "Material": 17,
+        "PhysicsAsset": 4,
+        "SkeletalMesh": 4,
+        "Skeleton": 4,
+        "StaticMesh": 1,
+        "Texture2D": 16,
+        "World": 5
+      },
+      "representative_load_count": 6,
+      "representative_load_failures": [],
+      "sample_packages": [
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/WalkRightAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/WalkLeftAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/WalkBackAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/WalkAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/SleepAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/ScreamAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/RunAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/JumpAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/Idle02Anim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/Idle01Anim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/GetHitAnim",
+        "/Game/FourEvilDragonsHP/Animations/DragonTheNightmare/DieAnim"
+      ]
+    }
+  },
+  "errors": []
+}

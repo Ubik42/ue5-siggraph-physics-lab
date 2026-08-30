@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "F7D0F8F1471C626A0755D9B16F173B9C",
+			"instanceName": "LUCASSHENHOMEPC-11220",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-04.39.28",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.092069000005722046,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "RankOneCollisionAblation",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.RankOneCollisionAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"F7D0F8F1471C626A0755D9B16F173B9C"
+			],
+			"duration": 0.092069000005722046,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit rank-one ablation: particles=9 modes=4 baseline_penetration_cm=4.701429844 rank_one_penetration_cm=4.642128944 modal_passes=1 rank_one_systems=1 fixed_1_drift_cm=0.000000000 fixed_6_drift_cm=0.000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.39.28"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

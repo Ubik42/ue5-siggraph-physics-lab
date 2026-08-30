@@ -1,0 +1,57 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "6536BE184A99D13BB02DA2867C0EDCC5",
+			"instanceName": "LUCASSHENHOMEPC-36308",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.29-23.29.18",
+	"succeeded": 2,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.016031604260206223,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Defaults",
+			"fullTestPath": "PhysicsResearch.Configuration.Defaults",
+			"state": "Success",
+			"deviceInstance": [
+				"6536BE184A99D13BB02DA2867C0EDCC5"
+			],
+			"duration": 0.0078791007399559021,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LifecycleAndMetrics",
+			"fullTestPath": "PhysicsResearch.Experiment.LifecycleAndMetrics",
+			"state": "Success",
+			"deviceInstance": [
+				"6536BE184A99D13BB02DA2867C0EDCC5"
+			],
+			"duration": 0.0081525035202503204,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

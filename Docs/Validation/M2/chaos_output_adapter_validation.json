@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-08-30T04:06:14.6693581-06:00",
+  "result": "passed",
+  "checks": {
+    "d3d12_sm6": true,
+    "exactly_one_test_passed": true,
+    "two_assets_merged": true,
+    "assassin_vertex_contract": true,
+    "component_space_roundtrip_recorded": true
+  },
+  "evidence": {
+    "automation_test": "PhysicsResearch.ContactCloth.ChaosOutputComponentSpaceMerge",
+    "render_mode": "D3D12_SM6",
+    "summary": "Chaos output component-space merge: assets=2 vertices=2011 lod_min=0 lod_max=0 maximum_error_cm=0.000007644",
+    "scope": "验证两个 Chaos Clothing Asset 以各自 ComponentRelativeTransform 合并到与显式拓扑一致的组件空间，并拒绝缺失资产"
+  }
+}

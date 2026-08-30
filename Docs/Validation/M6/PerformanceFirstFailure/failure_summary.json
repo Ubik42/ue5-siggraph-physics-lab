@@ -1,0 +1,16 @@
+{
+  "status": "failed_protocol_iteration",
+  "scenario": "SharedSpineImpulsePerformance",
+  "protocol": "Single UE 5.4 NullRHI process, fixed 60 Hz, 1800 samples with the original 16 m x 10 m display ground.",
+  "observed": {
+    "baseline_final_pelvis_displacement_cm": 210040.01600069407,
+    "baseline_peak_downward_speed_cm_s": 19509.939453125,
+    "frame_wall_p95_ms": 1.2682005763053894,
+    "frame_wall_p99_ms": 1.3993009924888611,
+    "physics_control_update_p95_ms": 0.051899999999999995,
+    "physics_control_update_p99_ms": 0.06499999999999999
+  },
+  "failure_reason": "The passive Manny left the finite display ground during the 30-second run, so later samples no longer represented bounded contact physics. Timing values were not accepted as formal evidence.",
+  "resolution": "Only performance mode now uses a 200 m x 200 m ground. Three fresh isolated processes replaced this trial; control, impulse and rigid-body parameters were unchanged.",
+  "raw_csv_retained": false
+}

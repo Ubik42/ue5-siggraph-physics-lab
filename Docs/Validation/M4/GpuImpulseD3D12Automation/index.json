@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "DB39A2FF48BC885C4254C8A917239663",
+			"instanceName": "LUCASSHENHOMEPC-43600",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-09.57.49",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.042503099888563156,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuImpulseGradientTransfer",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuImpulseGradientTransfer",
+			"state": "Success",
+			"deviceInstance": [
+				"DB39A2FF48BC885C4254C8A917239663"
+			],
+			"duration": 0.042503099888563156,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU impulse transfer rhi=D3D12 cells=16x16 particles=256 modes=2 gather_passes_per_mode=2 pic_max_face_error=2.86102295e-06 gradient_max_face_error=5.7220459e-06",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-15.57.49"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

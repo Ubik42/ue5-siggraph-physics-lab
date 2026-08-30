@@ -1,0 +1,80 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "A5079E0D4F5A3EC98229088052047114",
+			"instanceName": "LUCASSHENHOMEPC-38532",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-01.00.14",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.16608570516109467,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "AssassinGpuCollisionBridge",
+			"fullTestPath": "PhysicsResearch.ContactCloth.AssassinGpuCollisionBridge",
+			"state": "Success",
+			"deviceInstance": [
+				"A5079E0D4F5A3EC98229088052047114"
+			],
+			"duration": 0.16608570516109467,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStreaming: FlushAsyncLoading(451): 1 QueuedPackages, 0 AsyncPackages [log]",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-07.00.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStreaming: ImportPackages: SkipPackage: /Game/Assassin/Mesh/SK_Assassin_Skeleton (0xF382FD70F3FA45B3) /Game/Assassin/Mesh/SK_Assassin_Skeleton (0xF382FD70F3FA45B3) - Skipping non mounted imported package /Engine/EngineMeshes/Humanoid (0x698EF88627D84FC7) [log]",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-07.00.14"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Assassin GPU collision bridge: bodies=18 spheres=1 capsules=16 probe_displacement_cm=9.000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-07.00.14"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

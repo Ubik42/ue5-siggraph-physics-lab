@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "A44F4EB24E842DC677730085BC56C728",
+			"instanceName": "LUCASSHENHOMEPC-36180",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-01.52.02",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.022018097341060638,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuHybridAblationMatrix",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuHybridAblationMatrix",
+			"state": "Success",
+			"deviceInstance": [
+				"A44F4EB24E842DC677730085BC56C728"
+			],
+			"duration": 0.022018097341060638,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Hybrid ablation matrix: constant_no_ccd_pen=4.113512 ndb_no_ccd_pen=1.503126 constant_ccd_pen=4.113512 full_pen=1.503126 constant_no_ccd_z=-100.000023 ndb_no_ccd_z=-100.000023 constant_ccd_z=10.010031 full_z=10.010031",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-07.52.02"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

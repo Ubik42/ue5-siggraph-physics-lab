@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "EEFDE0F84855D9AFA96351A0BFAE091F",
+			"instanceName": "LUCASSHENHOMEPC-25468",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-10.47.03",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.077895298600196838,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuClosedLoopSolidBoundary",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoopSolidBoundary",
+			"state": "Success",
+			"deviceInstance": [
+				"EEFDE0F84855D9AFA96351A0BFAE091F"
+			],
+			"duration": 0.077895298600196838,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU solid boundary rhi=D3D12 steps=2 updates=2 applications=2 latest_version=2 solid_cells=16 solid_u_faces=20 solid_v_faces=21 solid_circles=1 particle_projection_passes=2 particles_inside_solid=0 minimum_particle_clearance_cm=0.0499992371 max_no_slip_residual=0 fluid_divergence_rms=0.0190895407 max_fluid_divergence=0.0194439888 pressure_iterations=256 boundary_source=ue_chaos_pose_versions",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-16.47.03"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

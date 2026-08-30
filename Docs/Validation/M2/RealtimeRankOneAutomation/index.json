@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "C77E49E94E9CE37E90CF129141A701D2",
+			"instanceName": "LUCASSHENHOMEPC-36804",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-02.38.15",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.046606197953224182,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuRealtimeRankOneCollisionSystem",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuRealtimeRankOneCollisionSystem",
+			"state": "Success",
+			"deviceInstance": [
+				"C77E49E94E9CE37E90CF129141A701D2"
+			],
+			"duration": 0.046606197953224182,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Realtime rank-one system: baseline_penetration_cm=3.524449348 rank_one_penetration_cm=3.454906940 systems=1 active_pairs=2 max_activation=1 render_submission_ms=0.116300",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-08.38.15"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

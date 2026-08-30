@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-08-30T08:08:26.6931529-06:00",
+  "result": "passed",
+  "device": {
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "rhi": "DirectX 12 (SM6)",
+    "render_mode": "D3D12_SM6"
+  },
+  "checks": {
+    "target_test_passed": true,
+    "isolated_suite_zero_failures": true,
+    "zero_test_warnings_and_errors": true,
+    "real_d3d12_sm6_device": true,
+    "exact_low_tier_contract": true,
+    "exact_fixed_budget": true,
+    "all_three_passes_executed": true,
+    "asynchronous_readback_completed": true,
+    "gpu_residual_bounded": true,
+    "cpu_gpu_same_residual_scale": true,
+    "edge_error_bounded": true,
+    "volume_error_bounded": true,
+    "fixed_face_zero_drift": true,
+    "finite_tip_displacement": true
+  },
+  "metrics": {
+    "steps": 120,
+    "iterations_per_step": 32,
+    "vertices": 45,
+    "edges": 180,
+    "tetrahedra": 96,
+    "readbacks_completed": 2,
+    "latest_readback_step": 120,
+    "distance_passes": 3840,
+    "volume_passes": 3840,
+    "gather_passes": 3840,
+    "gpu_residual_rms": 0.060672134,
+    "cpu_residual_rms": 0.064199203,
+    "gpu_to_cpu_residual_ratio": 0.945060544,
+    "gpu_maximum_edge_relative_error": 0.320076168,
+    "gpu_mean_volume_relative_error": 0.033053565,
+    "gpu_tip_displacement_cm": 18.553828,
+    "gpu_fixed_drift_cm": 0.0
+  },
+  "failure_history": {
+    "first_gpu_residual_rms": 0.880154719,
+    "first_fixed_drift_cm": 23.100236893,
+    "cause": "同一 HLSL 全局资源名跨 Pass 同时声明为 RWStructuredBuffer 并以 SRV 绑定，导致 Gather 资源反射类型错位",
+    "resolution": "为约束输出 UAV 与 Gather 输入 SRV 使用不同 Shader 参数名，仍引用同一 RDG Buffer"
+  },
+  "failed_checks": []
+}

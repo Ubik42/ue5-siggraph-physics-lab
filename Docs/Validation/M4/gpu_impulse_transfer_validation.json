@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-30T10:49:03.0876988-06:00",
+  "result": "passed",
+  "interpretation": "Each periodic MAC face deterministically gathers all contributing distorted particles. The two validation modes isolate B-transformed reference impulse from the additional B-transformed first spatial gradient Taylor term without nondeterministic floating-point atomics.",
+  "checks": {
+    "isolated_d3d12_automation_passed": true,
+    "real_rhi_is_d3d12_sm6": true,
+    "full_flow_map_nullrhi_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "distorted_particle_contract_is_exact": true,
+    "pic_and_gradient_modes_both_execute_two_face_gathers": true,
+    "gpu_pic_matches_cpu_faces": true,
+    "gpu_gradient_impulse_matches_cpu_faces": true,
+    "shader_contains_transformed_impulse_and_gradient": true,
+    "deterministic_face_gather_avoids_float_atomics": true
+  },
+  "device": {
+    "name": "LUCASSHENHOMEPC",
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "render_mode": "D3D12_SM6",
+    "rhi": "DirectX 12 (SM6)"
+  },
+  "contract": {
+    "cells": "16x16",
+    "particles": 256,
+    "modes": 2,
+    "gather_passes_per_mode": 2
+  },
+  "errors": {
+    "pic_maximum_face_velocity": 2.86102295E-06,
+    "gradient_maximum_face_velocity": 5.7220459E-06
+  },
+  "boundary": "This is a blocking mathematical truth gate. The O(face_count * particle_count) deterministic gather is suitable for reference and current demo scale, not claimed as the final large-grid performance architecture. It is not yet connected to persistent advection and pressure resources.",
+  "failed_checks": []
+}

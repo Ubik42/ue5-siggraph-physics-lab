@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-08-30T10:49:03.1740275-06:00",
+  "result": "passed",
+  "interpretation": "Two different UE/Chaos pose-derived MAC boundary versions are captured by two consecutive nonblocking GPU steps. Solid face velocities replace gathered fluid velocities in divergence, solid cells are removed from the pressure unknowns, and final U/V Apply writes the prescribed rigid velocity back to every solid face.",
+  "checks": {
+    "isolated_d3d12_automation_passed": true,
+    "real_rhi_is_d3d12_sm6": true,
+    "full_flow_map_nullrhi_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "two_pose_versions_are_applied_to_two_steps": true,
+    "final_boundary_counts_are_nonzero": true,
+    "one_collision_circle_is_applied_on_both_steps": true,
+    "all_particles_remain_outside_the_moving_solid": true,
+    "projected_solid_faces_match_body_velocity": true,
+    "fluid_divergence_gate_passes": true,
+    "pressure_budget_is_explicit": true,
+    "boundary_source_is_ue_chaos_pose_versions": true,
+    "game_thread_update_validates_and_versions_all_five_arrays": true,
+    "one_enqueue_captures_one_boundary_version": true,
+    "all_boundary_buffers_are_uploaded_before_solver_passes": true,
+    "divergence_jacobi_and_apply_are_solid_aware": true,
+    "solid_cells_do_not_enter_pressure_unknowns": true,
+    "solid_apply_writes_prescribed_body_velocity": true,
+    "particle_advection_resolves_the_same_boundary_circles": true,
+    "runtime_enqueue_contains_no_explicit_gpu_wait": true
+  },
+  "device": {
+    "name": "LUCASSHENHOMEPC",
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "render_mode": "D3D12_SM6",
+    "rhi": "DirectX 12 (SM6)"
+  },
+  "contract": {
+    "steps": 2,
+    "boundary_updates": 2,
+    "boundary_applications": 2,
+    "latest_boundary_version": 2,
+    "pressure_iterations_per_step": 256,
+    "source": "ue_chaos_pose_versions"
+  },
+  "final_raster": {
+    "solid_cells": 16,
+    "solid_u_faces": 20,
+    "solid_v_faces": 21,
+    "particle_collision_circles": 1
+  },
+  "metrics": {
+    "particle_projection_passes": 2,
+    "particles_inside_solid": 0,
+    "minimum_particle_clearance_cm": 0.0499992371,
+    "maximum_solid_face_no_slip_residual_cm_per_second": 0.0,
+    "fluid_cell_divergence_rms": 0.0190895407,
+    "maximum_fluid_cell_divergence": 0.0194439888
+  },
+  "boundary": "The GPU velocity, pressure, and particle-advection paths consume one coherent moving-solid version. The current primitive set is limited to at most eight analytic circles and collision projection does not yet reset the particle map Jacobian at each contact. The test uses pose-derived updates rather than a live Chaos body component; runtime map, body lifecycle, visualization, interaction, failure ablation, and screenshots remain future work.",
+  "failed_checks": []
+}

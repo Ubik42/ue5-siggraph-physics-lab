@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "E29A0FDC4B78C7000A00D1B402B5D073",
+			"instanceName": "LUCASSHENHOMEPC-34880",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-05.02.37",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.013500001281499863,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "NonBlockingGpuTimestamp",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.NonBlockingGpuTimestamp",
+			"state": "Success",
+			"deviceInstance": [
+				"E29A0FDC4B78C7000A00D1B402B5D073"
+			],
+			"duration": 0.013500001281499863,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit GPU timestamp: supported=true steps=16 samples=8 skipped=8 latest_step=8 mean_ms=0.113750 p95_ms=0.189000 p99_ms=0.189000 max_ms=0.189000 scope=full_step_rdg_interval",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-11.02.37"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

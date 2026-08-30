@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-08-30T05:23:37.4532649-06:00",
+  "result": "passed",
+  "checks": {
+    "both_runs_passed": true,
+    "replay_mode_enabled": true,
+    "fixed_sixty_hz_contract": true,
+    "exact_three_hundred_step_inputs": true,
+    "input_hash_repeated": true,
+    "expected_hash_enforced": true,
+    "mismatched_hash_rejected": true,
+    "input_hash_scope_declared": true,
+    "research_outputs_repeated": true,
+    "paired_curve_complete": true,
+    "gpu_curve_complete": true,
+    "verified_curve_files_restored": true,
+    "gpu_curve_matches_verified_summary": true,
+    "replay_screenshot_present": true
+  },
+  "evidence": {
+    "replay_input_hash": "429e63168b51a679",
+    "expected_hash": "429e63168b51a679",
+    "hash_scope": "step-indexed UE Clothing skinned targets and component-space Physics Asset sphere/capsule primitives",
+    "first_runtime": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_replay_first_runtime.json",
+    "verified_runtime": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_replay_verified_runtime.json",
+    "mismatch_runtime": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_replay_mismatch_runtime.json",
+    "restored_runtime": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_replay_runtime.json",
+    "comparison_csv": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_replay_comparison.csv",
+    "comparison_json": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_replay_comparison.json",
+    "gpu_timing_csv": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\gpu_explicit_assassin_replay_gpu_timing.csv",
+    "screenshot": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\Screenshots\\M2_ExplicitAssassinReplay.png",
+    "research_output_fields": [
+      "animation_target_motion_cm",
+      "fixed_target_error_cm",
+      "average_dynamic_displacement_cm",
+      "maximum_edge_error_cm",
+      "maximum_collision_penetration_cm"
+    ],
+    "scope": "两次独立 UE 5.4 D3D12 进程重置同一 Assassin 动画；哈希覆盖逐步 UE Clothing 蒙皮目标及组件空间 Physics Asset 球/胶囊。Chaos 输出与 GPU 时间不要求逐位一致。"
+  }
+}

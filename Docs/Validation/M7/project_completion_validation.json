@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-08-30T16:30:03.2080555-06:00",
+  "result": "passed",
+  "scope": "SIGGRAPH Physics Lab project-level release readiness: shared UE foundation, five independent paper-inspired cases, Chaos integration boundaries, Chinese portfolio hub, evidence, Win64 packaging and public-source overlay hygiene.",
+  "acceptance_reports": [
+    "Docs\\Validation\\M2\\case01_acceptance_validation.json",
+    "Docs\\Validation\\M3\\case02_acceptance_validation.json",
+    "Docs\\Validation\\M4\\case03_acceptance_validation.json",
+    "Docs\\Validation\\M5\\case04_acceptance_validation.json",
+    "Docs\\Validation\\M6\\case05_completion_validation.json"
+  ],
+  "case_screenshot_counts": {
+    "M2": 8,
+    "M3": 6,
+    "M4": 4,
+    "M5": 2,
+    "M6": 4
+  },
+  "checks": {
+    "m1_shared_foundation_passes": true,
+    "all_five_case_acceptance_reports_pass": true,
+    "unified_chinese_hub_passes": true,
+    "packaged_win64_build_passes": true,
+    "hub_five_cases_and_als_handoff_maps_exist": true,
+    "default_map_is_portfolio_hub": true,
+    "all_release_maps_are_explicitly_cooked": true,
+    "each_case_has_reproduction_scope": true,
+    "each_case_has_gui_screenshot_evidence": true,
+    "five_case_golden_and_expected_failure_paths_are_documented": true,
+    "chinese_github_readme_has_five_case_portfolio": true,
+    "epic_lyra_fab_overlay_boundary_is_documented": true,
+    "marketplace_and_lyra_assets_are_excluded": true,
+    "packaged_outputs_are_not_committed": true,
+    "android_file_server_is_disabled_and_has_no_current_token": true
+  },
+  "failed_checks": [],
+  "publication_boundary": "This validates the local UE deliverable and public-source overlay. Creating a GitHub repository, selecting a license, rewriting old Git history and pushing remain explicit user-authorized publication actions."
+}

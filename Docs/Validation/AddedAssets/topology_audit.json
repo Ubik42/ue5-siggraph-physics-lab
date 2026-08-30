@@ -1,0 +1,89 @@
+{
+  "files": [
+    {
+      "file": "Assassin_Cloak.fbx",
+      "mesh_object_count": 0,
+      "objects": [],
+      "all_objects_watertight": false
+    },
+    {
+      "file": "Dragon_Nightmare.fbx",
+      "mesh_object_count": 1,
+      "objects": [
+        {
+          "object": "DragonTheNightmareSK.001",
+          "vertices": 2767,
+          "edges": 7142,
+          "triangles": 4382,
+          "boundary_edges": 1138,
+          "non_manifold_edges": 1138,
+          "loose_vertices": 0,
+          "connected_components": 21,
+          "watertight_manifold": false,
+          "closed_volume": null
+        }
+      ],
+      "all_objects_watertight": false
+    },
+    {
+      "file": "Dragon_SoulEater.fbx",
+      "mesh_object_count": 1,
+      "objects": [
+        {
+          "object": "DragonTheSoulEaterSK.001",
+          "vertices": 2717,
+          "edges": 6534,
+          "triangles": 3864,
+          "boundary_edges": 1476,
+          "non_manifold_edges": 1476,
+          "loose_vertices": 0,
+          "connected_components": 74,
+          "watertight_manifold": false,
+          "closed_volume": null
+        }
+      ],
+      "all_objects_watertight": false
+    },
+    {
+      "file": "Dragon_TerrorBringer.fbx",
+      "mesh_object_count": 1,
+      "objects": [
+        {
+          "object": "DragonTheTerrorBringerSK.001",
+          "vertices": 2876,
+          "edges": 7550,
+          "triangles": 4684,
+          "boundary_edges": 1048,
+          "non_manifold_edges": 1048,
+          "loose_vertices": 0,
+          "connected_components": 28,
+          "watertight_manifold": false,
+          "closed_volume": null
+        }
+      ],
+      "all_objects_watertight": false
+    },
+    {
+      "file": "Dragon_Usurper.fbx",
+      "mesh_object_count": 1,
+      "objects": [
+        {
+          "object": "DragonTheUsurperSK.001",
+          "vertices": 3320,
+          "edges": 8125,
+          "triangles": 4832,
+          "boundary_edges": 1754,
+          "non_manifold_edges": 1754,
+          "loose_vertices": 0,
+          "connected_components": 63,
+          "watertight_manifold": false,
+          "closed_volume": null
+        }
+      ],
+      "all_objects_watertight": false
+    }
+  ],
+  "limitations": [
+    "self_intersection_not_tested"
+  ]
+}

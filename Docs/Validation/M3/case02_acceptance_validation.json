@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-08-30T08:49:23.7097241-06:00",
+  "result": "passed",
+  "case": "Case 02 / GPU 多尺度软体与 UE 动态 Dragon",
+  "acceptance_scope": "Algorithm contracts, real D3D12 compute, quality-cost attribution, UE runtime rendering, player interaction, controlled contact failure, alternate CPU backend, Chaos Flesh boundary, screenshots, and licensed-asset handling.",
+  "checks": {
+    "nullrhi_module_regression_is_11_of_11": true,
+    "all_fourteen_component_reports_pass": true,
+    "no_component_has_failed_checks": true,
+    "real_d3d12_sm6_compute_is_proven": true,
+    "convergence_and_scaling_are_independently_gated": true,
+    "performance_claim_is_counterbalanced_and_bounded": true,
+    "licensed_dragon_derivative_boundary_is_explicit": true,
+    "dragon_gpu_runtime_closes_the_ue_render_loop": true,
+    "ue_player_controls_change_real_simulation_state": true,
+    "contact_ablation_contains_success_and_expected_failure": true,
+    "cpu_backend_toggle_is_real_and_quality_failure_is_honest": true,
+    "chaos_flesh_engine_boundary_is_recorded_without_faking_integration": true,
+    "six_portfolio_screenshots_are_nontrivial": true,
+    "implementation_shader_actor_solver_and_map_exist": true
+  },
+  "component_reports": [
+    "tetrahedral_grid_validation.json",
+    "local_xpbd_validation.json",
+    "compression_materials_validation.json",
+    "low_frequency_correction_validation.json",
+    "gpu_topology_validation.json",
+    "gpu_xpbd_d3d12_validation.json",
+    "gpu_xpbd_scaling_validation.json",
+    "gpu_low_frequency_correction_validation.json",
+    "gpu_counterbalanced_timing_validation.json",
+    "dragon_surface_binding_validation.json",
+    "dragon_gpu_surface_runtime_validation.json",
+    "dragon_gpu_surface_interaction_validation.json",
+    "ground_contact_ablation_validation.json",
+    "cpu_reference_backend_validation.json"
+  ],
+  "screenshots_bytes": {
+    "M3_DragonGpuSurface.png": 258896,
+    "M3_DragonGpuSurface_Interaction.png": 278040,
+    "M3_DragonGpuSurface_Contact.png": 360891,
+    "M3_DragonGpuSurface_WeakContact.png": 362387,
+    "M3_DragonCpuLocalXpbdReference.png": 379497,
+    "M3_DragonBackendToggle.png": 376031
+  },
+  "headline_metrics": {
+    "nullrhi_tests": 11,
+    "dragon_surface_vertices": 4854,
+    "cage_vertices": 729,
+    "cage_tetrahedra": 3072,
+    "gpu_standard_max_displacement_cm": 37.35395813,
+    "gpu_standard_max_penetration_cm": 0.0,
+    "weak_contact_max_penetration_cm": 64.240661621,
+    "cpu_reference_max_displacement_cm": 978.276794434,
+    "medium_counterbalanced_overhead_percent": 14.758774599999992,
+    "high_counterbalanced_overhead_percent": 17.291196400000008
+  },
+  "caveats": [
+    "Ground contact is a frictionless infinite-plane projection, not a Chaos contact manifold, friction, or CCD implementation.",
+    "The CPU local XPBD path is a real alternate backend but intentionally not Chaos Flesh; its expected quality failure remains visible.",
+    "The Fab-derived Dragon mesh and generated UAsset remain local and gitignored; only scripts, metrics, and screenshots are tracked.",
+    "Counterbalanced GPU timing is machine/protocol evidence, not a universal cross-hardware speedup law."
+  ],
+  "failed_checks": []
+}

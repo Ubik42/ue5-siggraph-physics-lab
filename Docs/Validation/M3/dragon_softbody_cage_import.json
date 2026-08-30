@@ -1,0 +1,22 @@
+{
+  "result": "passed",
+  "source": "D:/3D/UE Projects/SIGGRAPHPhysicsLab/Saved/DerivedAssets\\Case02\\SM_TerrorBringer_SoftBodyCage.obj",
+  "object_path": "/PhysicsSoftBody/DragonDerived/SM_TerrorBringer_SoftBodyCage.SM_TerrorBringer_SoftBodyCage",
+  "class": "StaticMesh",
+  "imported_object_paths": [
+    "/PhysicsSoftBody/DragonDerived/SM_TerrorBringer_SoftBodyCage.SM_TerrorBringer_SoftBodyCage"
+  ],
+  "material_slots": 1,
+  "allow_cpu_access": true,
+  "bounds_origin_cm": [
+    -90.07389831542969,
+    2.002471923828125,
+    -33.37721252441406
+  ],
+  "bounds_extent_cm": [
+    454.4064483642578,
+    581.1795349121094,
+    493.0472869873047
+  ],
+  "license_boundary": "Local derivative of /Game/FourEvilDragonsHP; do not redistribute independently of the Fab source license."
+}

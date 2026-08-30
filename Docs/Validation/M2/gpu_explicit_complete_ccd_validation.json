@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-08-30T05:44:09.2539436-06:00",
+  "result": "passed",
+  "checks": {
+    "d3d12_sm6": true,
+    "target_passed": true,
+    "discrete_crossing_reproduced": true,
+    "ccd_entry_surface_hit": true,
+    "inverse_mass_fixed_contract": true,
+    "ablation_pass_counts": true
+  },
+  "evidence": {
+    "automation_test": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.CompleteCcdAblation",
+    "render_mode": "D3D12_SM6",
+    "summary": "Explicit topology complete CCD: discrete_z=-100.000015 ccd_z=10.010019 fixed_index_1_drift_cm=0.000000000 discrete_passes=0 ccd_passes=1",
+    "scope": "任意拓扑动态粒子的步初到候选位置线段对当前球/胶囊快照做最早 TOI 扫掠；固定点读取真实逆质量，不代表布料自碰撞或移动碰撞体时空 CCD"
+  }
+}

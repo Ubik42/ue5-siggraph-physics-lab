@@ -1,0 +1,34 @@
+{
+  "source_project": "D:/3D/UE Projects/AdvancedLocomotionSystemV/AdvancedLocomotionSystemV.uproject",
+  "destination_content": "D:/3D/UE Projects/SIGGRAPHPhysicsLab/Content",
+  "requested_packages": [
+    "/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Actions/ALS_CLF_GetUp_Front",
+    "/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Actions/ALS_CLF_GetUp_Back"
+  ],
+  "source_assets": [
+    {
+      "package": "/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Actions/ALS_CLF_GetUp_Front",
+      "asset_class": "AnimSequence",
+      "asset_name": "ALS_CLF_GetUp_Front"
+    },
+    {
+      "package": "/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Actions/ALS_CLF_GetUp_Back",
+      "asset_class": "AnimSequence",
+      "asset_name": "ALS_CLF_GetUp_Back"
+    }
+  ],
+  "migrated_files": [
+    {
+      "package": "/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Actions/ALS_CLF_GetUp_Front",
+      "file": "D:/3D/UE Projects/SIGGRAPHPhysicsLab/Content\\AdvancedLocomotionV4\\CharacterAssets\\MannequinSkeleton\\AnimationExamples\\Actions\\ALS_CLF_GetUp_Front.uasset",
+      "size_bytes": 461297
+    },
+    {
+      "package": "/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Actions/ALS_CLF_GetUp_Back",
+      "file": "D:/3D/UE Projects/SIGGRAPHPhysicsLab/Content\\AdvancedLocomotionV4\\CharacterAssets\\MannequinSkeleton\\AnimationExamples\\Actions\\ALS_CLF_GetUp_Back.uasset",
+      "size_bytes": 459169
+    }
+  ],
+  "dependencies_included": true,
+  "errors": []
+}

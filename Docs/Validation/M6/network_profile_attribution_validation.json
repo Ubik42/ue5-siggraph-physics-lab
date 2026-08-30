@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-08-30T14:40:55.3947454-06:00",
+  "result": "passed",
+  "scope": "UE 5.4 Network Profiler v14 attribution for the selected recoverable-fall request and server recovery window under 100 ms / 5% packet simulation.",
+  "claim_boundary": "RPC totals are exact serialized RPC bits. Property payload and granular profiler-attributed bits are exact for emitted profiler tokens, but they exclude untracked packed content-length bits and cannot be called standalone IP/UDP wire bytes. Whole-session socket bytes remain available in the parser export but include unrelated Lyra traffic.",
+  "client_recovery_rpc": {
+    "count": 1,
+    "time_s": 20.297209,
+    "header_bits": 18,
+    "parameter_bits": 11,
+    "footer_bits": 0,
+    "total_bits": 29
+  },
+  "server_recovery_window": {
+    "first_recovering_time_s": 52.20418,
+    "recovered_time_s": 53.18667,
+    "paired_update_attempts": 3,
+    "correction_repeats": 2,
+    "repeat_intervals_s": [
+      0.328240000000001,
+      0.32799599999999884
+    ],
+    "fall_state_writes": 4,
+    "recovery_branch_writes": 3,
+    "property_payload_bits": 21,
+    "profiler_attributed_bits": 185,
+    "attributed_bits_p95": 64.0,
+    "attributed_bits_p99": 64.0,
+    "attempts": [
+      {
+        "time_s": 52.20418,
+        "fall_state_writes": 1,
+        "recovery_branch_writes": 1,
+        "property_payload_bits": 6,
+        "profiler_attributed_bits": 51
+      },
+      {
+        "time_s": 52.53242,
+        "fall_state_writes": 1,
+        "recovery_branch_writes": 1,
+        "property_payload_bits": 6,
+        "profiler_attributed_bits": 35
+      },
+      {
+        "time_s": 52.860416,
+        "fall_state_writes": 1,
+        "recovery_branch_writes": 1,
+        "property_payload_bits": 6,
+        "profiler_attributed_bits": 35
+      },
+      {
+        "time_s": 53.18667,
+        "fall_state_writes": 1,
+        "recovery_branch_writes": 0,
+        "property_payload_bits": 3,
+        "profiler_attributed_bits": 64
+      }
+    ]
+  },
+  "checks": {
+    "both_profiles_reached_end_of_stream": true,
+    "parser_version_is_ue54_v14": true,
+    "client_sent_exactly_one_recovery_rpc": true,
+    "recovery_rpc_total_is_29_bits": true,
+    "recovery_has_three_paired_attempts": true,
+    "recovery_has_two_correction_repeats": true,
+    "terminal_recovered_update_is_present": true,
+    "selected_window_has_four_state_writes": true,
+    "selected_window_has_three_branch_writes": true,
+    "selected_window_property_payload_is_21_bits": true,
+    "profiler_attributed_distribution_is_finite": true
+  },
+  "failed_checks": []
+}

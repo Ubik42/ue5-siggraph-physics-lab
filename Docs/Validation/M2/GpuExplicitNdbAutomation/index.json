@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "D83F48644BA117891ABD4B8C6594A08E",
+			"instanceName": "LUCASSHENHOMEPC-30156",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-04.20.06",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.042285799980163574,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "NonDistanceBarrierAblation",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.NonDistanceBarrierAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"D83F48644BA117891ABD4B8C6594A08E"
+			],
+			"duration": 0.042285799980163574,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit topology NDB: constant_penetration_cm=4.113513 ndb_penetration_cm=1.503128 ndb_updates=4 active_pairs=1 maximum_activation=4 fixed_index_1_drift_cm=0.000000000 capacity_overflow_rejected=true",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.20.06"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

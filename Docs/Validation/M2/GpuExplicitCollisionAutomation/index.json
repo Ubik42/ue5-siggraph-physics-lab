@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "5D89E47842965BF1AD3F588ABCDED07C",
+			"instanceName": "LUCASSHENHOMEPC-42792",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-03.47.12",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.034106798470020294,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "PhysicsAssetCollision",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.PhysicsAssetCollision",
+			"state": "Success",
+			"deviceInstance": [
+				"5D89E47842965BF1AD3F588ABCDED07C"
+			],
+			"duration": 0.034106798470020294,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU explicit Physics Asset collision: particles=2011 probe=299 spheres=1 capsules=0 steps=1 collision_updates=1 collision_applications=1 collision_version=1 input_penetration_cm=9.000000 output_penetration_cm=0.000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-09.47.12"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

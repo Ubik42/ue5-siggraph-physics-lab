@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "C85646304A25C7C28C6C9D88D9D10C43",
+			"instanceName": "LUCASSHENHOMEPC-39676",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-03.11.21",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.041307400912046432,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Realtime",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.Realtime",
+			"state": "Success",
+			"deviceInstance": [
+				"C85646304A25C7C28C6C9D88D9D10C43"
+			],
+			"duration": 0.041307400912046432,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU explicit realtime Chaos topology: particles=2011 edges=5714 fixed=1307 dynamic=704 steps=90 readbacks=2 final_readback_step=90 average_dynamic_displacement_cm=27.362173 dynamic_displacement_p95_cm=58.781708 average_dynamic_z_cm=-25.273597 average_edge_error_cm=0.254785 edge_error_p95_cm=1.577347 edge_error_p99_cm=3.810905 maximum_edge_error_cm=7.226608 fixed_drift_cm=0.000000000 average_submission_ms=0.033346 maximum_submission_ms=0.115400",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-09.11.21"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-08-30T05:44:09.3374323-06:00",
+  "result": "passed",
+  "checks": {
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "d3d12_sm6": true,
+    "metrics_present": true,
+    "exact_assassin_topology": true,
+    "exact_fixed_dynamic_partition": true,
+    "all_fixed_steps_executed": true,
+    "asynchronous_readback_completed": true,
+    "final_snapshot_matches_last_step": true,
+    "dynamic_particles_respond_to_gravity": true,
+    "edge_error_distribution_controlled": true,
+    "fixed_particles_invariant": true,
+    "render_submission_metrics_finite": true
+  },
+  "evidence": {
+    "asset": "/Game/Assassin/Mesh/SKM_Assassin_Skin1",
+    "particles": 2011,
+    "unique_edges": 5714,
+    "fixed_vertices": 1307,
+    "dynamic_vertices": 704,
+    "fixed_steps": 90,
+    "readbacks_completed": 2,
+    "average_dynamic_displacement_cm": 27.362173,
+    "dynamic_displacement_p95_cm": 58.781708,
+    "average_dynamic_vertical_displacement_cm": -25.273597,
+    "average_edge_error_cm": 0.254785,
+    "edge_error_p95_cm": 1.577347,
+    "edge_error_p99_cm": 3.810905,
+    "maximum_edge_error_cm": 7.226608,
+    "maximum_fixed_particle_drift_cm": 0.0,
+    "average_render_submission_ms": 0.033346,
+    "maximum_render_submission_ms": 0.1154,
+    "timing_scope": "CPU render-thread RDG construction and submission; not GPU kernel time",
+    "scope": "Persistent exact Chaos LOD0 CSR dynamics gate; animated skinning targets, collision, NDB/modal/rank-one integration, and same-input Chaos comparison remain pending",
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuExplicitTopologyRealtimeAutomation\\index.json"
+  }
+}

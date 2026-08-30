@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-08-30T10:49:03.1464597-06:00",
+  "result": "passed",
+  "interpretation": "The CPU and RDG compute paths receive the same 32x16 staggered velocity field, cell size, periodic boundary convention, and 512-iteration Jacobi budget. The gate checks dispatch accounting, readback, face velocities, and post-projection divergence on a real D3D12 SM6 device.",
+  "checks": {
+    "isolated_d3d12_automation_passed": true,
+    "real_rhi_is_d3d12_sm6": true,
+    "full_flow_map_nullrhi_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "input_and_same_budget_contract_is_exact": true,
+    "rdg_pass_accounting_is_exact": true,
+    "gpu_matches_cpu_faces_within_one_e_minus_four": true,
+    "gpu_matches_cpu_divergence_within_one_e_minus_five": true,
+    "gpu_reduces_divergence_by_more_than_99_percent": true
+  },
+  "device": {
+    "name": "LUCASSHENHOMEPC",
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "render_mode": "D3D12_SM6",
+    "rhi": "DirectX 12 (SM6)"
+  },
+  "contract": {
+    "cells": "32x16",
+    "jacobi_iterations": 512,
+    "divergence_passes": 1,
+    "jacobi_passes": 512,
+    "apply_passes": 2
+  },
+  "metrics": {
+    "cpu_divergence_before": 1.38617175,
+    "cpu_divergence_after": 0.00988997345,
+    "gpu_divergence_after": 0.00989034952,
+    "gpu_to_initial_ratio": 0.00713501018,
+    "maximum_cpu_gpu_face_velocity_error": 3.60012054E-05
+  },
+  "boundary": "This is a blocking validation readback for numerical truth, not the runtime frame architecture or a GPU performance benchmark. UE map integration, moving Chaos obstacles, asynchronous persistent resources, and Niagara presentation remain future work.",
+  "failed_checks": []
+}

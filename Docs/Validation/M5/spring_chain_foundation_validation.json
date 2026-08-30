@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-08-30T13:01:02.1828325-06:00",
+  "result": "passed",
+  "interpretation": "A fixed-end six-mass chain differentiates two spatial stiffness segments through the exact semi-implicit trajectory. Full tip position/velocity history identifies both segments; terminal position alone admits a different compliance distribution. Timings are observed CPU costs on this machine, not cross-platform speed claims.",
+  "checks": {
+    "inverse_design_regression_10_of_10": true,
+    "both_tangents_match_centered_difference": true,
+    "full_trajectory_reduces_loss_by_six_orders": true,
+    "both_segment_stiffnesses_are_recovered": true,
+    "loss_curve_is_complete_and_strictly_decreasing": true,
+    "terminal_only_target_fits_but_is_spatially_non_identifiable": true,
+    "cost_distribution_has_three_scales": true,
+    "all_three_benchmarks_report_optimizer_elapsed_time": true,
+    "first_forward_state_failure_is_preserved": true
+  },
+  "gradient": {
+    "proximal_rel_error": "6.53051060313e-11",
+    "distal_rel_error": "7.99539871774e-12"
+  },
+  "optimization": {
+    "initial_loss": "8.36288576496",
+    "final_loss": "3.32629258202e-11",
+    "iterations": "14",
+    "proximal": "70.0004883",
+    "distal": "30.0000229",
+    "parameter_l1": "0.000511169434",
+    "optimization_ms": "5.789700",
+    "samples": "15"
+  },
+  "terminal_only_boundary": {
+    "initial_loss": "5.24202667497",
+    "final_loss": "2.89165513396e-12",
+    "proximal": "6.48821259",
+    "distal": "63.3822975",
+    "parameter_l1": "96.8940849",
+    "expected_failure": "true"
+  },
+  "evaluation_cost_distribution": [
+    {
+      "mass_count": "4",
+      "steps": "240",
+      "evaluations": "96",
+      "operation_proxy": "960",
+      "mean_ms": "0.024777083",
+      "p95_ms": "0.028299997",
+      "checksum": "985.217805"
+    },
+    {
+      "mass_count": "8",
+      "steps": "240",
+      "evaluations": "96",
+      "operation_proxy": "1920",
+      "mean_ms": "0.047577083",
+      "p95_ms": "0.049499999",
+      "checksum": "685.341539"
+    },
+    {
+      "mass_count": "16",
+      "steps": "240",
+      "evaluations": "96",
+      "operation_proxy": "3840",
+      "mean_ms": "0.097133333",
+      "p95_ms": "0.107000000",
+      "checksum": "637.874642"
+    }
+  ],
+  "optimizer_elapsed_time": [
+    {
+      "benchmark": "one_dof_damped_spring",
+      "iterations": 18,
+      "elapsed_ms": 0.1456
+    },
+    {
+      "benchmark": "two_dimensional_ballistic",
+      "iterations": 400,
+      "elapsed_ms": 517.3572
+    },
+    {
+      "benchmark": "six_dof_segmented_spring_chain",
+      "iterations": 14,
+      "elapsed_ms": 5.7897
+    }
+  ],
+  "preserved_first_failure": {
+    "cause": "Force arrays were resized with SetNumZeroed, which only cleared newly added elements; force and tangent force accumulated between steps.",
+    "failed_test_state": "Fail",
+    "metrics": {
+      "initial_loss": "4.4510874365e+18",
+      "final_loss": "8076951063.02",
+      "iterations": "17",
+      "proximal": "5",
+      "distal": "27.1256806",
+      "parameter_l1": "67.8743194",
+      "optimization_ms": "13.176400",
+      "samples": "18"
+    },
+    "evidence": "Docs/Validation/M5/AutomationFirstFailure/index.json"
+  },
+  "loss_curve_csv": "Docs/Validation/M5/spring_chain_loss_curve.csv",
+  "failed_checks": []
+}

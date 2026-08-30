@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-08-29T23:28:49.1139908-06:00",
+  "result": "passed",
+  "checks": {
+    "deterministic_seed": true,
+    "backend": true,
+    "json_sample_count": true,
+    "csv_sample_count": true,
+    "metric_names": true,
+    "minimum_step": true,
+    "maximum_step": true,
+    "finite_values": true,
+    "screenshot_nonempty": true
+  },
+  "evidence": {
+    "json": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Saved\\PhysicsResearch\\M1_Runtime.json",
+    "csv": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Saved\\PhysicsResearch\\M1_Runtime.csv",
+    "screenshot": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M1\\Screenshots\\M1_Runtime.png",
+    "samples": 360,
+    "steps": 180,
+    "metrics": [
+      "EnergyProxy",
+      "OrbitRadiusError"
+    ],
+    "screenshot_bytes": 699452
+  }
+}

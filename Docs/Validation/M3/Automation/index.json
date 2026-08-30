@@ -1,0 +1,410 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "FF0B21314906ECABC44F1F8D522F67D3",
+			"instanceName": "LUCASSHENHOMEPC-20108",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-08.45.32",
+	"succeeded": 11,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.27476108074188232,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Contract",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuTopology.Contract",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.0076867006719112396,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Soft-body GPU topology tier=0 vertices=45 edges=180 edge_incidence=360 tets=96 tet_incidence=384",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Soft-body GPU topology tier=1 vertices=225 edges=1152 edge_incidence=2304 tets=768 tet_incidence=3072",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Soft-body GPU topology tier=2 vertices=1377 edges=8160 edge_incidence=16320 tets=6144 tet_incidence=24576",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "GroundContactAblation",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuXpbd.GroundContactAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.047832299023866653,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "CPU 接触参考已通过：standard=0.000000000cm weak=8.807254967cm；NullRHI 下跳过真实 GPU 消融。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LowFrequencyAblation",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuXpbd.LowFrequencyAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.015350297093391418,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过软体 GPU 低频消融；D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "LowFrequencyCounterbalancedTiming",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuXpbd.LowFrequencyCounterbalancedTiming",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.015934102237224579,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过 GPU 低频 ABBA 反平衡计时；真实 D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "PersistentCantilever",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuXpbd.PersistentCantilever",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.015849698334932327,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过真实软体 Compute；D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "ResolutionScaling",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuXpbd.ResolutionScaling",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.014594297856092453,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "NullRHI 下跳过软体 GPU 三档 timestamp；D3D12 报告单独生成。",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Cantilever",
+			"fullTestPath": "PhysicsResearch.SoftBody.LocalXpbd.Cantilever",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.046041298657655716,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Local XPBD cantilever: steps=120 iterations=64 vertices=45 tets=96 distance_constraints=180 volume_constraints=96 residual_rms=0.035024617 edge_relative_max=0.171401929 volume_relative_mean=0.020963039 volume_relative_max=0.068208222 total_volume_ratio=1.009258033 tip_displacement_cm=10.704480 fixed_drift_cm=0.000000000000 first_step_one_iter_residual=0.002159401 first_step_full_iter_residual=0.001442485 curve_r1=0.002159401 curve_r8=0.002037873 curve_r16=0.001888708 curve_r32=0.001653873 curve_r64=0.001442485 mean_step_ms=0.369382 maximum_step_ms=0.403000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Local XPBD convergence curve: 0.002159401326,0.002113373858,0.002094127984,0.002083965269,0.002075221902,0.002065000771,0.002052521733,0.002037873366,0.002021449472,0.002003706433,0.001985067031,0.001965889209,0.001946462260,0.001927013481,0.001907717859,0.001888707713,0.001870081182,0.001851909304,0.001834241753,0.001817111429,0.001800538107,0.001784531332,0.001769092717,0.001754217766,0.001739897324,0.001726118736,0.001712866765,0.001700124329,0.001687873085,0.001676093895,0.001664767196,0.001653873292,0.001643392579,0.001633305726,0.001623593808,0.001614238412,0.001605221708,0.001596526505,0.001588136286,0.001580035228,0.001572208214,0.001564640832,0.001557319369,0.001550230801,0.001543362773,0.001536703584,0.001530242160,0.001523968037,0.001517871331,0.001511942716,0.001506173397,0.001500555088,0.001495079981,0.001489740728,0.001484530412,0.001479442529,0.001474470959,0.001469609951,0.001464854098,0.001460198320,0.001455637843,0.001451168181,0.001446785123,0.001442484710",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CompressionMaterials",
+			"fullTestPath": "PhysicsResearch.SoftBody.LocalXpbd.CompressionMaterials",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.015361800789833069,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Local XPBD compression materials: compression_cm=8.000000 kinematic_vertices=9 soft_volume_mean=0.198759591 soft_volume_ratio=0.802146327 soft_residual=0.277424954 stiff_volume_mean=0.151132682 stiff_volume_ratio=0.854473513 stiff_residual=0.170960829 split_soft_volume_mean=0.093601216 split_stiff_volume_mean=0.251098758 split_volume_ratio=0.833758023 split_residual=0.178749337 soft_target_error_cm=0.000000000000 stiff_target_error_cm=0.000000000000 split_target_error_cm=0.000000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.31"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "CantileverAblation",
+			"fullTestPath": "PhysicsResearch.SoftBody.LowFrequency.CantileverAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.047286603599786758,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Low-frequency cantilever ablation: steps=120 iterations=32 strength=0.350000 interval=1 modes=2 passes_last_step=32 max_global_correction_cm=0.003331805 local_first_residual=0.001653873 global_first_residual=0.001561589 local_final_residual=0.064199203 global_final_residual=0.046028946 residual_ratio=0.716970677 local_edge_max=0.339340517 global_edge_max=0.234054627 local_volume_mean=0.034026030 global_volume_mean=0.027597306 local_tip_cm=19.745306 global_tip_cm=14.143714 local_fixed_drift=0.000000000000 global_fixed_drift=0.000000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Contract",
+			"fullTestPath": "PhysicsResearch.SoftBody.SurfaceBinding.Contract",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.033079098910093307,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStreaming: FlushAsyncLoading(450): 1 QueuedPackages, 0 AsyncPackages [log]",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.32"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStaticMesh: 正在等待静态网格体就绪0/1（/PhysicsSoftBody/DragonDerived/SM_TerrorBringer_SoftBodyCage）…… [log]",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.32"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dragon surface binding vertices=4854 cage_vertices=729 cage_tets=3072 rest_reconstruction_error_cm=0.000141087 maximum_deformation_cm=39.999282837 fixed_cage_vertices=81",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "Contract",
+			"fullTestPath": "PhysicsResearch.SoftBody.TetrahedralGrid.Contract",
+			"state": "Success",
+			"deviceInstance": [
+				"FF0B21314906ECABC44F1F8D522F67D3"
+			],
+			"duration": 0.015744898468255997,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Soft-body tet tier=低 cells=4x2x2 vertices=45 tets=96 surface_triangles=80 fixed=9 total_volume_cm3=16000.000488 tet_volume_cm3=166.666672 materials=2",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.32"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Soft-body tet tier=中 cells=8x4x4 vertices=225 tets=768 surface_triangles=320 fixed=25 total_volume_cm3=128000.003906 tet_volume_cm3=166.666672 materials=2",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.32"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Soft-body tet tier=高 cells=16x8x8 vertices=1377 tets=6144 surface_triangles=1280 fixed=81 total_volume_cm3=1024000.031250 tet_volume_cm3=166.666672 materials=2",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.45.32"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

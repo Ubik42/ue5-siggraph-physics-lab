@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-08-30T10:49:03.1103966-06:00",
+  "result": "passed",
+  "interpretation": "The persistent GPU Flow Map loop crosses two long-map reset boundaries. After pressure projection, one reset compute pass samples the final MAC velocity and gradient into m0/G0, restores each backward-map Jacobian to identity, keeps ping-pong ownership on the current buffers, and publishes a reset-step snapshot with the same source-step tag.",
+  "checks": {
+    "isolated_d3d12_automation_passed": true,
+    "real_rhi_is_d3d12_sm6": true,
+    "full_flow_map_nullrhi_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "two_reset_cycle_contract_is_exact": true,
+    "cpu_and_gpu_each_reset_twice": true,
+    "all_pipeline_pass_counts_are_exact": true,
+    "snapshot_is_after_second_reset": true,
+    "reset_snapshot_backward_map_is_identity": true,
+    "gpu_matches_cpu_faces_across_resets": true,
+    "gpu_matches_cpu_divergence_across_resets": true,
+    "reset_shader_resamples_payload_and_sets_identity": true,
+    "reset_runs_after_pressure_apply_in_same_enqueue": true,
+    "reset_step_keeps_current_buffers_and_reads_back_reset_output": true,
+    "runtime_enqueue_contains_no_explicit_gpu_wait": true
+  },
+  "device": {
+    "name": "LUCASSHENHOMEPC",
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "render_mode": "D3D12_SM6",
+    "rhi": "DirectX 12 (SM6)"
+  },
+  "contract": {
+    "cells": "16x16",
+    "particles": 256,
+    "steps": 8,
+    "reset_interval_steps": 4
+  },
+  "passes": {
+    "particle_advection": 8,
+    "impulse_gather": 16,
+    "divergence": 8,
+    "pressure_jacobi": 512,
+    "pressure_apply": 16,
+    "map_reset": 2
+  },
+  "lifecycle": {
+    "cpu_map_resets": 2,
+    "gpu_map_resets": 2,
+    "readbacks_completed": 2,
+    "latest_snapshot_step": 8
+  },
+  "metrics": {
+    "cpu_divergence_rms": 1.60987398E-06,
+    "gpu_divergence_rms": 1.60001034E-06,
+    "maximum_cpu_gpu_face_velocity_error": 2.00271606E-05,
+    "maximum_reset_jacobian_identity_error": 0.0,
+    "maximum_reset_jacobian_determinant_error": 0.0
+  },
+  "boundary": "This validates reset math, ordering, persistent resource ownership, and CPU/GPU agreement. It is not yet a GPU timing claim and does not include moving-solid boundaries, UE runtime presentation, Niagara visualization, interaction, failure ablation, or screenshots.",
+  "failed_checks": []
+}

@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-08-30T15:23:33.1175184-06:00",
+  "protocol": "Three isolated UE 5.4 game processes; NullRHI; -BENCHMARK -FPS=60; 300 warmup + 1500 measured frames per trial.",
+  "concurrent_editor_policy": "Fail without terminating any existing UnrealEditor process.",
+  "trials": [
+    {
+      "trial": 1,
+      "owned_pid": 33984,
+      "started_at": "2026-08-30T15:22:46.5935655-06:00",
+      "finished_at": "2026-08-30T15:23:02.1171449-06:00",
+      "samples": 1800,
+      "frame_wall_p95_ms": 1.2341998517513275,
+      "frame_wall_p99_ms": 1.3634972274303436,
+      "physics_control_update_p95_ms": 0.04939999999999999,
+      "physics_control_update_p99_ms": 0.08839999999999999
+    },
+    {
+      "trial": 2,
+      "owned_pid": 43560,
+      "started_at": "2026-08-30T15:23:02.2550267-06:00",
+      "finished_at": "2026-08-30T15:23:17.7394902-06:00",
+      "samples": 1800,
+      "frame_wall_p95_ms": 1.3012029230594635,
+      "frame_wall_p99_ms": 1.5766993165016174,
+      "physics_control_update_p95_ms": 0.053399999999999996,
+      "physics_control_update_p99_ms": 0.1084
+    },
+    {
+      "trial": 3,
+      "owned_pid": 25268,
+      "started_at": "2026-08-30T15:23:17.8746794-06:00",
+      "finished_at": "2026-08-30T15:23:33.1174673-06:00",
+      "samples": 1800,
+      "frame_wall_p95_ms": 1.2938976287841797,
+      "frame_wall_p99_ms": 1.428898423910141,
+      "physics_control_update_p95_ms": 0.0503,
+      "physics_control_update_p99_ms": 0.0678
+    }
+  ]
+}

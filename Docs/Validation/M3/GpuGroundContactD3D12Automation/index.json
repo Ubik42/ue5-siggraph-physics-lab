@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "702EDA114D7240FFC9322EACEC49BC3C",
+			"instanceName": "LUCASSHENHOMEPC-37288",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-08.36.07",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.37609541416168213,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GroundContactAblation",
+			"fullTestPath": "PhysicsResearch.SoftBody.GpuXpbd.GroundContactAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"702EDA114D7240FFC9322EACEC49BC3C"
+			],
+			"duration": 0.37609541416168213,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU XPBD ground contact ablation steps=120 standard_stiffness=1 weak_stiffness=0.02 standard_max_penetration_cm=0.000000000 weak_max_penetration_cm=7.999312401 standard_active_contact_vertices=6 standard_fixed_drift_cm=0.000000000 weak_fixed_drift_cm=0.000000000 standard_contact_passes=120 weak_contact_passes=120",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-14.36.06"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

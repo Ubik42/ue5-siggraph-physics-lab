@@ -1,0 +1,202 @@
+#include "/Engine/Public/Platform.ush"
+
+#define GROUP_SIZE 64
+
+uint CellCountX;
+uint CellCountY;
+float CellSizeCm;
+float MaxFaceVelocityCmPerSecond;
+
+float LimitFaceVelocity(float Value)
+{
+    if (isnan(Value) || isinf(Value)) return 0.0;
+    return clamp(Value, -MaxFaceVelocityCmPerSecond, MaxFaceVelocityCmPerSecond);
+}
+
+StructuredBuffer<float> InputFaceU;
+StructuredBuffer<float> InputFaceV;
+RWStructuredBuffer<float> OutputDivergence;
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void DivergenceCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    const uint CellCount = CellCountX * CellCountY;
+    if (Index >= CellCount) return;
+    const uint X = Index % CellCountX;
+    const uint Y = Index / CellCountX;
+    const uint UStride = CellCountX + 1;
+    OutputDivergence[Index] = (InputFaceU[Y * UStride + X + 1] - InputFaceU[Y * UStride + X]
+        + InputFaceV[(Y + 1) * CellCountX + X] - InputFaceV[Y * CellCountX + X]) / CellSizeCm;
+}
+
+StructuredBuffer<float> InputDivergence;
+StructuredBuffer<float> InputPressure;
+RWStructuredBuffer<float> OutputPressure;
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void JacobiCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    const uint CellCount = CellCountX * CellCountY;
+    if (Index >= CellCount) return;
+    const uint X = Index % CellCountX;
+    const uint Y = Index / CellCountX;
+    const uint Xm = (X + CellCountX - 1) % CellCountX;
+    const uint Xp = (X + 1) % CellCountX;
+    const uint Ym = (Y + CellCountY - 1) % CellCountY;
+    const uint Yp = (Y + 1) % CellCountY;
+    OutputPressure[Index] = 0.25 * (InputPressure[Y * CellCountX + Xm] + InputPressure[Y * CellCountX + Xp]
+        + InputPressure[Ym * CellCountX + X] + InputPressure[Yp * CellCountX + X]
+        - CellSizeCm * CellSizeCm * InputDivergence[Index]);
+}
+
+StructuredBuffer<float> ApplyInputPressure;
+StructuredBuffer<float> ApplyInputFaceU;
+StructuredBuffer<float> ApplyInputFaceV;
+RWStructuredBuffer<float> ApplyOutputFaceU;
+RWStructuredBuffer<float> ApplyOutputFaceV;
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void ApplyUCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    const uint FaceCount = (CellCountX + 1) * CellCountY;
+    if (Index >= FaceCount) return;
+    const uint X = Index % (CellCountX + 1);
+    const uint Y = Index / (CellCountX + 1);
+    const uint Right = X % CellCountX;
+    const uint Left = (Right + CellCountX - 1) % CellCountX;
+    ApplyOutputFaceU[Index] = ApplyInputFaceU[Index]
+        - (ApplyInputPressure[Y * CellCountX + Right] - ApplyInputPressure[Y * CellCountX + Left]) / CellSizeCm;
+}
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void ApplyVCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    const uint FaceCount = CellCountX * (CellCountY + 1);
+    if (Index >= FaceCount) return;
+    const uint X = Index % CellCountX;
+    const uint Y = Index / CellCountX;
+    const uint Up = Y % CellCountY;
+    const uint Down = (Up + CellCountY - 1) % CellCountY;
+    ApplyOutputFaceV[Index] = ApplyInputFaceV[Index]
+        - (ApplyInputPressure[Up * CellCountX + X] - ApplyInputPressure[Down * CellCountX + X]) / CellSizeCm;
+}
+
+StructuredBuffer<uint> SolidCellMask;
+StructuredBuffer<uint> SolidFaceUMask;
+StructuredBuffer<uint> SolidFaceVMask;
+StructuredBuffer<float> SolidFaceVelocityU;
+StructuredBuffer<float> SolidFaceVelocityV;
+StructuredBuffer<float> SolidInputFaceU;
+StructuredBuffer<float> SolidInputFaceV;
+RWStructuredBuffer<float> SolidOutputDivergence;
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void SolidDivergenceCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    const uint CellCount = CellCountX * CellCountY;
+    if (Index >= CellCount) return;
+    if (SolidCellMask[Index] != 0)
+    {
+        SolidOutputDivergence[Index] = 0.0;
+        return;
+    }
+    const uint X = Index % CellCountX;
+    const uint Y = Index / CellCountX;
+    const uint UStride = CellCountX + 1;
+    const uint ULeft = Y * UStride + X;
+    const uint URight = ULeft + 1;
+    const uint VDown = Y * CellCountX + X;
+    const uint VUp = VDown + CellCountX;
+    const float Left = SolidFaceUMask[ULeft] != 0 ? SolidFaceVelocityU[ULeft] : SolidInputFaceU[ULeft];
+    const float Right = SolidFaceUMask[URight] != 0 ? SolidFaceVelocityU[URight] : SolidInputFaceU[URight];
+    const float Down = SolidFaceVMask[VDown] != 0 ? SolidFaceVelocityV[VDown] : SolidInputFaceV[VDown];
+    const float Up = SolidFaceVMask[VUp] != 0 ? SolidFaceVelocityV[VUp] : SolidInputFaceV[VUp];
+    SolidOutputDivergence[Index] = (Right - Left + Up - Down) / CellSizeCm;
+}
+
+StructuredBuffer<float> SolidInputDivergence;
+StructuredBuffer<float> SolidInputPressure;
+RWStructuredBuffer<float> SolidOutputPressure;
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void SolidJacobiCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    const uint CellCount = CellCountX * CellCountY;
+    if (Index >= CellCount) return;
+    if (SolidCellMask[Index] != 0)
+    {
+        SolidOutputPressure[Index] = 0.0;
+        return;
+    }
+    const uint X = Index % CellCountX;
+    const uint Y = Index / CellCountX;
+    const uint Xm = (X + CellCountX - 1) % CellCountX;
+    const uint Xp = (X + 1) % CellCountX;
+    const uint Ym = (Y + CellCountY - 1) % CellCountY;
+    const uint Yp = (Y + 1) % CellCountY;
+    const uint Neighbors[4] = {Y * CellCountX + Xm, Y * CellCountX + Xp, Ym * CellCountX + X, Yp * CellCountX + X};
+    float PressureSum = 0.0;
+    uint FluidNeighborCount = 0;
+    [unroll] for (uint NeighborIndex = 0; NeighborIndex < 4; ++NeighborIndex)
+    {
+        const uint Neighbor = Neighbors[NeighborIndex];
+        if (SolidCellMask[Neighbor] == 0)
+        {
+            PressureSum += SolidInputPressure[Neighbor];
+            FluidNeighborCount++;
+        }
+    }
+    SolidOutputPressure[Index] = FluidNeighborCount > 0
+        ? (PressureSum - CellSizeCm * CellSizeCm * SolidInputDivergence[Index]) / FluidNeighborCount
+        : 0.0;
+}
+
+StructuredBuffer<float> SolidApplyInputPressure;
+StructuredBuffer<float> SolidApplyInputFaceU;
+StructuredBuffer<float> SolidApplyInputFaceV;
+RWStructuredBuffer<float> SolidApplyOutputFaceU;
+RWStructuredBuffer<float> SolidApplyOutputFaceV;
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void SolidApplyUCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    const uint FaceCount = (CellCountX + 1) * CellCountY;
+    if (Index >= FaceCount) return;
+    if (SolidFaceUMask[Index] != 0)
+    {
+        SolidApplyOutputFaceU[Index] = LimitFaceVelocity(SolidFaceVelocityU[Index]);
+        return;
+    }
+    const uint X = Index % (CellCountX + 1);
+    const uint Y = Index / (CellCountX + 1);
+    const uint Right = X % CellCountX;
+    const uint Left = (Right + CellCountX - 1) % CellCountX;
+    SolidApplyOutputFaceU[Index] = LimitFaceVelocity(SolidApplyInputFaceU[Index]
+        - (SolidApplyInputPressure[Y * CellCountX + Right] - SolidApplyInputPressure[Y * CellCountX + Left]) / CellSizeCm);
+}
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void SolidApplyVCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    const uint FaceCount = CellCountX * (CellCountY + 1);
+    if (Index >= FaceCount) return;
+    if (SolidFaceVMask[Index] != 0)
+    {
+        SolidApplyOutputFaceV[Index] = LimitFaceVelocity(SolidFaceVelocityV[Index]);
+        return;
+    }
+    const uint X = Index % CellCountX;
+    const uint Y = Index / CellCountX;
+    const uint Up = Y % CellCountY;
+    const uint Down = (Up + CellCountY - 1) % CellCountY;
+    SolidApplyOutputFaceV[Index] = LimitFaceVelocity(SolidApplyInputFaceV[Index]
+        - (SolidApplyInputPressure[Up * CellCountX + X] - SolidApplyInputPressure[Down * CellCountX + X]) / CellSizeCm);
+}

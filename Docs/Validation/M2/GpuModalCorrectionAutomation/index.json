@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "1CD11FAC411D58F693D442A625D3753E",
+			"instanceName": "LUCASSHENHOMEPC-10488",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-01.29.43",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.058588501065969467,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuReducedModalCorrection",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuReducedModalCorrection",
+			"state": "Success",
+			"deviceInstance": [
+				"1CD11FAC411D58F693D442A625D3753E"
+			],
+			"duration": 0.058588501065969467,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "GPU reduced modal correction: particles=300 modes=12 steps=90 baseline_low_energy=166774.355067947 modal_low_energy=29762.989232249 baseline_bottom_drop_cm=32.882854 modal_bottom_drop_cm=13.636112 modal_passes=90",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-07.29.43"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

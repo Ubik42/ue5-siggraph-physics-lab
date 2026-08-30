@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-08-30T08:08:26.6793038-06:00",
+  "result": "passed",
+  "checks": {
+    "target_test_passed": true,
+    "isolated_suite_zero_failures": true,
+    "zero_test_warnings_and_errors": true,
+    "three_tiers_reported": true,
+    "low_tier_exact_gpu_contract": true,
+    "medium_tier_exact_gpu_contract": true,
+    "high_tier_exact_gpu_contract": true
+  },
+  "tiers": {
+    "0": {
+      "vertices": 45,
+      "edges": 180,
+      "edge_incidence": 360,
+      "tetrahedra": 96,
+      "tetrahedron_incidence": 384
+    },
+    "1": {
+      "vertices": 225,
+      "edges": 1152,
+      "edge_incidence": 2304,
+      "tetrahedra": 768,
+      "tetrahedron_incidence": 3072
+    },
+    "2": {
+      "vertices": 1377,
+      "edges": 8160,
+      "edge_incidence": 16320,
+      "tetrahedra": 6144,
+      "tetrahedron_incidence": 24576
+    }
+  },
+  "gpu_iteration_plan": [
+    "distance constraint pass",
+    "tetrahedron volume constraint pass",
+    "vertex CSR gather/apply pass"
+  ],
+  "failed_checks": []
+}

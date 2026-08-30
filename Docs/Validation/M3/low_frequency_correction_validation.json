@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-08-30T08:08:26.6674102-06:00",
+  "result": "passed",
+  "checks": {
+    "target_test_passed": true,
+    "isolated_suite_zero_failures": true,
+    "zero_test_warnings_and_errors": true,
+    "summary_metrics_present": true,
+    "exact_equal_budget": true,
+    "two_modes_run_every_iteration": true,
+    "final_residual_improves_at_least_five_percent": true,
+    "edge_error_improves_and_is_bounded": true,
+    "volume_error_improves_and_is_bounded": true,
+    "fixed_face_zero_drift": true,
+    "correction_is_finite_and_bounded": true
+  },
+  "method": {
+    "name": "two-mode global low-frequency correction",
+    "basis": [
+      "normalized dominant-axis linear mode",
+      "normalized dominant-axis quadratic mode"
+    ],
+    "boundary": "engineering subset inspired by global-response methods; not full MGPBD, UA-AMG, or JGS2"
+  },
+  "metrics": {
+    "steps": 120,
+    "iterations_per_step": 32,
+    "strength": 0.35,
+    "correction_interval": 1,
+    "mode_count": 2,
+    "passes_last_step": 32,
+    "maximum_global_correction_cm": 0.003331805,
+    "local_first_step_residual_rms": 0.001653873,
+    "corrected_first_step_residual_rms": 0.001561589,
+    "local_final_residual_rms": 0.064199203,
+    "corrected_final_residual_rms": 0.046028946,
+    "residual_ratio": 0.716970677,
+    "local_maximum_edge_relative_error": 0.339340517,
+    "corrected_maximum_edge_relative_error": 0.234054627,
+    "local_mean_volume_relative_error": 0.03402603,
+    "corrected_mean_volume_relative_error": 0.027597306,
+    "local_tip_displacement_cm": 19.745306,
+    "corrected_tip_displacement_cm": 14.143714,
+    "local_fixed_drift_cm": 0.0,
+    "corrected_fixed_drift_cm": 0.0
+  },
+  "failed_checks": []
+}

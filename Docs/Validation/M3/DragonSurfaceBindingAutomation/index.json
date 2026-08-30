@@ -1,0 +1,80 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "0AE2E8D54EBD4BF67C9816897465A235",
+			"instanceName": "LUCASSHENHOMEPC-24704",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-07.48.36",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.029806699603796005,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "Contract",
+			"fullTestPath": "PhysicsResearch.SoftBody.SurfaceBinding.Contract",
+			"state": "Success",
+			"deviceInstance": [
+				"0AE2E8D54EBD4BF67C9816897465A235"
+			],
+			"duration": 0.029806699603796005,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStreaming: FlushAsyncLoading(450): 1 QueuedPackages, 0 AsyncPackages [log]",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-13.48.36"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "LogStaticMesh: 正在等待静态网格体就绪0/1（/PhysicsSoftBody/DragonDerived/SM_TerrorBringer_SoftBodyCage）…… [log]",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-13.48.36"
+				},
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Dragon surface binding vertices=4854 cage_vertices=729 cage_tets=3072 rest_reconstruction_error_cm=0.000141087 maximum_deformation_cm=39.999282837 fixed_cage_vertices=81",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-13.48.36"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

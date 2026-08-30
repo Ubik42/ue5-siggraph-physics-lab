@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-08-30T00:56:20.4348548-06:00",
+  "result": "passed",
+  "checks": {
+    "test_discovered": true,
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "d3d12_sm6": true,
+    "batch_metrics_present": true,
+    "sphere_buffer_used": true,
+    "multiple_capsules_used": true,
+    "input_penetration_positive": true,
+    "batch_penetration_removed": true,
+    "dynamic_update_metrics_present": true,
+    "dynamic_update_applied_next_step": true,
+    "dynamic_update_penetration_removed": true
+  },
+  "evidence": {
+    "particles": 108,
+    "spheres": 1,
+    "capsules": 2,
+    "input_max_penetration_cm": 7.671573,
+    "output_max_penetration_cm": 3E-06,
+    "dynamic_update_step": 1,
+    "dynamic_output_max_penetration_cm": 3E-06,
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuBatchCollisionAutomation\\index.json"
+  }
+}

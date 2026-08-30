@@ -1,0 +1,83 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "D46E7808463F25645262FD99E0C91313",
+			"instanceName": "LUCASSHENHOMEPC-35404",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-04.41.41",
+	"succeeded": 2,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.062320902943611145,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "ModalSubspaceReference",
+			"fullTestPath": "PhysicsResearch.ContactCloth.ExplicitTopology.ModalSubspaceReference",
+			"state": "Success",
+			"deviceInstance": [
+				"D46E7808463F25645262FD99E0C91313"
+			],
+			"duration": 0.008145701140165329,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit modal reference: particles=12 modes=4 fixed_support=0.000e+00 orthogonality_error=2.220e-16 inverse_error=2.220e-16",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.41.41"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		},
+		{
+			"testDisplayName": "RankOneCollisionAblation",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.RankOneCollisionAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"D46E7808463F25645262FD99E0C91313"
+			],
+			"duration": 0.054175201803445816,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Explicit rank-one ablation: particles=9 modes=4 baseline_penetration_cm=4.701429844 rank_one_penetration_cm=4.642128944 modal_passes=1 rank_one_systems=1 fixed_1_drift_cm=0.000000000 fixed_6_drift_cm=0.000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-10.41.41"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

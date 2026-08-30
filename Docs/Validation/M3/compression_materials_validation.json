@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-08-30T08:08:26.6562031-06:00",
+  "result": "passed",
+  "checks": {
+    "target_test_passed": true,
+    "two_local_tests_zero_failures": true,
+    "zero_test_warnings_and_errors": true,
+    "summary_metrics_present": true,
+    "exact_displacement_boundary": true,
+    "kinematic_targets_exact": true,
+    "stiff_material_preserves_volume_better": true,
+    "split_response_between_uniform_profiles": true,
+    "stiff_residual_lower_than_soft": true,
+    "all_total_volumes_positive": true
+  },
+  "metrics": {
+    "compression_cm": 8.0,
+    "kinematic_vertices": 9,
+    "soft_mean_volume_relative_error": 0.198759591,
+    "soft_total_volume_ratio": 0.802146327,
+    "soft_residual_rms": 0.277424954,
+    "stiff_mean_volume_relative_error": 0.151132682,
+    "stiff_total_volume_ratio": 0.854473513,
+    "stiff_residual_rms": 0.170960829,
+    "split_soft_mean_volume_relative_error": 0.093601216,
+    "split_stiff_mean_volume_relative_error": 0.251098758,
+    "split_total_volume_ratio": 0.833758023,
+    "split_residual_rms": 0.178749337,
+    "maximum_kinematic_target_error_cm": 0.0
+  },
+  "material_profile": {
+    "soft_edge_compliance": 0.002,
+    "stiff_edge_compliance": 2E-05,
+    "soft_volume_compliance": 20.0,
+    "stiff_volume_compliance": 0.2,
+    "note": "displacement-controlled contrast profile in UE centimeter/kilogram units; not the gravity cantilever default"
+  },
+  "failed_checks": []
+}

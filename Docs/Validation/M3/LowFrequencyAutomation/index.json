@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "9A450B1440AC81792051C0BA371ADBE1",
+			"instanceName": "LUCASSHENHOMEPC-21584",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "SM5",
+			"rHI": "",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-06.26.38",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.046895399689674377,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "CantileverAblation",
+			"fullTestPath": "PhysicsResearch.SoftBody.LowFrequency.CantileverAblation",
+			"state": "Success",
+			"deviceInstance": [
+				"9A450B1440AC81792051C0BA371ADBE1"
+			],
+			"duration": 0.046895399689674377,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "Low-frequency cantilever ablation: steps=120 iterations=32 strength=0.350000 interval=1 modes=2 passes_last_step=32 max_global_correction_cm=0.003331805 local_first_residual=0.001653873 global_first_residual=0.001561589 local_final_residual=0.064199203 global_final_residual=0.046028946 residual_ratio=0.716970677 local_edge_max=0.339340517 global_edge_max=0.234054627 local_volume_mean=0.034026030 global_volume_mean=0.027597306 local_tip_cm=19.745306 global_tip_cm=14.143714 local_fixed_drift=0.000000000000 global_fixed_drift=0.000000000000",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-12.26.38"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

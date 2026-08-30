@@ -1,0 +1,59 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float4> ResidualCandidatePositions;
+StructuredBuffer<float4> ResidualPreviousIterationPositions;
+StructuredBuffer<float4> ResidualFinalPositions;
+RWStructuredBuffer<float4> ResidualState;
+
+uint ResidualParticleCount;
+uint ResidualColumns;
+float ResidualMaximumCm;
+float ResidualMaximumCcdCorrectionCm;
+uint ResidualResetState;
+
+bool IsFiniteVector(float3 Value)
+{
+    return all(Value == Value) && all(abs(Value) < 3.0e30);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void CaptureCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    if (Index >= ResidualParticleCount)
+    {
+        return;
+    }
+    const float PreviousFallbacks = ResidualState[Index].w;
+    if (Index < ResidualColumns)
+    {
+        ResidualState[Index] = float4(0.0, 0.0, 0.0, PreviousFallbacks);
+        return;
+    }
+    if (ResidualResetState != 0)
+    {
+        ResidualState[Index] = float4(0.0, 0.0, 0.0, PreviousFallbacks + 1.0);
+        return;
+    }
+    const float3 Residual = ResidualCandidatePositions[Index].xyz - ResidualPreviousIterationPositions[Index].xyz;
+    const bool bAccepted = IsFiniteVector(Residual) && length(Residual) <= ResidualMaximumCm;
+    ResidualState[Index] = bAccepted
+        ? float4(Residual, PreviousFallbacks)
+        : float4(0.0, 0.0, 0.0, PreviousFallbacks + 1.0);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void GateCcdCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    if (Index >= ResidualParticleCount || Index < ResidualColumns)
+    {
+        return;
+    }
+    const float3 Correction = ResidualFinalPositions[Index].xyz - ResidualCandidatePositions[Index].xyz;
+    if (!IsFiniteVector(Correction) || length(Correction) > ResidualMaximumCcdCorrectionCm)
+    {
+        const float PreviousFallbacks = ResidualState[Index].w;
+        ResidualState[Index] = float4(0.0, 0.0, 0.0, PreviousFallbacks + 1.0);
+    }
+}

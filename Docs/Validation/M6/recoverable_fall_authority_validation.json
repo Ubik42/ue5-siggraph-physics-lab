@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-30T14:06:19.7004687-06:00",
+  "result": "passed",
+  "scope": "Replicated Lyra-aware RecoverableFall state foundation with server-only transition policy, DeathState priority, GAS loose tags, one recovery-intent RPC, and Character Movement authority gate.",
+  "claim_boundary": "This is a compiled and tested authority foundation. It is not yet attached through a Lyra Experience/GameFeature action and does not yet prove a two-process server/client replication session or correction bandwidth.",
+  "checks": {
+    "full_driven_character_regression_is_11_of_11": true,
+    "recoverable_authority_tests_are_4_of_4": true,
+    "state_and_branch_are_replicated": true,
+    "recovery_intent_is_one_reliable_rpc": true,
+    "no_per_bone_rpc_contract": true,
+    "death_state_has_priority": true,
+    "lyra_gas_tags_are_separate_from_death": true,
+    "movement_is_server_gated": true,
+    "server_policy_consumes_physical_contract": true,
+    "client_cannot_advance_policy": true
+  },
+  "driven_character_automation_success_count": 11,
+  "recoverable_fall_automation_success_count": 4,
+  "failed_checks": []
+}

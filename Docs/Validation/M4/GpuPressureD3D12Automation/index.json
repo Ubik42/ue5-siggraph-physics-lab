@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "031F388D4A5754A0070D029AE8783050",
+			"instanceName": "LUCASSHENHOMEPC-12428",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-09.33.20",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.033935699611902237,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuPressureProjection",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuPressureProjection",
+			"state": "Success",
+			"deviceInstance": [
+				"031F388D4A5754A0070D029AE8783050"
+			],
+			"duration": 0.033935699611902237,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU pressure rhi=D3D12 cells=32x16 iterations=512 divergence_passes=1 jacobi_passes=512 apply_passes=2 cpu_divergence_before=1.38617175 cpu_divergence_after=0.00988997345 gpu_divergence_after=0.00989034952 gpu_to_initial_ratio=0.00713501018 max_face_error=3.60012054e-05",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-15.33.20"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-08-30T16:30:03.1687919-06:00",
+  "result": "passed",
+  "scope": "M7 unified Chinese portfolio hub: five frozen acceptance reports, five real map routes, rendered UI and one end-to-end route execution.",
+  "route_contract": {
+    "1": "/PhysicsContactCloth/Maps/L_GpuExplicitAssassin",
+    "2": "/PhysicsSoftBody/Maps/L_DragonGpuSurface",
+    "3": "/PhysicsFlowMap/Maps/L_FlowMapChaosObstacle",
+    "4": "/PhysicsInverseDesign/Maps/L_InverseSpringChaosReplay",
+    "5": "/PhysicsDrivenCharacter/Maps/L_PhysicsControlCharacter",
+    "H": "/PhysicsDrivenCharacter/Maps/L_PhysicalGetUpHandoff"
+  },
+  "screenshot": {
+    "path": "Docs/Validation/M7/Screenshots/M7_PortfolioHub.png",
+    "width": 1600,
+    "height": 900,
+    "bytes": 226223
+  },
+  "checks": {
+    "all_five_frozen_acceptance_reports_pass": true,
+    "all_five_formal_map_assets_exist": true,
+    "source_routes_exactly_five_number_keys": true,
+    "source_contains_all_five_formal_map_paths": true,
+    "als_handoff_shortcut_is_explicit": true,
+    "hub_hud_is_chinese_and_marks_acceptance": true,
+    "rendered_hub_screenshot_is_1600x900": true,
+    "real_hub_route_opened_case05_map": true,
+    "routed_case_completed_frozen_runtime": true
+  },
+  "failed_checks": []
+}

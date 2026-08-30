@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "B146479642AE1B9F73DB6C8A88BC801D",
+			"instanceName": "LUCASSHENHOMEPC-38888",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-10.21.30",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.1912204921245575,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuClosedLoopTimestamp",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuClosedLoopTimestamp",
+			"state": "Success",
+			"deviceInstance": [
+				"B146479642AE1B9F73DB6C8A88BC801D"
+			],
+			"duration": 0.1912204921245575,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU timestamp rhi=D3D12 steps=32 samples=8 skipped=24 warmup_steps=4 steady_samples=4 latest_step=8 latest_ms=6.347 mean_ms=4.346125 p95_ms=6.347 p99_ms=6.347 max_ms=6.347 steady_mean_ms=4.336 steady_p95_ms=6.347 steady_p99_ms=6.347 steady_max_ms=6.347 scope=full_step_rdg_interval",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-16.21.30"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

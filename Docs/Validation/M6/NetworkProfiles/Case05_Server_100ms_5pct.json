@@ -1,0 +1,622 @@
+{
+  "generated_at": "2026-08-30T14:39:19.8034126-06:00",
+  "source": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M6\\NetworkProfiles\\Case05_Server_100ms_5pct.nprof",
+  "file_bytes": 154715,
+  "parser_contract": "UE 5.4 Network Profiler version 14; complete EndOfStream required; read-only.",
+  "header": {
+    "magic": "0x1DBF348C",
+    "version": 14,
+    "tag": "Case05Server",
+    "game_name": "SIGGRAPHPhysicsLab",
+    "url": "/ShooterMaps/Maps/L_Convolution_Blockout?Name=Player"
+  },
+  "parsed": {
+    "end_of_stream": true,
+    "name_count": 174,
+    "connection_count": 1,
+    "unresolved_name_references": 0,
+    "token_counts": {
+      "12": 572,
+      "3": 292,
+      "9": 480,
+      "6": 1,
+      "4": 14405,
+      "7": 3,
+      "18": 1,
+      "15": 2560,
+      "10": 34,
+      "13": 1092,
+      "1": 453,
+      "16": 485,
+      "0": 1282,
+      "17": 174,
+      "11": 123,
+      "2": 1083,
+      "5": 1684
+    },
+    "event_count": 21606,
+    "rpc_count": 292,
+    "replicated_property_count": 1684,
+    "socket_send_count": 453,
+    "socket_wire_bytes": 63866
+  },
+  "filter": "RecoverableFall|ServerRequestRecovery|FallState|RecoveryBranch",
+  "matching_events": [
+    {
+      "type": "BeginContentBlock",
+      "time_s": 48.215096,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 5740
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 48.215096,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 6717
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 48.215096,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 7007
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 48.26205,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 9706
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 18620
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 18637
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 18642
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 18645
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 18696
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 18699
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 18704
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 18707
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 18849
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 18852
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 18857
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 49.291946,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 18860
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 22105
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 22108
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 22113
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 22116
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 22135
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 22138
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 22143
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 22146
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 22274
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 22277
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 22282
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 49.81325,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 22285
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 50.191063,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 24486
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 50.191063,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 24489
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 50.191063,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 24492
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 50.191063,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 24495
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 50.191063,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 24498
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 50.191063,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 24503
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 50.191063,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 24506
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 50.70919,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 27542
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 50.70919,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 27545
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 50.70919,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 27550
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 50.70919,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 27553
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 52.20418,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 36419
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 52.20418,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 36422
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 52.20418,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 36425
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 52.20418,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "RecoveryBranch",
+      "payload_bits": 3,
+      "offset": 36449
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 52.20418,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 36454
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 52.20418,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 36457
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 52.53242,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 38869
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 52.53242,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "RecoveryBranch",
+      "payload_bits": 3,
+      "offset": 38874
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 52.53242,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 38879
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 52.53242,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 38882
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 52.860416,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 41808
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 52.860416,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "RecoveryBranch",
+      "payload_bits": 3,
+      "offset": 41813
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 52.860416,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 41818
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 52.860416,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 41821
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 53.18667,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 44562
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 53.18667,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 44565
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 53.18667,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 44568
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 53.18667,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 44571
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 53.18667,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 44574
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 53.18667,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 44579
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 53.18667,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 21,
+      "offset": 44582
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 63.71254,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 29,
+      "offset": 118138
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 65.78518,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 132219
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 65.78518,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 132222
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 65.78518,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 132227
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 65.78518,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 29,
+      "offset": 132230
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 66.30308,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 135650
+    },
+    {
+      "type": "ReplicateProperty",
+      "time_s": 66.30308,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "property": "FallState",
+      "payload_bits": 3,
+      "offset": 135653
+    },
+    {
+      "type": "WritePropertyHandle",
+      "time_s": 66.30308,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "bits": 8,
+      "offset": 135658
+    },
+    {
+      "type": "BeginContentBlock",
+      "time_s": 66.30308,
+      "connection": "127.0.0.1:57344",
+      "content": "RecoverableFallComponent",
+      "header_bits": 29,
+      "offset": 135661
+    }
+  ],
+  "matching_frame_socket_summaries": [
+    {
+      "time_s": 0.0,
+      "socket_send_count": 0,
+      "socket_wire_bytes": 0
+    }
+  ]
+}

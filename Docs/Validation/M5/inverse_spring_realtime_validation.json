@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-08-30T12:44:07.4126779-06:00",
+  "result": "passed",
+  "engine": "UE 5.4.4 CL 35576357",
+  "rhi": "D3D12 SM6",
+  "interpretation": "The fitted differentiable model and a real Chaos linear-drive constraint share nominal mass, stiffness, damping, equilibrium target, initial state, and fixed-step launch protocol. Their measured trajectory difference is retained as engine/model mismatch rather than hidden.",
+  "checks": {
+    "map_saved_without_errors": true,
+    "map_asset_exists": true,
+    "runtime_summary_passed": true,
+    "fixed_step_and_chaos_samples_are_exact": true,
+    "chaos_constraint_body_really_moves": true,
+    "research_fit_reaches_target": true,
+    "chaos_replay_is_close_but_not_falsely_identical": true,
+    "csv_contains_all_strictly_ordered_steps": true,
+    "csv_recomputes_chaos_rms": true,
+    "csv_recomputes_final_errors": true,
+    "screenshot_exists_and_is_nontrivial": true,
+    "source_uses_real_chaos_constraint": true,
+    "source_uses_same_recovered_parameters": true
+  },
+  "runtime": {
+    "steps": 120,
+    "observation_step": 120,
+    "identifiability_failure": false,
+    "chaos_samples": 120,
+    "initial_loss": 1.6988555086807557,
+    "fitted_loss": 7.64510945194039E-11,
+    "recovered_drive": 34.00019141786647,
+    "recovered_stiffness": 14,
+    "recovered_damping": 2.79998560086301,
+    "parameter_l1_error": 0.0002058170034575646,
+    "gradient_relative_error": 3.246294652956529E-10,
+    "research_final_target_error_cm": 0.001134662418644794,
+    "chaos_rms_vs_research_cm": 9.628092609052112,
+    "chaos_final_target_error_cm": 0.14554440485861164
+  },
+  "recomputed": {
+    "samples": 120,
+    "chaos_rms_vs_research_cm": 9.628092609086254,
+    "chaos_final_target_error_cm": 0.14554440500000965,
+    "research_final_target_error_cm": 0.0011346619999983432
+  },
+  "screenshot": "Docs/Validation/M5/Screenshots/Case04_InverseSpring_ChaosReplay.png",
+  "manual_visual_inspection": "passed: full Chinese HUD, all four colored bodies, target marker, track plane, and camera framing are visible without the earlier occluding wall",
+  "failed_checks": []
+}

@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-08-30T14:18:36.3404006-06:00",
+  "result": "passed",
+  "topology": "UE 5.4 dedicated server NetMode=1 on port 7787 plus independent game client NetMode=3 over loopback.",
+  "scope": "GameFeature injection into real Lyra shooter pawns, one client recovery-intent RPC, server-only physical-state progression, and replicated Front/Recovered state observed on the client.",
+  "claim_boundary": "This proves two-process authority and replication semantics. Exact wire bytes, correction frequency under packet loss, and bandwidth P95/P99 still require a Network Profiler capture.",
+  "checks": {
+    "gamefeature_asset_has_single_custom_action": true,
+    "action_targets_real_lyra_character": true,
+    "action_runs_on_client_and_server": true,
+    "dedicated_server_listened_and_client_joined": true,
+    "component_injected_into_real_lyra_pawns": true,
+    "client_asc_completed_late_binding": true,
+    "one_client_intent_reached_server": true,
+    "server_completed_authoritative_sequence": true,
+    "client_received_replicated_sequence": true,
+    "no_per_bone_rpc_or_death_state_reuse": true
+  },
+  "logical_replication_contract": {
+    "client_intent_rpc_count_in_selected_sequence": 1,
+    "replicated_discrete_fields": [
+      "FallState:uint8",
+      "RecoveryBranch:uint8"
+    ],
+    "per_bone_rpc_count": 0,
+    "observed_server_state_transitions": 4,
+    "observed_client_state_notifications": 4
+  },
+  "failed_checks": []
+}

@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-08-30T08:08:26.5952159-06:00",
+  "result": "passed",
+  "checks": {
+    "target_test_passed": true,
+    "full_m3_suite_zero_failures": true,
+    "zero_test_warnings_and_errors": true,
+    "three_resolution_tiers_reported": true,
+    "low_tier_exact_contract": true,
+    "medium_tier_exact_contract": true,
+    "high_tier_exact_contract": true,
+    "positive_uniform_tetrahedron_volume": true
+  },
+  "tiers": {
+    "低": {
+      "cells": [
+        4,
+        2,
+        2
+      ],
+      "vertices": 45,
+      "tetrahedra": 96,
+      "surface_triangles": 80,
+      "fixed_vertices": 9,
+      "total_volume_cm3": 16000.000488,
+      "tetrahedron_volume_cm3": 166.666672,
+      "materials": 2
+    },
+    "中": {
+      "cells": [
+        8,
+        4,
+        4
+      ],
+      "vertices": 225,
+      "tetrahedra": 768,
+      "surface_triangles": 320,
+      "fixed_vertices": 25,
+      "total_volume_cm3": 128000.003906,
+      "tetrahedron_volume_cm3": 166.666672,
+      "materials": 2
+    },
+    "高": {
+      "cells": [
+        16,
+        8,
+        8
+      ],
+      "vertices": 1377,
+      "tetrahedra": 6144,
+      "surface_triangles": 1280,
+      "fixed_vertices": 81,
+      "total_volume_cm3": 1024000.03125,
+      "tetrahedron_volume_cm3": 166.666672,
+      "materials": 2
+    }
+  },
+  "failed_checks": []
+}

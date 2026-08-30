@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-08-30T10:49:03.0738674-06:00",
+  "result": "passed",
+  "interpretation": "One persistent RDG enqueue advances particles and backward Jacobians from the current projected velocity, gathers transformed impulse and gradient to MAC faces, computes divergence, solves pressure, writes the projected velocity used by the next enqueue, and asynchronously publishes velocity plus particle state with one source-step tag.",
+  "checks": {
+    "isolated_d3d12_automation_passed": true,
+    "real_rhi_is_d3d12_sm6": true,
+    "full_flow_map_nullrhi_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "fixed_step_contract_is_exact": true,
+    "queue_and_execution_counts_match": true,
+    "all_pipeline_pass_counts_are_exact": true,
+    "unified_snapshot_matches_last_step": true,
+    "gpu_closed_loop_matches_cpu_faces": true,
+    "gpu_closed_loop_matches_cpu_divergence": true,
+    "backward_map_remains_near_volume_preserving": true,
+    "runtime_enqueue_contains_no_explicit_gpu_wait": true,
+    "one_enqueue_contains_advection_gather_pressure_and_apply": true
+  },
+  "device": {
+    "name": "LUCASSHENHOMEPC",
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "render_mode": "D3D12_SM6",
+    "rhi": "DirectX 12 (SM6)"
+  },
+  "contract": {
+    "cells": "16x16",
+    "particles": 256,
+    "steps": 4,
+    "fixed_delta_seconds": 0.00416666688,
+    "pressure_iterations_per_step": 64,
+    "readback_interval_steps": 2
+  },
+  "passes": {
+    "particle_advection": 4,
+    "impulse_gather": 8,
+    "divergence": 4,
+    "pressure_jacobi": 256,
+    "pressure_apply": 8
+  },
+  "lifecycle": {
+    "steps_enqueued": 4,
+    "steps_executed": 4,
+    "readbacks_completed": 2,
+    "latest_snapshot_step": 4
+  },
+  "metrics": {
+    "cpu_divergence_rms": 1.65896135E-06,
+    "gpu_divergence_rms": 1.65735848E-06,
+    "maximum_cpu_gpu_face_velocity_error": 1.8119812E-05,
+    "maximum_backward_jacobian_determinant_error": 0.000160634518
+  },
+  "boundary": "The unified loop now has a separately validated map-reset shader, but this four-step evidence does not cross a reset boundary. GPU timestamp, moving-solid boundaries, UE runtime actor, Niagara presentation, interaction, failure ablation, and screenshots remain future work.",
+  "failed_checks": []
+}

@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-08-30T13:14:01.9464544-06:00",
+  "result": "passed",
+  "interpretation": "The deterministic planar character separates moderate push rejection, fall-settle-get-up recovery, front/back branch symmetry, and an underpowered torque failure. This is a control-contract truth model, not yet a full skeletal Chaos character.",
+  "units": {
+    "angle": "degrees",
+    "angular_velocity": "degrees/second",
+    "torque": "newton-meter",
+    "angular_impulse": "newton-meter-second",
+    "support_margin": "meter",
+    "work": "joule"
+  },
+  "checks": {
+    "driven_character_regression_4_of_4": true,
+    "moderate_push_is_rejected_without_fall": true,
+    "large_push_falls_and_recovers": true,
+    "recovery_respects_torque_and_pose_gates": true,
+    "inelastic_ground_has_one_persistent_impact": true,
+    "front_and_back_branches_are_symmetric": true,
+    "low_torque_is_an_expected_failure": true,
+    "sampled_trajectory_is_finite_and_monotonic": true,
+    "all_recovery_phases_are_observed": true,
+    "restitution_contract_failure_is_preserved": true
+  },
+  "moderate_push": {
+    "impulse_nms": "55",
+    "fell": "false",
+    "recovered": "false",
+    "max_angle_deg": "6.11505704",
+    "final_error_deg": "1.14104107e-05",
+    "min_support_margin_m": "0.0841271628",
+    "peak_torque_nm": "276.541124",
+    "work_j": "35.2949564"
+  },
+  "fall_and_recovery": {
+    "impulse_nms": "120",
+    "fell": "true",
+    "recovered": "true",
+    "failed": "false",
+    "front_get_up": "true",
+    "impacts": "1",
+    "fall_time_s": "0.258333333",
+    "recovery_start_s": "1.3375",
+    "recovery_time_s": "3",
+    "get_up_control_time_s": "1.92083333",
+    "final_error_deg": "0.00326059379",
+    "peak_torque_nm": "961.598934",
+    "work_j": "1417.17885",
+    "samples": "1440"
+  },
+  "front_back_symmetry": {
+    "front_recovered": "true",
+    "back_recovered": "true",
+    "front_orientation": "front",
+    "back_orientation": "back",
+    "recovery_time_difference_s": "0",
+    "work_difference_j": "0"
+  },
+  "torque_budget_failure": {
+    "torque_limit_nm": "400",
+    "gravity_peak_nm": "662.175",
+    "fell": "true",
+    "recovered": "false",
+    "failed": "true",
+    "final_error_deg": "90.0000025",
+    "peak_torque_nm": "400",
+    "expected_failure": "true"
+  },
+  "preserved_contact_contract_failure": {
+    "cause": "A restitution of 0.04 produced a second legitimate bounce, contradicting the intended single stable landing episode for the get-up truth model. The formal foundation uses an inelastic ground; elastic-drop behavior remains a separate future benchmark.",
+    "failed_test_state": "Fail",
+    "metrics": {
+      "impulse_nms": "120",
+      "fell": "true",
+      "recovered": "true",
+      "failed": "false",
+      "front_get_up": "true",
+      "impacts": "2",
+      "fall_time_s": "0.258333333",
+      "recovery_start_s": "1.34166667",
+      "recovery_time_s": "3.00416667",
+      "get_up_control_time_s": "1.92083333",
+      "final_error_deg": "0.00331042787",
+      "peak_torque_nm": "961.383504",
+      "work_j": "1417.39981",
+      "samples": "1440"
+    },
+    "evidence": "Docs/Validation/M6/AutomationContactFailure/index.json"
+  },
+  "sampled_trajectory": {
+    "rows": 125,
+    "phases": [
+      "Balanced",
+      "Falling",
+      "Settling",
+      "Recovering",
+      "Recovered"
+    ],
+    "csv": "Docs/Validation/M6/planar_recovery_trajectory.csv"
+  },
+  "failed_checks": []
+}

@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-08-30T12:36:46.0996675-06:00",
+  "result": "passed",
+  "interpretation": "Fixed-step semi-implicit spring dynamics use forward tangent sensitivities. Centered finite differences are validation truth only. A short-horizon position-only objective is intentionally retained as a non-identifiable failure boundary.",
+  "checks": {
+    "automation_3_of_3": true,
+    "tangent_matches_centered_finite_difference": true,
+    "optimizer_reduces_loss_by_four_orders": true,
+    "optimizer_recovers_drive": true,
+    "optimizer_recovers_damping": true,
+    "convergence_curve_is_strictly_decreasing": true,
+    "position_only_boundary_fits_but_is_non_identifiable": true
+  },
+  "gradient": {
+    "steps": "240",
+    "drive": "31",
+    "maximum_relative_error": "3.16095466588e-09",
+    "dt": "0.00833333333333",
+    "stiffness": "13",
+    "damping": "2.25"
+  },
+  "optimization": {
+    "initial_loss": "1.70556157818",
+    "recovered_damping": "2.80002575972",
+    "truth_damping": "2.8",
+    "history": "19",
+    "iterations": "18",
+    "truth_drive": "34",
+    "recovered_drive": "33.99998697",
+    "final_loss": "2.63246708934e-11"
+  },
+  "identifiability_boundary": {
+    "initial_loss": "0.182038401284",
+    "steps": "30",
+    "recovered_damping": "6.19299999347",
+    "parameter_l1_error": "12.0515682247",
+    "interpretation": "position_only_short_horizon_is_non_identifiable",
+    "recovered_drive": "42.6585682313",
+    "final_loss": "1.66240488636e-12"
+  },
+  "loss_curve_csv": "Docs/Validation/M5/inverse_spring_loss_curve.csv",
+  "failed_checks": []
+}

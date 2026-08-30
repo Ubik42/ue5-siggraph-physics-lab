@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-08-30T10:49:03.1989543-06:00",
+  "result": "passed",
+  "interpretation": "Particles are advected by the current nonuniform MAC velocity, carry reference impulse, its first spatial gradient, and backward-map Jacobian, deposit B^T m0 with optional B^T G0 B Taylor reconstruction, and pressure-project every fixed step. Short PIC, LongMapPic, and LongMapGradient isolate reset cadence and the vector gradient term.",
+  "checks": {
+    "isolated_automation_passed": true,
+    "full_flow_map_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "identical_closed_loop_budget_is_exact": true,
+    "reset_cadence_is_exact": true,
+    "every_step_pressure_projection_keeps_all_divergence_bounded": true,
+    "long_map_pic_velocity_error_is_lower_than_short_pic": true,
+    "vector_gradient_term_isolated_at_same_map_cadence": true,
+    "gradient_long_map_retains_vortex_energy_within_two_percent": true,
+    "backward_map_jacobian_remains_near_volume_preserving": true
+  },
+  "contract": {
+    "steps": 120,
+    "cells": "32x32",
+    "particles": 4096,
+    "fixed_dt_seconds": 0.00416666688,
+    "pressure_iterations_per_step": 128
+  },
+  "short_pic": {
+    "map_resets": 120,
+    "velocity_rms_cm_per_second": 11.1807115,
+    "relative_velocity_rms": 0.790595709,
+    "divergence_rms": 9.40632255E-07,
+    "maximum_divergence": 1.87754631E-06,
+    "kinetic_energy_proxy": 4.38525443
+  },
+  "long_map_pic": {
+    "map_resets": 6,
+    "velocity_rms_cm_per_second": 1.03064991,
+    "relative_velocity_rms": 0.0728779561,
+    "rms_to_short_pic": 0.0921810671,
+    "divergence_rms": 0.000306618538,
+    "maximum_divergence": 0.000605108857,
+    "kinetic_energy_proxy": 85.9592459
+  },
+  "long_map_gradient": {
+    "map_resets": 6,
+    "velocity_rms_cm_per_second": 0.0179087067,
+    "relative_velocity_rms": 0.00126633683,
+    "rms_to_long_map_pic": 0.0173761299,
+    "divergence_rms": 0.000361996196,
+    "maximum_divergence": 0.000714283204,
+    "kinetic_energy_proxy": 100.229102,
+    "maximum_jacobian_determinant_error": 0.000184297562
+  },
+  "initial_kinetic_energy_proxy": 99.0392652,
+  "boundary": "This is a 2D periodic inviscid Taylor-Green CPU truth loop with first-order backward-Jacobian integration and a first-order gradient impulse transfer that omits derivatives of B (the Hessian-like term). A separate gate now validates GPU pressure projection, but the full particle/Map loop is not yet GPU or a complete paper implementation.",
+  "failed_checks": []
+}

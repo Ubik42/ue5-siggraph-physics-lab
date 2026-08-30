@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-08-30T05:44:09.2467463-06:00",
+  "result": "passed",
+  "checks": {
+    "d3d12_sm6": true,
+    "target_passed": true,
+    "constant_penalty_baseline": true,
+    "continuous_history_improves_contact": true,
+    "four_state_updates_observed": true,
+    "activation_readback_observed": true,
+    "inverse_mass_fixed_contract": true,
+    "capacity_overflow_rejected": true
+  },
+  "evidence": {
+    "automation_test": "PhysicsResearch.ContactCloth.GpuExplicitChaosTopology.NonDistanceBarrierAblation",
+    "render_mode": "D3D12_SM6",
+    "summary": "Explicit topology NDB: constant_penetration_cm=4.113513 ndb_penetration_cm=1.503128 ndb_updates=4 active_pairs=1 maximum_activation=4 fixed_index_1_drift_cm=0.000000000 capacity_overflow_rejected=true",
+    "scope": "粒子×分析碰撞原语的跨固定步连续激活状态；有限罚权重只由激活历史增长，容量越界被拒绝，不代表布料自碰撞障碍"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-08-30T03:30:29.7340849-06:00",
+  "result": "passed",
+  "checks": {
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "d3d12_sm6": true,
+    "metrics_present": true,
+    "exact_topology_partition": true,
+    "complete_bone_contract": true,
+    "normalized_weights": true,
+    "reference_pose_matches_rest_mesh": true,
+    "registered_component_pose_matches_rest_mesh": true,
+    "uniform_pose_transform_matches_truth": true,
+    "all_fixed_targets_move": true
+  },
+  "evidence": {
+    "asset": "/Game/Assassin/Mesh/SKM_Assassin_Skin1",
+    "used_bone_entries": 38,
+    "total_bone_influences": 4070,
+    "maximum_bone_influences": 4,
+    "minimum_weight_sum": 1.0,
+    "maximum_weight_sum": 1.000000119,
+    "reference_pose_error_cm": 1.5844E-05,
+    "registered_component_reference_pose_error_cm": 2.2987E-05,
+    "uniform_transform_error_cm": 3.0533E-05,
+    "failed_attempt": "An unregistered transient SkeletalMeshComponent produced 186.448151 cm error because its pose cache was not initialized; registering it in a transient World and initializing animation reduced the error to the value reported above",
+    "scope": "UE ClothingMeshUtils skinning target truth gate; live animated sequence and same-step Chaos comparison remain pending",
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\ChaosClothSkinningAutomation\\index.json"
+  }
+}

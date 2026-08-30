@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "EBBC55B543AFCB2BDA4326B5F93C3F8A",
+			"instanceName": "LUCASSHENHOMEPC-41328",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-09.50.26",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.061547398567199707,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuParticleAdvection",
+			"fullTestPath": "PhysicsResearch.FlowMap.GpuParticleAdvection",
+			"state": "Success",
+			"deviceInstance": [
+				"EBBC55B543AFCB2BDA4326B5F93C3F8A"
+			],
+			"duration": 0.061547398567199707,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "FlowMap GPU particles rhi=D3D12 cells=32x32 particles=1024 steps=20 dt=0.00416666688 readback_interval=5 steps_enqueued=20 steps_executed=20 advection_passes=20 readbacks_completed=2 snapshot_step=20 max_position_error_cm=3.81469727e-06 max_jacobian_component_error=8.34465027e-07 max_jacobian_determinant_difference=8.34465027e-07",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-15.50.26"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

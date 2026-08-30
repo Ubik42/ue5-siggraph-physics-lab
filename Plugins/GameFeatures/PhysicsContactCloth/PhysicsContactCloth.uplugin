@@ -1,0 +1,25 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0",
+  "FriendlyName": "物理作品 01：无穿透接触与 GPU 布料",
+  "Description": "Chaos Cloth 基线与论文启发接触/布料求解器的独立复现 Case。",
+  "Category": "SIGGRAPH Physics Lab",
+  "CreatedBy": "Ubik",
+  "CanContainContent": true,
+  "IsBetaVersion": true,
+  "Installed": false,
+  "EnabledByDefault": false,
+  "ExplicitlyLoaded": true,
+  "BuiltInInitialFeatureState": "Registered",
+  "Modules": [
+    {
+      "Name": "PhysicsContactClothRuntime",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    { "Name": "PhysicsResearch", "Enabled": true }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-30T02:21:28.8431331-06:00",
+  "result": "passed",
+  "checks": {
+    "test_succeeded": true,
+    "metrics_present": true,
+    "expected_dimensions": true,
+    "complete_particle_outer_product_cache": true,
+    "cross_axis_coupling_present": true,
+    "symmetric_system": true,
+    "known_solution_recovered": true,
+    "gpu_matches_cpu_truth": true
+  },
+  "evidence": {
+    "xy_coupling": 0.130065277524,
+    "solve_error": 6.939E-17,
+    "gpu_cpu_error": 1.911E-07,
+    "scope": "GPU matrix assembly matches CPU truth; realtime contact extraction and vector solve pending",
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\RankOneHessianAutomation\\index.json"
+  }
+}

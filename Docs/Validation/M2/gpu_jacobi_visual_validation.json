@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-08-30T00:21:30.5727720-06:00",
+  "result": "passed",
+  "checks": {
+    "map_saved": true,
+    "expected_map": true,
+    "runtime_passed": true,
+    "research_backend": true,
+    "dispatch_and_readback": true,
+    "particle_count": true,
+    "iteration_budget": true,
+    "input_error_present": true,
+    "edge_error_reduced_20_percent": true,
+    "finite_metrics": true,
+    "metric_names": true,
+    "json_csv_counts_match": true,
+    "screenshot_nonempty": true,
+    "map_asset_nonempty": true
+  },
+  "evidence": {
+    "particles": 192,
+    "iterations": 96,
+    "input_maximum_edge_error_cm": 64.216796875,
+    "output_maximum_edge_error_cm": 0.194996834,
+    "reduction_percent": 99.69634605977068,
+    "blocking_wall_milliseconds": 12.751,
+    "metric_samples": 4,
+    "screenshot": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\Screenshots\\M2_GpuJacobiValidation.png",
+    "screenshot_bytes": 59980,
+    "map_asset_bytes": 9422
+  }
+}

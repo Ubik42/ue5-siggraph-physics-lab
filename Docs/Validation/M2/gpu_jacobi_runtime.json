@@ -1,0 +1,11 @@
+{
+  "result": "passed",
+  "solver": "D3D12 Structured Buffer aggregated Jacobi validation",
+  "particles": 192,
+  "iterations": 96,
+  "dispatched": true,
+  "readback_succeeded": true,
+  "input_maximum_edge_error_cm": 64.216796875,
+  "output_maximum_edge_error_cm": 0.194996834,
+  "blocking_wall_milliseconds": 12.751000
+}

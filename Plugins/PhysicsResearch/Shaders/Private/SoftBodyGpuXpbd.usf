@@ -1,0 +1,306 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float4> CurrentPositions;
+StructuredBuffer<float4> PreviousPositions;
+StructuredBuffer<float4> RestPositions;
+StructuredBuffer<float> InverseMasses;
+RWStructuredBuffer<float4> PredictedPositions;
+
+StructuredBuffer<uint2> EdgeVertices;
+StructuredBuffer<float> EdgeRestLengthsCm;
+StructuredBuffer<uint> EdgeMaterialIds;
+RWStructuredBuffer<float> EdgeLambdas;
+RWStructuredBuffer<float4> EdgeCorrectionOutputs;
+
+StructuredBuffer<uint4> TetrahedronVertices;
+StructuredBuffer<float> TetrahedronRestVolumesCm3;
+StructuredBuffer<uint> TetrahedronMaterialIds;
+RWStructuredBuffer<float> TetrahedronLambdas;
+RWStructuredBuffer<float4> TetrahedronCorrectionOutputs;
+
+StructuredBuffer<uint> VertexEdgeOffsets;
+StructuredBuffer<uint> VertexEdgeConstraintIndices;
+StructuredBuffer<uint> VertexEdgeCorners;
+StructuredBuffer<uint> VertexTetrahedronOffsets;
+StructuredBuffer<uint> VertexTetrahedronConstraintIndices;
+StructuredBuffer<uint> VertexTetrahedronCorners;
+StructuredBuffer<float4> SolverInputPositions;
+StructuredBuffer<float4> EdgeCorrectionInputs;
+StructuredBuffer<float4> TetrahedronCorrectionInputs;
+RWStructuredBuffer<float4> SolverOutputPositions;
+RWStructuredBuffer<float4> LocalCorrectionOutputs;
+StructuredBuffer<float4> LocalCorrectionInputs;
+StructuredBuffer<float2> LowFrequencyBasisValues;
+RWStructuredBuffer<float4> LowFrequencyPartialR0Outputs;
+RWStructuredBuffer<float4> LowFrequencyPartialR1Outputs;
+StructuredBuffer<float4> LowFrequencyPartialR0Inputs;
+StructuredBuffer<float4> LowFrequencyPartialR1Inputs;
+RWStructuredBuffer<float4> LowFrequencyCoefficientOutputs;
+StructuredBuffer<float4> LowFrequencyCoefficientInputs;
+StructuredBuffer<float4> ContactInputPositions;
+RWStructuredBuffer<float4> ContactOutputPositions;
+
+uint ParticleCount;
+uint EdgeConstraintCount;
+uint TetrahedronConstraintCount;
+float FixedDeltaSecondsSquared;
+float VelocityDamping;
+float3 GravityCmPerSecondSquared;
+float SoftEdgeCompliance;
+float StiffEdgeCompliance;
+float SoftVolumeCompliance;
+float StiffVolumeCompliance;
+float JacobiRelaxation;
+float MaximumVertexCorrectionCm;
+float4 LowFrequencyInverseSystem;
+float LowFrequencyCorrectionStrength;
+uint LowFrequencyPartialCount;
+float GroundPlaneZCm;
+float GroundContactStiffness;
+
+float SignedVolume(float3 A, float3 B, float3 C, float3 D)
+{
+    return dot(B - A, cross(C - A, D - A)) / 6.0;
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void IntegrateCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    if (Index >= ParticleCount) return;
+    const float3 Current = CurrentPositions[Index].xyz;
+    if (InverseMasses[Index] <= 0.0)
+    {
+        PredictedPositions[Index] = float4(RestPositions[Index].xyz, 1.0);
+        return;
+    }
+    const float3 Previous = PreviousPositions[Index].xyz;
+    const float3 VelocityStep = (Current - Previous) * VelocityDamping;
+    PredictedPositions[Index] = float4(Current + VelocityStep
+        + GravityCmPerSecondSquared * FixedDeltaSecondsSquared, 0.0);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void DistanceConstraintCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint ConstraintIndex = DispatchThreadId.x;
+    if (ConstraintIndex >= EdgeConstraintCount) return;
+    const uint2 Vertices = EdgeVertices[ConstraintIndex];
+    const float3 Delta = SolverInputPositions[Vertices.y].xyz - SolverInputPositions[Vertices.x].xyz;
+    const float Length = length(Delta);
+    const float WA = InverseMasses[Vertices.x];
+    const float WB = InverseMasses[Vertices.y];
+    float3 CorrectionA = 0.0;
+    float3 CorrectionB = 0.0;
+    if (Length > 1.e-6)
+    {
+        const float Compliance = EdgeMaterialIds[ConstraintIndex] == 0 ? SoftEdgeCompliance : StiffEdgeCompliance;
+        const float Alpha = Compliance / FixedDeltaSecondsSquared;
+        const float Denominator = WA + WB + Alpha;
+        if (Denominator > 1.e-12)
+        {
+            const float C = Length - EdgeRestLengthsCm[ConstraintIndex];
+            const float DeltaLambda = (-C - Alpha * EdgeLambdas[ConstraintIndex]) / Denominator;
+            EdgeLambdas[ConstraintIndex] += DeltaLambda;
+            const float3 Gradient = Delta / Length;
+            CorrectionA = -WA * DeltaLambda * Gradient;
+            CorrectionB = WB * DeltaLambda * Gradient;
+        }
+    }
+    EdgeCorrectionOutputs[ConstraintIndex * 2] = float4(CorrectionA, 0.0);
+    EdgeCorrectionOutputs[ConstraintIndex * 2 + 1] = float4(CorrectionB, 0.0);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void VolumeConstraintCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint ConstraintIndex = DispatchThreadId.x;
+    if (ConstraintIndex >= TetrahedronConstraintCount) return;
+    const uint4 V = TetrahedronVertices[ConstraintIndex];
+    const float3 X0 = SolverInputPositions[V.x].xyz;
+    const float3 X1 = SolverInputPositions[V.y].xyz;
+    const float3 X2 = SolverInputPositions[V.z].xyz;
+    const float3 X3 = SolverInputPositions[V.w].xyz;
+    const float3 G1 = cross(X2 - X0, X3 - X0) / 6.0;
+    const float3 G2 = cross(X3 - X0, X1 - X0) / 6.0;
+    const float3 G3 = cross(X1 - X0, X2 - X0) / 6.0;
+    const float3 G0 = -(G1 + G2 + G3);
+    const float3 Gradients[4] = { G0, G1, G2, G3 };
+    const uint Vertices[4] = { V.x, V.y, V.z, V.w };
+    const float Compliance = TetrahedronMaterialIds[ConstraintIndex] == 0
+        ? SoftVolumeCompliance : StiffVolumeCompliance;
+    const float Alpha = Compliance / FixedDeltaSecondsSquared;
+    float Denominator = Alpha;
+    [unroll]
+    for (uint Corner = 0; Corner < 4; ++Corner)
+    {
+        Denominator += InverseMasses[Vertices[Corner]] * dot(Gradients[Corner], Gradients[Corner]);
+    }
+    float DeltaLambda = 0.0;
+    if (Denominator > 1.e-12)
+    {
+        const float C = SignedVolume(X0, X1, X2, X3) - TetrahedronRestVolumesCm3[ConstraintIndex];
+        DeltaLambda = (-C - Alpha * TetrahedronLambdas[ConstraintIndex]) / Denominator;
+        TetrahedronLambdas[ConstraintIndex] += DeltaLambda;
+    }
+    [unroll]
+    for (uint Corner = 0; Corner < 4; ++Corner)
+    {
+        const float W = InverseMasses[Vertices[Corner]];
+        TetrahedronCorrectionOutputs[ConstraintIndex * 4 + Corner] = float4(W * DeltaLambda * Gradients[Corner], 0.0);
+    }
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void GatherApplyCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Vertex = DispatchThreadId.x;
+    if (Vertex >= ParticleCount) return;
+    if (InverseMasses[Vertex] <= 0.0)
+    {
+        SolverOutputPositions[Vertex] = float4(RestPositions[Vertex].xyz, 1.0);
+        return;
+    }
+    float3 Correction = 0.0;
+    uint Count = 0;
+    for (uint Incidence = VertexEdgeOffsets[Vertex]; Incidence < VertexEdgeOffsets[Vertex + 1]; ++Incidence)
+    {
+        const uint ConstraintIndex = VertexEdgeConstraintIndices[Incidence];
+        const uint Corner = VertexEdgeCorners[Incidence];
+        Correction += EdgeCorrectionInputs[ConstraintIndex * 2 + Corner].xyz;
+        ++Count;
+    }
+    for (uint Incidence = VertexTetrahedronOffsets[Vertex]; Incidence < VertexTetrahedronOffsets[Vertex + 1]; ++Incidence)
+    {
+        const uint ConstraintIndex = VertexTetrahedronConstraintIndices[Incidence];
+        const uint Corner = VertexTetrahedronCorners[Incidence];
+        Correction += TetrahedronCorrectionInputs[ConstraintIndex * 4 + Corner].xyz;
+        ++Count;
+    }
+    if (Count > 0)
+    {
+        Correction /= (float)Count;
+        const float Magnitude = length(Correction);
+        if (Magnitude > MaximumVertexCorrectionCm)
+        {
+            Correction *= MaximumVertexCorrectionCm / Magnitude;
+        }
+    }
+    SolverOutputPositions[Vertex] = float4(
+        SolverInputPositions[Vertex].xyz + JacobiRelaxation * Correction, 0.0);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void GatherCorrectionCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Vertex = DispatchThreadId.x;
+    if (Vertex >= ParticleCount) return;
+    float3 Correction = 0.0;
+    uint Count = 0;
+    if (InverseMasses[Vertex] > 0.0)
+    {
+        for (uint Incidence = VertexEdgeOffsets[Vertex]; Incidence < VertexEdgeOffsets[Vertex + 1]; ++Incidence)
+        {
+            const uint ConstraintIndex = VertexEdgeConstraintIndices[Incidence];
+            const uint Corner = VertexEdgeCorners[Incidence];
+            Correction += EdgeCorrectionInputs[ConstraintIndex * 2 + Corner].xyz;
+            ++Count;
+        }
+        for (uint Incidence = VertexTetrahedronOffsets[Vertex]; Incidence < VertexTetrahedronOffsets[Vertex + 1]; ++Incidence)
+        {
+            const uint ConstraintIndex = VertexTetrahedronConstraintIndices[Incidence];
+            const uint Corner = VertexTetrahedronCorners[Incidence];
+            Correction += TetrahedronCorrectionInputs[ConstraintIndex * 4 + Corner].xyz;
+            ++Count;
+        }
+        if (Count > 0) Correction /= (float)Count;
+    }
+    LocalCorrectionOutputs[Vertex] = float4(Correction, 0.0);
+}
+
+groupshared float3 LowFrequencySharedR0[THREADGROUP_SIZE];
+groupshared float3 LowFrequencySharedR1[THREADGROUP_SIZE];
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void ProjectLowFrequencyPartialCS(
+    uint3 DispatchThreadId : SV_DispatchThreadID,
+    uint3 GroupThreadId : SV_GroupThreadID,
+    uint3 GroupId : SV_GroupID)
+{
+    float3 R0 = 0.0;
+    float3 R1 = 0.0;
+    const uint Vertex = DispatchThreadId.x;
+    if (Vertex < ParticleCount && InverseMasses[Vertex] > 0.0)
+    {
+        const float2 Phi = LowFrequencyBasisValues[Vertex];
+        const float3 Local = LocalCorrectionInputs[Vertex].xyz;
+        R0 += Phi.x * Local;
+        R1 += Phi.y * Local;
+    }
+    LowFrequencySharedR0[GroupThreadId.x] = R0;
+    LowFrequencySharedR1[GroupThreadId.x] = R1;
+    GroupMemoryBarrierWithGroupSync();
+    for (uint Stride = THREADGROUP_SIZE / 2; Stride > 0; Stride >>= 1)
+    {
+        if (GroupThreadId.x < Stride)
+        {
+            LowFrequencySharedR0[GroupThreadId.x] += LowFrequencySharedR0[GroupThreadId.x + Stride];
+            LowFrequencySharedR1[GroupThreadId.x] += LowFrequencySharedR1[GroupThreadId.x + Stride];
+        }
+        GroupMemoryBarrierWithGroupSync();
+    }
+    if (GroupThreadId.x == 0)
+    {
+        LowFrequencyPartialR0Outputs[GroupId.x] = float4(LowFrequencySharedR0[0], 0.0);
+        LowFrequencyPartialR1Outputs[GroupId.x] = float4(LowFrequencySharedR1[0], 0.0);
+    }
+}
+
+[numthreads(1, 1, 1)]
+void FinalizeLowFrequencyCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    float3 R0 = 0.0;
+    float3 R1 = 0.0;
+    for (uint Partial = 0; Partial < LowFrequencyPartialCount; ++Partial)
+    {
+        R0 += LowFrequencyPartialR0Inputs[Partial].xyz;
+        R1 += LowFrequencyPartialR1Inputs[Partial].xyz;
+    }
+    LowFrequencyCoefficientOutputs[0] = float4(LowFrequencyInverseSystem.x * R0 + LowFrequencyInverseSystem.y * R1, 0.0);
+    LowFrequencyCoefficientOutputs[1] = float4(LowFrequencyInverseSystem.z * R0 + LowFrequencyInverseSystem.w * R1, 0.0);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void ApplyLowFrequencyCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Vertex = DispatchThreadId.x;
+    if (Vertex >= ParticleCount) return;
+    if (InverseMasses[Vertex] <= 0.0)
+    {
+        SolverOutputPositions[Vertex] = float4(RestPositions[Vertex].xyz, 1.0);
+        return;
+    }
+    const float2 Phi = LowFrequencyBasisValues[Vertex];
+    float3 Correction = LocalCorrectionInputs[Vertex].xyz + LowFrequencyCorrectionStrength
+        * (Phi.x * LowFrequencyCoefficientInputs[0].xyz + Phi.y * LowFrequencyCoefficientInputs[1].xyz);
+    const float Magnitude = length(Correction);
+    if (Magnitude > MaximumVertexCorrectionCm) Correction *= MaximumVertexCorrectionCm / Magnitude;
+    SolverOutputPositions[Vertex] = float4(
+        SolverInputPositions[Vertex].xyz + JacobiRelaxation * Correction, 0.0);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void GroundContactCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Vertex = DispatchThreadId.x;
+    if (Vertex >= ParticleCount) return;
+    if (InverseMasses[Vertex] <= 0.0)
+    {
+        ContactOutputPositions[Vertex] = float4(RestPositions[Vertex].xyz, 1.0);
+        return;
+    }
+    float3 Position = ContactInputPositions[Vertex].xyz;
+    const float Penetration = max(0.0, GroundPlaneZCm - Position.z);
+    Position.z += saturate(GroundContactStiffness) * Penetration;
+    ContactOutputPositions[Vertex] = float4(Position, 0.0);
+}

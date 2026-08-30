@@ -1,0 +1,110 @@
+#include "/Engine/Public/Platform.ush"
+
+#define GROUP_SIZE 64
+
+uint ImpulseCellCountX;
+uint ImpulseCellCountY;
+uint ImpulseParticleCount;
+float ImpulseCellSizeCm;
+float2 ImpulseOriginCm;
+uint ImpulseUseGradient;
+
+StructuredBuffer<float4> ImpulseParticleStateA;
+StructuredBuffer<float4> ImpulseParticleStateB;
+StructuredBuffer<float4> ReferenceImpulseAndGradientRow0;
+StructuredBuffer<float4> ReferenceGradientRow1;
+RWStructuredBuffer<float> OutputImpulseFaceU;
+RWStructuredBuffer<float> OutputImpulseFaceV;
+
+int WrapImpulseTransferIndex(int Value, int Count)
+{
+    return (Value % Count + Count) % Count;
+}
+
+void EvaluateCurrentImpulse(uint ParticleIndex, out float2 Impulse, out float4 CurrentGradient)
+{
+    float4 StateA = ImpulseParticleStateA[ParticleIndex];
+    float4 StateB = ImpulseParticleStateB[ParticleIndex];
+    float4 B = float4(StateA.z, StateA.w, StateB.x, StateB.y);
+    float4 Payload0 = ReferenceImpulseAndGradientRow0[ParticleIndex];
+    float4 Payload1 = ReferenceGradientRow1[ParticleIndex];
+    float2 M0 = Payload0.xy;
+    float4 G0 = float4(Payload0.zw, Payload1.xy);
+    Impulse = float2(B.x * M0.x + B.z * M0.y, B.y * M0.x + B.w * M0.y);
+    float4 G0B;
+    G0B.x = G0.x * B.x + G0.y * B.z;
+    G0B.y = G0.x * B.y + G0.y * B.w;
+    G0B.z = G0.z * B.x + G0.w * B.z;
+    G0B.w = G0.z * B.y + G0.w * B.w;
+    CurrentGradient.x = B.x * G0B.x + B.z * G0B.z;
+    CurrentGradient.y = B.x * G0B.y + B.z * G0B.w;
+    CurrentGradient.z = B.y * G0B.x + B.w * G0B.z;
+    CurrentGradient.w = B.y * G0B.y + B.w * G0B.w;
+}
+
+float GatherImpulseFace(uint TargetX, uint TargetY, bool IsUFace)
+{
+    float WeightedValue = 0.0;
+    float WeightSum = 0.0;
+    [loop]
+    for (uint ParticleIndex = 0; ParticleIndex < ImpulseParticleCount; ++ParticleIndex)
+    {
+        float2 Position = ImpulseParticleStateA[ParticleIndex].xy;
+        float2 Grid = (Position - ImpulseOriginCm) / ImpulseCellSizeCm;
+        float FaceX = IsUFace ? Grid.x : Grid.x - 0.5;
+        float FaceY = IsUFace ? Grid.y - 0.5 : Grid.y;
+        int X0 = (int)floor(FaceX);
+        int Y0 = (int)floor(FaceY);
+        float Tx = FaceX - X0;
+        float Ty = FaceY - Y0;
+        float2 Impulse;
+        float4 Gradient;
+        EvaluateCurrentImpulse(ParticleIndex, Impulse, Gradient);
+        [unroll]
+        for (int Oy = 0; Oy <= 1; ++Oy)
+        {
+            [unroll]
+            for (int Ox = 0; Ox <= 1; ++Ox)
+            {
+                int LogicalX = X0 + Ox;
+                int LogicalY = Y0 + Oy;
+                if ((uint)WrapImpulseTransferIndex(LogicalX, ImpulseCellCountX) != TargetX
+                    || (uint)WrapImpulseTransferIndex(LogicalY, ImpulseCellCountY) != TargetY) continue;
+                float Weight = (Ox != 0 ? Tx : 1.0 - Tx) * (Oy != 0 ? Ty : 1.0 - Ty);
+                float2 FacePosition = ImpulseOriginCm + (IsUFace
+                    ? float2(LogicalX, LogicalY + 0.5) * ImpulseCellSizeCm
+                    : float2(LogicalX + 0.5, LogicalY) * ImpulseCellSizeCm);
+                float Value = IsUFace ? Impulse.x : Impulse.y;
+                float2 ValueGradient = IsUFace ? Gradient.xy : Gradient.zw;
+                if (ImpulseUseGradient != 0) Value += dot(ValueGradient, FacePosition - Position);
+                WeightedValue += Weight * Value;
+                WeightSum += Weight;
+            }
+        }
+    }
+    return WeightSum > 1.e-8 ? WeightedValue / WeightSum : 0.0;
+}
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void GatherImpulseUCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    uint Index = DispatchThreadId.x;
+    uint FaceCount = (ImpulseCellCountX + 1) * ImpulseCellCountY;
+    if (Index >= FaceCount) return;
+    uint PhysicalX = Index % (ImpulseCellCountX + 1);
+    uint Y = Index / (ImpulseCellCountX + 1);
+    uint LogicalX = PhysicalX % ImpulseCellCountX;
+    OutputImpulseFaceU[Index] = GatherImpulseFace(LogicalX, Y, true);
+}
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void GatherImpulseVCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    uint Index = DispatchThreadId.x;
+    uint FaceCount = ImpulseCellCountX * (ImpulseCellCountY + 1);
+    if (Index >= FaceCount) return;
+    uint X = Index % ImpulseCellCountX;
+    uint PhysicalY = Index / ImpulseCellCountX;
+    uint LogicalY = PhysicalY % ImpulseCellCountY;
+    OutputImpulseFaceV[Index] = GatherImpulseFace(X, LogicalY, false);
+}

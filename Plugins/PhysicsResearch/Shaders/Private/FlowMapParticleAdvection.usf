@@ -1,0 +1,177 @@
+#include "/Engine/Public/Platform.ush"
+
+#define GROUP_SIZE 64
+
+uint CellCountX;
+uint CellCountY;
+uint ParticleCount;
+float CellSizeCm;
+float2 OriginCm;
+float FixedDeltaSeconds;
+
+StructuredBuffer<float> ParticleFaceU;
+StructuredBuffer<float> ParticleFaceV;
+StructuredBuffer<float4> InputParticleStateA;
+StructuredBuffer<float4> InputParticleStateB;
+RWStructuredBuffer<float4> OutputParticleStateA;
+RWStructuredBuffer<float4> OutputParticleStateB;
+StructuredBuffer<float4> ResetInputParticleStateA;
+RWStructuredBuffer<float4> ResetOutputParticleStateA;
+RWStructuredBuffer<float4> ResetOutputParticleStateB;
+RWStructuredBuffer<float4> ResetReferenceImpulseAndGradientRow0;
+RWStructuredBuffer<float4> ResetReferenceGradientRow1;
+uint ParticleSolidCircleCount;
+StructuredBuffer<float4> ParticleSolidCircles;
+
+float2 SanitizeParticleVector(float2 Value, float Limit)
+{
+    if (any(isnan(Value)) || any(isinf(Value))) return 0.0;
+    return clamp(Value, -Limit, Limit);
+}
+
+float4 SanitizeParticleMatrix(float4 Value, float Limit)
+{
+    if (any(isnan(Value)) || any(isinf(Value))) return float4(1.0, 0.0, 0.0, 1.0);
+    return clamp(Value, -Limit, Limit);
+}
+
+int WrapParticleIndex(int Value, int Count)
+{
+    return (Value % Count + Count) % Count;
+}
+
+float WrapParticleCoordinate(float Value, float Minimum, float Extent)
+{
+    if (Value >= Minimum && Value < Minimum + Extent) return Value;
+    float Local = fmod(fmod(Value - Minimum, Extent) + Extent, Extent);
+    return Minimum + Local;
+}
+
+float SampleParticlePeriodic(const StructuredBuffer<float> Values, int Stride, int LogicalWidth, int LogicalHeight, float X, float Y)
+{
+    int X0 = (int)floor(X);
+    int Y0 = (int)floor(Y);
+    float Tx = X - X0;
+    float Ty = Y - Y0;
+    int X00 = WrapParticleIndex(X0, LogicalWidth);
+    int X10 = WrapParticleIndex(X0 + 1, LogicalWidth);
+    int Y00 = WrapParticleIndex(Y0, LogicalHeight);
+    int Y01 = WrapParticleIndex(Y0 + 1, LogicalHeight);
+    float A = lerp(Values[Y00 * Stride + X00], Values[Y00 * Stride + X10], Tx);
+    float B = lerp(Values[Y01 * Stride + X00], Values[Y01 * Stride + X10], Tx);
+    return lerp(A, B, Ty);
+}
+
+float2 SampleParticleVelocity(float2 PositionCm)
+{
+    float2 Grid = (PositionCm - OriginCm) / CellSizeCm;
+    float U = SampleParticlePeriodic(ParticleFaceU, CellCountX + 1, CellCountX, CellCountY, Grid.x, Grid.y - 0.5);
+    float V = SampleParticlePeriodic(ParticleFaceV, CellCountX, CellCountX, CellCountY, Grid.x - 0.5, Grid.y);
+    return float2(U, V);
+}
+
+float4 SampleParticleVelocityGradient(float2 PositionCm)
+{
+    float Epsilon = CellSizeCm * 0.5;
+    float2 Ddx = (SampleParticleVelocity(PositionCm + float2(Epsilon, 0.0)) - SampleParticleVelocity(PositionCm - float2(Epsilon, 0.0))) / (2.0 * Epsilon);
+    float2 Ddy = (SampleParticleVelocity(PositionCm + float2(0.0, Epsilon)) - SampleParticleVelocity(PositionCm - float2(0.0, Epsilon))) / (2.0 * Epsilon);
+    return float4(Ddx.x, Ddy.x, Ddx.y, Ddy.y);
+}
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void AdvectParticlesCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    uint Index = DispatchThreadId.x;
+    if (Index >= ParticleCount) return;
+    float4 StateA = InputParticleStateA[Index];
+    float4 StateB = InputParticleStateB[Index];
+    float2 Position = StateA.xy;
+    float2 Extent = float2(CellCountX, CellCountY) * CellSizeCm;
+    const float VelocityLimit = CellSizeCm / max(FixedDeltaSeconds, 1.e-6);
+    float2 V0 = SanitizeParticleVector(SampleParticleVelocity(Position), VelocityLimit);
+    float2 Mid = Position + V0 * (0.5 * FixedDeltaSeconds);
+    Mid.x = WrapParticleCoordinate(Mid.x, OriginCm.x, Extent.x);
+    Mid.y = WrapParticleCoordinate(Mid.y, OriginCm.y, Extent.y);
+    float2 Vmid = SanitizeParticleVector(SampleParticleVelocity(Mid), VelocityLimit);
+    float2 NextPosition = Position + Vmid * FixedDeltaSeconds;
+    NextPosition.x = WrapParticleCoordinate(NextPosition.x, OriginCm.x, Extent.x);
+    NextPosition.y = WrapParticleCoordinate(NextPosition.y, OriginCm.y, Extent.y);
+    float4 G = SanitizeParticleMatrix(SampleParticleVelocityGradient(Mid), VelocityLimit / max(CellSizeCm, 1.e-6));
+    float4 BackwardStep = float4(1.0 - FixedDeltaSeconds * G.x, -FixedDeltaSeconds * G.y,
+        -FixedDeltaSeconds * G.z, 1.0 - FixedDeltaSeconds * G.w);
+    float4 B = float4(StateA.z, StateA.w, StateB.x, StateB.y);
+    float4 NextB;
+    NextB.x = B.x * BackwardStep.x + B.y * BackwardStep.z;
+    NextB.y = B.x * BackwardStep.y + B.y * BackwardStep.w;
+    NextB.z = B.z * BackwardStep.x + B.w * BackwardStep.z;
+    NextB.w = B.z * BackwardStep.y + B.w * BackwardStep.w;
+    NextB = SanitizeParticleMatrix(NextB, 64.0);
+    OutputParticleStateA[Index] = float4(NextPosition, NextB.xy);
+    OutputParticleStateB[Index] = float4(NextB.zw, Vmid);
+}
+
+float2 ResolveParticleSolidCircles(float2 Position)
+{
+    [loop] for (uint CircleIndex = 0; CircleIndex < ParticleSolidCircleCount; ++CircleIndex)
+    {
+        const float4 Circle = ParticleSolidCircles[CircleIndex];
+        const float TargetRadius = Circle.z + Circle.w;
+        float2 Delta = Position - Circle.xy;
+        const float DistanceSquared = dot(Delta, Delta);
+        if (DistanceSquared < TargetRadius * TargetRadius)
+        {
+            const float Distance = sqrt(max(DistanceSquared, 1.e-12));
+            const float2 Normal = DistanceSquared > 1.e-12 ? Delta / Distance : float2(1.0, 0.0);
+            Position = Circle.xy + Normal * TargetRadius;
+        }
+    }
+    return Position;
+}
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void AdvectParticlesWithSolidsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    uint Index = DispatchThreadId.x;
+    if (Index >= ParticleCount) return;
+    float4 StateA = InputParticleStateA[Index];
+    float4 StateB = InputParticleStateB[Index];
+    float2 Position = StateA.xy;
+    float2 Extent = float2(CellCountX, CellCountY) * CellSizeCm;
+    const float VelocityLimit = CellSizeCm / max(FixedDeltaSeconds, 1.e-6);
+    float2 V0 = SanitizeParticleVector(SampleParticleVelocity(Position), VelocityLimit);
+    float2 Mid = Position + V0 * (0.5 * FixedDeltaSeconds);
+    Mid.x = WrapParticleCoordinate(Mid.x, OriginCm.x, Extent.x);
+    Mid.y = WrapParticleCoordinate(Mid.y, OriginCm.y, Extent.y);
+    float2 Vmid = SanitizeParticleVector(SampleParticleVelocity(Mid), VelocityLimit);
+    float2 NextPosition = Position + Vmid * FixedDeltaSeconds;
+    NextPosition.x = WrapParticleCoordinate(NextPosition.x, OriginCm.x, Extent.x);
+    NextPosition.y = WrapParticleCoordinate(NextPosition.y, OriginCm.y, Extent.y);
+    NextPosition = ResolveParticleSolidCircles(NextPosition);
+    float4 G = SanitizeParticleMatrix(SampleParticleVelocityGradient(Mid), VelocityLimit / max(CellSizeCm, 1.e-6));
+    float4 BackwardStep = float4(1.0 - FixedDeltaSeconds * G.x, -FixedDeltaSeconds * G.y,
+        -FixedDeltaSeconds * G.z, 1.0 - FixedDeltaSeconds * G.w);
+    float4 B = float4(StateA.z, StateA.w, StateB.x, StateB.y);
+    float4 NextB;
+    NextB.x = B.x * BackwardStep.x + B.y * BackwardStep.z;
+    NextB.y = B.x * BackwardStep.y + B.y * BackwardStep.w;
+    NextB.z = B.z * BackwardStep.x + B.w * BackwardStep.z;
+    NextB.w = B.z * BackwardStep.y + B.w * BackwardStep.w;
+    NextB = SanitizeParticleMatrix(NextB, 64.0);
+    OutputParticleStateA[Index] = float4(NextPosition, NextB.xy);
+    OutputParticleStateB[Index] = float4(NextB.zw, Vmid);
+}
+
+[numthreads(GROUP_SIZE, 1, 1)]
+void ResetParticleMapsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    uint Index = DispatchThreadId.x;
+    if (Index >= ParticleCount) return;
+    float2 Position = ResetInputParticleStateA[Index].xy;
+    const float VelocityLimit = CellSizeCm / max(FixedDeltaSeconds, 1.e-6);
+    float2 Velocity = SanitizeParticleVector(SampleParticleVelocity(Position), VelocityLimit);
+    float4 Gradient = SanitizeParticleMatrix(SampleParticleVelocityGradient(Position), VelocityLimit / max(CellSizeCm, 1.e-6));
+    ResetOutputParticleStateA[Index] = float4(Position, 1.0, 0.0);
+    ResetOutputParticleStateB[Index] = float4(0.0, 1.0, Velocity);
+    ResetReferenceImpulseAndGradientRow0[Index] = float4(Velocity, Gradient.xy);
+    ResetReferenceGradientRow1[Index] = float4(Gradient.zw, 0.0, 0.0);
+}

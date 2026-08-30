@@ -1,0 +1,64 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float4> ModalInputPositions;
+StructuredBuffer<float4> ModalRestPositions;
+StructuredBuffer<float> ModalBasisValues;
+StructuredBuffer<float> ModalInverseSystemValues;
+StructuredBuffer<float4> ModalRhsValues;
+RWStructuredBuffer<float4> ModalOutputValues;
+
+uint ModalParticleCount;
+uint ModalModeCount;
+uint ModalColumns;
+float ModalCorrectionStrength;
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void ProjectRhsCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint ModeIndex = DispatchThreadId.x;
+    if (ModeIndex >= ModalModeCount)
+    {
+        return;
+    }
+
+    float3 ReducedRhs = 0.0;
+    const uint BasisOffset = ModeIndex * ModalParticleCount;
+    for (uint ParticleIndex = 0; ParticleIndex < ModalParticleCount; ++ParticleIndex)
+    {
+        const float BasisValue = ModalBasisValues[BasisOffset + ParticleIndex];
+        ReducedRhs += BasisValue * (ModalInputPositions[ParticleIndex].xyz - ModalRestPositions[ParticleIndex].xyz);
+    }
+    ModalOutputValues[ModeIndex] = float4(ReducedRhs, 0.0);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void SolveAndApplyCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint ParticleIndex = DispatchThreadId.x;
+    if (ParticleIndex >= ModalParticleCount)
+    {
+        return;
+    }
+
+    float3 Position = ModalInputPositions[ParticleIndex].xyz;
+    if (ParticleIndex < ModalColumns)
+    {
+        ModalOutputValues[ParticleIndex] = float4(Position, 1.0);
+        return;
+    }
+
+    float3 Correction = 0.0;
+    for (uint OutputMode = 0; OutputMode < ModalModeCount; ++OutputMode)
+    {
+        float3 ModalCoordinate = 0.0;
+        const uint InverseRowOffset = OutputMode * ModalModeCount;
+        for (uint RhsMode = 0; RhsMode < ModalModeCount; ++RhsMode)
+        {
+            ModalCoordinate += ModalInverseSystemValues[InverseRowOffset + RhsMode] * ModalRhsValues[RhsMode].xyz;
+        }
+        ModalCoordinate -= ModalRhsValues[OutputMode].xyz;
+        Correction += ModalBasisValues[OutputMode * ModalParticleCount + ParticleIndex] * ModalCoordinate;
+    }
+    Position += ModalCorrectionStrength * Correction;
+    ModalOutputValues[ParticleIndex] = float4(Position, 0.0);
+}

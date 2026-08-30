@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-08-29T23:47:17.5573939-06:00",
+  "result": "passed",
+  "checks": {
+    "gate_passed": true,
+    "asset_loaded": true,
+    "clothing_assets_present": true,
+    "chaos_simulation_created": true,
+    "runtime_cloth_data": true,
+    "simulated_particles_present": true,
+    "dynamic_displacement": true,
+    "fallback_not_required": true,
+    "json_csv_counts_match": true,
+    "metric_names": true,
+    "step_range": true,
+    "finite_values": true,
+    "screenshot_nonempty": true
+  },
+  "evidence": {
+    "asset": "/Game/Assassin/Mesh/SKM_Assassin_Skin1",
+    "clothing_assets": 2,
+    "simulated_particles": 2011,
+    "maximum_observed_displacement_cm": 30.29231432,
+    "metric_samples": 844,
+    "metrics": [
+      "ActiveClothActors",
+      "ClothParticleCount",
+      "MaxClothDisplacement",
+      "MeanClothDisplacement"
+    ],
+    "screenshot": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\Screenshots\\M2_ChaosClothAssetGate.png",
+    "screenshot_bytes": 660238
+  }
+}

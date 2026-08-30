@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-08-30T08:44:27.6420936-06:00",
+  "result": "passed",
+  "device": {
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "rhi": "DirectX 12 (SM6)",
+    "render_mode": "D3D12_SM6"
+  },
+  "protocol": "Per tier: Local, Corrected, Corrected, Local; four fresh sessions, 128 steps each, first 48 excluded, mean of the two per-condition steady medians.",
+  "attribution": "The two-mode correction adds one semantic projection, two reduction dispatches, and one apply pass per solver iteration. On this run the counterbalanced median overhead is about 14.8% (medium) and 17.3% (high), while the independent convergence gate records at least 15% and 25% residual reduction. This is an overhead/quality tradeoff, not a raw speedup claim.",
+  "caveat": "Local run medians still vary by roughly 28-32% across the ABBA endpoints, so the result is machine/protocol evidence rather than a universal GPU performance law.",
+  "checks": {
+    "target_test_passed": true,
+    "real_d3d12_sm6_device": true,
+    "medium_and_high_present": true,
+    "exact_abba_protocol_and_budget": true,
+    "complete_timestamps_without_skips": true,
+    "exact_incremental_pass_accounting": true,
+    "corrected_pair_is_stable_within_five_percent": true,
+    "counterbalanced_median_reports_bounded_overhead": true,
+    "convergence_benefit_remains_independently_gated": true
+  },
+  "tiers": {
+    "medium": {
+      "protocol": "ABBA",
+      "steps_per_run": 128,
+      "warmup_per_run": 48,
+      "iterations": 32,
+      "local_run_medians_ms": [
+        4.583,
+        3.48
+      ],
+      "corrected_run_medians_ms": [
+        4.627,
+        4.626
+      ],
+      "local_mean_of_medians_ms": 4.0315,
+      "corrected_mean_of_medians_ms": 4.6265,
+      "corrected_to_local_ratio": 1.147587746,
+      "overhead_percent": 14.758774599999992,
+      "local_mean_p95_ms": 4.8005,
+      "corrected_mean_p95_ms": 4.6375,
+      "samples_per_run": 128,
+      "steady_samples_per_run": 80,
+      "skipped_total": 0,
+      "corrected_projection_passes_per_run": 4096,
+      "corrected_reduction_dispatches_per_run": 8192,
+      "corrected_apply_passes_per_run": 4096,
+      "local_run_spread_ratio": 1.3169540229885057,
+      "corrected_run_spread_ratio": 1.0002161694768696
+    },
+    "high": {
+      "protocol": "ABBA",
+      "steps_per_run": 128,
+      "warmup_per_run": 48,
+      "iterations": 32,
+      "local_run_medians_ms": [
+        3.88,
+        4.98
+      ],
+      "corrected_run_medians_ms": [
+        5.196,
+        5.196
+      ],
+      "local_mean_of_medians_ms": 4.43,
+      "corrected_mean_of_medians_ms": 5.196,
+      "corrected_to_local_ratio": 1.172911964,
+      "overhead_percent": 17.291196400000008,
+      "local_mean_p95_ms": 5.0015,
+      "corrected_mean_p95_ms": 5.2035,
+      "samples_per_run": 128,
+      "steady_samples_per_run": 80,
+      "skipped_total": 0,
+      "corrected_projection_passes_per_run": 4096,
+      "corrected_reduction_dispatches_per_run": 8192,
+      "corrected_apply_passes_per_run": 4096,
+      "local_run_spread_ratio": 1.2835051546391754,
+      "corrected_run_spread_ratio": 1.0
+    }
+  },
+  "failed_checks": []
+}

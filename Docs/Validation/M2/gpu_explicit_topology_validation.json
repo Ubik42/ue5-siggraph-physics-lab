@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-08-30T05:44:09.3119352-06:00",
+  "result": "passed",
+  "checks": {
+    "test_succeeded": true,
+    "one_success_zero_failures": true,
+    "d3d12_sm6": true,
+    "metrics_present": true,
+    "exact_assassin_particle_count": true,
+    "exact_assassin_unique_edges": true,
+    "expected_iteration_budget": true,
+    "finite_positive_input_error": true,
+    "maximum_edge_error_reduced_twenty_percent": true,
+    "fixed_particles_invariant": true
+  },
+  "evidence": {
+    "asset": "/Game/Assassin/Mesh/SKM_Assassin_Skin1",
+    "particles": 2011,
+    "unique_edges": 5714,
+    "iterations": 128,
+    "input_maximum_edge_error_cm": 9.621097,
+    "output_maximum_edge_error_cm": 0.3406,
+    "maximum_fixed_particle_drift_cm": 0.0,
+    "blocking_wall_milliseconds": 15.025,
+    "scope": "Blocking GPU correctness gate for exact Chaos LOD0 particles and CSR structural adjacency; persistent dynamics, skinning, and same-input Chaos comparison remain pending",
+    "automation_report": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M2\\GpuExplicitTopologyAutomation\\index.json"
+  }
+}

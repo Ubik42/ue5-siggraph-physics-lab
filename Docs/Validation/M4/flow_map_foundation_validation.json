@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-08-30T10:49:03.0320503-06:00",
+  "result": "passed",
+  "scope": "Case 03 CPU foundation: staggered MAC velocity, deterministic particles, RK2 advection, long/short map lifecycle, backward-map Jacobian, clamp and periodic boundaries.",
+  "checks": {
+    "automation_includes_all_four_foundation_tests": true,
+    "metric_lines_are_machine_readable": true,
+    "straight_mac_contract_is_exact": true,
+    "straight_is_divergence_free_and_analytic": true,
+    "straight_map_lifecycle_is_exact": true,
+    "vortex_periodic_contract_is_exact": true,
+    "vortex_preserves_radius_and_volume_proxy": true,
+    "vortex_map_lifecycle_is_exact": true,
+    "normalized_pic_reconstructs_uniform_velocity": true,
+    "periodic_projection_removes_at_least_99_9_percent_divergence": true,
+    "compression_energy_is_removed_by_projection": true,
+    "gradient_transfer_uses_deterministic_distorted_particles": true,
+    "gradient_term_reduces_scalar_transfer_error_by_at_least_25_percent": true
+  },
+  "straight": {
+    "cells": "16x8",
+    "particles": 512,
+    "steps": 6,
+    "divergence_rms": 0.0,
+    "displacement_cm": 2.0,
+    "short_map_resets": 2,
+    "long_map_resets": 0,
+    "lost_particles": 0
+  },
+  "vortex": {
+    "cells": "32x32",
+    "particles": 1024,
+    "steps": 60,
+    "boundary": "periodic",
+    "divergence_rms": 0.0,
+    "radius_error": 9.8562964E-07,
+    "maximum_jacobian_determinant_error": 0.00034725666,
+    "short_map_resets": 15,
+    "long_map_resets": 3,
+    "lost_particles": 0,
+    "boundary_wraps": 116
+  },
+  "pic_and_projection": {
+    "cells": "32x16",
+    "particles": 2048,
+    "pic_max_velocity_error": 0.0,
+    "projection_iterations": 1024,
+    "divergence_rms_before": 1.38617175,
+    "divergence_rms_after": 7.08785447E-05,
+    "divergence_ratio": 5.11325851E-05,
+    "maximum_divergence_before": 1.95090413,
+    "maximum_divergence_after": 0.000108035376,
+    "energy_before": 618.995376,
+    "energy_after": 1.60700535E-06
+  },
+  "gradient_transfer": {
+    "cells": "32x32",
+    "particles": 1024,
+    "distribution": "deterministic_jittered",
+    "field": "sin2x_cos2y",
+    "pic_rms": 0.0360248895,
+    "gradient_rms": 0.0112886086,
+    "gradient_to_pic_ratio": 0.313355815
+  },
+  "current_boundary": "This report covers the CPU foundation only. Later gates now add evolving vector impulse/gradient feedback and a real D3D12 pressure-projection subpath; the full particle/Map GPU loop, UE map, moving Chaos obstacle, and Niagara visualization remain future work.",
+  "failed_checks": []
+}

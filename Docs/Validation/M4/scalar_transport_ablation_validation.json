@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-08-30T10:49:03.2097581-06:00",
+  "result": "passed",
+  "interpretation": "All three paths share the same periodic translation, grid, particles, fixed step, and scalar field. Short PIC resets every step; LongMapPic and LongMapGradient reset every 20 steps, isolating map cadence and the gradient term.",
+  "checks": {
+    "isolated_automation_passed": true,
+    "full_flow_map_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "identical_grid_particles_steps_dt_and_velocity": true,
+    "reset_cadence_is_exact": true,
+    "long_map_gradient_reduces_error_at_least_fifty_percent": true,
+    "gradient_term_isolated_at_same_long_map_cadence": true,
+    "long_map_relative_error_is_below_twenty_percent": true,
+    "long_map_preserves_material_amplitude": true,
+    "short_pic_expected_dissipation_is_observed": true
+  },
+  "contract": {
+    "steps": 120,
+    "cells": "32x32",
+    "particles": 4096,
+    "fixed_dt_seconds": 0.0166666675,
+    "velocity_cm_per_second": "20,10",
+    "field_cycles": "2,2"
+  },
+  "short_pic": {
+    "map_resets": 120,
+    "rms_error": 0.498927116,
+    "relative_rms_error": 0.997854277,
+    "amplitude": 0.00206500711,
+    "energy_proxy": 1.15103306E-06
+  },
+  "long_map_pic": {
+    "map_resets": 6,
+    "rms_error": 0.12373981,
+    "amplitude": 0.72392863,
+    "energy_proxy": 0.141571726
+  },
+  "long_map_gradient": {
+    "map_resets": 6,
+    "rms_error": 0.00764403298,
+    "relative_rms_error": 0.0152880666,
+    "amplitude": 0.97669661,
+    "energy_proxy": 0.257702112,
+    "rms_to_short_pic": 0.0153209411,
+    "rms_to_long_map_pic": 0.06177505
+  },
+  "exact": {
+    "amplitude": 0.961939871,
+    "energy_proxy": 0.249999978
+  },
+  "boundary": "This is a periodic passive-scalar/impulse-component transport benchmark under prescribed uniform velocity. It does not yet couple vector impulse transport back into an evolving pressure-projected velocity field.",
+  "failed_checks": []
+}

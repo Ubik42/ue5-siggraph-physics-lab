@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-08-30T14:39:20.3416259-06:00",
+  "source": "D:\\3D\\UE Projects\\SIGGRAPHPhysicsLab\\Docs\\Validation\\M6\\NetworkProfiles\\Case05_Client_100ms_5pct.nprof",
+  "file_bytes": 110017,
+  "parser_contract": "UE 5.4 Network Profiler version 14; complete EndOfStream required; read-only.",
+  "header": {
+    "magic": "0x1DBF348C",
+    "version": 14,
+    "tag": "Case05Client",
+    "game_name": "SIGGRAPHPhysicsLab",
+    "url": "127.0.0.1:7789/ShooterMaps/Maps/L_Convolution_Blockout?Name=Player?game=/Game/B_LyraGameMode.B_LyraGameMode_C"
+  },
+  "parsed": {
+    "end_of_stream": true,
+    "name_count": 20,
+    "connection_count": 1,
+    "unresolved_name_references": 1,
+    "token_counts": {
+      "0": 12188,
+      "16": 3116,
+      "1": 1264,
+      "2": 1218,
+      "3": 1217,
+      "9": 1313,
+      "13": 1217,
+      "17": 20,
+      "18": 1,
+      "6": 1
+    },
+    "event_count": 4916,
+    "rpc_count": 1217,
+    "replicated_property_count": 0,
+    "socket_send_count": 1264,
+    "socket_wire_bytes": 45246
+  },
+  "filter": "RecoverableFall|ServerRequestRecovery|FallState|RecoveryBranch",
+  "matching_events": [
+    {
+      "type": "BeginContentBlock",
+      "time_s": 20.297209,
+      "connection": "127.0.0.1:7789",
+      "content": "RecoverableFallComponent_0",
+      "header_bits": 10,
+      "offset": 18910
+    },
+    {
+      "type": "SendRPC",
+      "time_s": 20.297209,
+      "connection": "127.0.0.1:7789",
+      "actor": "B_Hero_ShooterMannequin_C",
+      "function": "ServerRequestRecovery",
+      "header_bits": 18,
+      "parameter_bits": 11,
+      "footer_bits": 0,
+      "total_bits": 29,
+      "offset": 18940
+    }
+  ],
+  "matching_frame_socket_summaries": [
+    {
+      "time_s": 20.297209,
+      "socket_send_count": 0,
+      "socket_wire_bytes": 0
+    }
+  ]
+}

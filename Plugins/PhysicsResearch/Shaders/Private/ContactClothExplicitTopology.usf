@@ -1,0 +1,134 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float> InverseMasses;
+StructuredBuffer<uint> AdjacencyOffsets;
+StructuredBuffer<uint> NeighborIndices;
+StructuredBuffer<float> NeighborRestLengthsCm;
+StructuredBuffer<float4> InputPositions;
+RWStructuredBuffer<float4> OutputPositions;
+StructuredBuffer<float4> CollisionSpheres;
+StructuredBuffer<float4> CollisionCapsuleStarts;
+StructuredBuffer<float4> CollisionCapsuleEnds;
+StructuredBuffer<uint> CollisionActivationCounts;
+
+StructuredBuffer<float4> CurrentPositions;
+StructuredBuffer<float4> PreviousPositions;
+StructuredBuffer<float4> KinematicTargets;
+RWStructuredBuffer<float4> PredictedPositions;
+
+uint ParticleCount;
+uint CollisionSphereCount;
+uint CollisionCapsuleCount;
+uint CollisionPrimitiveCapacity;
+uint NdbEnabled;
+float Relaxation;
+float NdbBaseWeight;
+float NdbActivationMultiplier;
+float NdbMaximumWeight;
+float FixedDeltaSecondsSquared;
+float VelocityDamping;
+float3 GravityCmPerSecondSquared;
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void IntegrateCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    if (Index >= ParticleCount)
+    {
+        return;
+    }
+
+    const float3 Current = CurrentPositions[Index].xyz;
+    if (InverseMasses[Index] <= 0.0)
+    {
+        PredictedPositions[Index] = float4(KinematicTargets[Index].xyz, 1.0);
+        return;
+    }
+
+    const float3 Previous = PreviousPositions[Index].xyz;
+    const float3 VelocityDisplacement = (Current - Previous) * VelocityDamping;
+    const float3 Predicted = Current + VelocityDisplacement + GravityCmPerSecondSquared * FixedDeltaSecondsSquared;
+    PredictedPositions[Index] = float4(Predicted, 0.0);
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void MainCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint Index = DispatchThreadId.x;
+    if (Index >= ParticleCount)
+    {
+        return;
+    }
+
+    const float3 Position = InputPositions[Index].xyz;
+    const float CurrentInverseMass = InverseMasses[Index];
+    if (CurrentInverseMass <= 0.0)
+    {
+        OutputPositions[Index] = float4(Position, 1.0);
+        return;
+    }
+
+    float3 Correction = 0.0;
+    float WeightSum = 0.0;
+    const uint Begin = AdjacencyOffsets[Index];
+    const uint End = AdjacencyOffsets[Index + 1];
+    for (uint AdjacencyIndex = Begin; AdjacencyIndex < End; ++AdjacencyIndex)
+    {
+        const uint NeighborIndex = NeighborIndices[AdjacencyIndex];
+        const float3 Delta = Position - InputPositions[NeighborIndex].xyz;
+        const float Distance = length(Delta);
+        const float InverseMassSum = CurrentInverseMass + InverseMasses[NeighborIndex];
+        if (Distance > 1.e-6 && InverseMassSum > 1.e-8)
+        {
+            const float RestLength = NeighborRestLengthsCm[AdjacencyIndex];
+            const float CurrentParticleShare = CurrentInverseMass / InverseMassSum;
+            Correction += (-CurrentParticleShare * (Distance - RestLength) / Distance) * Delta;
+            WeightSum += 1.0;
+        }
+    }
+
+    float3 Output = WeightSum > 0.0
+        ? Position + Relaxation * Correction / WeightSum
+        : Position;
+
+    for (uint SphereIndex = 0; SphereIndex < CollisionSphereCount; ++SphereIndex)
+    {
+        const float4 Sphere = CollisionSpheres[SphereIndex];
+        const float3 Offset = Output - Sphere.xyz;
+        const float Distance = length(Offset);
+        if (Distance < Sphere.w)
+        {
+            const float3 Normal = Distance > 1.e-6 ? Offset / Distance : float3(0.0, 0.0, 1.0);
+            const float3 Surface = Sphere.xyz + Normal * Sphere.w;
+            const uint Activation = CollisionActivationCounts[Index * CollisionPrimitiveCapacity + SphereIndex];
+            const float Weight = min(NdbBaseWeight * pow(NdbActivationMultiplier, (float)Activation), NdbMaximumWeight);
+            const float Alpha = NdbEnabled != 0 ? Weight / (1.0 + Weight) : 1.0;
+            Output += Alpha * (Surface - Output);
+        }
+    }
+
+    for (uint CapsuleIndex = 0; CapsuleIndex < CollisionCapsuleCount; ++CapsuleIndex)
+    {
+        const float4 CapsuleStart = CollisionCapsuleStarts[CapsuleIndex];
+        const float3 CapsuleEnd = CollisionCapsuleEnds[CapsuleIndex].xyz;
+        const float3 Segment = CapsuleEnd - CapsuleStart.xyz;
+        const float SegmentLengthSquared = dot(Segment, Segment);
+        const float Alpha = SegmentLengthSquared > 1.e-6
+            ? saturate(dot(Output - CapsuleStart.xyz, Segment) / SegmentLengthSquared)
+            : 0.0;
+        const float3 ClosestPoint = CapsuleStart.xyz + Alpha * Segment;
+        const float3 Offset = Output - ClosestPoint;
+        const float Distance = length(Offset);
+        if (Distance < CapsuleStart.w)
+        {
+            const float3 Normal = Distance > 1.e-6 ? Offset / Distance : float3(0.0, 1.0, 0.0);
+            const float3 Surface = ClosestPoint + Normal * CapsuleStart.w;
+            const uint PrimitiveIndex = CollisionSphereCount + CapsuleIndex;
+            const uint Activation = CollisionActivationCounts[Index * CollisionPrimitiveCapacity + PrimitiveIndex];
+            const float Weight = min(NdbBaseWeight * pow(NdbActivationMultiplier, (float)Activation), NdbMaximumWeight);
+            const float Alpha = NdbEnabled != 0 ? Weight / (1.0 + Weight) : 1.0;
+            Output += Alpha * (Surface - Output);
+        }
+    }
+    OutputPositions[Index] = float4(Output, 0.0);
+}

@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-08-30T08:08:26.7953097-06:00",
+  "result": "passed",
+  "checks": {
+    "runtime_passed": true,
+    "exact_fixed_step_alignment": true,
+    "asynchronous_surface_updates_observed": true,
+    "exact_dragon_surface_contract": true,
+    "exact_volume_cage_contract": true,
+    "rest_binding_error_below_one_hundredth_cm": true,
+    "fixed_face_has_zero_drift": true,
+    "surface_deformation_is_visible_and_finite": true,
+    "low_frequency_gpu_path_executed_exactly": true,
+    "map_created_with_runtime_actor": true,
+    "screenshot_is_nontrivial": true
+  },
+  "runtime": {
+    "result": "passed",
+    "solver": "Persistent D3D12 tetrahedral XPBD with two-mode low-frequency correction",
+    "surface_binding": "Deterministic trilinear 8-node cage weights",
+    "steps_executed": 300,
+    "readbacks_completed": 75,
+    "latest_readback_step": 300,
+    "surface_updates": 75,
+    "surface_vertices": 4854,
+    "surface_triangles": 6000,
+    "cage_vertices": 729,
+    "cage_tetrahedra": 3072,
+    "fixed_cage_vertices": 81,
+    "rest_reconstruction_error_cm": 0.000141086595,
+    "maximum_fixed_face_drift_cm": 0.0,
+    "maximum_surface_displacement_cm": 61.388805389,
+    "low_frequency_modes": 2,
+    "low_frequency_projection_passes": 9600,
+    "low_frequency_apply_passes": 9600,
+    "license_boundary": "Runtime mesh is a local derivative of the installed Fab Dragon asset and is gitignored"
+  },
+  "map": {
+    "map": "/PhysicsSoftBody/Maps/L_DragonGpuSurface",
+    "actor": "/PhysicsSoftBody/Maps/L_DragonGpuSurface.L_DragonGpuSurface:PersistentLevel.SoftBodyDragonRealtimeActor_0",
+    "saved": true,
+    "errors": []
+  },
+  "screenshot_bytes": 258896,
+  "failed_checks": [],
+  "evidence_scope": "Real UE 5.4 D3D12 game window; persistent tetrahedral buffers, asynchronous cage readback, surface binding, DynamicMesh position updates, HUD, and screenshot."
+}

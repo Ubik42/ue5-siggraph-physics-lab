@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-08-30T10:49:03.1350999-06:00",
+  "result": "passed",
+  "interpretation": "Face velocities, divergence, and both pressure work buffers remain external RDG resources across four queued projection steps. The game-thread enqueue API performs no explicit GPU wait; paired U/V readbacks are consumed asynchronously and the final validation snapshot is tagged with its source step.",
+  "checks": {
+    "isolated_d3d12_automation_passed": true,
+    "real_rhi_is_d3d12_sm6": true,
+    "full_flow_map_nullrhi_regression_is_fifteen_of_fifteen": true,
+    "metric_line_is_machine_readable": true,
+    "four_step_session_contract_is_exact": true,
+    "queue_and_execution_counts_match": true,
+    "final_snapshot_matches_last_step": true,
+    "persistent_pass_accounting_is_exact": true,
+    "runtime_enqueue_contains_no_explicit_gpu_wait": true,
+    "velocity_and_pressure_resources_are_externalized": true,
+    "paired_readbacks_and_source_step_are_implemented": true,
+    "sequential_gpu_matches_cpu_faces": true,
+    "sequential_gpu_matches_cpu_divergence": true
+  },
+  "device": {
+    "name": "LUCASSHENHOMEPC",
+    "gpu": "NVIDIA GeForce RTX 4080",
+    "render_mode": "D3D12_SM6",
+    "rhi": "DirectX 12 (SM6)"
+  },
+  "contract": {
+    "cells": "32x16",
+    "steps": 4,
+    "jacobi_iterations_per_step": 128,
+    "readback_interval_steps": 2
+  },
+  "lifecycle": {
+    "steps_enqueued": 4,
+    "steps_executed": 4,
+    "readbacks_completed": 2,
+    "latest_snapshot_step": 4
+  },
+  "pass_accounting": {
+    "divergence": 4,
+    "jacobi": 512,
+    "apply": 8
+  },
+  "metrics": {
+    "cpu_divergence_after": 0.00989025984,
+    "gpu_divergence_after": 0.00989027046,
+    "maximum_cpu_gpu_face_velocity_error": 5.30905072E-06
+  },
+  "boundary": "FlushAndWaitForReadbackForValidation is used only after all normal steps to make the automated truth gate deterministic. Runtime enqueue, periodic readback scheduling, and polling do not call FlushRenderingCommands or BlockUntilGPUIdle. GPU timestamp and the particle/Map state are not yet part of this session.",
+  "failed_checks": []
+}

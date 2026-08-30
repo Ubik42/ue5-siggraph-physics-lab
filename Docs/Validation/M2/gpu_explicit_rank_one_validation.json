@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-08-30T05:44:09.2392525-06:00",
+  "result": "passed",
+  "checks": {
+    "d3d12_sm6": true,
+    "two_targeted_tests_passed": true,
+    "arbitrary_topology_basis_is_orthonormal": true,
+    "micro_ablation_improves_penetration": true,
+    "non_prefix_fixed_vertices_do_not_drift": true,
+    "same_assassin_topology_and_steps": true,
+    "same_twelve_modal_passes": true,
+    "rank_one_switch_changes_real_backend": true,
+    "both_runs_pass_original_penetration_gate": true,
+    "rank_one_reduces_structural_error": true
+  },
+  "evidence": {
+    "render_mode": "D3D12_SM6",
+    "modal_reference": "Explicit modal reference: particles=12 modes=4 fixed_support=0.000e+00 orthogonality_error=2.220e-16 inverse_error=2.220e-16",
+    "gpu_micro_ablation": "Explicit rank-one ablation: particles=9 modes=4 baseline_penetration_cm=4.701429844 rank_one_penetration_cm=4.642128944 modal_passes=1 rank_one_systems=1 fixed_1_drift_cm=0.000000000 fixed_6_drift_cm=0.000000000",
+    "enabled": {
+      "edge_error_cm": 2.623924732,
+      "penetration_cm": 8.5830688E-05,
+      "dynamic_displacement_cm": 9.008297729,
+      "systems": 300
+    },
+    "disabled": {
+      "edge_error_cm": 2.737654209,
+      "penetration_cm": 7.9154968E-05,
+      "dynamic_displacement_cm": 10.097573495,
+      "systems": 0
+    },
+    "scope": "2011 粒子 Assassin 任意拓扑每步一次模态与可开关的完整 3m×3m rank-one 分析接触系统；工程版并非论文每轮 local-global 内重装配，也不包含布料自碰撞"
+  }
+}

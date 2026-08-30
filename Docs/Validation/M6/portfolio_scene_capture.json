@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-08-30T15:32:26.3590826-06:00",
+  "owned_pid": 4204,
+  "engine": "UE 5.4.4 CL 35576357",
+  "mode": "D3D12 rendered game window, 1600x900, fixed 60 Hz, Portfolio scene",
+  "screenshot": "Docs/Validation/M6/Screenshots/Case05_PhysicsControl_Portfolio.png",
+  "screenshot_bytes": 1077292,
+  "runtime_json": "Docs/Validation/M6/DrivenCharacterPortfolio.json",
+  "runtime_csv": "Docs/Validation/M6/DrivenCharacterPortfolio.csv"
+}

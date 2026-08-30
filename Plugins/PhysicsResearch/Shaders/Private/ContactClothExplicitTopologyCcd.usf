@@ -1,0 +1,162 @@
+#include "/Engine/Public/Platform.ush"
+
+StructuredBuffer<float> ExplicitCcdInverseMasses;
+StructuredBuffer<float4> ExplicitCcdStartPositions;
+StructuredBuffer<float4> ExplicitCcdCandidatePositions;
+StructuredBuffer<float4> ExplicitCcdCollisionSpheres;
+StructuredBuffer<float4> ExplicitCcdCollisionCapsuleStarts;
+StructuredBuffer<float4> ExplicitCcdCollisionCapsuleEnds;
+RWStructuredBuffer<float4> ExplicitCcdOutputPositions;
+
+uint ExplicitCcdParticleCount;
+uint ExplicitCcdSphereCount;
+uint ExplicitCcdCapsuleCount;
+float ExplicitCcdSafetyOffsetCm;
+
+bool ExplicitSweepSphere(float3 Start, float3 Delta, float3 Center, float Radius, out float OutTime, out float3 OutNormal)
+{
+    const float3 Offset = Start - Center;
+    const float A = dot(Delta, Delta);
+    const float B = 2.0 * dot(Offset, Delta);
+    const float C = dot(Offset, Offset) - Radius * Radius;
+    const float StartDistance = length(Offset);
+    if (StartDistance <= Radius + 1.e-5)
+    {
+        // Initial overlap belongs to the discrete/NDB depenetration pass. Re-anchoring at TOI=0
+        // would overwrite that pass's candidate correction and make the two responsibilities conflict.
+        return false;
+    }
+    if (A <= 1.e-8)
+    {
+        return false;
+    }
+    const float Discriminant = B * B - 4.0 * A * C;
+    if (Discriminant < 0.0)
+    {
+        return false;
+    }
+    const float Time = (-B - sqrt(Discriminant)) / (2.0 * A);
+    if (Time < 0.0 || Time > 1.0)
+    {
+        return false;
+    }
+    const float3 HitPosition = Start + Time * Delta;
+    OutTime = Time;
+    OutNormal = normalize(HitPosition - Center);
+    return true;
+}
+
+float3 ExplicitClosestPointOnSegment(float3 Point, float3 SegmentStart, float3 SegmentEnd)
+{
+    const float3 Segment = SegmentEnd - SegmentStart;
+    const float SegmentLengthSquared = dot(Segment, Segment);
+    const float Alpha = SegmentLengthSquared > 1.e-8
+        ? saturate(dot(Point - SegmentStart, Segment) / SegmentLengthSquared)
+        : 0.0;
+    return SegmentStart + Alpha * Segment;
+}
+
+bool ExplicitSweepCapsule(float3 Start, float3 Delta, float3 CapsuleStart, float3 CapsuleEnd, float Radius, out float OutTime, out float3 OutNormal)
+{
+    const float3 StartClosest = ExplicitClosestPointOnSegment(Start, CapsuleStart, CapsuleEnd);
+    const float3 StartOffset = Start - StartClosest;
+    const float StartDistance = length(StartOffset);
+    if (StartDistance <= Radius + 1.e-5)
+    {
+        // NDB/discrete projection owns initial overlap; CCD only owns an outside-to-inside sweep.
+        return false;
+    }
+    const float3 Axis = CapsuleEnd - CapsuleStart;
+    const float AxisLengthSquared = dot(Axis, Axis);
+    if (AxisLengthSquared <= 1.e-8)
+    {
+        return ExplicitSweepSphere(Start, Delta, CapsuleStart, Radius, OutTime, OutNormal);
+    }
+    const float3 OriginOffset = Start - CapsuleStart;
+    const float AxisDotDelta = dot(Axis, Delta);
+    const float AxisDotOrigin = dot(Axis, OriginOffset);
+    const float A = AxisLengthSquared * dot(Delta, Delta) - AxisDotDelta * AxisDotDelta;
+    const float B = AxisLengthSquared * dot(Delta, OriginOffset) - AxisDotOrigin * AxisDotDelta;
+    const float C = AxisLengthSquared * dot(OriginOffset, OriginOffset) - AxisDotOrigin * AxisDotOrigin - Radius * Radius * AxisLengthSquared;
+    float EarliestTime = 2.0;
+    float3 EarliestNormal = 0.0;
+    const float Discriminant = B * B - A * C;
+    if (abs(A) > 1.e-8 && Discriminant >= 0.0)
+    {
+        const float CylinderTime = (-B - sqrt(Discriminant)) / A;
+        const float AxisPosition = AxisDotOrigin + CylinderTime * AxisDotDelta;
+        if (CylinderTime >= 0.0 && CylinderTime <= 1.0 && AxisPosition >= 0.0 && AxisPosition <= AxisLengthSquared)
+        {
+            const float3 HitPosition = Start + CylinderTime * Delta;
+            const float3 Closest = ExplicitClosestPointOnSegment(HitPosition, CapsuleStart, CapsuleEnd);
+            EarliestTime = CylinderTime;
+            EarliestNormal = normalize(HitPosition - Closest);
+        }
+    }
+    float CapTime = 0.0;
+    float3 CapNormal = 0.0;
+    if (ExplicitSweepSphere(Start, Delta, CapsuleStart, Radius, CapTime, CapNormal) && CapTime < EarliestTime)
+    {
+        EarliestTime = CapTime;
+        EarliestNormal = CapNormal;
+    }
+    if (ExplicitSweepSphere(Start, Delta, CapsuleEnd, Radius, CapTime, CapNormal) && CapTime < EarliestTime)
+    {
+        EarliestTime = CapTime;
+        EarliestNormal = CapNormal;
+    }
+    if (EarliestTime > 1.0)
+    {
+        return false;
+    }
+    OutTime = EarliestTime;
+    OutNormal = EarliestNormal;
+    return true;
+}
+
+[numthreads(THREADGROUP_SIZE, 1, 1)]
+void MainCS(uint3 DispatchThreadId : SV_DispatchThreadID)
+{
+    const uint ParticleIndex = DispatchThreadId.x;
+    if (ParticleIndex >= ExplicitCcdParticleCount)
+    {
+        return;
+    }
+    const float4 Candidate = ExplicitCcdCandidatePositions[ParticleIndex];
+    if (ExplicitCcdInverseMasses[ParticleIndex] <= 0.0)
+    {
+        ExplicitCcdOutputPositions[ParticleIndex] = float4(Candidate.xyz, 1.0);
+        return;
+    }
+    const float3 Start = ExplicitCcdStartPositions[ParticleIndex].xyz;
+    const float3 Delta = Candidate.xyz - Start;
+    float EarliestTime = 2.0;
+    float3 EarliestNormal = 0.0;
+    for (uint SphereIndex = 0; SphereIndex < ExplicitCcdSphereCount; ++SphereIndex)
+    {
+        const float4 Sphere = ExplicitCcdCollisionSpheres[SphereIndex];
+        float HitTime = 0.0;
+        float3 HitNormal = 0.0;
+        if (ExplicitSweepSphere(Start, Delta, Sphere.xyz, Sphere.w, HitTime, HitNormal) && HitTime < EarliestTime)
+        {
+            EarliestTime = HitTime;
+            EarliestNormal = HitNormal;
+        }
+    }
+    for (uint CapsuleIndex = 0; CapsuleIndex < ExplicitCcdCapsuleCount; ++CapsuleIndex)
+    {
+        const float4 CapsuleStart = ExplicitCcdCollisionCapsuleStarts[CapsuleIndex];
+        const float3 CapsuleEnd = ExplicitCcdCollisionCapsuleEnds[CapsuleIndex].xyz;
+        float HitTime = 0.0;
+        float3 HitNormal = 0.0;
+        if (ExplicitSweepCapsule(Start, Delta, CapsuleStart.xyz, CapsuleEnd, CapsuleStart.w, HitTime, HitNormal) && HitTime < EarliestTime)
+        {
+            EarliestTime = HitTime;
+            EarliestNormal = HitNormal;
+        }
+    }
+    const float3 Output = EarliestTime <= 1.0
+        ? Start + EarliestTime * Delta + ExplicitCcdSafetyOffsetCm * EarliestNormal
+        : Candidate.xyz;
+    ExplicitCcdOutputPositions[ParticleIndex] = float4(Output, 0.0);
+}

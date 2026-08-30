@@ -1,0 +1,12 @@
+{
+	"engine": "5.4.4-35576357+++UE5+Release-5.4",
+	"pose_selection_count": 2,
+	"push_count": 1,
+	"recovery_request_count": 3,
+	"reset_count": 1,
+	"script_step_count": 6,
+	"final_branch": "RejectMoving",
+	"final_phase": "Rejected",
+	"uses_same_actions_as_keyboard": true,
+	"interaction_pass": true
+}

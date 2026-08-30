@@ -1,0 +1,16 @@
+{
+	"steps": 120,
+	"observation_step": 30,
+	"identifiability_failure": true,
+	"chaos_samples": 120,
+	"initial_loss": 0.64422982734164103,
+	"fitted_loss": 9.6713097714501106e-12,
+	"recovered_drive": 23.474293138037812,
+	"recovered_stiffness": 14,
+	"recovered_damping": 0.051636992220622221,
+	"parameter_l1_error": 13.274069869741567,
+	"gradient_relative_error": 5.0398080201461064e-11,
+	"research_final_target_error_cm": 115.10420601933042,
+	"chaos_rms_vs_research_cm": 17.506833155913466,
+	"chaos_final_target_error_cm": 116.77156019987041
+}

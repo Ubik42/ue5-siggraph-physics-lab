@@ -1,0 +1,56 @@
+﻿{
+	"devices": [
+		{
+			"deviceName": "LUCASSHENHOMEPC",
+			"instance": "3CC0FA384C710CD0DE008DAA35334062",
+			"instanceName": "LUCASSHENHOMEPC-30592",
+			"platform": "WindowsEditor",
+			"oSVersion": "Windows 11 (25H2) [10.0.26200.9168] ",
+			"model": "Default",
+			"gPU": "NVIDIA GeForce RTX 4080",
+			"cPUModel": "13th Gen Intel(R) Core(TM) i7-13700F",
+			"rAMInGB": 64,
+			"renderMode": "D3D12_SM6",
+			"rHI": "DirectX 12 (SM6)",
+			"appInstanceLog": ""
+		}
+	],
+	"reportCreatedOn": "2026.08.30-00.23.38",
+	"succeeded": 1,
+	"succeededWithWarnings": 0,
+	"failed": 0,
+	"notRun": 0,
+	"inProcess": 0,
+	"totalDuration": 0.028002899140119553,
+	"comparisonExported": false,
+	"comparisonExportDirectory": "",
+	"tests": [
+		{
+			"testDisplayName": "GpuJacobiDispatch",
+			"fullTestPath": "PhysicsResearch.ContactCloth.GpuJacobiDispatch",
+			"state": "Success",
+			"deviceInstance": [
+				"3CC0FA384C710CD0DE008DAA35334062"
+			],
+			"duration": 0.028002899140119553,
+			"dateTime": "0001.01.01-00.00.00",
+			"entries": [
+				{
+					"event":
+					{
+						"type": "Info",
+						"message": "D3D GPU Jacobi: particles=192 iterations=96 input_max_edge_error_cm=64.216797 output_max_edge_error_cm=2.539264 input_capsule_penetration_cm=29.000000 output_capsule_penetration_cm=0.000002 blocking_wall_ms=24.963",
+						"context": "",
+						"artifact": "00000000000000000000000000000000"
+					},
+					"filename": "",
+					"lineNumber": -1,
+					"timestamp": "2026.08.30-06.23.38"
+				}
+			],
+			"warnings": 0,
+			"errors": 0,
+			"artifacts": []
+		}
+	]
+}

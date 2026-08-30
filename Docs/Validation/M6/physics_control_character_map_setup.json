@@ -1,0 +1,7 @@
+{
+  "map": "/PhysicsDrivenCharacter/Maps/L_PhysicsControlCharacter",
+  "actor": "/PhysicsDrivenCharacter/Maps/L_PhysicsControlCharacter.L_PhysicsControlCharacter:PersistentLevel.PhysicsControlCharacterRealtimeActor_0",
+  "game_mode": "/Script/PhysicsDrivenCharacterRuntime.PhysicsControlCharacterGameMode",
+  "saved": true,
+  "errors": []
+}

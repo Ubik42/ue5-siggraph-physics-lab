@@ -1,0 +1,7 @@
+{
+  "map": "/PhysicsInverseDesign/Maps/L_InverseSpringChaosReplay",
+  "actor": "/PhysicsInverseDesign/Maps/L_InverseSpringChaosReplay.L_InverseSpringChaosReplay:PersistentLevel.InverseSpringRealtimeActor_1",
+  "game_mode": "/Script/PhysicsInverseDesignRuntime.InverseSpringRealtimeGameMode",
+  "saved": true,
+  "errors": []
+}

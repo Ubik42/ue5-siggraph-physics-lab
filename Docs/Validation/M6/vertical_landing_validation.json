@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-08-30T14:44:17.8509550-06:00",
+  "result": "passed",
+  "scope": "Case05 standard benchmark 2: one-DOF vertical COM drop, compliant leg absorption, settling, and explicit travel/force failure.",
+  "model_boundary": "Programmatic SI-unit truth model. It fixes the future Manny/Chaos height, impulse, force, travel, dissipation, and settling contract; it is not itself a Chaos multibody result.",
+  "standard_drop": {
+    "drop_height_m": 0.6,
+    "landed": true,
+    "settled": true,
+    "failed": false,
+    "contacts": 1.0,
+    "impact_speed_m_s": 3.4335,
+    "expected_impact_speed_m_s": 3.43103483,
+    "peak_force_n": 12120.42,
+    "max_compression_m": 0.0590711416,
+    "settle_time_s": 0.439,
+    "damping_j": 417.503946,
+    "impulse_ns": 581.341719,
+    "samples": 790.0
+  },
+  "stressed_failure": {
+    "drop_height_m": 0.9,
+    "travel_budget_m": 0.12,
+    "force_budget_n": 2500.0,
+    "landed": true,
+    "settled": false,
+    "failed": true,
+    "peak_force_n": 2500.0,
+    "max_compression_m": 0.1225543,
+    "expected_failure": true
+  },
+  "checks": {
+    "full_driven_character_regression_13_of_13": true,
+    "absorption_test_succeeded": true,
+    "gravity_impact_speed_matches": true,
+    "standard_drop_lands_once": true,
+    "standard_drop_settles": true,
+    "peak_force_is_finite_and_positive": true,
+    "compression_is_inside_40cm_budget": true,
+    "damping_dissipation_is_positive": true,
+    "failure_test_succeeded": true,
+    "stressed_drop_records_contact": true,
+    "insufficient_travel_fails": true,
+    "failure_crosses_12cm_budget": true,
+    "failure_respects_2500n_force_cap": true
+  },
+  "failed_checks": []
+}
