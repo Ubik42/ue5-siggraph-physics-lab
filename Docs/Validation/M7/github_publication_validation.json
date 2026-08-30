@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-08-30T16:39:53.7385886-06:00",
+  "result": "passed",
+  "repository": {
+    "url": "https://github.com/Ubik42/ue5-siggraph-physics-lab",
+    "visibility": "PUBLIC",
+    "default_branch": "main",
+    "published_commit": "13f984575dbbcd85715cfa8643ab38c9a9b26b75",
+    "publication_strategy": "Current validated source-overlay snapshot as a clean root commit; local 101-commit development history remains local so the retired Android File Server token is not published."
+  },
+  "fresh_clone": {
+    "commit_count": 1,
+    "tracked_files": 783,
+    "largest_file": "Docs/Validation/M6/Screenshots/Case05_PhysicsControl_Portfolio.png",
+    "largest_file_bytes": 1077292,
+    "ue_asset_lfs_pointer_count": 0,
+    "credential_matches_in_config": 0,
+    "project_completion_result": "passed",
+    "readme_exists": true,
+    "readme_api_bytes": 11398,
+    "hub_screenshot_exists": true,
+    "worktree_clean": true
+  },
+  "topics": [
+    "chaos-physics",
+    "gpu-compute",
+    "lyra",
+    "physics-simulation",
+    "portfolio",
+    "siggraph",
+    "unreal-engine-5"
+  ],
+  "checks": {
+    "repository_is_public": true,
+    "default_branch_is_main": true,
+    "readme_is_available_through_github_api": true,
+    "fresh_clone_succeeds_without_git_lfs": true,
+    "all_current_ue_assets_are_real_files_not_lfs_pointers": true,
+    "no_nonempty_android_file_server_token_is_published": true,
+    "project_level_acceptance_remains_passed": true,
+    "representative_hub_screenshot_is_present": true,
+    "fresh_clone_is_clean": true
+  },
+  "failed_checks": []
+}

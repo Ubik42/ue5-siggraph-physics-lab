@@ -16,7 +16,7 @@
 
 `M6 / Case 05 物理驱动角色`：已完成并冻结。三个标准基准 3/3，真实 Chaos 冲量/高度/骨骼耦合、ALS 交接、玩家交互、Lyra 双进程权威、Network Profiler 归因、三进程性能与最终 Portfolio 场景全部通过。最终截图 1600×900，黄金演示约 55 秒；总验收聚合 14 份子系统报告、两个独立地图、四张截图，10/10 通过，完整 DrivenCharacter 回归 16/16。
 
-`M7 统一交付`：核心开发与本地发行工程门已完成，GitHub 发布动作待授权。中文作品总览、五个正式地图路由、跨 Case 黄金/失败路径、中文 README 图集与 Win64 Development Build/Cook/Stage/Pak/IoStore/Archive 均已完成。首次全量 Cook 为 4053/4053 包、33144/33144 Shader，UAT 退出码 0；归档约 1.61 GiB，其中项目 IoStore 数据约 535.69 MiB。打包版默认中文 Hub 已生成 1600×900 截图并正常退出，打包 Hub→Case05 完成目标地图加载、360 帧运行与正常退出，机器门 10/10。Case01 补齐统一作品级报告后，五份 Case 总验收、Hub、打包、公开源码边界共同通过项目级总门 15/15。剩余发布项为许可证选择、旧 Android File Server token 的 Git 历史处理策略、GitHub 远端与全新克隆验证；本地发行包含第三方资产，只作验收，不直接公开上传。
+`M7 统一交付`：核心开发、本地发行与 GitHub 首发均已完成。中文作品总览、五个正式地图路由、跨 Case 黄金/失败路径、中文 README 图集与 Win64 Development Build/Cook/Stage/Pak/IoStore/Archive 均已完成。首次全量 Cook 为 4053/4053 包、33144/33144 Shader，UAT 退出码 0；归档约 1.61 GiB，其中项目 IoStore 数据约 535.69 MiB。打包版默认中文 Hub 已生成 1600×900 截图并正常退出，打包 Hub→Case05 完成目标地图加载、360 帧运行与正常退出，机器门 10/10。Case01 补齐统一作品级报告后，五份 Case 总验收、Hub、打包、公开源码边界共同通过项目级总门 15/15。公开仓库为 `https://github.com/Ubik42/ue5-siggraph-physics-lab`；使用当前验收状态的干净首发提交，保留本机开发历史但不公开旧 token。全新浅克隆、783 个文件、普通 Git UE 资产、README/截图和凭证扫描均通过。包含第三方资产的本地 `Builds/` 未上传。
 
 ## 已完成
 
@@ -150,4 +150,4 @@
 
 ## 下一步
 
-五个 Case 和 M7 本地发行均已冻结，不再扩展算法。下一步只进行 GitHub 发布治理：由作者确认仓库可见性、许可证和旧 Android File Server token 的历史处理策略，然后创建远端、首次 LFS 推送，并在全新目录执行覆盖层恢复验证。未经许可核实，不上传本地 `Builds/` 或 Fab/Lyra 原资产。
+五个 Case、M7 本地发行和 GitHub 首发均已冻结。后续仅在新增功能或文档时更新公开快照；未经许可核实，不上传本地 `Builds/` 或 Fab/Lyra 原资产。
