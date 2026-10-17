@@ -28,3 +28,5 @@
 # Raw measurement hashes are byte-exact across Windows/Linux clones.
 Docs/Validation/20261017/DrivenCharacterRealtime.csv -text
 Docs/Validation/20261017/DrivenCharacterRealtime.json -text
+Docs/Validation/20261017/GetUp/PhysicalGetUpContinuous.csv -text
+Docs/Validation/20261017/GetUp/PhysicalGetUpContinuous.json -text
