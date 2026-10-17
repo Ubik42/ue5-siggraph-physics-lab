@@ -1,0 +1,31 @@
+{
+  "recorded_date": "2026-10-17",
+  "historical_date": "2026-08-30",
+  "engine": "5.4.4-35576357+++UE5+Release-5.4",
+  "scope": "Two Manny characters; same impulse; fixed pelvis world target; unlimited control force and torque.",
+  "method": "360 PostPhysics observations at 60 Hz for 6 seconds; all four final metrics match the historical record within 1e-6.",
+  "excludes": [
+    "Autonomous balance",
+    "Finite torque budget",
+    "Performance benchmark",
+    "Fresh-machine restoration",
+    "New get-up or network test"
+  ],
+  "final": {
+    "baseline_pose_error_deg": 107.603648286,
+    "research_pose_error_deg": 27.143672045,
+    "baseline_pelvis_displacement_cm": 152.213929202,
+    "research_pelvis_displacement_cm": 2.996189229
+  },
+  "files": {
+    "DrivenCharacterRealtime.csv": "06c1ed90971b56b2c98e725ba178849c21d3b65a994188c359899d2ab93ee387",
+    "DrivenCharacterRealtime.json": "ccd50346cc0eeb036bffb19196abe48d3cc8eed39e08bafee9000c428bc76a3a"
+  },
+  "video": {
+    "url": "https://ubik42.github.io/?work=siggraph-physics-lab",
+    "simulation_start_seconds": 0.3,
+    "simulation_end_seconds": 6,
+    "last_frame_hold_seconds": 2,
+    "duration_seconds": 7.7
+  }
+}

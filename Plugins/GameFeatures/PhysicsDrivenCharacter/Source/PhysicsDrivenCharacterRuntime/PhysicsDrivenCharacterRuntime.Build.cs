@@ -19,6 +19,6 @@ public class PhysicsDrivenCharacterRuntime : ModuleRules
             "PhysicsCore",
             "PhysicsResearch"
         });
-        PrivateDependencyModuleNames.AddRange(new[] { "Json", "LyraGame" });
+        PrivateDependencyModuleNames.AddRange(new[] { "Json", "LyraGame", "MovieSceneCapture", "ImageWrapper", "Slate", "SlateCore", "RenderCore", "RHI" });
     }
 }

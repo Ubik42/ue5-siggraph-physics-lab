@@ -27,8 +27,12 @@
 
 ## GitHub 首次发布
 
-- 执行 `git lfs install`，确认 `git lfs ls-files` 能列出个人 `.uasset/.umap`。
+- 当前小型个人 `.uasset/.umap` 使用普通 Git 跟踪；本公开覆盖层没有 Git LFS 依赖。
 - 不把 `Builds/`、本地 Cook 产物或任何 Fab 原资产加入 Git；可运行构建是否能公开分发需要另行核实资产许可。
 - 推送前完成敏感配置、绝对路径、单文件大小和 README 链接检查。
 - 在新目录克隆一次并按上述恢复流程验证，避免本机未跟踪资产掩盖缺失依赖。
 - 详细发布门见 `Docs/Development/GITHUB_RELEASE_CHECKLIST.md`。
+
+## 角色同冲量演示
+
+[Case05 复现说明](CASE05_REPRODUCTION.md) 提供离线数据复算、宿主文件检查、编译目标和运行参数。公开源码与运行记录的对应清单见 `Docs/Validation/20261017/source-manifest.json`。干净机器恢复仍待验证。

@@ -1,4 +1,7 @@
 #include "PhysicsControlCharacterRealtimeActor.h"
+#include "PhysicsPortfolioCapture.h"
+#include "AssetCompilingManager.h"
+#include "ContentStreaming.h"
 
 #include "Camera/CameraComponent.h"
 #include "Components/SceneComponent.h"
@@ -183,6 +186,15 @@ void APhysicsControlCharacterRealtimeActor::BeginPlay()
     MinimumResearchPelvisHeightCentimeters = InitialResearchPelvisLocation.Z;
     InitializePhysicsControl();
     if (bPortfolioMode) InitializePortfolioScene();
+    if (FParse::Param(FCommandLine::Get(), TEXT("PhysicsDrivenCharacterRecord")))
+    {
+        // Finish the recording assets before the first physics step; never hide
+        // compilation messages while recording fallback materials.
+        FAssetCompilingManager::Get().FinishAllCompilation();
+        IStreamingManager::Get().StreamAllResources(60.0f);
+        UE_LOG(LogTemp, Display, TEXT("Physics portfolio assets ready: remaining=%d"),
+            FAssetCompilingManager::Get().GetNumRemainingAssets());
+    }
     PreviousCaptureWallSeconds = FPlatformTime::Seconds();
 
     if (APlayerController* PlayerController = GetWorld()->GetFirstPlayerController())
@@ -369,6 +381,7 @@ void APhysicsControlCharacterRealtimeActor::Tick(const float DeltaSeconds)
             InitialResearchPelvisLocation - FVector(0.0, 0.0, TargetDrop), DeltaSeconds, true, true);
     }
     CaptureSample();
+    CapturePhysicsPortfolioFrame(ElapsedSeconds);
 
     const double RunDurationSeconds = bPerformanceMode ? 30.0 : 6.0;
     if (!bRunComplete && ElapsedSeconds >= RunDurationSeconds)

@@ -129,6 +129,8 @@ stateDiagram-v2
 
 主动姿态误差是被动的 25.23%，pelvis 位移是 1.97%。这个结果说明确定性姿态控制改善了扰动拒绝，不被描述成神经策略或完整自主起身。
 
+此场景的主动路由 21 个父空间姿态控制和 1 个 pelvis 世界空间控制组成，pelvis 目标固定于初始位置。`MaxForce / MaxTorque = 0` 在 Physics Control 中表示不限力；这里量测的是该目标约束下的姿态追踪与抗扰响应。下文程序化基准的有限力矩条件不适用于此 Manny 场景。
+
 首版实现中，冲量在 PostPhysics 发出，而 Body Modifier 要在 PrePhysics 消费，导致研究路当帧没有正确模拟；世界 pelvis 目标也没有固定，最终位移达到 `867.787 cm`。正式实现先同步释放 pelvis 以下刚体，再让 Modifier 接管，并显式保存世界 pelvis 目标。
 
 ## 高度和骨骼耦合怎样映射到 Chaos
@@ -166,7 +168,7 @@ sequenceDiagram
     S->>S: 稳定保持与死亡优先级
     S->>A: 选择 Front 或 Back 目标
     A->>P: 每帧目标骨骼姿态
-    P->>C: 有限控制驱动多刚体
+    P->>C: 目标姿态控制驱动多刚体
     S->>P: 完成时销毁 Control/Modifier
     S->>L: 恢复动画、移动与玩法权威
 ```
@@ -174,6 +176,8 @@ sequenceDiagram
 ![ALS Front / Back 起身与物理—动画交接](../Validation/M6/Screenshots/Case05_ALS_PhysicalGetUp.png)
 
 Front 与 Back 都在 `1.333 s` 开始恢复、`3.083 s` 完成。高速通道保持 `45.50 cm/s`，按 `RejectMoving` 拒绝起身，也不会创建控制器。
+
+此起身场景同样使用 `MaxForce / MaxTorque = 0` 的不限力控制。有限力矩与预算不足失败由前文程序化基准验证，尚未扩展为真实 Manny 的有限力矩恢复实验。
 
 ## 玩家输入不是恢复成功指令
 
@@ -253,7 +257,7 @@ PostPhysics 墙钟不被命名为 Chaos 求解器独占时间，也不会通过�
 
 ### 有限控制预算
 
-力矩限制、速度拒绝和稳定保持让控制器存在明确失败。重型角色、受伤角色或不同体型可以使用不同预算，而不是所有角色都用同一强力姿态吸附。
+程序化恢复基准包含力矩限制及预算不足失败。真实 Manny 起身场景验证速度拒绝、稳定保持与控制权交接；上方同冲量 A/B 场景使用不限力的目标姿态控制，尚未完成真实角色的有限力矩预算扫描。
 
 ### 联机权威
 
@@ -288,6 +292,16 @@ PostPhysics 墙钟不被命名为 Chaos 求解器独占时间，也不会通过�
 | `P` | 向 pelvis 施加角冲量 |
 | `Space` | 发送起身请求，由物理判据决定是否接受 |
 | `R` | 重置当前姿态和控制状态 |
+
+## 2026-10-17 同冲量场景复测与录像
+
+在 UE 5.4.4 中按原配置复测，360 个固定步样本的终态与 M6 历史记录一致。被动/主动两路平均姿态角误差为 107.603648° / 27.143672°，pelvis 位移为 152.213929 cm / 2.996189 cm。这里的主动路包含固定世界空间 pelvis 目标，控制力与力矩不设上限。
+
+独立游戏进程可通过 `-PhysicsDrivenCharacterAuto -PhysicsDrivenCharacterPortfolio -PhysicsDrivenCharacterRecord -BENCHMARK -FPS=60` 记录原生视口 JPEG 与时间索引。地图为 `/PhysicsDrivenCharacter/Maps/L_PhysicsControlCharacter`，输出在 `Saved/PhysicsResearch/Captures/<时间>/`。配合 `-ExecCmds="CommonLoadingScreen.HoldLoadingScreenAdditionalSecs 0"` 取消额外加载遮罩停留。
+
+录制开关会等待当前资产编译与流送；首帧仍可能触发运行时材质准备。发布视频节选仿真时间 0.3—6 秒，附加 2 秒末帧停留，保留施加冲量前后的连续画面。完整数据覆盖 6 秒。JPEG 编码影响墙钟耗时，因此本次录像不用于性能对比。该录制入口面向单次独立游戏进程，不支持同一进程多轮会话。
+
+本轮未重跑起身或网络场景；相应截图与记录仍属于 M6 历史验证。
 
 ## 复现边界
 

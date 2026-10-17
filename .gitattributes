@@ -24,3 +24,7 @@
 *.exr -text
 *.hdr -text
 *.psd -text
+
+# Raw measurement hashes are byte-exact across Windows/Linux clones.
+Docs/Validation/20261017/DrivenCharacterRealtime.csv -text
+Docs/Validation/20261017/DrivenCharacterRealtime.json -text
