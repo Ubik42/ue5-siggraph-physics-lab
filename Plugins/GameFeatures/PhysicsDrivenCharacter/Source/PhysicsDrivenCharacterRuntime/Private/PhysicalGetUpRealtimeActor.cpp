@@ -102,6 +102,12 @@ void APhysicalGetUpRealtimeActor::ConfigureMesh(USkeletalMeshComponent* Mesh, co
 void APhysicalGetUpRealtimeActor::BeginPlay()
 {
     Super::BeginPlay();
+    bContinuousMode = FParse::Param(FCommandLine::Get(), TEXT("PhysicalGetUpContinuous"));
+    if (bContinuousMode)
+    {
+        BeginContinuousDemo();
+        return;
+    }
     bAutoRun = FParse::Param(FCommandLine::Get(), TEXT("PhysicsDrivenCharacterAuto"));
     bInteractionAuto = FParse::Param(FCommandLine::Get(), TEXT("PhysicsDrivenCharacterInteractionAuto"));
     bInteractiveMode = bInteractionAuto || !bAutoRun;
@@ -283,7 +289,6 @@ void APhysicalGetUpRealtimeActor::UpdateAutomatedInteractionScript()
         RequestPlayerRecovery();
         const FPhysicalGetUpDecisionInput Input = MeasureDecisionInput(LaneA);
         LaneA.Branch = FPhysicalGetUpDecision::Evaluate(Input);
-        if (LaneA.Branch != EPhysicalGetUpBranch::RejectMoving) LaneA.Branch = EPhysicalGetUpBranch::RejectMoving;
         LaneA.Phase = EPhysicalGetUpLanePhase::Rejected;
         InteractionScriptStep = 6;
         ExportInteractionEvidence();
@@ -302,14 +307,26 @@ void APhysicalGetUpRealtimeActor::ApplyFallImpulses()
 FPhysicalGetUpDecisionInput APhysicalGetUpRealtimeActor::MeasureDecisionInput(FPhysicalGetUpLaneRuntime& Lane) const
 {
     FPhysicalGetUpDecisionInput Input;
-    const FVector PelvisLocation = Lane.Mesh->GetSocketLocation(GetUpPelvisBone);
+    const FBodyInstance* PelvisBody = Lane.Mesh->GetBodyInstance(GetUpPelvisBone);
+    const FTransform PelvisTransform = bContinuousMode && PelvisBody ? PelvisBody->GetUnrealWorldTransform() : Lane.Mesh->GetSocketTransform(GetUpPelvisBone);
+    const FVector PelvisLocation = PelvisTransform.GetLocation();
     FHitResult Hit;
     FCollisionQueryParams Params(SCENE_QUERY_STAT(PhysicalGetUpGround), false);
     Params.AddIgnoredComponent(Lane.Mesh);
     Input.bGrounded = GetWorld()->LineTraceSingleByChannel(Hit, PelvisLocation + FVector(0.0, 0.0, 10.0), PelvisLocation - FVector(0.0, 0.0, 100.0), ECC_Visibility, Params);
     Input.LinearSpeedCentimetersPerSecond = Lane.Mesh->GetPhysicsLinearVelocity(GetUpPelvisBone).Size();
     Input.AngularSpeedRadiansPerSecond = Lane.Mesh->GetPhysicsAngularVelocityInRadians(GetUpPelvisBone).Size();
-    const FQuat CurrentPelvis = Lane.Mesh->GetSocketQuaternion(GetUpPelvisBone);
+    if (bContinuousMode)
+    {
+        // Contact projection can move a resting body back out of the floor every step.
+        // Use observed transform drift for settling; raw high velocities still veto recovery.
+        if (Input.LinearSpeedCentimetersPerSecond <= 100.0 && Input.AngularSpeedRadiansPerSecond <= 4.0)
+        {
+            Input.LinearSpeedCentimetersPerSecond = Lane.FilteredLinearVelocity.Size();
+            Input.AngularSpeedRadiansPerSecond = Lane.FilteredAngularVelocity.Size();
+        }
+    }
+    const FQuat CurrentPelvis = PelvisTransform.GetRotation();
     const FQuat UprightToCurrent = CurrentPelvis * Lane.UprightPelvisWorldRotation.Inverse();
     Input.FacingUpDot = FVector::DotProduct(UprightToCurrent.RotateVector(GetActorForwardVector()), FVector::UpVector);
     Input.StableSeconds = Lane.StableSeconds;
@@ -319,6 +336,25 @@ FPhysicalGetUpDecisionInput APhysicalGetUpRealtimeActor::MeasureDecisionInput(FP
 void APhysicalGetUpRealtimeActor::UpdateLane(FPhysicalGetUpLaneRuntime& Lane, const float DeltaSeconds, const bool bCanRecover)
 {
     if (Lane.Phase == EPhysicalGetUpLanePhase::Recovered || Lane.Phase == EPhysicalGetUpLanePhase::Rejected || Lane.Phase == EPhysicalGetUpLanePhase::Failed) return;
+    const float Alpha = 1.0f - FMath::Exp(-DeltaSeconds / 0.12f);
+    if (bContinuousMode && DeltaSeconds > SMALL_NUMBER)
+    {
+        const FTransform Pose = Lane.Mesh->GetBodyInstance(GetUpPelvisBone)->GetUnrealWorldTransform();
+        if (Lane.bHasPreviousPelvisTransform)
+        {
+            const FVector Velocity = (Pose.GetLocation() - Lane.PreviousPelvisTransform.GetLocation()) / DeltaSeconds;
+            FQuat RotationDelta = Pose.GetRotation() * Lane.PreviousPelvisTransform.GetRotation().Inverse();
+            RotationDelta.Normalize();
+            FVector Axis;
+            double Angle;
+            RotationDelta.ToAxisAndAngle(Axis, Angle);
+            const FVector AngularVelocity = Axis * FMath::UnwindRadians(Angle) / DeltaSeconds;
+            Lane.FilteredLinearVelocity = FMath::Lerp(Lane.FilteredLinearVelocity, Velocity, Alpha);
+            Lane.FilteredAngularVelocity = FMath::Lerp(Lane.FilteredAngularVelocity, AngularVelocity, Alpha);
+        }
+        Lane.PreviousPelvisTransform = Pose;
+        Lane.bHasPreviousPelvisTransform = true;
+    }
     const FPhysicalGetUpDecisionInput Input = MeasureDecisionInput(Lane);
     Lane.bGrounded = Input.bGrounded;
     Lane.FacingUpDot = Input.FacingUpDot;
@@ -390,7 +426,13 @@ void APhysicalGetUpRealtimeActor::BeginRecovery(FPhysicalGetUpLaneRuntime& Lane)
         Lane.Phase = EPhysicalGetUpLanePhase::Failed;
         return;
     }
-    Lane.Mesh->PlayAnimation(Animation, false);
+    if (bContinuousMode) AlignContinuousRecovery();
+    if (bContinuousMode && Lane.Mesh->GetSingleNodeInstance())
+    {
+        Lane.Mesh->GetSingleNodeInstance()->SetAnimationAsset(Animation, false, 1.0f);
+        Lane.Mesh->GetSingleNodeInstance()->SetPlaying(true);
+    }
+    else Lane.Mesh->PlayAnimation(Animation, false);
     Lane.Mesh->SetPhysicsBlendWeight(1.0f);
     Lane.Mesh->SetAllBodiesBelowSimulatePhysics(GetUpPelvisBone, true, true);
     CreateRecoveryControls(Lane);
@@ -400,11 +442,29 @@ void APhysicalGetUpRealtimeActor::BeginRecovery(FPhysicalGetUpLaneRuntime& Lane)
 
 void APhysicalGetUpRealtimeActor::CompleteRecovery(FPhysicalGetUpLaneRuntime& Lane)
 {
+    if (bContinuousMode)
+    {
+        // The ALS CLF clip ends crouched. Track an upright target before handing off.
+        if (!bContinuousStandingTarget)
+        {
+            Lane.Mesh->GetSingleNodeInstance()->SetAnimationAsset(ContinuousIdle, true, 1.0f);
+            Lane.Mesh->GetSingleNodeInstance()->SetPlaying(true);
+            bContinuousStandingTarget = true;
+            return;
+        }
+        const FTransform Pose = Lane.Mesh->GetBodyInstance(GetUpPelvisBone)->GetUnrealWorldTransform();
+        const bool bUpright = Pose.GetLocation().Z > Lane.UprightComponentTransform.GetLocation().Z + 80.0
+            && Pose.GetRotation().AngularDistance(Lane.UprightPelvisWorldRotation) < 0.5
+            && Lane.Mesh->GetPhysicsLinearVelocity(GetUpPelvisBone).Size() < 100.0;
+        ContinuousUprightStableSeconds = bUpright ? ContinuousUprightStableSeconds + GetWorld()->GetDeltaSeconds() : 0.0;
+        if (ContinuousUprightStableSeconds < 0.25) return;
+    }
     // PhysicsControl owns the BodyModifier movement type. Remove that ownership before
     // handing the mesh back to animation, otherwise its next PrePhysics tick can
     // silently re-enable simulation after SetAllBodiesSimulatePhysics(false).
     Lane.Control->DestroyControlsInSet(TEXT("All"));
     Lane.Control->DestroyBodyModifiersInSet(TEXT("All"));
+    Lane.ControlCount = 0;
     Lane.Mesh->SetAllBodiesSimulatePhysics(false);
     Lane.Mesh->SetWorldTransform(Lane.UprightComponentTransform, false, nullptr, ETeleportType::TeleportPhysics);
     Lane.Mesh->SetPhysicsBlendWeight(0.0f);
@@ -420,12 +480,18 @@ void APhysicalGetUpRealtimeActor::CompleteRecovery(FPhysicalGetUpLaneRuntime& La
     Lane.AngularSpeed = 0.0;
     Lane.RecoveryCompleteSeconds = ElapsedSeconds;
     Lane.Phase = EPhysicalGetUpLanePhase::Recovered;
+    if (bContinuousMode) RestoreContinuousMovement();
 }
 
 void APhysicalGetUpRealtimeActor::Tick(const float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
     ElapsedSeconds += DeltaSeconds;
+    if (bContinuousMode)
+    {
+        TickContinuousDemo(DeltaSeconds);
+        return;
+    }
     UpdateAutomatedInteractionScript();
     if (bInteractionAuto)
     {
@@ -462,7 +528,6 @@ void APhysicalGetUpRealtimeActor::Tick(const float DeltaSeconds)
         RejectMesh->AddAngularImpulseInRadians(FVector(0.0, 900000.0, 0.0), GetUpPelvisBone, false);
         const FPhysicalGetUpDecisionInput RejectedInput = MeasureDecisionInput(RejectLane);
         RejectLane.Branch = FPhysicalGetUpDecision::Evaluate(RejectedInput);
-        if (RejectLane.Branch != EPhysicalGetUpBranch::RejectMoving) RejectLane.Branch = EPhysicalGetUpBranch::RejectMoving;
         RejectLane.Phase = EPhysicalGetUpLanePhase::Rejected;
         bRejectAgitationApplied = true;
     }
@@ -509,6 +574,7 @@ FString APhysicalGetUpRealtimeActor::GetLaneLine(const int32 LaneIndex) const
 
 FString APhysicalGetUpRealtimeActor::GetStatusLine() const
 {
+    if (bContinuousMode) return TEXT("连续过程：移动 → 受击倒地 → 稳定判定 → 动画驱动起身 → 恢复移动");
     if (bInteractiveMode && !bInteractionAuto) return TEXT("交互：选择姿态、施加扰动，再由真实 Chaos 状态决定能否起身");
     if (bInteractionAuto) return TEXT("交互回放：Front → Back → 高速拒绝，调用与键盘相同动作路径");
     if (!bFallImpulsesApplied) return TEXT("准备：三路 Manny 进入同一 Chaos Ragdoll");

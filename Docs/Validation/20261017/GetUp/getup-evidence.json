@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-17",
+  "engine": "UE 5.4.4",
+  "summary": {
+    "branch": "Back",
+    "recovery_start_s": 5.250000273808837,
+    "recovery_complete_s": 7.350000383332372,
+    "upright_stable_s": 0.25000001303851604,
+    "moved_after_recovery_cm": 178.31112053129402,
+    "early_request_rejected": 1,
+    "remaining_controls": 0,
+    "pelvis_simulating": false,
+    "movement_walking": true,
+    "passed": true
+  },
+  "transitions": [
+    {
+      "time": 0.016667,
+      "phase": "Recovered",
+      "branch": "Pending"
+    },
+    {
+      "time": 2.0,
+      "phase": "Stabilizing",
+      "branch": "RejectSideways"
+    },
+    {
+      "time": 5.25,
+      "phase": "Recovering",
+      "branch": "Back"
+    },
+    {
+      "time": 7.35,
+      "phase": "Recovered",
+      "branch": "Back"
+    }
+  ],
+  "samples": 1110,
+  "files": {
+    "PhysicalGetUpContinuous.json": "4f8db84890a1c0a6a81077a08c37101fe31b47f1850733c19f5ead35765b2ce2",
+    "PhysicalGetUpContinuous.csv": "e14e00f164c3da73a106fbadfa837f3f07b66b2d430f0aa5975826753282bf9b"
+  },
+  "capture_index_sha256": "d5cf76594a3f9802842580d9866ab464ab7987f2c0e16ae36442440b012e0054",
+  "video": {
+    "start": 0.3,
+    "end": 12.3,
+    "duration": 12.0,
+    "native_frames": 360,
+    "silent": true
+  },
+  "scope": "Standalone scripted input. Fixed 60 Hz game steps, not a performance measurement or network test."
+}

@@ -6,6 +6,7 @@
 #include "PhysicalGetUpRealtimeActor.generated.h"
 
 class UAnimSequence;
+class ACharacter;
 class UCameraComponent;
 class UPhysicsControlComponent;
 class UPointLightComponent;
@@ -40,6 +41,10 @@ struct FPhysicalGetUpLaneRuntime
     double RecoveryCompleteSeconds = -1.0;
     int32 ControlCount = 0;
     bool bGrounded = false;
+    FVector FilteredLinearVelocity = FVector::ZeroVector;
+    FVector FilteredAngularVelocity = FVector::ZeroVector;
+    FTransform PreviousPelvisTransform = FTransform::Identity;
+    bool bHasPreviousPelvisTransform = false;
 };
 
 UCLASS()
@@ -57,8 +62,34 @@ public:
     bool IsRunComplete() const { return bRunComplete; }
     bool IsInteractiveMode() const { return bInteractiveMode; }
     FString GetInteractionLine() const;
+    bool IsContinuousMode() const { return bContinuousMode; }
 
 private:
+    void BeginContinuousDemo();
+    void TickContinuousDemo(float DeltaSeconds);
+    void PushContinuousCharacter();
+    void MoveContinuousCharacter(float Value);
+    void ExportContinuousEvidence();
+    void AlignContinuousRecovery();
+    void RestoreContinuousMovement();
+    UPROPERTY()
+    TObjectPtr<ACharacter> ContinuousCharacter;
+    UPROPERTY()
+    TObjectPtr<UAnimSequence> ContinuousIdle;
+    UPROPERTY()
+    TObjectPtr<UAnimSequence> ContinuousWalk;
+    bool bContinuousMode = false;
+    bool bContinuousAuto = false;
+    bool bContinuousWalking = false;
+    bool bContinuousPushed = false;
+    bool bContinuousRequested = false;
+    bool bContinuousStandingTarget = false;
+    int32 ContinuousRejectedRequests = 0;
+    double ContinuousRecoveredAt = -1.0;
+    double ContinuousUprightStableSeconds = 0.0;
+    FVector ContinuousRecoveryPosition = FVector::ZeroVector;
+    double ContinuousMovedAfterRecovery = 0.0;
+    FString ContinuousTrace = TEXT("time_s,phase,branch,grounded,face_dot,speed_cm_s,angular_rad_s,stable_s,controls,simulating,movement_mode,x_cm,y_cm,z_cm,raw_speed_cm_s,raw_angular_rad_s,pelvis_x,pelvis_y,pelvis_z\n");
     void ConfigureMesh(USkeletalMeshComponent* Mesh, const FVector& Location);
     void ApplyFallImpulses();
     void UpdateLane(FPhysicalGetUpLaneRuntime& Lane, float DeltaSeconds, bool bCanRecover);

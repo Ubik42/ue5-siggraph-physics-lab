@@ -73,14 +73,17 @@ void CapturePhysicsPortfolioFrame(const double SimulationSeconds)
         UE_LOG(LogTemp, Display, TEXT("Physics portfolio capture: %s"), *Session->Directory);
     }
     Session->Drain();
-    if (SimulationSeconds <= 6.0 && (++Session->Tick % 2) == 0)
+    double Duration = 6.0;
+    FParse::Value(FCommandLine::Get(), TEXT("PhysicsCaptureDuration="), Duration);
+    Duration = FMath::Clamp(Duration, 1.0, 60.0);
+    if (SimulationSeconds <= Duration && (++Session->Tick % 2) == 0)
     {
         TSharedPtr<FPhysicsCapturePayload, ESPMode::ThreadSafe> Payload = MakeShared<FPhysicsCapturePayload, ESPMode::ThreadSafe>();
         Payload->Index = Session->Requested++;
         Payload->Time = SimulationSeconds;
         Session->Grabber->CaptureThisFrame(Payload);
     }
-    if (SimulationSeconds >= 6.2)
+    if (SimulationSeconds >= Duration + 0.2)
     {
         Session->Grabber->StopCapturingFrames();
         Session->Grabber->Shutdown();

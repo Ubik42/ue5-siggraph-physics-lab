@@ -1,5 +1,7 @@
 # SIGGRAPH Physics Lab
 
+2026-10-17 新增 [角色连续起身与恢复移动](Docs/Development/CONTINUOUS_GETUP.md)：单机实机串联 CharacterMovement、Chaos 倒地、ALS 起身和 Physics Control 清理，保留 1110 条状态与位移样本。[观看连续演示](https://ubik42.github.io/?work=siggraph-physics-lab)。
+
 本项目包含基于 UE5.4.4、Lyra 5.4 和 Chaos 物理引擎的五项图形与物理研究，涵盖 GPU 布料、多尺度 GPU 软体、Flow Map 流体、可微参考模型的参数反演以及物理角色系统。五个案例均提供图文记录，其中物理角色案例包含本次测试的对照视频，完整内容展示于 [个人作品主页](https://ubik42.github.io/?work=siggraph-physics-lab)。
 
 我实现了资产输入适配、CPU 参考与 GPU 研究求解器、基于 RDG 与 RHI 的调度管线、异步回读、固定步采样逻辑，以及基准对照与失败分析场景。各项案例的复现范围与运行约束互不相同。

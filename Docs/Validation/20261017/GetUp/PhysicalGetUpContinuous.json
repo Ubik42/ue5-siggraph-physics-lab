@@ -1,0 +1,12 @@
+{
+	"branch": "Back",
+	"recovery_start_s": 5.2500002738088369,
+	"recovery_complete_s": 7.3500003833323717,
+	"upright_stable_s": 0.25000001303851604,
+	"moved_after_recovery_cm": 178.31112053129402,
+	"early_request_rejected": 1,
+	"remaining_controls": 0,
+	"pelvis_simulating": false,
+	"movement_walking": true,
+	"passed": true
+}

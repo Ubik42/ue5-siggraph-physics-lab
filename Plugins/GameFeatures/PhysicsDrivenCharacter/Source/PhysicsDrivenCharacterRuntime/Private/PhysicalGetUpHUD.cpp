@@ -21,10 +21,14 @@ void APhysicalGetUpHUD::DrawHUD()
     Line(TEXT("Case 05 · Chaos 姿态分支 → PhysicsControl → ALS 起身"), FLinearColor(0.2f, 0.85f, 1.0f), 1.25f);
     Line(Experiment->GetStatusLine(), Experiment->IsRunComplete() ? FLinearColor::Green : FLinearColor::Yellow);
     Line(Experiment->GetLaneLine(0));
-    Line(Experiment->GetLaneLine(1));
-    Line(Experiment->GetLaneLine(2), FLinearColor(1.0f, 0.65f, 0.25f));
+    if (!Experiment->IsContinuousMode())
+    {
+        Line(Experiment->GetLaneLine(1));
+        Line(Experiment->GetLaneLine(2), FLinearColor(1.0f, 0.65f, 0.25f));
+    }
+    else Line(TEXT("W 前进 · P 受击 · Space 请求起身 | CharacterMovement / Chaos / 动画分阶段接管"), FLinearColor(0.35f, 1.0f, 0.55f), 0.85f);
     Y += 8.0f;
-    if (Experiment->IsInteractiveMode())
+    if (Experiment->IsInteractiveMode() && !Experiment->IsContinuousMode())
     {
         Line(TEXT("按键：1 俯卧 · 2 仰卧 · P 施加物理扰动 · Space 请求起身 · R 重置当前姿态"), FLinearColor(0.35f, 1.0f, 0.55f), 0.9f);
         Line(Experiment->GetInteractionLine(), FLinearColor(0.7f, 0.95f, 0.75f), 0.85f);

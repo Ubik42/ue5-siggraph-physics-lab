@@ -50,9 +50,23 @@ def verify(root=ROOT, data=DATA):
         assert abs(value - summary[key]) < 1e-6, f'Summary: {column}'
         assert abs(value - historical[key]) < 1e-6, f'Historical: {column}'
         final[column] = value
+    getup = data / 'GetUp'
+    getup_evidence = json.loads((getup / 'getup-evidence.json').read_text(encoding='utf-8'))
+    for name, expected in getup_evidence['files'].items():
+        assert digest(getup / name) == expected, f'Get-up fingerprint: {name}'
+    getup_summary = json.loads((getup / 'PhysicalGetUpContinuous.json').read_text(encoding='utf-8-sig'))
+    getup_rows = list(csv.DictReader((getup / 'PhysicalGetUpContinuous.csv').read_text(encoding='utf-8-sig').splitlines()))
+    assert len(getup_rows) == getup_evidence['samples'] == 1110
+    assert all(abs(float(row['time_s']) - (index + 1)/60) < 2e-6 for index, row in enumerate(getup_rows))
+    assert all(math.isfinite(float(row[key])) for row in getup_rows for key in ('time_s','raw_speed_cm_s','raw_angular_rad_s','pelvis_x','pelvis_y','pelvis_z'))
+    assert getup_summary['passed'] and getup_summary['upright_stable_s'] >= .25
+    assert getup_summary['moved_after_recovery_cm'] > 50
+    assert any(row['phase']=='Recovering' and row['controls']=='22' and row['simulating']=='1' for row in getup_rows)
+    restored = [row for row in getup_rows if float(row['time_s']) > getup_summary['recovery_complete_s'] + .1]
+    assert restored and all(row['simulating']=='0' and row['controls']=='0' and row['movement_mode']=='1' for row in restored)
     # Check only new/updated reading entry points. Older reports are historical.
     pages = ['README.md', 'Docs/Development/CASE05_REPRODUCTION.md',
-             'Docs/Cases/Case05_物理驱动角色.md', 'Docs/Validation/20261017/README.md']
+             'Docs/Cases/Case05_物理驱动角色.md', 'Docs/Validation/20261017/README.md', 'Docs/Development/CONTINUOUS_GETUP.md']
     for relative in pages:
         page = root / relative
         for target in re.findall(r'\]\(([^)]+)\)', page.read_text(encoding='utf-8-sig')):
@@ -60,8 +74,9 @@ def verify(root=ROOT, data=DATA):
                 continue
             if not (page.parent / target.split('#')[0]).is_file():
                 problems.append(f'Broken local link in {relative}: {target}')
-    result = {'scope': 'Saved source hashes, 360 recorded samples, historical comparison and reading links; no engine launch.',
+    result = {'scope': 'Saved source hashes, 360 impulse samples, 1110 get-up samples and reading links; no engine launch.',
               'source_files': len(manifest['files']), 'samples': len(rows),
+              'getup_samples': len(getup_rows), 'getup_movement_cm':getup_summary['moved_after_recovery_cm'],
               'final': final, 'problems': problems, 'passed': not problems}
     assert not problems, json.dumps(result, ensure_ascii=False)
     return result
